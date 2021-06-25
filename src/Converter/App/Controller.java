@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.DoubleBinaryOperator;
 
 public class Controller implements Initializable {
 
@@ -58,7 +59,16 @@ public class Controller implements Initializable {
             operatorChosen = newValue;
         }));
 
-        CalculateBtn.setOnAction(actionEvent -> calculate());
+        CalculateBtn.setOnAction(actionEvent -> {
+            try {
+                calculate();
+            } catch (Exception e) {
+                String errorMessage = e.getMessage();
+                System.out.println("Exception occurred: " + errorMessage);
+                warnUser( errorMessage );
+                clearFields();
+            }
+        });
         ClearBtn.setOnAction(actionEvent -> clearFields());
     }
 
@@ -69,9 +79,23 @@ public class Controller implements Initializable {
     }
 
     public void calculate() {
-        Double operand1 = Double.parseDouble( TextFieldOne.getText() );
-        Double operand2 = Double.parseDouble( TextFieldTwo.getText() );
-        double result = 0.0;
+        String one = TextFieldOne.getText();
+        String two = TextFieldTwo.getText();
+
+        double operand1;
+        double operand2;
+        double result;
+
+        if (one.isEmpty() || one.isBlank())
+            operand1 = 0.0;
+        else
+            operand1 = Double.parseDouble(one);
+
+        if (two.isBlank() || two.isEmpty())
+            operand2 = 0.0;
+        else
+            operand2 = Double.parseDouble(two);
+
         switch (operatorChosen) {
             case '+':
                 result = operand1+operand2;
@@ -84,7 +108,7 @@ public class Controller implements Initializable {
                 break;
             case '/':
                 if (operand2 == 0) {
-                    warnUser();
+                    warnUser("Math Error. \nDivision by zero prohibited.");
                     result = 0.0;
                 } else {
                     result = operand1/operand2;
@@ -96,6 +120,8 @@ public class Controller implements Initializable {
             case '^':
                 result = Math.pow(operand1, operand2);
                 break;
+            default:
+                result = 0.0;
         }
         TextFieldRes.setEditable(true);
         TextFieldRes.setText( "Result = " + result );
@@ -107,6 +133,14 @@ public class Controller implements Initializable {
         warning.setTitle("Error Occurred.");
         warning.setHeaderText("Invalid Input");
         warning.setContentText("Please Provide a valid input.");
+        warning.show();
+    }
+
+    private void warnUser(String errorMessage) {
+        Alert warning = new Alert(Alert.AlertType.ERROR);
+        warning.setTitle("Error Occurred.");
+        warning.setHeaderText("Invalid Input");
+        warning.setContentText(errorMessage);
         warning.show();
     }
 }
