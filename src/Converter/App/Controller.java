@@ -7,7 +7,6 @@ import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.DoubleBinaryOperator;
 
 public class Controller implements Initializable {
 
@@ -18,37 +17,46 @@ public class Controller implements Initializable {
     static final Character DIV = '/';
     static final Character MODULO = '%';
     static final Character POWER = '^';
+    static final Character AND = '&';
+    static final Character OR = '|';
+    static final Character XOR = '^';
+    static final Character NOT = '~';
+    static final String BINARY = "Binary";
+    static final String HEX = "Hexadecimal";
+    static final String OCT = "Octal";
+    static final String DEC = "Decimal";
+
+    // variables
     static Character operatorChosen;
+    static String inputNumberBase;
+    static Character bitwiseOperatorChosen;
+
+    // exception
+    private Object Exception;
 
     @FXML
     public GridPane rootGridPane;
-
-    @FXML
     public Tab calculatePane;
-
-    @FXML
     public Tab convertPane;
-
-    @FXML
     public TextField TextFieldOne;
-
-    @FXML
     public TextField TextFieldTwo;
-
-    @FXML
     public Button CalculateBtn;
-
-    @FXML
     public Button ClearBtn;
-
-    @FXML
     public ChoiceBox<Character> operatorBox;
-
-    @FXML
     public TextField TextFieldRes;
+    public ComboBox<String> inputNumberBaseBox;
+    public ComboBox<Character> bitwiseOperatorBox;
+    public TextField TextFieldBit1;
+    public TextField TextFieldBit2;
+    public TextField bitwiseResult;
+    public Button bitwiseCalculateBtn;
+    public Button bitwiseClearBtn;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Calculate Pane
         operatorBox.getItems().addAll(ADD, SUBTRACT, PRODUCT, DIV, MODULO, POWER);
 
         operatorBox.setValue(ADD);
@@ -64,12 +72,65 @@ public class Controller implements Initializable {
                 calculate();
             } catch (Exception e) {
                 String errorMessage = e.getMessage();
-                System.out.println("Exception occurred: " + errorMessage);
+                //System.out.println("Exception occurred: " + errorMessage);
                 warnUser( errorMessage );
                 clearFields();
             }
         });
+
         ClearBtn.setOnAction(actionEvent -> clearFields());
+
+        // bitwise Pane
+        // adding items
+        inputNumberBaseBox.getItems().addAll( BINARY, HEX, OCT, DEC );
+        bitwiseOperatorBox.getItems().addAll( AND, OR, XOR, NOT );
+
+        try {
+            inputNumberBaseBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+                //System.out.println("Old: " + oldValue + " New: " + newValue);
+                inputNumberBase = newValue;
+            });
+
+            bitwiseOperatorBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                //System.out.println("Old: " + oldValue + " New: " + newValue);
+                bitwiseOperatorChosen = newValue;
+                TextFieldBit1.setEditable(true);
+                TextFieldBit2.setEditable(true);
+                bitwiseCalculateBtn.setDisable(false);
+            });
+
+            bitwiseCalculateBtn.setOnAction(actionEvent -> {
+                String stringBit1 = TextFieldBit1.getText();
+                String stringBit2 = TextFieldBit2.getText();
+                //System.out.println("Operator Chosen: " + bitwiseOperatorChosen);
+
+                if ( bitwiseOperatorChosen.equals(NOT) ) {
+                    if (stringBit1.isEmpty())
+                        warnUser("Input is Empty.");
+                    else {
+                        TextFieldBit2.setEditable(false);
+                        bitwiseResult.setText("Result: \n" + Bitwise.bitwiseNOT(stringBit1, inputNumberBase));
+                    }
+                } else {
+                    if (stringBit1.isBlank() || stringBit2.isBlank()) {
+                        warnUser("Input is Empty.");
+                        clearFields();
+                    } else {
+                        String result = Bitwise.bitwiseCalculate(stringBit1, stringBit2, inputNumberBase, bitwiseOperatorChosen);
+                        bitwiseResult.setText("Result: \n" + result);
+                    }
+                }
+            });
+        } catch( Exception e ) {
+            warnUser( e.getMessage() );
+        }
+        bitwiseClearBtn.setOnAction( actionEvent -> clearProFields());
+    }
+
+    public void clearProFields() {
+        TextFieldBit1.setText(null);
+        TextFieldBit2.setText(null);
+        bitwiseResult.setText(null);
     }
 
     public void clearFields() {
@@ -126,14 +187,6 @@ public class Controller implements Initializable {
         TextFieldRes.setEditable(true);
         TextFieldRes.setText( "Result = " + result );
         TextFieldRes.setEditable(false);
-    }
-
-    private void warnUser() {
-        Alert warning = new Alert(Alert.AlertType.ERROR);
-        warning.setTitle("Error Occurred.");
-        warning.setHeaderText("Invalid Input");
-        warning.setContentText("Please Provide a valid input.");
-        warning.show();
     }
 
     private void warnUser(String errorMessage) {
