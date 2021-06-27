@@ -1,5 +1,5 @@
 # PBL-Converter-App  ➕➖✖➗
-#PBL Project : JavaFX All in one Calculator and Converter
+## PBL Project : JavaFX All in one Calculator and Converter
 
 
 👦👧Team Members👦👧
@@ -14,7 +14,7 @@
 
 
 
-#💯💯Pro's💯💯- 
+## 💯💯Pro's💯💯- 
 
 
 *Can convert temperature values from Celsius or Fahrenheit or Kelvin or Rankine to any of them quickly and with precision.
@@ -28,7 +28,7 @@
 *Can perform calculations involving larger numbers . 
 
 
-#😎😎Features better than other applications available on the web😎😎:
+## 😎😎Features better than other applications available on the web😎😎:
 
 *Will be Open Source.
 
