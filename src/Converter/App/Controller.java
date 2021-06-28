@@ -57,22 +57,24 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Calculate Pane
-        operatorBox.getItems().addAll(ADD, SUBTRACT, PRODUCT, DIV, MODULO, POWER);
 
+        //Setting values to the operator box and seting up a default value for it
+        operatorBox.getItems().addAll(ADD, SUBTRACT, PRODUCT, DIV, MODULO, POWER);
         operatorBox.setValue(ADD);
         operatorChosen = ADD;
 
+
+        //Resetting the value of the operator box to wahtever the user choices for
         operatorBox.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            //System.out.println("Old Value = " + oldValue + " New Value = " + newValue);
             operatorChosen = newValue;
         }));
 
+        //Checking if user hits calculate button without giving any values to it
         CalculateBtn.setOnAction(actionEvent -> {
             try {
                 calculate();
             } catch (Exception e) {
                 String errorMessage = e.getMessage();
-                //System.out.println("Exception occurred: " + errorMessage);
                 warnUser( errorMessage );
                 clearFields();
             }
@@ -87,39 +89,71 @@ public class Controller implements Initializable {
 
         try {
             inputNumberBaseBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-                //System.out.println("Old: " + oldValue + " New: " + newValue);
                 inputNumberBase = newValue;
             });
 
             bitwiseOperatorBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                //System.out.println("Old: " + oldValue + " New: " + newValue);
                 bitwiseOperatorChosen = newValue;
                 TextFieldBit1.setEditable(true);
                 TextFieldBit2.setEditable(true);
+
+                //Disabling the second input for negation operation
+                if(bitwiseOperatorChosen.equals(NOT))
+                    TextFieldBit2.setVisible(false);
+                else
+                    TextFieldBit2.setVisible(true);
+
                 bitwiseCalculateBtn.setDisable(false);
             });
 
             bitwiseCalculateBtn.setOnAction(actionEvent -> {
                 String stringBit1 = TextFieldBit1.getText();
                 String stringBit2 = TextFieldBit2.getText();
-                //System.out.println("Operator Chosen: " + bitwiseOperatorChosen);
+                Boolean flag = bitwiseOperatorChosen.equals(NOT);
 
-                if ( bitwiseOperatorChosen.equals(NOT) ) {
-                    if (stringBit1.isEmpty())
-                        warnUser("Input is Empty.");
-                    else {
-                        TextFieldBit2.setEditable(false);
-                        bitwiseResult.setText("Result: \n" + Bitwise.bitwiseNOT(stringBit1, inputNumberBase));
-                    }
-                } else {
-                    if (stringBit1.isBlank() || stringBit2.isBlank()) {
-                        warnUser("Input is Empty.");
-                        clearFields();
-                    } else {
-                        String result = Bitwise.bitwiseCalculate(stringBit1, stringBit2, inputNumberBase, bitwiseOperatorChosen);
-                        bitwiseResult.setText("Result: \n" + result);
-                    }
+                //To check for exceptions in inputs
+                //Bitwise Binary Validator
+                if(inputNumberBase.equals(BINARY) && (Bitwise.binaryValidator(stringBit1,stringBit2))){
+                    warnUser("Invalid Binary Number ⚠️");
+                    clearProFields();
                 }
+                //Bitwise Decimal Validator
+                else if(inputNumberBase.equals(DEC) && (Bitwise.decimalValidator(stringBit1,stringBit2))){
+                    warnUser("Invalid Decimal Number");
+                    clearProFields();
+                }
+                //Bitwise Hexadecimal Validator
+                else if(inputNumberBase.equals(HEX) && ( Bitwise.hexdecimalValidator( stringBit1 , stringBit2  ) ) ){
+                    warnUser("Invalid HexaDecimal Number");
+                    clearProFields();
+                }
+                //Bitwise Octal Validator
+                else if(inputNumberBase.equals(OCT) && ( Bitwise.octalValidator( stringBit1 , stringBit2  ) )){
+                    warnUser("Invalid Octal Number");
+                    clearProFields();
+                }
+                else{
+                    if ( bitwiseOperatorChosen.equals(NOT) ) {
+                        if (stringBit1.isEmpty())
+                            warnUser("Input is Empty.");
+                        else {
+
+                            bitwiseResult.setText("Result: \n" + Bitwise.bitwiseNOT(stringBit1, inputNumberBase));
+                        }
+                    } else {
+
+                        if (stringBit1.isBlank() || stringBit2.isBlank()) {
+                            warnUser("Input is Empty.");
+                            clearFields();
+                        } else {
+                            String result = Bitwise.bitwiseCalculate(stringBit1, stringBit2, inputNumberBase, bitwiseOperatorChosen);
+                            bitwiseResult.setText("Result: \n" + result);
+                        }
+                    }
+
+                }
+
+
             });
         } catch( Exception e ) {
             warnUser( e.getMessage() );
@@ -127,18 +161,20 @@ public class Controller implements Initializable {
         bitwiseClearBtn.setOnAction( actionEvent -> clearProFields());
     }
 
+    //function To clean the fields for inputs
     public void clearProFields() {
         TextFieldBit1.setText(null);
         TextFieldBit2.setText(null);
         bitwiseResult.setText(null);
     }
-
+    //function To clean the fields for inputs
     public void clearFields() {
         TextFieldOne.setText(null);
         TextFieldTwo.setText(null);
         TextFieldRes.setText(null);
     }
 
+    //Function to calculate various operations
     public void calculate() {
         String one = TextFieldOne.getText();
         String two = TextFieldTwo.getText();
@@ -189,6 +225,7 @@ public class Controller implements Initializable {
         TextFieldRes.setEditable(false);
     }
 
+    //Raise a warning if user enters an invalid input
     private void warnUser(String errorMessage) {
         Alert warning = new Alert(Alert.AlertType.ERROR);
         warning.setTitle("Error Occurred.");

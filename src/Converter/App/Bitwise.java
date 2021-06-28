@@ -1,5 +1,8 @@
 package Converter.App;
 
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
 public class Bitwise {
 
     public static String bitwiseCalculate(String stringBit1, String stringBit2, String inputNumberBase, Character bitwiseOperatorChosen) {
@@ -9,20 +12,20 @@ public class Bitwise {
 
         switch (inputNumberBase) {
             case Controller.BINARY: {
-                op1 = Long.parseLong(stringBit1, 2);
-                op2 = Long.parseLong(stringBit2, 2);
+                op1 = Long.parseLong(stringBit1, 2);//Parsing value to binary form
+                op2 = Long.parseLong(stringBit2, 2);//Parsing value to binary form
                 result = toBin( bitwiseOperate(op1, op2, bitwiseOperatorChosen) );
                 break;
             }
             case Controller.HEX: {
-                op1 = Long.parseLong(stringBit1, 16);
-                op2 = Long.parseLong(stringBit2, 16);
+                op1 = Long.parseLong(stringBit1, 16);//Parsing value to Hexadecimal form
+                op2 = Long.parseLong(stringBit2, 16);//Parsing value to Hexadecimal form
                 result = toHex( bitwiseOperate(op1, op2, bitwiseOperatorChosen) );
                 break;
             }
             case Controller.OCT: {
-                op1 = Long.parseLong(stringBit1, 8);
-                op2 = Long.parseLong(stringBit2, 8);
+                op1 = Long.parseLong(stringBit1, 8);//Parsing value to Octal form
+                op2 = Long.parseLong(stringBit2, 8);//Parsing value to Octal form
                 result = toOct( bitwiseOperate(op1, op2, bitwiseOperatorChosen) );
                 break;
             }
@@ -37,6 +40,7 @@ public class Bitwise {
         return result;
     }
 
+    //Calculating various bitwise operations
     public static Long bitwiseOperate (Long operand1, Long operand2, Character bitwiseOperatorChosen) {
         switch (bitwiseOperatorChosen) {
             case '&':
@@ -48,7 +52,7 @@ public class Bitwise {
         }
         return null;
     }
-
+    //For Negation
     public static String bitwiseNOT(String stringBit1, String inputNumberBase) {
         String result = "";
         byte op1;
@@ -86,6 +90,7 @@ public class Bitwise {
         return result;
     }
 
+    //Validating for invalid inputs
     public static String toBin(Long number) {
         return Long.toBinaryString(number);
     }
@@ -96,5 +101,88 @@ public class Bitwise {
 
     public static String toOct(Long Number) {
         return Long.toOctalString(Number);
+    }
+
+    public static boolean binaryValidator(String bit1 , String bit2 ) {
+
+        for(int i =0 ; i<bit1.length();i++) {
+            if ( (   (bit1.charAt(i) !='0') && (bit1.charAt(i) !='1')  ) || (Character.isLetter(bit1.charAt(i))) ){
+                System.out.println("For char :" + Character.isLetter(bit1.charAt(i)));
+                return true;
+            }
+        }
+
+            for(int i =0 ; i<bit2.length();i++){
+                if (  ((bit2.charAt(i) !='0') && (bit2.charAt(i) !='1') ) || (Character.isLetter(bit2.charAt(i))) ) {
+                    System.out.println("For char :" + Character.isLetter(bit2.charAt(i)));
+                    return true;
+                }
+            }
+
+
+        return false;
+    }
+
+    public static boolean decimalValidator(String bit1, String bit2  ) {
+
+        for(int i = 0 ; i< bit1.length() ;i++){
+            if(Character.isLetter(bit1.charAt(i) ) ) {
+                return true;
+            }
+        }
+
+
+            for(int i = 0 ; i< bit2.length() ;i++){
+
+                if(Character.isLetter(bit2.charAt(i) ) ) {
+                    return true;
+                }
+            }
+
+
+        return false;
+    }
+
+    public static boolean hexdecimalValidator(String bit1, String bit2) {
+
+        for(int i = 0 ; i< bit1.length() ;i++){
+
+            if ( !((bit1.charAt(i)>='0' && bit1.charAt(i)<='9' ) || ( bit1.charAt(i)>='A' &&  bit1.charAt(i)<='F' ) || ( bit1.charAt(i)>='a' && bit1.charAt(i)<='f' ) ) ) {
+
+                return true;
+            }
+        }
+
+            for(int i = 0 ; i< bit2.length() ;i++){
+
+                if(!( (bit2.charAt(i)>='0' && bit2.charAt(i)<='9' ) || ( bit2.charAt(i)>='A' &&  bit2.charAt(i)<='F' ) || ( bit2.charAt(i)>='a' && bit2.charAt(i)<='f' ) ))
+                {
+                    return true;
+                }
+            }
+
+
+        return false;
+    }
+
+    public static boolean octalValidator(String bit1, String bit2 )  {
+
+        for(int i = 0 ; i< bit1.length() ;i++){
+
+            if(Character.isLetter(bit1.charAt(i)) || bit1.charAt(i) > '7' ) {
+                return true;
+            }
+        }
+
+            for(int i = 0 ; i< bit2.length() ;i++){
+
+                if(Character.isLetter(bit2.charAt(i) ) || (bit2.charAt(i)>'7')) {
+                    return true;
+                }
+            }
+
+
+
+        return false;
     }
 }

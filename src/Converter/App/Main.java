@@ -18,16 +18,16 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         GridPane rootNode = fxmlLoader.load();
 
-        controller = fxmlLoader.getController();
-
+        controller = fxmlLoader.getController();//Controller
+        //Menu bar creation
         MenuBar menuBar = createMenu();
         menuBar.prefWidthProperty().bind(primaryStage.widthProperty());
-
+        //Menu pane Creation
         Pane menuPane = (Pane) rootNode.getChildren().get(0);
         menuPane.getChildren().add(menuBar);
 
+        //Creating a scene
         Scene scene = new Scene(rootNode);
-
         primaryStage.setScene(scene);
         primaryStage.setTitle("Converter App");
         primaryStage.setResizable(false);
