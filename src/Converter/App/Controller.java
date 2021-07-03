@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -64,10 +66,8 @@ public class Controller implements Initializable {
         operatorChosen = ADD;
 
 
-        //Resetting the value of the operator box to wahtever the user choices for
-        operatorBox.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            operatorChosen = newValue;
-        }));
+        //Resetting the value of the operator box to whatever the user choices for
+        operatorBox.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> operatorChosen = newValue));
 
         //Checking if user hits calculate button without giving any values to it
         CalculateBtn.setOnAction(actionEvent -> {
@@ -88,9 +88,7 @@ public class Controller implements Initializable {
         bitwiseOperatorBox.getItems().addAll( AND, OR, XOR, NOT );
 
         try {
-            inputNumberBaseBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-                inputNumberBase = newValue;
-            });
+            inputNumberBaseBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> inputNumberBase = newValue);
 
             bitwiseOperatorBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 bitwiseOperatorChosen = newValue;
@@ -98,10 +96,7 @@ public class Controller implements Initializable {
                 TextFieldBit2.setEditable(true);
 
                 //Disabling the second input for negation operation
-                if(bitwiseOperatorChosen.equals(NOT))
-                    TextFieldBit2.setVisible(false);
-                else
-                    TextFieldBit2.setVisible(true);
+                TextFieldBit2.setVisible(!bitwiseOperatorChosen.equals(NOT));
 
                 bitwiseCalculateBtn.setDisable(false);
             });

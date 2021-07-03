@@ -7,7 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -21,6 +24,7 @@ public class Main extends Application {
         controller = fxmlLoader.getController();//Controller
         //Menu bar creation
         MenuBar menuBar = createMenu();
+        menuBar.setId("menuBar");
         menuBar.prefWidthProperty().bind(primaryStage.widthProperty());
         //Menu pane Creation
         Pane menuPane = (Pane) rootNode.getChildren().get(0);
@@ -29,7 +33,10 @@ public class Main extends Application {
         //Creating a scene
         Scene scene = new Scene(rootNode);
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("Calculator.css")).toExternalForm());
+        //scene.getStylesheets().add(menuBar.getMenus().indexOf("Exit App").getId());
         primaryStage.setTitle("Converter App");
+
         primaryStage.setResizable(false);
         primaryStage.show();
     }
@@ -41,8 +48,10 @@ public class Main extends Application {
     public MenuBar createMenu() {
         // File Menu
         Menu fileMenu = new Menu("File");
+        fileMenu.setId("fileMenu");
         // File menu pane items
         MenuItem resetEntry = new MenuItem("Reset Value");
+        resetEntry.setId("resetEntry");
         resetEntry.setOnAction(actionEvent -> {
             controller.clearFields();
             controller.clearProFields();
@@ -51,6 +60,8 @@ public class Main extends Application {
 
         SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
         MenuItem exitItem = new MenuItem("Exit App");
+        exitItem.setId("exitItem");
+        System.out.println("id:" + exitItem.getId());
         exitItem.setOnAction(actionEvent -> {
             // exiting app
             Platform.exit();
@@ -61,10 +72,13 @@ public class Main extends Application {
 
         // About
         Menu helpMenu = new Menu("Help");
+        helpMenu.setId("helpMenu");
         // about menu pane items
         MenuItem aboutUs = new MenuItem("About Us");
+        aboutUs.setId("aboutUs");
         aboutUs.setOnAction(actionEvent -> aboutUS());
         MenuItem aboutApp = new MenuItem("About App");
+        aboutApp.setId("aboutApp");
         aboutApp.setOnAction(actionEvent -> aboutApp());
         // adding to help
         helpMenu.getItems().addAll(aboutUs, new SeparatorMenuItem(), aboutApp);

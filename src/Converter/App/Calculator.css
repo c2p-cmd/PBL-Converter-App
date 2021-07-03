@@ -1,0 +1,211 @@
+
+.tab:selected .focus-indicator {
+    -fx-border-radius: 10 10 10 10, 10 10 10 10;
+    -fx-border-insets: -6 -9 -8 -8, -5 -8 -7 -7;
+}
+
+.tab-header-area .tab{
+    -fx-padding:4 10 5 10;
+    -fx-background-radius: 8 8 8 8;
+}
+.tab {
+    -fx-focus-color: black;
+    -fx-faint-focus-color: black;
+    -fx-border-radius: 8 8 8 8;
+    -fx-padding: -0.7em 0.0em 0.0em 0.0em;
+}
+.tab-header-background {
+    -fx-background-color:transparent
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-padding: 0.0em 1em 0.0em 0.0em;
+}
+
+#ClearBtn{
+    -fx-background-color:
+            #c3c4c4,
+            linear-gradient(#d6d6d6 65%, dimgrey 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 20,20,29;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+    -fx-font-family: "LucidaGrandeBold";
+
+}
+#CalculateBtn{
+    -fx-background-color:
+            #c3c4c4,
+            linear-gradient(#d6d6d6 65%, dimgrey 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 20,20,29;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+    -fx-font-family: "LucidaGrandeBold";
+
+}
+
+#calculatePane{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-effect: innershadow( gaussian, black, 15, 0, 5, 5 );
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#rootGridPane{
+    -fx-background-color:darkgray;
+
+
+
+
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+
+}
+
+#convertPane{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-effect: innershadow( gaussian, black, 15, 0, 5, 5 );
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+    -fx-border-radius: 15;
+
+
+}
+#logicalOpsPane{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-effect: innershadow( gaussian, black, 15, 0, 5, 5 );
+
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+
+#TextFieldOne{
+    -fx-background-color:
+            gray,
+            linear-gradient(#d6d6d6 65%, dimgrey 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 15 15 15 15;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-prompt-text-fill: black;
+    -fx-font-family: "LucidaGrandeBold";
+
+
+}
+#operatorBox{
+    -fx-background-color:
+            #c3c4c4,
+            linear-gradient(#d6d6d6 65%, dimgrey 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 15 15 15 15;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+#TextFieldTwo{
+    -fx-background-color:
+            #c3c4c4,
+            linear-gradient(#d6d6d6 65%, dimgrey 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 15 15 15 15 ;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-prompt-text-fill: black;
+    -fx-font-family: "LucidaGrandeBold";
+
+}
+#TextFieldRes{
+    -fx-background-color:
+            #c3c4c4,
+            linear-gradient(#d6d6d6 65%, dimgrey 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 15 15 15 15 ;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-prompt-text-fill: black;
+    -fx-font-family: "LucidaGrandeBold";
+
+}
+
+#welcomeCalculatorLabel{
+
+}
+#inputOne{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-size: 15px ;
+    -fx-font-style: italic;
+    -fx-text-fill: lavenderblush;
+}
+#inputTwo{
+    -fx-font-family: "LucidaGrandeBold";
+    -fx-font-size: 15px ;
+    -fx-font-style: italic;
+    -fx-text-fill: lavenderblush;
+}
+
+
+
+
+.menu-bar{
+    -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7);
+}
+.menu-bar .menu-button:hover,  .menu-bar .menu-button:showing ,.menu-bar .menu-button:selected{
+    -fx-background: #304FFE ;
+}
+.context-menu {
+    -fx-background-color: #F5F5F5 ;
+    -fx-text-fill: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
+}
+
+.menu-item .label{
+    -fx-text-fill: black;
+}
+
+.menu .label{
+    -fx-text-fill: black;
+}
+
+
+.menu-item:focused {
+    -fx-background: #304FFE ;
+    -fx-background-radius: 6 6 6 6, 5 5 5 5, 4 4 4 4;
+}
+
+.menu-item .label:hover{
+    -fx-text-fill: white;
+
+}
+#exitMenuButton {
+    -fx-background-color: red;
+
+}
+#exitMenuButton .label{
+    -fx-text-fill: green;
+}
+
+#menuBar{
+    -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7);
+}
