@@ -39,45 +39,32 @@
                            <children>
                                <AnchorPane prefHeight="29" prefWidth="150" GridPane.columnIndex="0" GridPane.rowIndex="2">
                                  <children>
-                                    <TextField fx:id="TextFieldOne" alignment="CENTER" layoutX="33.0" layoutY="8.0" prefHeight="35.0" prefWidth="200" promptText="0.0">
-                                       <effect>
-                                          <InnerShadow />
-                                       </effect></TextField>
+                                    <TextField fx:id="TextFieldOne" alignment="CENTER" layoutX="33.0" layoutY="8.0" prefHeight="35.0" prefWidth="200" promptText="0.0" />
                                  </children></AnchorPane>
                                <AnchorPane prefHeight="29" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <children>
-                                    <TextField fx:id="TextFieldTwo" alignment="CENTER" layoutX="36.0" layoutY="8.0" prefHeight="35.0" prefWidth="200" promptText="0.0">
-                                       <effect>
-                                          <InnerShadow />
-                                       </effect></TextField>
+                                    <TextField fx:id="TextFieldTwo" alignment="CENTER" layoutX="36.0" layoutY="8.0" prefHeight="35.0" prefWidth="200" promptText="0.0" />
                                  </children></AnchorPane>
                                <AnchorPane prefHeight="29" prefWidth="150" GridPane.columnSpan="3" GridPane.rowIndex="3">
                                  <children>
-                                    <TextField fx:id="TextFieldRes" alignment="CENTER" layoutX="135.0" layoutY="10.0" prefHeight="35.0" prefWidth="330.0" promptText="Your Result...">
-                                       <effect>
-                                          <InnerShadow />
-                                       </effect>
-                                    </TextField>
+                                    <TextField fx:id="TextFieldRes" alignment="CENTER" editable="false" layoutX="135.0" layoutY="10.0" prefHeight="35.0" prefWidth="330.0" promptText="Your Result..." />
                                  </children></AnchorPane>
                               <Label fx:id="welcomeCalculatorLabel" alignment="CENTER" prefHeight="49.0" prefWidth="600.0" text="Hello Welcome to Calculator" textAlignment="CENTER" GridPane.columnSpan="3">
                                  <font>
                                     <Font name="Lucida Grande Bold" size="25.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="inputOne" alignment="CENTER" prefHeight="64.0" prefWidth="305.0" text="Enter First Number" GridPane.rowIndex="1" />
-                              <ChoiceBox fx:id="operatorBox" prefHeight="35.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <effect>
-                                    <InnerShadow />
-                                 </effect></ChoiceBox>
-                               <Button fx:id="ClearBtn" alignment="CENTER" prefHeight="26.0" prefWidth="143.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                                 <effect>
-                                    <InnerShadow />
-                                 </effect></Button>
-                               <Button fx:id="CalculateBtn" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" text="Calculate" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                                 <effect>
-                                    <InnerShadow />
-                                 </effect></Button>
-                              <Label fx:id="inputTwo" alignment="CENTER" prefHeight="61.0" prefWidth="303.0" text="Enter Second Number" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="inputOne" alignment="BOTTOM_CENTER" prefHeight="64.0" prefWidth="305.0" text="Enter First Number" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Lucida Grande Bold" size="14.0" />
+                                 </font></Label>
+                              <ChoiceBox fx:id="operatorBox" prefHeight="35.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                               <Button fx:id="ClearBtn" alignment="CENTER" prefHeight="26.0" prefWidth="143.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                               <Button fx:id="CalculateBtn" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" text="Calculate" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label fx:id="inputTwo" alignment="BOTTOM_CENTER" prefHeight="61.0" prefWidth="303.0" text="Enter Second Number" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Lucida Grande Bold" size="14.0" />
+                                 </font></Label>
                            </children>
                         </GridPane>
                      </children>
@@ -105,8 +92,14 @@
                               <RowConstraints maxHeight="157.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="bitwiseCalculateBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Calculate" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                               <Button fx:id="bitwiseClearBtn" prefHeight="26.0" prefWidth="125.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Button fx:id="bitwiseCalculateBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Calculate" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect></Button>
+                               <Button fx:id="bitwiseClearBtn" prefHeight="26.0" prefWidth="125.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect></Button>
                               <AnchorPane prefHeight="200.0" prefWidth="600.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <children>
                                     <ComboBox fx:id="inputNumberBaseBox" layoutX="210.0" layoutY="14.0" prefHeight="26.0" prefWidth="181.0" promptText="Input Number Base" />
@@ -116,7 +109,7 @@
                                     <ComboBox fx:id="bitwiseOperatorBox" layoutX="241.0" layoutY="88.0" prefHeight="26.0" prefWidth="119.0" promptText="~, &amp;, |, ^" />
                                  </children>
                               </AnchorPane>
-                              <Label alignment="TOP_CENTER" prefHeight="114.0" prefWidth="600.0" text="Programmer Mode" textAlignment="CENTER" GridPane.columnSpan="3">
+                              <Label alignment="CENTER" prefHeight="114.0" prefWidth="600.0" text="Programmer Mode" textAlignment="CENTER" GridPane.columnSpan="3">
                                  <font>
                                     <Font size="24.0" />
                                  </font></Label>

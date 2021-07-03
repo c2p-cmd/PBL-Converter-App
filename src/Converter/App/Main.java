@@ -61,7 +61,6 @@ public class Main extends Application {
         SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
         MenuItem exitItem = new MenuItem("Exit App");
         exitItem.setId("exitItem");
-        System.out.println("id:" + exitItem.getId());
         exitItem.setOnAction(actionEvent -> {
             // exiting app
             Platform.exit();
