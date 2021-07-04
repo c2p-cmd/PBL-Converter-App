@@ -12,11 +12,11 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints />
-    <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="391.0" minHeight="10.0" prefHeight="367.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Pane fx:id="menuPane" prefHeight="66.0" prefWidth="600.0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <Pane fx:id="menuPane" prefHeight="17.0" prefWidth="600.0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <TabPane fx:id="tabPane" prefHeight="360.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowIndex="2">
         <tabs>
           <Tab fx:id="calculatePane" text="Calculate">
