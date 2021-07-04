@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -12,7 +11,7 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints />
-    <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="20.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="391.0" minHeight="10.0" prefHeight="367.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
@@ -92,26 +91,20 @@
                               <RowConstraints maxHeight="157.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="bitwiseCalculateBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Calculate" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                                 <effect>
-                                    <InnerShadow />
-                                 </effect></Button>
-                               <Button fx:id="bitwiseClearBtn" prefHeight="26.0" prefWidth="125.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                                 <effect>
-                                    <InnerShadow />
-                                 </effect></Button>
+                              <Button fx:id="bitwiseCalculateBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Calculate" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                               <Button fx:id="bitwiseClearBtn" prefHeight="26.0" prefWidth="125.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                               <AnchorPane prefHeight="200.0" prefWidth="600.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <children>
                                     <ComboBox fx:id="inputNumberBaseBox" layoutX="210.0" layoutY="14.0" prefHeight="26.0" prefWidth="181.0" promptText="Input Number Base" />
-                                    <TextField fx:id="TextFieldBit1" alignment="CENTER" editable="false" layoutY="43.0" prefHeight="45.0" prefWidth="210.0" promptText="0" />
-                                     <TextField fx:id="TextFieldBit2" alignment="CENTER" editable="false" layoutX="390.0" layoutY="43.0" prefHeight="45.0" prefWidth="210.0" promptText="0" />
-                                    <TextField fx:id="bitwiseResult" alignment="TOP_LEFT" editable="false" layoutX="204.0" layoutY="128.0" prefHeight="74.0" prefWidth="193.0" promptText="Result: " />
+                                    <TextField fx:id="TextFieldBit1" alignment="CENTER" editable="false" layoutY="43.0" prefHeight="45.0" prefWidth="205.0" promptText="0" />
+                                     <TextField fx:id="TextFieldBit2" alignment="CENTER" editable="false" layoutX="395.0" layoutY="43.0" prefHeight="45.0" prefWidth="205.0" promptText="0" />
+                                    <TextField fx:id="bitwiseResult" alignment="TOP_LEFT" editable="false" layoutX="204.0" layoutY="128.0" prefHeight="50.0" prefWidth="193.0" promptText="Result: " />
                                     <ComboBox fx:id="bitwiseOperatorBox" layoutX="241.0" layoutY="88.0" prefHeight="26.0" prefWidth="119.0" promptText="~, &amp;, |, ^" />
                                  </children>
                               </AnchorPane>
-                              <Label alignment="CENTER" prefHeight="114.0" prefWidth="600.0" text="Programmer Mode" textAlignment="CENTER" GridPane.columnSpan="3">
+                              <Label fx:id="programmerModelabel" alignment="CENTER" prefHeight="114.0" prefWidth="600.0" text="Programmer Mode" textAlignment="CENTER" GridPane.columnSpan="3">
                                  <font>
-                                    <Font size="24.0" />
+                                    <Font name="Lucida Grande" size="24.0" />
                                  </font></Label>
                               
                            </children>
