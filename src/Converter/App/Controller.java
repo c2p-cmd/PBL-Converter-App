@@ -195,7 +195,7 @@ public class Controller implements Initializable {
         // treeConverterBtn
 
         treeConvertBtn.setOnAction(actionEvent -> {
-            if(infixInputTextField.getText()==null || prefixInputTextField.getText()==null || postfixInputTextField.getText()==null)
+            if(infixInputTextField.getText()==null && prefixInputTextField.getText()==null && postfixInputTextField.getText()==null)
             {
                 warnUser("No Valid Expressions Given");
             }

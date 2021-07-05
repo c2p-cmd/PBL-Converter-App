@@ -283,7 +283,6 @@ public class treeConverter {
         char last = prefix.charAt(length-1);
         char secondLast=prefix.charAt(length-2);
         if( (Character.isLetter(last) && Character.isLetter(secondLast)) && isOperator(prefix.charAt(0))){
-            System.out.println("first : " + prefix.charAt(0));
             return true;
         }
         return false;
