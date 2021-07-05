@@ -259,5 +259,34 @@ public class treeConverter {
         return ans.toString();
     }
 
+    public static boolean infixValidator(String infix){
+        int length = infix.length();
+        char last = infix.charAt(length-1);
+        char secondLast = infix.charAt(length-2);
+        if( (Character.isLetter(last) || last ==')' ) && isOperator(secondLast)){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean postfixValidator(String postfix){
+        int length = postfix.length();
+        char last = postfix.charAt(length-1);
+        if(isOperator(last) && Character.isLetter(postfix.charAt(0)) ){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean prefixValidator(String prefix){
+        int length = prefix.length();
+        char last = prefix.charAt(length-1);
+        char secondLast=prefix.charAt(length-2);
+        if( (Character.isLetter(last) && Character.isLetter(secondLast)) && isOperator(prefix.charAt(0))){
+            System.out.println("first : " + prefix.charAt(0));
+            return true;
+        }
+        return false;
+    }
 
 }

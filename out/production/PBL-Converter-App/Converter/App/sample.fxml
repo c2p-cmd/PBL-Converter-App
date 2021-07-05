@@ -59,12 +59,17 @@
                                     <Font name="Lucida Grande Bold" size="14.0" />
                                  </font></Label>
                               <ChoiceBox fx:id="operatorBox" prefHeight="35.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                               <Button fx:id="ClearBtn" alignment="CENTER" prefHeight="26.0" prefWidth="143.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                               <Button fx:id="CalculateBtn" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" text="Calculate" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+
                               <Label fx:id="inputTwo" alignment="BOTTOM_CENTER" prefHeight="61.0" prefWidth="303.0" text="Enter Second Number" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Lucida Grande Bold" size="14.0" />
                                  </font></Label>
+                               <AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                   <Button fx:id="CalculateBtn" alignment="CENTER" layoutX="74.0" layoutY="65.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" text="Calculate" />
+                                </AnchorPane>
+                               <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                   <Button fx:id="ClearBtn" alignment="CENTER" layoutX="65.0" layoutY="66.0" prefHeight="26.0" prefWidth="143.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                               </AnchorPane>
                            </children>
                         </GridPane>
                      </children>
@@ -81,24 +86,27 @@
                                  <children>
                                     <RadioButton fx:id="infixRadioButton" mnemonicParsing="false" text="Infix Input">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="Lucida Grande" size="15.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets />
-                                       </HBox.margin></RadioButton>
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="2.0" />
+                                       </padding></RadioButton>
                                     <RadioButton fx:id="prefixRadioButton" mnemonicParsing="false" text="Prefix Input">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="Lucida Grande" size="15.0" />
                                        </font>
                                        <padding>
                                           <Insets left="13.0" />
                                        </padding></RadioButton>
                                     <RadioButton fx:id="postfixRadioButton" mnemonicParsing="false" text="Postfix Input">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="Lucida Grande" size="15.0" />
                                        </font>
                                        <padding>
-                                          <Insets left="6.0" />
+                                          <Insets left="10.0" />
                                        </padding></RadioButton>
                                  </children>
                                  <padding>
@@ -117,8 +125,14 @@
                               </HBox>
                               <HBox fx:id="treeConvertBtnGroup" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="180">
                                  <children>
-                                    <Button fx:id="treeConvertBtn" disable="true" mnemonicParsing="false" prefWidth="125.0" text="Convert" />
-                                    <Button fx:id="treeClearBtn" mnemonicParsing="false" prefWidth="125.0" text="Clear" />
+                                    <Button fx:id="treeConvertBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Convert">
+                                       <font>
+                                          <Font name="Lucida Grande" size="14.0" />
+                                       </font></Button>
+                                    <Button fx:id="treeClearBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Clear">
+                                       <font>
+                                          <Font name="Lucida Grande" size="14.0" />
+                                       </font></Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="12.0" />
@@ -127,7 +141,7 @@
                            </children></VBox>
                         <Label alignment="CENTER" prefHeight="71.0" prefWidth="600.0" text="Tree Converter" textAlignment="CENTER">
                            <font>
-                              <Font size="25.0" />
+                              <Font name="Lucida Grande" size="25.0" />
                            </font></Label>
                      </children></AnchorPane>
             </content>
@@ -135,38 +149,52 @@
             <Tab fx:id="logicalOpsPane" text="Programmer">
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
                         <GridPane layoutX="-2.0" layoutY="-4.0" prefHeight="332.0" prefWidth="600.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="204.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="194.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="203.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints maxHeight="105.0" minHeight="6.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="183.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="157.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Button fx:id="bitwiseCalculateBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Calculate" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                               <Button fx:id="bitwiseClearBtn" prefHeight="26.0" prefWidth="125.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                              <AnchorPane prefHeight="200.0" prefWidth="600.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
-                                 <children>
-                                    <ComboBox fx:id="inputNumberBaseBox" layoutX="210.0" layoutY="14.0" prefHeight="26.0" prefWidth="181.0" promptText="Input Number Base" />
-                                    <TextField fx:id="TextFieldBit1" alignment="CENTER" editable="false" layoutY="43.0" prefHeight="45.0" prefWidth="205.0" promptText="0" />
-                                     <TextField fx:id="TextFieldBit2" alignment="CENTER" editable="false" layoutX="395.0" layoutY="43.0" prefHeight="45.0" prefWidth="205.0" promptText="0" />
-                                    <TextField fx:id="bitwiseResult" alignment="TOP_LEFT" editable="false" layoutX="204.0" layoutY="128.0" prefHeight="50.0" prefWidth="193.0" promptText="Result: " />
-                                    <ComboBox fx:id="bitwiseOperatorBox" layoutX="241.0" layoutY="88.0" prefHeight="26.0" prefWidth="119.0" promptText="~, &amp;, |, ^" />
-                                 </children>
-                              </AnchorPane>
-                              <Label fx:id="programmerModelabel" alignment="CENTER" prefHeight="114.0" prefWidth="600.0" text="Programmer Mode" textAlignment="CENTER" GridPane.columnSpan="3">
-                                 <font>
-                                    <Font name="Lucida Grande" size="24.0" />
-                                 </font></Label>
-                              
-                           </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0"
+                                                   prefWidth="204.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0"
+                                                   prefWidth="194.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0"
+                                                   prefWidth="203.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="105.0" minHeight="6.0" prefHeight="34.0" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="183.0"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="157.0" minHeight="10.0" prefHeight="65.0"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <AnchorPane prefHeight="200.0" prefWidth="600.0" GridPane.columnSpan="3"
+                                        GridPane.rowIndex="1">
+                                <ComboBox fx:id="inputNumberBaseBox" layoutX="210.0" layoutY="14.0" prefHeight="26.0"
+                                          prefWidth="181.0" promptText="Input Number Base"/>
+                                <TextField fx:id="TextFieldBit1" alignment="CENTER" editable="false" layoutY="43.0"
+                                           prefHeight="45.0" prefWidth="205.0" promptText="0"/>
+                                <TextField fx:id="TextFieldBit2" alignment="CENTER" editable="false" layoutX="395.0"
+                                           layoutY="43.0" prefHeight="45.0" prefWidth="205.0" promptText="0"/>
+                                <TextField fx:id="bitwiseResult" alignment="TOP_LEFT" editable="false"
+                                           layoutX="204.0" layoutY="128.0" prefHeight="50.0" prefWidth="193.0"
+                                           promptText="Result: "/>
+                                <ComboBox fx:id="bitwiseOperatorBox" layoutX="241.0" layoutY="88.0" prefHeight="26.0"
+                                          prefWidth="119.0" promptText="~, &amp;, |, ^"/>
+                            </AnchorPane>
+                            <Label fx:id="programmerModelabel" alignment="CENTER" prefHeight="114.0" prefWidth="600.0"
+                                   text="Programmer Mode" textAlignment="CENTER" GridPane.columnSpan="3">
+                               <font>
+                                   <Font name="Lucida Grande" size="24.0"/>
+                               </font>
+                            </Label>
+                            <AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <Button fx:id="bitwiseCalculateBtn" disable="true" layoutX="86.0" layoutY="34.0"
+                                        mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0"
+                                        text="Calculate"/>
+                            </AnchorPane>
+                            <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                <Button fx:id="bitwiseClearBtn" layoutY="34.0" prefHeight="26.0" prefWidth="125.0"
+                                        text="Clear"/>
+                            </AnchorPane>
                         </GridPane>
-                     </children>
                     </AnchorPane>
                 </content>
             </Tab>

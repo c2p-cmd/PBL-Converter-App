@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -172,7 +171,7 @@ public class Controller implements Initializable {
         // Radio Button Grp listener
         radioBtnGrp.selectedToggleProperty().addListener((observableValue, oldValue, newValue) -> {
             RadioButton clickedBtn = (RadioButton) radioBtnGrp.getSelectedToggle();
-
+            cleartreetxtfields();
             if (clickedBtn != null) {
                 switch (clickedBtn.getText()) {
                     case INFIX_INPUT:  // Infix button is selected
@@ -194,17 +193,46 @@ public class Controller implements Initializable {
             }
         });
         // treeConverterBtn
+
         treeConvertBtn.setOnAction(actionEvent -> {
-            if (infixRadioButton.isSelected()) {
-                prefixInputTextField.setText( treeConverter.InfixToPrefix(infixInputTextField.getText()) );
-                postfixInputTextField.setText( treeConverter.InfixToPostfix(infixInputTextField.getText()) );
-            } else if (prefixRadioButton.isSelected()) {
-                infixInputTextField.setText( treeConverter.PrefixToInfix(prefixInputTextField.getText()) );
-                postfixInputTextField.setText( treeConverter.PrefixToPostfix(prefixInputTextField.getText()) );
-            } else if (postfixRadioButton.isSelected()) {
-                prefixInputTextField.setText( treeConverter.PostfixToPrefix( postfixInputTextField.getText() ) );
-                infixInputTextField.setText( treeConverter.PostfixToInfix( postfixInputTextField.getText() ) );
+            if(infixInputTextField.getText()==null || prefixInputTextField.getText()==null || postfixInputTextField.getText()==null)
+            {
+                warnUser("No Valid Expressions Given");
             }
+            else{
+                if (infixRadioButton.isSelected()) {
+                    boolean validator = treeConverter.infixValidator(infixInputTextField.getText());
+                    if(validator){
+                        prefixInputTextField.setText( treeConverter.InfixToPrefix(infixInputTextField.getText()) );
+                        postfixInputTextField.setText( treeConverter.InfixToPostfix(infixInputTextField.getText()) );
+                    }
+                    else{
+                        warnUser("Invalid Infix Expression");
+                    }
+                } else if (prefixRadioButton.isSelected()) {
+                    boolean validator = treeConverter.prefixValidator(prefixInputTextField.getText());
+                    if(validator){
+                        infixInputTextField.setText( treeConverter.PrefixToInfix(prefixInputTextField.getText()) );
+                        postfixInputTextField.setText( treeConverter.PrefixToPostfix(prefixInputTextField.getText()) );
+                    }
+                    else{
+                        warnUser("Invalid Prefix Expression");
+                    }
+                } else if (postfixRadioButton.isSelected()) {
+                    boolean validator = treeConverter.postfixValidator(postfixInputTextField.getText());
+                    if(validator){
+                        prefixInputTextField.setText( treeConverter.PostfixToPrefix( postfixInputTextField.getText() ) );
+                        infixInputTextField.setText( treeConverter.PostfixToInfix( postfixInputTextField.getText() ) );
+                    }
+                    else{
+                        warnUser("Invalid Postfix Expression");
+                        cleartreetxtfields();
+                    }
+
+                }
+            }
+
+
         });
         // treeClearBtn
         treeClearBtn.setOnAction( e -> clearTreeFields() );
@@ -326,4 +354,11 @@ public class Controller implements Initializable {
         warning.setContentText(errorMessage);
         warning.show();
     }
+    public void cleartreetxtfields(){
+        infixInputTextField.setText(null);
+        prefixInputTextField.setText(null);
+        postfixInputTextField.setText(null);
+    }
+
+
 }

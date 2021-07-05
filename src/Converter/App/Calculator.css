@@ -207,6 +207,7 @@
 /*END CALCULATOR TAB*/
 
 /*START PROGRAMMERS TAB*/
+
 /*Setting css for second no input field for programmers tab*/
 #TextFieldBit2 {
     -fx-background-color:
@@ -220,7 +221,6 @@
     -fx-text-fill: #242d35;
     -fx-font-size: 14px;
 }
-
 #TextFieldBit2:hover ,#TextFieldBit2:showing ,#TextFieldBit2:selected {
     -fx-background-color:
             rgba(0,0,0,0.08),
@@ -241,7 +241,6 @@
     -fx-text-fill: #242d35;
     -fx-font-size: 14px;
 }
-
 #TextFieldBit1:hover ,#TextFieldBit1:showing ,#TextFieldBit1:selected {
     -fx-background-color:
             rgba(0,0,0,0.08),
@@ -276,7 +275,6 @@
     -fx-text-fill: #242d35;
     -fx-font-size: 12px;
 }
-
 #bitwiseCalculateBtn:hover ,#bitwiseCalculateBtn:showing ,#bitwiseCalculateBtn:selected {
     -fx-background-color:
             rgba(0,0,0,0.08),
@@ -297,7 +295,6 @@
     -fx-text-fill: #242d35;
     -fx-font-size: 12px;
 }
-
 #bitwiseClearBtn:hover ,#bitwiseClearBtn:showing ,#bitwiseClearBtn:selected{
     -fx-background-color:
             rgba(0,0,0,0.08),
@@ -311,32 +308,170 @@
     linear-gradient(to top,  #7793f5 0%, #406df2 50%, #275af1 100%);
     -fx-background-radius: 6 6 6 6, 5 5 5 5, 4 4 4 4;
 }
-
 .combo-box-popup .list-view .list-cell:selected, .combo-box-popup .list-view .list-cell:selected:showing ,.combo-box-popup .list-view .list-cell:selected {
     -fx-background-color: #7793f5,
     linear-gradient(to top,  #7793f5 0%, #406df2 50%, #275af1 100%);
     -fx-background-radius: 6 6 6 6, 5 5 5 5, 4 4 4 4;
 }
-
 .combo-box-base {
     -fx-background-color:
             rgba(0,0,0,0.08),
             linear-gradient(#9a9a9a, #909090),
             linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
     -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
 }
-
 .combo-box-base:hover , .combo-box-base:showing , .combo-box-base:selected {
     -fx-background-color: #7793f5,
     linear-gradient(to top,  #7793f5 0%, #406df2 50%, #275af1 100%);
     -fx-background-radius: 6 6 6 6, 5 5 5 5, 4 4 4 4;
 }
-
 .combo-box-popup .list-view{
     -fx-background-insets: 0, 1, 2;
     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
     -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
     -fx-font-family: "Lucida Grande";
 }
-
 /*END OF PROGRAMMERS TAB*/
+
+
+/*START OF CONVERTER TAB */
+/*Setting Css for infix text field of Tree conversion tab*/
+#infixInputTextField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 20 3 20;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: darkgray
+}
+#infixInputTextField:hover ,#infixInputTextField:showing ,#infixInputTextField:selected {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+
+/*Setting Css for prefix text field of Tree conversion tab*/
+#prefixInputTextField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 20 3 20;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: darkgray
+}
+#prefixInputTextField:hover ,#prefixInputTextField:showing ,#prefixInputTextField:selected {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+
+/*Setting Css for postfix text field of Tree conversion tab*/
+#postfixInputTextField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 20 3 20;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: darkgray;
+}
+#postfixInputTextField:hover ,#postfixInputTextField:showing ,#postfixInputTextField:selected {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+
+/*Setting Css for clear button of Tree conversion tab*/
+#treeClearBtn{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+}
+#treeClearBtn:hover ,#treeClearBtn:showing ,#treeClearBtn:selected {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+
+/*Setting Css for convert button of Tree conversion tab*/
+#treeConvertBtn{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+}
+#treeConvertBtn:hover ,#treeConvertBtn:showing ,#treeConvertBtn:selected {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+
+/*Infix Radio Button CSS styling*/
+#infixRadioButton{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-size: 14px;
+}
+#infixRadioButton:selected ,#infixRadioButton:focused{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/*Prefix Radio Button CSS styling*/
+#prefixRadioButton{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-size: 14px;
+}
+#prefixRadioButton:selected ,#prefixRadioButton:focused{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-weight: bold;
+}
+
+/*Postfix Radio Button CSS styling*/
+#postfixRadioButton{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-size: 14px;
+}
+#postfixRadioButton:selected ,#postfixRadioButton:focused{
+    -fx-font-family: "Lucida Grande";
+    -fx-font-weight: bold;
+}
+
+/*END OF CONVERTER TAB*/
+
