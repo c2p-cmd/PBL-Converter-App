@@ -5,16 +5,13 @@ import java.util.*;
 public class treeConverter {
 
     //Check For is it an operand
-    static boolean isOperand(char x)
-    {
+    static boolean isOperand(char x) {
         return (x >= 'a' && x <= 'z') ||
                 (x >= 'A' && x <= 'Z');
     }
 
     //Check if it is an operator
-    static boolean isOperator(char x)
-    {
-
+    static boolean isOperator(char x) {
         switch (x) {
             case '+':
             case '-':
@@ -178,13 +175,11 @@ public class treeConverter {
     }
 
     //Infix to Postfix
-    static String InfixToPostfix(String exp)
-    {
+    static String InfixToPostfix(String exp) {
         String result;
         Stack<Character> stack = new Stack<>();
         StringBuilder resultBuilder = new StringBuilder();
-        for (int i = 0; i<exp.length(); ++i)
-        {
+        for (int i = 0; i<exp.length(); ++i) {
             char c = exp.charAt(i);
             if (Character.isLetterOrDigit(c))
                 resultBuilder.append(c);
@@ -208,7 +203,7 @@ public class treeConverter {
             }
         }
         StringBuilder resultBuilder1 = new StringBuilder(resultBuilder.toString());
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             if(stack.peek() == '(')
                 return "Invalid Expression";
             resultBuilder1.append(stack.pop());
@@ -218,26 +213,26 @@ public class treeConverter {
     }
 
     //Postfix to Infix
-    static String PostfixToInfix(String exp)
-    {
+    // ref
+    static String PostfixToInfix(String exp) {
         Stack<String> s = new Stack<>();
-        for (int i = 0; i < exp.length(); i++)
-        {
-            if (isOperand(exp.charAt(i)))
-            {
-                s.push(exp.charAt(i) + "");
-            }
-            else
-            {
+        for (int i = 0; i < exp.length(); i++) {
+            char ch = exp.charAt(i);
+            // System.out.println( "Character ch: " + ch );
+            if ( isOperator( ch ) ) {
                 String op1 = s.peek();
                 s.pop();
                 String op2 = s.peek();
                 s.pop();
-                s.push("(" + op2 + exp.charAt(i) +
-                        op1 + ")");
+                s.push("(" + op2 + exp.charAt(i) + op1 + ")");
+            } else {
+                s.push(ch + "");
             }
         }
-        return s.peek();
+        if (!s.isEmpty())
+            return s.peek();
+        else
+            return "";
     }
 
     //Postfix to prefix
@@ -251,8 +246,7 @@ public class treeConverter {
                 s.pop();
                 String op2 = s.peek();
                 s.pop();
-                String temp
-                        = post_exp.charAt(i) + op2 + op1;
+                String temp = post_exp.charAt(i) + op2 + op1;
                 s.push(temp);
             }
             else {

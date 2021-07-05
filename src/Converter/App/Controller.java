@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +25,9 @@ public class Controller implements Initializable {
     static final String HEX = "Hexadecimal";
     static final String OCT = "Octal";
     static final String DEC = "Decimal";
+    static final String INFIX_INPUT = "Infix Input";
+    static final String PREFIX_INPUT = "Prefix Input";
+    static final String POSTFIX_INPUT = "Postfix Input";
 
     // variables
     static Character operatorChosen;
@@ -34,7 +35,7 @@ public class Controller implements Initializable {
     static Character bitwiseOperatorChosen;
 
     // exception
-    private Object Exception;
+
 
     @FXML
     public GridPane rootGridPane;
@@ -51,16 +52,22 @@ public class Controller implements Initializable {
     public TextField TextFieldBit1;
     public TextField TextFieldBit2;
     public TextField bitwiseResult;
+    public TextField infixInputTextField;
+    public TextField prefixInputTextField;
+    public TextField postfixInputTextField;
     public Button bitwiseCalculateBtn;
     public Button bitwiseClearBtn;
-
+    public Button treeConvertBtn;
+    public Button treeClearBtn;
+    public RadioButton infixRadioButton;
+    public RadioButton prefixRadioButton;
+    public RadioButton postfixRadioButton;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Calculate Pane
-
-        //Setting values to the operator box and seting up a default value for it
+        //Setting values to the operator box and setting up a default value for it
         operatorBox.getItems().addAll(ADD, SUBTRACT, PRODUCT, DIV, MODULO, POWER);
         operatorBox.setValue(ADD);
         operatorChosen = ADD;
@@ -104,7 +111,6 @@ public class Controller implements Initializable {
             bitwiseCalculateBtn.setOnAction(actionEvent -> {
                 String stringBit1 = TextFieldBit1.getText();
                 String stringBit2 = TextFieldBit2.getText();
-                Boolean flag = bitwiseOperatorChosen.equals(NOT);
 
                 //To check for exceptions in inputs
                 //Bitwise Binary Validator
@@ -119,7 +125,7 @@ public class Controller implements Initializable {
                 }
                 //Bitwise Hexadecimal Validator
                 else if(inputNumberBase.equals(HEX) && ( Bitwise.hexdecimalValidator( stringBit1 , stringBit2  ) ) ){
-                    warnUser("Invalid HexaDecimal Number");
+                    warnUser("Invalid Hexadecimal Number");
                     clearProFields();
                 }
                 //Bitwise Octal Validator
@@ -154,6 +160,63 @@ public class Controller implements Initializable {
             warnUser( e.getMessage() );
         }
         bitwiseClearBtn.setOnAction( actionEvent -> clearProFields());
+
+        // tree Conversion Therapy
+
+        // radio Button inversion
+        ToggleGroup radioBtnGrp = new ToggleGroup();
+        infixRadioButton.setToggleGroup(radioBtnGrp);
+        prefixRadioButton.setToggleGroup(radioBtnGrp);
+        postfixRadioButton.setToggleGroup(radioBtnGrp);
+
+        // Radio Button Grp listener
+        radioBtnGrp.selectedToggleProperty().addListener((observableValue, oldValue, newValue) -> {
+            RadioButton clickedBtn = (RadioButton) radioBtnGrp.getSelectedToggle();
+
+            if (clickedBtn != null) {
+                switch (clickedBtn.getText()) {
+                    case INFIX_INPUT:  // Infix button is selected
+                        infixInputTextField.setEditable(true);
+                        treeConvertBtn.setDisable(false);
+                        treeInvertFields(INFIX_INPUT);
+                        break;
+                    case PREFIX_INPUT:  // Prefix button is selected
+                        prefixInputTextField.setEditable(true);
+                        treeConvertBtn.setDisable(false);
+                        treeInvertFields(PREFIX_INPUT);
+                        break;
+                    case POSTFIX_INPUT:  // Postfix button is selected
+                        postfixInputTextField.setEditable(true);
+                        treeConvertBtn.setDisable(false);
+                        treeInvertFields(POSTFIX_INPUT);
+                        break;
+                }
+            }
+        });
+        // treeConverterBtn
+        treeConvertBtn.setOnAction(actionEvent -> {
+            if (infixRadioButton.isSelected()) {
+                prefixInputTextField.setText( treeConverter.InfixToPrefix(infixInputTextField.getText()) );
+                postfixInputTextField.setText( treeConverter.InfixToPostfix(infixInputTextField.getText()) );
+            } else if (prefixRadioButton.isSelected()) {
+                infixInputTextField.setText( treeConverter.PrefixToInfix(prefixInputTextField.getText()) );
+                postfixInputTextField.setText( treeConverter.PrefixToPostfix(prefixInputTextField.getText()) );
+            } else if (postfixRadioButton.isSelected()) {
+                prefixInputTextField.setText( treeConverter.PostfixToPrefix( postfixInputTextField.getText() ) );
+                infixInputTextField.setText( treeConverter.PostfixToInfix( postfixInputTextField.getText() ) );
+            }
+        });
+        // treeClearBtn
+        treeClearBtn.setOnAction( e -> clearTreeFields() );
+    }
+
+    public void clearTreeFields() {
+        infixInputTextField.setText(null);
+        prefixInputTextField.setText(null);
+        postfixInputTextField.setText(null);
+        if (infixRadioButton.isSelected()) infixRadioButton.setSelected(false);
+        if (prefixRadioButton.isSelected()) prefixRadioButton.setSelected(false);
+        if (postfixRadioButton.isSelected()) postfixRadioButton.setSelected(false);
     }
 
     //function To clean the fields for inputs
@@ -167,6 +230,41 @@ public class Controller implements Initializable {
         TextFieldOne.setText(null);
         TextFieldTwo.setText(null);
         TextFieldRes.setText(null);
+    }
+
+    private void treeInvertFields(String whichInputTextField) {
+        switch (whichInputTextField) {
+            case INFIX_INPUT:
+                if (prefixInputTextField.isEditable()) {
+                    prefixInputTextField.setText(null);
+                    prefixInputTextField.setEditable(false);
+                }
+                if (postfixInputTextField.isEditable()) {
+                    postfixInputTextField.setText(null);
+                    postfixInputTextField.setEditable(false);
+                }
+                break;
+            case PREFIX_INPUT:
+                if (infixInputTextField.isEditable()) {
+                    infixInputTextField.setText(null);
+                    infixInputTextField.setEditable(false);
+                }
+                if (postfixInputTextField.isEditable()) {
+                    postfixInputTextField.setText(null);
+                    postfixInputTextField.setEditable(false);
+                }
+                break;
+            case POSTFIX_INPUT:
+                if (prefixInputTextField.isEditable()) {
+                    prefixInputTextField.setText(null);
+                    prefixInputTextField.setEditable(false);
+                }
+                if (infixInputTextField.isEditable()) {
+                    infixInputTextField.setText(null);
+                    infixInputTextField.setEditable(false);
+                }
+                break;
+        }
     }
 
     //Function to calculate various operations

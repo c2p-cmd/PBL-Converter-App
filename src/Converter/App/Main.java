@@ -55,7 +55,8 @@ public class Main extends Application {
         resetEntry.setOnAction(actionEvent -> {
             controller.clearFields();
             controller.clearProFields();
-            // TODO more is there
+            controller.clearTreeFields();
+            // TODO more clears
         });
 
         SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
