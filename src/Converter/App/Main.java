@@ -78,7 +78,7 @@ public class Main extends Application {
                 "\n                          Hope you all enjoy it!\n"));
         MenuItem aboutApp = new MenuItem("About App");
         aboutApp.setId("aboutApp");
-        aboutApp.setOnAction(actionEvent -> DialogsApp.createaboutappContent("About Converter App","\nWhat is Converter?","Brief up about Converter.",""));
+        aboutApp.setOnAction(actionEvent -> DialogsApp.createaboutappContent("About Converter App","\nWhat is Converter?","Brief up about Converter.","This is an all in one converter created using JavaFX.\nThis app is by Engineers, for Engineers.\nFeatures of Converter.App \uD83D\uDE0E:-\n1. Calculator\n2. Tree Conversions\n3. Programmer Operations\n4. Scientific Calculations\n5. Unit Conversions"));
         // adding to help
         helpMenu.getItems().addAll(aboutUs, new SeparatorMenuItem(), aboutApp);
 
@@ -105,7 +105,6 @@ public class Main extends Application {
         aboutAppBox.setTitle("About Converter App");
         aboutAppBox.setHeaderText("What is Converter?");
         aboutAppBox.setContentText(
-                // TODO about section
                 "Brief up about Converter."
         );
         aboutAppBox.show();
