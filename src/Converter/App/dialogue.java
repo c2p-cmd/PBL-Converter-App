@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -35,8 +36,8 @@ class DialogsApp  {
         }
     };
     //Call the open dialogue function to initiate the dialogue
-    static void createContent(String header , String content) {
-            CustomDialog dialog = new CustomDialog(header ,content );
+    static void createContent(String header ,String header1 ,String header2 , String content) {
+            CustomDialog dialog = new CustomDialog(header ,header1 ,header2 ,content );
             dialog.openDialog();
     }
 
@@ -47,7 +48,7 @@ class DialogsApp  {
 
         private final SequentialTransition anim = new SequentialTransition(scale1, scale2);
         //Constructor
-        CustomDialog(String header, String content) {
+        CustomDialog(String header,String header1,String header2, String content) {
             Pane root = new Pane();
 
             scale1.setFromX(0.01);
@@ -70,27 +71,31 @@ class DialogsApp  {
             Label headertxt = new Label(header);
             headertxt.setId("headerLabel");
 
+            Label headertxt1 = new Label(header1);
+            headertxt1.setId("header1Label");
+            Label headertxt2 = new Label(header2);
+            headertxt2.setId("header2Label");
             //Label to store content text
             Label contentText = new Label(content);
             contentText.setId("contentLabel");
 
             //Creating image view and label for it
-            ImageView image = new ImageView("http://www.simpleimageresizer.com/_uploads/photos/e81c44de/aboutUs_50x50.png");
-            Label imageLabel = new Label();
-            imageLabel.setGraphic(image);
-            imageLabel.setPrefHeight(50);
-            imageLabel.setPrefWidth(50);
 
+            Label imageLabel = new Label();
+            imageLabel.setStyle("-fx-background-image: url(\"/Converter/App/aboutus_70x70.png\");");
+            imageLabel.setPrefHeight(70);
+            imageLabel.setPrefWidth(70);
+            imageLabel.setId("imageLabel");
             //Hbox to store header and image label
-            HBox header_Image= new HBox(78 , headertxt , imageLabel);
+            HBox header_Image= new HBox(5 , headertxt ,headertxt1, imageLabel);
 
             //Vbox to store the labels
-            VBox box = new VBox(7 , header_Image , new Separator(Orientation.HORIZONTAL) , contentText);
+            VBox box = new VBox(7 , header_Image ,headertxt2, new Separator(Orientation.HORIZONTAL) , contentText);
 
             //Css for the Vbox
             box.setId("dialogueVbox");
             box.setPadding(new Insets(10,0,0,15));
-            box.setPrefHeight(200);
+            box.setPrefHeight(270);
             box.setPrefWidth(350);
 
 
@@ -101,11 +106,11 @@ class DialogsApp  {
             btn.setId("dialogueOkbutton");
             btn.setPadding(new Insets(3 ,30, 3 ,30));
             btn.setTranslateX(225);
-            btn.setTranslateY(150);
+            btn.setTranslateY(220);
             btn.setOnAction(e ->closeDialog());
 
             root.getChildren().addAll( box, btn);//Adding all the nodes to the root pane
-            Scene scene = new Scene(root,350 , 200);//Creating a scene
+            Scene scene = new Scene(root,350 , 270);//Creating a scene
             scene.getStylesheets().add(Objects.requireNonNull(DialogsApp.class.getResource("Calculator.css")).toExternalForm());//Importing the stylesheet
             setScene(scene);
 

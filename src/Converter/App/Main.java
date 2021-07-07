@@ -76,8 +76,8 @@ public class Main extends Application {
         // about menu pane items
         MenuItem aboutUs = new MenuItem("About Us");
         aboutUs.setId("aboutUs");
-        aboutUs.setOnAction(actionEvent -> DialogsApp.createContent( "\nAbout the Developers\n"+"PBL Batch-B1\n" , "We created this Converter App as our PBL project using \nJavaFX.\n"+
-                "Hope you all enjoy it!\n"));
+        aboutUs.setOnAction(actionEvent -> DialogsApp.createContent( "\nAbout the Developers:","Sharan Thakur\n"+"Akshad Chidrawar\n"+"Gayatri Morey\n"+"Vidya Jain\n\n","PBL Batch-B1\n" , "We created this Converter App as our PBL project using \nJavaFX.\n"+
+                "\n                          Hope you all enjoy it!\n"));
         MenuItem aboutApp = new MenuItem("About App");
         aboutApp.setId("aboutApp");
         aboutApp.setOnAction(actionEvent -> aboutApp());

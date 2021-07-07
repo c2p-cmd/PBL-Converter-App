@@ -506,6 +506,27 @@
     -fx-font-size: 12px;
     -fx-text-alignment: left;
 }
+#header1Label{
+    -fx-background-color:#EDEDED;
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 11px;
+    -fx-text-alignment: left;
+    -fx-padding: 11 0 0 0;
+}
+#header2Label{
+    -fx-background-color:#EDEDED;
+    -fx-font-family: "Lucida Grande";
+    -fx-font-style: italic;
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-font-weight: bolder;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+    -fx-text-alignment: left;
+}
 #contentLabel{
     -fx-background-color:#EDEDED;
     -fx-font-family: "Lucida Grande";
@@ -526,4 +547,5 @@
 
     -fx-text-fill: #242d35;
 }
+
 /*About us Dialogue Box*/
