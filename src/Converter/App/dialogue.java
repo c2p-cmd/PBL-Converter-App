@@ -1,5 +1,4 @@
 package Converter.App;
-
 import javafx.animation.Interpolator;
 import javafx.animation.ScaleTransition;
 import javafx.animation.SequentialTransition;
@@ -9,8 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -18,7 +15,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import java.util.Objects;
-
 
 class DialogsApp  {
     //Function to set the in ExpIn interpolator
@@ -36,9 +32,13 @@ class DialogsApp  {
         }
     };
     //Call the open dialogue function to initiate the dialogue
-    static void createContent(String header ,String header1 ,String header2 , String content) {
+    static void createaboutusContent(String header ,String header1 ,String header2 , String content) {
             CustomDialog dialog = new CustomDialog(header ,header1 ,header2 ,content );
             dialog.openDialog();
+    }
+    static void createaboutappContent(String header ,String header1 ,String header2 , String content) {
+        CustomDialog dialog = new CustomDialog(header ,header1 ,header2 ,content );
+        dialog.openDialog();
     }
 
     private static class CustomDialog extends Stage {
@@ -64,6 +64,9 @@ class DialogsApp  {
             scale2.setInterpolator(EXP_OUT);
             scale2.setNode(root);
 
+            Label space = new Label();
+            space.setPrefHeight(50);
+            space.setPrefWidth(15);
             /*
             initModality(Modality.APPLICATION_MODAL);//Set the scene modality*/
             initStyle(StageStyle.TRANSPARENT);//Set the scene transparent
@@ -82,15 +85,14 @@ class DialogsApp  {
             //Creating image view and label for it
 
             Label imageLabel = new Label();
-            imageLabel.setStyle("-fx-background-image: url(\"/Converter/App/aboutus_70x70.png\");");
-            imageLabel.setPrefHeight(70);
-            imageLabel.setPrefWidth(70);
+            imageLabel.setPrefHeight(50);
+            imageLabel.setPrefWidth(50);
             imageLabel.setId("imageLabel");
             //Hbox to store header and image label
-            HBox header_Image= new HBox(5 , headertxt ,headertxt1, imageLabel);
+            HBox header_Image= new HBox(5 , headertxt ,headertxt1,space , imageLabel);
 
             //Vbox to store the labels
-            VBox box = new VBox(7 , header_Image ,headertxt2, new Separator(Orientation.HORIZONTAL) , contentText);
+            VBox box = new VBox(11 , header_Image ,headertxt2, new Separator(Orientation.HORIZONTAL) , contentText);
 
             //Css for the Vbox
             box.setId("dialogueVbox");
@@ -102,11 +104,11 @@ class DialogsApp  {
             // Button to close the dialogue and its Css
             Button btn = new Button("OK");
             btn.setPrefHeight(26);
-            btn.setPrefWidth(75);
+            btn.setPrefWidth(55);
             btn.setId("dialogueOkbutton");
-            btn.setPadding(new Insets(3 ,30, 3 ,30));
-            btn.setTranslateX(225);
-            btn.setTranslateY(220);
+
+            btn.setTranslateX(285);
+            btn.setTranslateY(233);
             btn.setOnAction(e ->closeDialog());
 
             root.getChildren().addAll( box, btn);//Adding all the nodes to the root pane

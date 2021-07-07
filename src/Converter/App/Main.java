@@ -34,7 +34,6 @@ public class Main extends Application {
         Scene scene = new Scene(rootNode);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("Calculator.css")).toExternalForm());
-        //scene.getStylesheets().add(menuBar.getMenus().indexOf("Exit App").getId());
         primaryStage.setTitle("Converter App");
 
         primaryStage.setResizable(false);
@@ -76,11 +75,11 @@ public class Main extends Application {
         // about menu pane items
         MenuItem aboutUs = new MenuItem("About Us");
         aboutUs.setId("aboutUs");
-        aboutUs.setOnAction(actionEvent -> DialogsApp.createContent( "\nAbout the Developers:","Sharan Thakur\n"+"Akshad Chidrawar\n"+"Gayatri Morey\n"+"Vidya Jain\n\n","PBL Batch-B1\n" , "We created this Converter App as our PBL project using \nJavaFX.\n"+
+        aboutUs.setOnAction(actionEvent -> DialogsApp.createaboutusContent( "\nAbout the Developers:","Sharan Thakur\n"+"Akshad Chidrawar\n"+"Gayatri Morey\n"+"Vidya Jain\n\n","PBL Batch-B1" , "We created this Converter App as our PBL project using \nJavaFX.\n"+
                 "\n                          Hope you all enjoy it!\n"));
         MenuItem aboutApp = new MenuItem("About App");
         aboutApp.setId("aboutApp");
-        aboutApp.setOnAction(actionEvent -> aboutApp());
+        aboutApp.setOnAction(actionEvent -> DialogsApp.createaboutappContent("About Converter App","What is Converter?","Brief up about Converter.",""));
         // adding to help
         helpMenu.getItems().addAll(aboutUs, new SeparatorMenuItem(), aboutApp);
 

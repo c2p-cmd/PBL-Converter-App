@@ -112,7 +112,6 @@ public class treeConverter {
     }
 
     //Infix TO Prefix
-
     static String InfixToPrefix(String infix)
     {
         Stack<Character> operators = new Stack<>();
@@ -137,15 +136,12 @@ public class treeConverter {
                     String tmp = op + op2 + op1;
                     operands.push(tmp);
                 }
-
                 operators.pop();
             }
-
             else if (!isnotOperator(infix.charAt(i)))
             {
                 operands.push(infix.charAt(i) + "");
             }
-
             else
             {
                 while (!operators.empty() &&
@@ -167,7 +163,6 @@ public class treeConverter {
                 operators.push(infix.charAt(i));
             }
         }
-
         while (!operators.empty())
         {
             String op1 = operands.peek();
@@ -184,7 +179,6 @@ public class treeConverter {
         }
         return operands.peek();
     }
-
 
     //Infix to Postfix
     static String InfixToPostfix(String exp) {
@@ -225,7 +219,6 @@ public class treeConverter {
     }
 
     //Postfix to Infix
-    // ref
     static String PostfixToInfix(String exp) {
         Stack<String> s = new Stack<>();
         for (int i = 0; i < exp.length(); i++) {
