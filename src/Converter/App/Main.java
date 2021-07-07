@@ -1,5 +1,6 @@
 package Converter.App;
 
+import javafx.animation.Interpolator;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
+
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -15,7 +16,6 @@ import java.util.Objects;
 public class Main extends Application {
 
     Controller controller;
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
@@ -76,7 +76,8 @@ public class Main extends Application {
         // about menu pane items
         MenuItem aboutUs = new MenuItem("About Us");
         aboutUs.setId("aboutUs");
-        aboutUs.setOnAction(actionEvent -> aboutUS());
+        aboutUs.setOnAction(actionEvent -> DialogsApp.createContent( "\nAbout the Developers\n"+"PBL Batch-B1\n" , "We created this Converter App as our PBL project using \nJavaFX.\n"+
+                "Hope you all enjoy it!\n"));
         MenuItem aboutApp = new MenuItem("About App");
         aboutApp.setId("aboutApp");
         aboutApp.setOnAction(actionEvent -> aboutApp());
@@ -111,4 +112,5 @@ public class Main extends Application {
         );
         aboutAppBox.show();
     }
+    
 }

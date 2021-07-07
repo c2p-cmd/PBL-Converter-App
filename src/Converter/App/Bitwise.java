@@ -107,19 +107,14 @@ public class Bitwise {
 
         for(int i =0 ; i<bit1.length();i++) {
             if ( (   (bit1.charAt(i) !='0') && (bit1.charAt(i) !='1')  ) || (Character.isLetter(bit1.charAt(i))) ){
-                System.out.println("For char :" + Character.isLetter(bit1.charAt(i)));
                 return true;
             }
         }
-
             for(int i =0 ; i<bit2.length();i++){
                 if (  ((bit2.charAt(i) !='0') && (bit2.charAt(i) !='1') ) || (Character.isLetter(bit2.charAt(i))) ) {
-                    System.out.println("For char :" + Character.isLetter(bit2.charAt(i)));
                     return true;
                 }
             }
-
-
         return false;
     }
 

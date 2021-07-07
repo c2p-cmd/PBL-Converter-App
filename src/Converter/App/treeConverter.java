@@ -9,6 +9,12 @@ public class treeConverter {
         return (x >= 'a' && x <= 'z') ||
                 (x >= 'A' && x <= 'Z');
     }
+    static boolean isnotOperator(char c)
+    {
+        return (!(c >= 'a' && c <= 'z') &&
+                !(c >= '0' && c <= '9') &&
+                !(c >= 'A' && c <= 'Z'));
+    }
 
     //Check if it is an operator
     static boolean isOperator(char x) {
@@ -62,8 +68,6 @@ public class treeConverter {
             }
             else
             {
-
-
                 stack.push(c + "");
             }
         }
@@ -107,12 +111,12 @@ public class treeConverter {
         return s.peek();
     }
 
-    //Infix to Prefix
+    //Infix TO Prefix
+
     static String InfixToPrefix(String infix)
     {
         Stack<Character> operators = new Stack<>();
         Stack<String> operands = new Stack<>();
-
         for (int i = 0; i < infix.length(); i++)
         {
             if (infix.charAt(i) == '(')
@@ -133,12 +137,15 @@ public class treeConverter {
                     String tmp = op + op2 + op1;
                     operands.push(tmp);
                 }
+
                 operators.pop();
             }
-            else if (!isOperator(infix.charAt(i)))
+
+            else if (!isnotOperator(infix.charAt(i)))
             {
                 operands.push(infix.charAt(i) + "");
             }
+
             else
             {
                 while (!operators.empty() &&
@@ -147,16 +154,20 @@ public class treeConverter {
                 {
                     String op1 = operands.peek();
                     operands.pop();
+
                     String op2 = operands.peek();
                     operands.pop();
+
                     char op = operators.peek();
                     operators.pop();
+
                     String tmp = op + op2 + op1;
                     operands.push(tmp);
                 }
                 operators.push(infix.charAt(i));
             }
         }
+
         while (!operators.empty())
         {
             String op1 = operands.peek();
@@ -173,6 +184,7 @@ public class treeConverter {
         }
         return operands.peek();
     }
+
 
     //Infix to Postfix
     static String InfixToPostfix(String exp) {
@@ -259,33 +271,35 @@ public class treeConverter {
         return ans.toString();
     }
 
+
+
     public static boolean infixValidator(String infix){
         int length = infix.length();
         char last = infix.charAt(length-1);
+
         char secondLast = infix.charAt(length-2);
-        if( (Character.isLetter(last) || last ==')' ) && isOperator(secondLast)){
-            return true;
+        if(last==')') {
+            char thirdLast = infix.charAt(length - 3);
+            return (Character.isLetter(secondLast) || Character.isDigit(secondLast) ) && isOperator(thirdLast);
         }
-        return false;
+        return (Character.isLetter(last) || Character.isDigit(last) ) && isOperator(secondLast);
     }
 
     public static boolean postfixValidator(String postfix){
         int length = postfix.length();
         char last = postfix.charAt(length-1);
-        if(isOperator(last) && Character.isLetter(postfix.charAt(0)) ){
-            return true;
-        }
-        return false;
+        return isOperator(last) && (Character.isLetter(postfix.charAt(0)) || Character.isDigit(postfix.charAt(0)));
     }
 
     public static boolean prefixValidator(String prefix){
         int length = prefix.length();
         char last = prefix.charAt(length-1);
         char secondLast=prefix.charAt(length-2);
-        if( (Character.isLetter(last) && Character.isLetter(secondLast)) && isOperator(prefix.charAt(0))){
-            return true;
-        }
-        return false;
+        return (Character.isLetter(last) || Character.isDigit(last)) && (Character.isLetter(secondLast) || Character.isDigit(secondLast)) && isOperator(prefix.charAt(0));
     }
+
+
+
+
 
 }

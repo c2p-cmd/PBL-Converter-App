@@ -171,7 +171,7 @@ public class Controller implements Initializable {
         // Radio Button Grp listener
         radioBtnGrp.selectedToggleProperty().addListener((observableValue, oldValue, newValue) -> {
             RadioButton clickedBtn = (RadioButton) radioBtnGrp.getSelectedToggle();
-            cleartreetxtfields();
+            clearTreetxtFields();
             if (clickedBtn != null) {
                 switch (clickedBtn.getText()) {
                     case INFIX_INPUT:  // Infix button is selected
@@ -201,32 +201,32 @@ public class Controller implements Initializable {
             }
             else{
                 if (infixRadioButton.isSelected()) {
-                    boolean validator = treeConverter.infixValidator(infixInputTextField.getText());
-                    if(validator){
+
+                    if(treeConverter.infixValidator(infixInputTextField.getText())){
                         prefixInputTextField.setText( treeConverter.InfixToPrefix(infixInputTextField.getText()) );
                         postfixInputTextField.setText( treeConverter.InfixToPostfix(infixInputTextField.getText()) );
                     }
                     else{
-                        warnUser("Invalid Infix Expression");
+                        warnUser("Invalid Infix Expression\n" +infixInputTextField.getText() );
+                        clearTreeFields();
                     }
                 } else if (prefixRadioButton.isSelected()) {
-                    boolean validator = treeConverter.prefixValidator(prefixInputTextField.getText());
-                    if(validator){
+                    if(treeConverter.prefixValidator(prefixInputTextField.getText())){
                         infixInputTextField.setText( treeConverter.PrefixToInfix(prefixInputTextField.getText()) );
                         postfixInputTextField.setText( treeConverter.PrefixToPostfix(prefixInputTextField.getText()) );
                     }
                     else{
-                        warnUser("Invalid Prefix Expression");
+                        warnUser("Invalid Prefix Expression\n" + prefixInputTextField.getText());
+                        clearTreeFields();
                     }
                 } else if (postfixRadioButton.isSelected()) {
-                    boolean validator = treeConverter.postfixValidator(postfixInputTextField.getText());
-                    if(validator){
+                    if(treeConverter.postfixValidator(postfixInputTextField.getText())){
                         prefixInputTextField.setText( treeConverter.PostfixToPrefix( postfixInputTextField.getText() ) );
                         infixInputTextField.setText( treeConverter.PostfixToInfix( postfixInputTextField.getText() ) );
                     }
                     else{
-                        warnUser("Invalid Postfix Expression");
-                        cleartreetxtfields();
+                        warnUser("Invalid Postfix Expression\n" + postfixInputTextField.getText());
+                        clearTreeFields();
                     }
 
                 }
@@ -238,6 +238,12 @@ public class Controller implements Initializable {
         treeClearBtn.setOnAction( e -> clearTreeFields() );
     }
 
+    private void clearTreetxtFields() {
+        infixInputTextField.setText(null);
+        prefixInputTextField.setText(null);
+        postfixInputTextField.setText(null);
+    }
+
     public void clearTreeFields() {
         infixInputTextField.setText(null);
         prefixInputTextField.setText(null);
@@ -245,6 +251,10 @@ public class Controller implements Initializable {
         if (infixRadioButton.isSelected()) infixRadioButton.setSelected(false);
         if (prefixRadioButton.isSelected()) prefixRadioButton.setSelected(false);
         if (postfixRadioButton.isSelected()) postfixRadioButton.setSelected(false);
+        infixInputTextField.setEditable(false);
+        prefixInputTextField.setEditable(false);
+        postfixInputTextField.setEditable(false);
+        treeConvertBtn.setDisable(true);
     }
 
     //function To clean the fields for inputs
@@ -354,11 +364,7 @@ public class Controller implements Initializable {
         warning.setContentText(errorMessage);
         warning.show();
     }
-    public void cleartreetxtfields(){
-        infixInputTextField.setText(null);
-        prefixInputTextField.setText(null);
-        postfixInputTextField.setText(null);
-    }
+
 
 
 }
