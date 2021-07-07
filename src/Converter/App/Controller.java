@@ -137,7 +137,6 @@ public class Controller implements Initializable {
                         if (stringBit1.isEmpty())
                             warnUser("Input is Empty.");
                         else {
-
                             bitwiseResult.setText("Result: \n" + Bitwise.bitwiseNOT(stringBit1, inputNumberBase));
                         }
                     } else {

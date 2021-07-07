@@ -1,6 +1,5 @@
 package Converter.App;
 
-import javafx.animation.Interpolator;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -79,7 +78,7 @@ public class Main extends Application {
                 "\n                          Hope you all enjoy it!\n"));
         MenuItem aboutApp = new MenuItem("About App");
         aboutApp.setId("aboutApp");
-        aboutApp.setOnAction(actionEvent -> DialogsApp.createaboutappContent("About Converter App","What is Converter?","Brief up about Converter.",""));
+        aboutApp.setOnAction(actionEvent -> DialogsApp.createaboutappContent("About Converter App","\nWhat is Converter?","Brief up about Converter.",""));
         // adding to help
         helpMenu.getItems().addAll(aboutUs, new SeparatorMenuItem(), aboutApp);
 
@@ -87,7 +86,7 @@ public class Main extends Application {
         menuBar.getMenus().addAll(fileMenu, helpMenu);
         return menuBar;
     }
-
+/*
     private void aboutUS() {
         // showing AlertType.Information
         Alert aboutDev = new Alert(Alert.AlertType.INFORMATION);
@@ -111,5 +110,5 @@ public class Main extends Application {
         );
         aboutAppBox.show();
     }
-    
+*/
 }
