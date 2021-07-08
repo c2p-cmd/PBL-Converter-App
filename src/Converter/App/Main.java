@@ -54,6 +54,7 @@ public class Main extends Application {
             controller.clearFields();
             controller.clearProFields();
             controller.clearTreeFields();
+            controller.clearScientificFields();
             // TODO more clears
         });
 

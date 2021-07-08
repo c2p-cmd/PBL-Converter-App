@@ -10,6 +10,30 @@ public class Scientific {
         }
     }
 
+    // expOf
+    public static double expOf(String number) {
+        try {
+            double e = scientificInputValidator(number);
+            return Math.exp(e);
+        } catch (NumberFormatException numberFormatException) {
+            return 0.0;
+        }
+    }
+
+    // logOf
+    public static double logOf(String base, String argument) {
+        try {
+            double b = scientificInputValidator(argument);
+            if (base.equals("e"))
+                return Math.log(b);
+            double a = scientificInputValidator(base);
+            // log a b = c;
+            return (Math.log10(b)/Math.log10(a));
+        } catch (NumberFormatException numberFormatException) {
+            return 0.0;
+        }
+    }
+
     // sin(x)
     public static double sineOf(String number, boolean isRadian) {
         try {
@@ -18,7 +42,7 @@ public class Scientific {
                 return Math.sin( temp );
             else
                 return Math.sin( Math.toRadians(temp) );
-        } catch (NumberFormatException parseException) {
+        } catch (Exception e) {
             return  0.0;
         }
     }
@@ -86,9 +110,8 @@ public class Scientific {
             double tmp = scientificInputValidator(number);
             if (isRadian)
                 return Math.tan(tmp);
-            else {
-                return Math.tan(Math.toRadians(tmp));
-            }
+            else
+                return Math.tan( Math.toRadians(tmp) );
         } catch (NumberFormatException parseException) {
             return 0.0;
         }

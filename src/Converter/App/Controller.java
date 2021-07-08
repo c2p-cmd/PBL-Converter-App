@@ -27,11 +27,28 @@ public class Controller implements Initializable {
     static final String INFIX_INPUT = "Infix Input";
     static final String PREFIX_INPUT = "Prefix Input";
     static final String POSTFIX_INPUT = "Postfix Input";
+    static final String textAreaOutput = "Result exp(x):";
+    static final String SIN = "sin(x)";
+    static final String SINH = "sinh(x)";
+    static final String COSEC = "cosec(x)";
+    static final String COS = "cos(x)";
+    static final String COSH = "cosh(x)";
+    static final String SEC = "sec(x)";
+    static final String TAN = "tan(x)";
+    static final String TANH = "tanh(x)";
+    static final String COT = "cot(x)";
+    static final String ARCSIN = "arcsin(x)";
+    static final String ARCCOS = "arccos(x)";
+    static final String ARCTAN = "arctan(x)";
+    static final String RAD = "Radian";
+    static final String DEG = "Degree";
 
     // variables
     static Character operatorChosen;
     static String inputNumberBase;
     static Character bitwiseOperatorChosen;
+    static String trigoFunctionChosen;
+    static Boolean isRadian = true;
 
     // exception
 
@@ -58,9 +75,24 @@ public class Controller implements Initializable {
     public Button bitwiseClearBtn;
     public Button treeConvertBtn;
     public Button treeClearBtn;
+    public Button scientificCalculateBtn;
+    public Button scientificClearBtn;
+    public Button logCalculateBtn;
+    public Button logClearBtn;
+    public Button expCalculateBtn;
+    public Button expClearBtn;
     public RadioButton infixRadioButton;
     public RadioButton prefixRadioButton;
     public RadioButton postfixRadioButton;
+    public ComboBox<String> scientificOperations;
+    public ChoiceBox<String> isRadianChoiceBox;
+    public TextField scientificInputField;
+    public TextField scientificResultField;
+    public TextField logBaseInput;
+    public TextField logArgumentInput;
+    public TextField logResultField;
+    public TextField expTextArea;
+
 
 
     @Override
@@ -235,6 +267,100 @@ public class Controller implements Initializable {
         });
         // treeClearBtn
         treeClearBtn.setOnAction( e -> clearTreeFields() );
+
+        // Scientific
+
+        // logarithmic
+        logCalculateBtn.setOnAction(e -> {
+            double result;
+            try {
+                result = Scientific.logOf(logBaseInput.getText(), logArgumentInput.getText());
+            } catch (Exception exception) {
+                warnUser(exception.getMessage());
+                result = 0.0;
+            }
+            logResultField.setText("Result: " + result);
+        });
+
+        // putting values in operator boxes
+        scientificOperations.getItems().addAll(SIN,SINH,COSEC,COS,COSH,SEC,TAN,TANH,COT,ARCSIN,ARCCOS,ARCTAN);
+        isRadianChoiceBox.getItems().addAll(RAD,DEG);
+        isRadianChoiceBox.setValue(RAD);
+        // taking input from Trigo
+        // trigo res
+        scientificOperations.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            trigoFunctionChosen = newValue;
+            scientificInputField.setEditable(true);
+            scientificCalculateBtn.setDisable(false);
+        });
+
+        isRadianChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue) -> {
+            //System.out.println("oldValue: " + oldValue + " newValue: " + newValue);
+            isRadian = newValue.equals(RAD);
+        });
+
+        scientificCalculateBtn.setOnAction(e -> {
+            double res;
+            String scientificNumber = scientificInputField.getText();
+            switch (trigoFunctionChosen) {
+                case SIN:
+                    res = Scientific.sineOf(scientificNumber , isRadian);
+                    break;
+                case SINH:
+                    res = Scientific.sinhOf(scientificNumber, isRadian);
+                    break;
+                case COS:
+                    res = Scientific.cosOf(scientificNumber, isRadian);
+                    break;
+                case COSH:
+                    res = Scientific.coshOf(scientificNumber, isRadian);
+                    break;
+                case TAN:
+                    res = Scientific.tanOf(scientificNumber, isRadian);
+                    break;
+                case TANH:
+                    res = Scientific.tanhOf(scientificNumber, isRadian);
+                    break;
+                case COSEC:
+                    res = Scientific.cosecOf(scientificNumber, isRadian);
+                    break;
+                case SEC:
+                    res = Scientific.secOf(scientificNumber, isRadian);
+                    break;
+                case COT:
+                    res = Scientific.cotOf(scientificNumber, isRadian);
+                    break;
+                case ARCSIN:
+                    if (isRadian) res = Math.toRadians( Scientific.arcsinOf(scientificNumber) );
+                    else res = Scientific.arcsinOf(scientificNumber);
+                    break;
+                case ARCCOS:
+                    if (isRadian) res = Math.toRadians( Scientific.arcsinOf(scientificNumber) );
+                    else res = Scientific.arccosOf(scientificNumber);
+                    break;
+                case ARCTAN:
+                    if (isRadian) res = Math.toRadians( Scientific.arctanOf(scientificNumber) );
+                    else res = Scientific.arctanOf(scientificNumber);
+                    break;
+                default:
+                    res = 0.0;
+                    break;
+            }
+            scientificResultField.setText("Result: " + res);
+        });
+        scientificClearBtn.setOnAction(e -> clearScientificFields());
+        logClearBtn.setOnAction(e -> clearScientificFields());
+        expClearBtn.setOnAction(e -> clearScientificFields());
+    }
+
+    public void clearScientificFields() {
+        logBaseInput.setText(null);
+        logArgumentInput.setText(null);
+        logResultField.setText(null);
+        expTextArea.setText(null);
+        scientificResultField.setText(null);
+        scientificInputField.setText(null);
+        scientificCalculateBtn.setDisable(true);
     }
 
     private void clearTreetxtFields() {
