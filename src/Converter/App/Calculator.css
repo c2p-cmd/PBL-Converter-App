@@ -191,6 +191,7 @@
     -fx-background-insets: 0, 1, 2;
     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
     -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
 }
 /*Setting value for menu button label*/
 #fileMenu .label:hover ,#fileMenu .label:focused{
@@ -323,6 +324,7 @@
     -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
     -fx-text-fill: #242d35;
     -fx-font-size: 12px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
 }
 .combo-box-base:hover , .combo-box-base:showing , .combo-box-base:selected {
     -fx-background-color: #7793f5,
@@ -546,8 +548,12 @@
     -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
     -fx-text-fill: #242d35;
 }
-#imageLabel{
+#aboutUsimageLabel{
     -fx-padding: 20 0 0 0 ;
     -fx-background-image: url("aboutus.png");
+}
+#aboutAppimageLabel{
+    -fx-padding: 20 0 0 0 ;
+    -fx-background-image: url("three.jpg");
 }
 /*About us Dialogue Box*/

@@ -4,11 +4,6 @@ import java.util.*;
 
 public class treeConverter {
 
-    //Check For is it an operand
-    static boolean isOperand(char x) {
-        return (x >= 'a' && x <= 'z') ||
-                (x >= 'A' && x <= 'Z');
-    }
     static boolean isnotOperator(char c)
     {
         return (!(c >= 'a' && c <= 'z') &&

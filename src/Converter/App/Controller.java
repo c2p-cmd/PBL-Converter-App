@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     static final String INFIX_INPUT = "Infix Input";
     static final String PREFIX_INPUT = "Prefix Input";
     static final String POSTFIX_INPUT = "Postfix Input";
-    static final String textAreaOutput = "Result exp(x):";
+    //static final String textAreaOutput = "Result exp(x):";
     static final String SIN = "sin(x)";
     static final String SINH = "sinh(x)";
     static final String COSEC = "cosec(x)";

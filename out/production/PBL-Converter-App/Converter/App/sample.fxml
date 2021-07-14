@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -162,6 +161,87 @@
                         <Button fx:id="bitwiseClearBtn" layoutY="34.0" prefHeight="26.0" prefWidth="125.0" text="Clear" />
                     </AnchorPane>
                 </GridPane>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="scientificTabPane" text="Scientific">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane layoutX="234.0" layoutY="92.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                            prefWidth="200.0">
+                    <TabPane layoutX="-233.0" layoutY="-91.0" prefHeight="339.0" prefWidth="600.0"
+                             tabClosingPolicy="UNAVAILABLE">
+                        <Tab fx:id="TrignometricTabPane" text="Trigonometry">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                <ComboBox fx:id="scientificOperations" layoutX="69.0" layoutY="116.0"
+                                          promptText="Choose Operation"/>
+                                <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0"
+                                       text="Scientific Mode" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Lucida Grande" size="25.0"/>
+                                    </font>
+                                </Label>
+                                <Label fx:id="inputLabel" alignment="CENTER" layoutX="313.0" layoutY="80.0"
+                                       prefHeight="36.0" prefWidth="287.0" text="Enter number">
+                                    <font>
+                                        <Font name="Lucida Grande" size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="scientificInputField" alignment="CENTER" editable="false"
+                                           layoutX="378.0" layoutY="116.0" promptText="0.0"/>
+                                <TextField fx:id="scientificResultField" editable="false" layoutX="125.0"
+                                           layoutY="168.0" prefHeight="47.0" prefWidth="343.0"
+                                           promptText="Result: 0.0"/>
+                                <Button fx:id="scientificCalculateBtn" disable="true" layoutX="89.0"
+                                        layoutY="237.0" prefHeight="26.0" prefWidth="125.0" text="Calculate"/>
+                                <Button fx:id="scientificClearBtn" layoutX="401.0" layoutY="237.0"
+                                        prefHeight="26.0" prefWidth="125.0" text="Clear"/>
+                                <ChoiceBox fx:id="isRadianChoiceBox" layoutX="248.0" layoutY="116.0"
+                                           prefHeight="26.0" prefWidth="118.0"/>
+                            </AnchorPane>
+                        </Tab>
+                        <Tab text="Logarithmic">
+                            <AnchorPane minHeight="0" minWidth="0" prefHeight="200" prefWidth="200">
+                                <Label alignment="CENTER" prefHeight="105.0" prefWidth="600.0"
+                                       text="Logarithmic">
+                                    <font>
+                                        <Font name="Lucida Grande" size="25.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="logBaseInput" alignment="CENTER" layoutX="49.0"
+                                           layoutY="124.0"
+                                           promptText="Input Base."/>
+                                <TextField fx:id="logArgumentInput" alignment="CENTER" layoutX="386.0"
+                                           layoutY="124.0" promptText="Input Argument."/>
+                                <Button fx:id="logCalculateBtn" layoutX="68.0" layoutY="233.0"
+                                        mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0"
+                                        text="Calculate"/>
+                                <Button fx:id="logClearBtn" layoutX="408.0" layoutY="232.0"
+                                        mnemonicParsing="false"
+                                        prefHeight="38.0" prefWidth="127.0" text="Clear"/>
+                                <TextField fx:id="logResultField" layoutX="203.0" layoutY="181.0"
+                                           prefHeight="26.0"
+                                           prefWidth="215.0" promptText="Result: 0.0"/>
+                            </AnchorPane>
+                        </Tab>
+                        <Tab text="Exponential">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                <Button fx:id="expCalculateBtn" layoutX="68.0" layoutY="233.0"
+                                        mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0"
+                                        text="Calculate"/>
+                                <Label alignment="CENTER" prefHeight="105.0" prefWidth="600.0"
+                                       text="Exponential">
+                                    <font>
+                                        <Font name="Lucida Grande" size="25.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="expTextArea" layoutX="200.0" layoutY="122.0" prefHeight="68.0"
+                                           prefWidth="200.0" promptText="Enter x to calculate exp(x): "/>
+                                <Button fx:id="expClearBtn" layoutX="408.0" layoutY="232.0"
+                                        mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0"
+                                        text="Clear"/>
+                            </AnchorPane>
+                        </Tab>
+                    </TabPane>
+                </AnchorPane>
             </AnchorPane>
         </Tab>
     </TabPane>

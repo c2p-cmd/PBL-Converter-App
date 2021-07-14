@@ -16,7 +16,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import java.util.Objects;
 
-class DialogsApp  {
+class aboutus{
     //Function to set the in ExpIn interpolator
     private static final Interpolator EXP_IN = new Interpolator() {
         @Override
@@ -32,88 +32,86 @@ class DialogsApp  {
         }
     };
     //Call the open dialogue function to initiate the dialogue
-    static void createaboutusContent(String header ,String header1 ,String header2 , String content) {
-            CustomDialog dialog = new CustomDialog(header ,header1 ,header2 ,content );
-            dialog.openDialog();
-    }
-    static void createaboutappContent(String header ,String header1 ,String header2 , String content) {
-        CustomDialog dialog = new CustomDialog(header ,header1 ,header2 ,content );
+    static void createaboutusContent() {
+        CustomDialog dialog = new CustomDialog();
         dialog.openDialog();
     }
-
     private static class CustomDialog extends Stage {
 
         private final ScaleTransition scale1 = new ScaleTransition();
         private final ScaleTransition scale2 = new ScaleTransition();
-
         private final SequentialTransition anim = new SequentialTransition(scale1, scale2);
         //Constructor
-        CustomDialog(String header,String header1,String header2, String content) {
-            Pane root = new Pane();
-
+        CustomDialog() {
+            Pane aboutUsroot = new Pane();
             scale1.setFromX(0.01);
             scale1.setFromY(0.01);
             scale1.setToY(1.0);
             scale1.setDuration(Duration.seconds(0.2));
             scale1.setInterpolator(EXP_IN);
-            scale1.setNode(root);
-
+            scale1.setNode(aboutUsroot);
             scale2.setFromX(0.01);
             scale2.setToX(1.0);
             scale2.setDuration(Duration.seconds(0.2));
             scale2.setInterpolator(EXP_OUT);
-            scale2.setNode(root);
+            scale2.setNode(aboutUsroot);
 
             Label space = new Label();
             space.setPrefHeight(50);
             space.setPrefWidth(15);
-            /*
-            initModality(Modality.APPLICATION_MODAL);//Set the scene modality*/
-            initStyle(StageStyle.TRANSPARENT);//Set the scene transparent
-            //Label to store header text
-            Label headertxt = new Label(header);
-            headertxt.setId("headerLabel");
 
-            Label headertxt1 = new Label(header1);
-            headertxt1.setId("header1Label");
-            Label headertxt2 = new Label(header2);
-            headertxt2.setId("header2Label");
+
+            initStyle(StageStyle.TRANSPARENT);//Set the scene transparent
+
+            //Label to store header text of about Us
+            Label aboutUsheadertxt = new Label("\nAbout the Developers:");
+            aboutUsheadertxt.setId("headerLabel");
+
+            //Label to store header text one  of about Us
+            Label aboutUsheadertxt1 = new Label("Sharan Thakur\n"+"Akshad Chidrawar\n"+"Gayatri Morey\n"+"Vidya Jain\n\n");
+            aboutUsheadertxt1.setId("header1Label");
+
+            //Label to store header text two  of about Us
+            Label aboutUsheadertxt2 = new Label("PBL Batch-B1");
+            aboutUsheadertxt2.setId("header2Label");
+
             //Label to store content text
-            Label contentText = new Label(content);
-            contentText.setId("contentLabel");
+            Label aboutUscontentText = new Label("We created this Converter App as our PBL project using \nJavaFX.\n"+
+                    "\n                          Hope you all enjoy it!\n");
+            aboutUscontentText.setId("contentLabel");
 
             //Creating image view and label for it
+            Label aboutUsimageLabel = new Label();
+            aboutUsimageLabel.setPrefHeight(50);
+            aboutUsimageLabel.setPrefWidth(50);
+            aboutUsimageLabel.setId("aboutUsimageLabel");
 
-            Label imageLabel = new Label();
-            imageLabel.setPrefHeight(50);
-            imageLabel.setPrefWidth(50);
-            imageLabel.setId("imageLabel");
             //Hbox to store header and image label
-            HBox header_Image= new HBox(5 , headertxt ,headertxt1,space , imageLabel);
+            HBox aboutUsheader_Image= new HBox(5,aboutUsheadertxt , aboutUsheadertxt1,space , aboutUsimageLabel);
 
             //Vbox to store the labels
-            VBox box = new VBox(11 , header_Image ,headertxt2, new Separator(Orientation.HORIZONTAL) , contentText);
+            VBox aboutUsVbox = new VBox(11  , aboutUsheader_Image ,aboutUsheadertxt2, new Separator(Orientation.HORIZONTAL) , aboutUscontentText);
 
             //Css for the Vbox
-            box.setId("dialogueVbox");
-            box.setPadding(new Insets(10,0,0,15));
-            box.setPrefHeight(270);
-            box.setPrefWidth(350);
+            aboutUsVbox.setId("dialogueVbox");
+            aboutUsVbox.setPadding(new Insets(10,0,0,15));
+            aboutUsVbox.setPrefHeight(270);
+            aboutUsVbox.setPrefWidth(350);
 
 
             // Button to close the dialogue and its Css
-            Button btn = new Button("OK");
-            btn.setPrefHeight(26);
-            btn.setPrefWidth(55);
-            btn.setId("dialogueOkbutton");
+            Button aboutUsOkbtn = new Button("OK");
+            aboutUsOkbtn.setPrefHeight(26);
+            aboutUsOkbtn.setPrefWidth(55);
+            aboutUsOkbtn.setId("dialogueOkbutton");
 
-            btn.setTranslateX(285);
-            btn.setTranslateY(233);
-            btn.setOnAction(e ->closeDialog());
+            aboutUsOkbtn.setTranslateX(285);
+            aboutUsOkbtn.setTranslateY(233);
+            aboutUsOkbtn.setOnAction(e ->closeDialog());
 
-            root.getChildren().addAll( box, btn);//Adding all the nodes to the root pane
-            Scene scene = new Scene(root,350 , 270);//Creating a scene
-            scene.getStylesheets().add(Objects.requireNonNull(DialogsApp.class.getResource("Calculator.css")).toExternalForm());//Importing the stylesheet
+            aboutUsroot.getChildren().addAll( aboutUsVbox, aboutUsOkbtn);//Adding all the nodes to the root pane
+            Scene scene = new Scene(aboutUsroot,350 , 270);//Creating a scene
+            scene.getStylesheets().add(Objects.requireNonNull(aboutus.class.getResource("Calculator.css")).toExternalForm());//Importing the stylesheet
             setScene(scene);
 
         }

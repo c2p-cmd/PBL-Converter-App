@@ -1,8 +1,5 @@
 package Converter.App;
 
-import java.sql.SQLOutput;
-import java.util.Scanner;
-
 public class Bitwise {
 
     public static String bitwiseCalculate(String stringBit1, String stringBit2, String inputNumberBase, Character bitwiseOperatorChosen) {
@@ -63,6 +60,7 @@ public class Bitwise {
                 break;
             }
             case Controller.HEX: {
+
                 op1 = Byte.parseByte(stringBit1, 16);
                 result = Integer.toHexString( ~op1 );
                 break;
@@ -175,9 +173,6 @@ public class Bitwise {
                     return true;
                 }
             }
-
-
-
         return false;
     }
 }
