@@ -72,7 +72,7 @@ class aboutapp{
             aboutAppheadertxt.setId("headerLabel");
 
             //Label header text one of about app
-            Label aboutAppheadertxt1 = new Label("\nWhat is Converter?\nThis is an all in one converter created using   \nJavaFX.\nThis app is by Engineers, for Engineers.\n");
+            Label aboutAppheadertxt1 = new Label("\nWhat is Converter?\nThis is an all in one converter created using   \nJavaFX.\nThis app is for Engineers, by Engineers.\n");
             aboutAppheadertxt1.setId("header1Label");
 
             //Label header text two of about app
@@ -98,7 +98,7 @@ class aboutapp{
             //Css for the Vbox
             aboutAppbox.setId("dialogueVbox");
             aboutAppbox.setPadding(new Insets(10,0,0,15));
-            aboutAppbox.setPrefHeight(270);
+            aboutAppbox.setPrefHeight(300);
             aboutAppbox.setPrefWidth(350);
 
             // Button to close the dialogue and its Css
@@ -108,11 +108,11 @@ class aboutapp{
             aboutAppbtn.setId("dialogueOkbutton");
 
             aboutAppbtn.setTranslateX(285);
-            aboutAppbtn.setTranslateY(233);
+            aboutAppbtn.setTranslateY(260);
             aboutAppbtn.setOnAction(e ->closeDialog());
 
             aboutApproot.getChildren().addAll( aboutAppbox, aboutAppbtn);//Adding all the nodes to the root pane
-            Scene scene = new Scene(aboutApproot,350 , 270);//Creating a scene
+            Scene scene = new Scene(aboutApproot,350 , 300);//Creating a scene
             scene.getStylesheets().add(Objects.requireNonNull(aboutapp.class.getResource("Calculator.css")).toExternalForm());//Importing the stylesheet
             setScene(scene);
 

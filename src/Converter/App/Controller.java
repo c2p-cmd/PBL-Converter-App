@@ -42,6 +42,9 @@ public class Controller implements Initializable {
     static final String ARCTAN = "arctan(x)";
     static final String RAD = "Radian";
     static final String DEG = "Degree";
+    static final String LOG10 = "log(x)";
+    static final String LOGe = "ln(x)";
+    static final String EXP = "exp(x)";
 
     // variables
     static Character operatorChosen;
@@ -77,10 +80,6 @@ public class Controller implements Initializable {
     public Button treeClearBtn;
     public Button scientificCalculateBtn;
     public Button scientificClearBtn;
-    public Button logCalculateBtn;
-    public Button logClearBtn;
-    public Button expCalculateBtn;
-    public Button expClearBtn;
     public RadioButton infixRadioButton;
     public RadioButton prefixRadioButton;
     public RadioButton postfixRadioButton;
@@ -88,10 +87,7 @@ public class Controller implements Initializable {
     public ChoiceBox<String> isRadianChoiceBox;
     public TextField scientificInputField;
     public TextField scientificResultField;
-    public TextField logBaseInput;
-    public TextField logArgumentInput;
-    public TextField logResultField;
-    public TextField expTextArea;
+
 
 
 
@@ -123,7 +119,7 @@ public class Controller implements Initializable {
         // bitwise Pane
         // adding items
         inputNumberBaseBox.getItems().addAll( BINARY, HEX, OCT, DEC );
-        bitwiseOperatorBox.getItems().addAll( AND, OR, XOR, NOT );
+        bitwiseOperatorBox.getItems().addAll( AND, OR, XOR, NOT , ADD);
 
         try {
             inputNumberBaseBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> inputNumberBase = newValue);
@@ -142,25 +138,25 @@ public class Controller implements Initializable {
             bitwiseCalculateBtn.setOnAction(actionEvent -> {
                 String stringBit1 = TextFieldBit1.getText();
                 String stringBit2 = TextFieldBit2.getText();
-
+                Boolean flag = bitwiseOperatorChosen.equals(NOT);
                 //To check for exceptions in inputs
                 //Bitwise Binary Validator
-                if(inputNumberBase.equals(BINARY) && (Bitwise.binaryValidator(stringBit1,stringBit2))){
+                if(inputNumberBase.equals(BINARY) && (Bitwise.binaryValidator(stringBit1,stringBit2, flag))){
                     warnUser("Invalid Binary Number ⚠️");
                     clearProFields();
                 }
                 //Bitwise Decimal Validator
-                else if(inputNumberBase.equals(DEC) && (Bitwise.decimalValidator(stringBit1,stringBit2))){
+                else if(inputNumberBase.equals(DEC) && (Bitwise.decimalValidator(stringBit1,stringBit2,flag))){
                     warnUser("Invalid Decimal Number");
                     clearProFields();
                 }
                 //Bitwise Hexadecimal Validator
-                else if(inputNumberBase.equals(HEX) && ( Bitwise.hexdecimalValidator( stringBit1 , stringBit2  ) ) ){
+                else if(inputNumberBase.equals(HEX) && ( Bitwise.hexdecimalValidator( stringBit1 , stringBit2 ,flag ) ) ){
                     warnUser("Invalid Hexadecimal Number");
                     clearProFields();
                 }
                 //Bitwise Octal Validator
-                else if(inputNumberBase.equals(OCT) && ( Bitwise.octalValidator( stringBit1 , stringBit2  ) )){
+                else if(inputNumberBase.equals(OCT) && ( Bitwise.octalValidator( stringBit1 , stringBit2 ,flag ) )){
                     warnUser("Invalid Octal Number");
                     clearProFields();
                 }
@@ -269,21 +265,8 @@ public class Controller implements Initializable {
         treeClearBtn.setOnAction( e -> clearTreeFields() );
 
         // Scientific
-
-        // logarithmic
-        logCalculateBtn.setOnAction(e -> {
-            double result;
-            try {
-                result = Scientific.logOf(logBaseInput.getText(), logArgumentInput.getText());
-            } catch (Exception exception) {
-                warnUser(exception.getMessage());
-                result = 0.0;
-            }
-            logResultField.setText("Result: " + result);
-        });
-
         // putting values in operator boxes
-        scientificOperations.getItems().addAll(SIN,SINH,COSEC,COS,COSH,SEC,TAN,TANH,COT,ARCSIN,ARCCOS,ARCTAN);
+        scientificOperations.getItems().addAll(LOGe,LOG10,EXP,SIN,SINH,COSEC,COS,COSH,SEC,TAN,TANH,COT,ARCSIN,ARCCOS,ARCTAN );
         isRadianChoiceBox.getItems().addAll(RAD,DEG);
         isRadianChoiceBox.setValue(RAD);
         // taking input from Trigo
@@ -292,16 +275,16 @@ public class Controller implements Initializable {
             trigoFunctionChosen = newValue;
             scientificInputField.setEditable(true);
             scientificCalculateBtn.setDisable(false);
+            isRadianChoiceBox.setVisible(!newValue.equals(LOG10) && !newValue.equals(LOGe) && !newValue.equals(EXP));
+
         });
 
-        isRadianChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue) -> {
-            //System.out.println("oldValue: " + oldValue + " newValue: " + newValue);
-            isRadian = newValue.equals(RAD);
-        });
+        isRadianChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue) -> isRadian = newValue.equals(RAD));
 
         scientificCalculateBtn.setOnAction(e -> {
             double res;
             String scientificNumber = scientificInputField.getText();
+
             switch (trigoFunctionChosen) {
                 case SIN:
                     res = Scientific.sineOf(scientificNumber , isRadian);
@@ -342,6 +325,15 @@ public class Controller implements Initializable {
                     if (isRadian) res = Math.toRadians( Scientific.arctanOf(scientificNumber) );
                     else res = Scientific.arctanOf(scientificNumber);
                     break;
+                case LOG10:
+                    res =Scientific.logOf(scientificNumber);
+                    break;
+                case LOGe:
+                    res = Scientific.ln(scientificNumber);
+                    break;
+                case EXP:
+                    res = Scientific.expOf(scientificNumber);
+                    break;
                 default:
                     res = 0.0;
                     break;
@@ -349,18 +341,14 @@ public class Controller implements Initializable {
             scientificResultField.setText("Result: " + res);
         });
         scientificClearBtn.setOnAction(e -> clearScientificFields());
-        logClearBtn.setOnAction(e -> clearScientificFields());
-        expClearBtn.setOnAction(e -> clearScientificFields());
+
     }
 
     public void clearScientificFields() {
-        logBaseInput.setText(null);
-        logArgumentInput.setText(null);
-        logResultField.setText(null);
-        expTextArea.setText(null);
         scientificResultField.setText(null);
         scientificInputField.setText(null);
         scientificCalculateBtn.setDisable(true);
+        isRadianChoiceBox.setVisible(true);
     }
 
     private void clearTreetxtFields() {

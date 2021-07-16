@@ -21,19 +21,24 @@ public class Scientific {
     }
 
     // logOf
-    public static double logOf(String base, String argument) {
+    public static double logOf( String argument) {
         try {
             double b = scientificInputValidator(argument);
-            if (base.equals("e"))
-                return Math.log(b);
-            double a = scientificInputValidator(base);
-            // log a b = c;
-            return (Math.log10(b)/Math.log10(a));
+
+            return (Math.log10(b));
         } catch (NumberFormatException numberFormatException) {
             return 0.0;
         }
     }
 
+    public static double ln(String argument){
+        try{
+            double b = scientificInputValidator(argument);
+            return Math.log(b);
+        }catch(NumberFormatException numberFormatException){
+            return 0.0;
+        }
+    }
     // sin(x)
     public static double sineOf(String number, boolean isRadian) {
         try {

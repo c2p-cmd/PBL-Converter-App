@@ -58,7 +58,7 @@ class aboutus{
 
             Label space = new Label();
             space.setPrefHeight(50);
-            space.setPrefWidth(15);
+            space.setPrefWidth(10);
 
 
             initStyle(StageStyle.TRANSPARENT);//Set the scene transparent

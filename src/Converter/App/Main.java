@@ -1,5 +1,6 @@
 package Converter.App;
 
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("Calculator.css")).toExternalForm());
         primaryStage.setTitle("Converter App");
-        primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("three.jpg"))));
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("mainIcon.png"))));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
