@@ -52,6 +52,7 @@
     -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7 ,grey 90%);
 }
 
+
 /*Setting Values of the Root Grid Pane*/
 #rootGridPane{
     -fx-background-color:#EDEDED;
@@ -174,6 +175,127 @@
             linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
 }
 
+
+/*Scientific Tab*/
+#scientificTab{
+    -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7);
+}
+#scientificTab:hover{
+    -fx-background-color: #D9D9D9;
+}
+#scientificTab:selected{
+    -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7 ,grey 90%);
+}
+
+/*Scientific tab radian choice box*/
+#isRadianChoiceBox{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+/*Scientific tab input field */
+#scientificInputField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#scientificInputField:focused ,#scientificInputField:showing ,#scientificInputField:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+
+}
+
+/*Scientific tab result field */
+#scientificResultField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#scientificResultField:focused ,#scientificResultField:showing ,#scientificResultField:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+
+}
+
+/*Scientific tab clear button */
+#scientificClearBtn{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#scientificClearBtn:hover ,#scientificClearBtn:showing ,#scientificClearBtn:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+/*Scientific tab calculate button*/
+#scientificCalculateBtn{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#scientificCalculateBtn:hover ,#scientificCalculateBtn:showing ,#scientificCalculateBtn:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+/*Scientific Tab*/
+
+
+/*Unit Conversion Tab*/
+#unitConversionTab{
+    -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7);
+}
+#unitConversionTab:hover{
+    -fx-background-color: #D9D9D9;
+}
+#unitConversionTab:selected{
+    -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7 ,grey 90%);
+}
+
+/*Unit Conversion Tab*/
 
 /*MENU BAR*/
 /*Setting the default bg colour for menu pane*/

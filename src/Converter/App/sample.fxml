@@ -165,30 +165,30 @@
                 </GridPane>
             </AnchorPane>
         </Tab>
-        <Tab fx:id="scientificTab2" text="Scientific">
+        <Tab fx:id="scientificTab" text="Scientific">
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                        <ComboBox fx:id="scientificOperations" layoutX="69.0" layoutY="116.0" promptText="Choose Operation" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="87.0" prefWidth="69.0">
                         <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0" text="Scientific Mode" textAlignment="CENTER">
                             <font>
                                 <Font name="Lucida Grande" size="25.0" />
                             </font>
                         </Label>
-                        <Label fx:id="inputLabel" alignment="CENTER" layoutX="313.0" layoutY="80.0" prefHeight="36.0" prefWidth="287.0" text="  Enter number">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="scientificInputField" alignment="CENTER" editable="false" layoutX="378.0" layoutY="116.0" promptText="0.0" />
-                        <TextField fx:id="scientificResultField" editable="false" layoutX="125.0" layoutY="168.0" prefHeight="47.0" prefWidth="343.0" promptText="Result: 0.0" />
-                        <ChoiceBox fx:id="isRadianChoiceBox" layoutX="248.0" layoutY="116.0" prefHeight="26.0" prefWidth="118.0" />
+                        <TextField fx:id="scientificInputField" alignment="CENTER" editable="false" layoutX="378.0" layoutY="118.0" prefHeight="29" promptText="0.0" />
                     </AnchorPane>
                      <Button fx:id="scientificClearBtn" layoutX="399.0" layoutY="282.0" prefHeight="26.0" prefWidth="125.0" text="Clear" />
                      <Button fx:id="scientificCalculateBtn" disable="true" layoutX="76.0" layoutY="281.0" prefHeight="26.0" prefWidth="125.0" text="Calculate" />
+                     <ComboBox fx:id="scientificOperations" layoutX="58.0" layoutY="118.0" prefHeight="28.0" prefWidth="164.0" promptText="Choose Operation" />
+                     <ChoiceBox fx:id="isRadianChoiceBox" layoutX="241.0" layoutY="118.0" prefHeight="26.0" prefWidth="118.0" />
+                     <TextField fx:id="scientificResultField" editable="false" layoutX="130.0" layoutY="182.0" prefHeight="47.0" prefWidth="343.0" promptText="Result: 0.0" />
+                     <Label fx:id="inputLabel" alignment="CENTER" layoutX="326.0" layoutY="84.0" prefHeight="36.0" prefWidth="287.0" text="  Enter number">
+                         <font>
+                             <Font size="14.0" />
+                         </font>
+                     </Label>
                 </AnchorPane>
         </Tab>
-        <Tab fx:id="unitConversion" text="Unit Conversion">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="200.0" prefHeight="180.0">
+        <Tab fx:id="unitConversionTab" text="Unit Conversion">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                 <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0" text="Unit Conversion Mode" textAlignment="CENTER">
                     <font>
                         <Font name="Lucida Grande" size="25.0" />
