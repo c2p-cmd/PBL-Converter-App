@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.javamoney:moneta-bp:1.1" type="repository">
+    <properties maven-id="org.javamoney:moneta-bp:1.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javamoney/moneta-bp/1.1/moneta-bp-1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/money/money-api-bp/1.0.1/money-api-bp-1.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

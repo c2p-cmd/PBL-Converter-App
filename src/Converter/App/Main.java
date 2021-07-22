@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+
+
 public class Main extends Application {
 
     Controller controller;
@@ -30,7 +32,6 @@ public class Main extends Application {
         //Menu pane Creation
         Pane menuPane = (Pane) rootNode.getChildren().get(0);
         menuPane.getChildren().add(menuBar);
-
         //Creating a scene
         Scene scene = new Scene(rootNode);
         primaryStage.setScene(scene);
