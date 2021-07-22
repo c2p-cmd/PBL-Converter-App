@@ -284,7 +284,7 @@ public class Controller implements Initializable {
 
         scientificCalculateBtn.setOnAction(e -> {
             double res;
-            String scientificNumber = scientificInputField.getText();
+            String scientificNumber = (scientificInputField.getText() == null) ? "0.0" : scientificInputField.getText();
 
             switch (trigoFunctionChosen) {
                 case SIN:

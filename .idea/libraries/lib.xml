@@ -8,14 +8,9 @@
       <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib" />
     </NATIVE>
     <SOURCES>
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.base" />
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.controls" />
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.fxml" />
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.graphics" />
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.media" />
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.swing" />
-      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib/javafx.web" />
+      <root url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib" />
     </SOURCES>
     <jarDirectory url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Documents/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

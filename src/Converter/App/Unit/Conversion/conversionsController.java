@@ -1,5 +1,7 @@
-package Converter.App;
-import Converter.App.UnitConversion.*;
+package Converter.App.Unit.Conversion;
+
+import Converter.App.Unit.Conversion.UnitConversion.*;
+
 public class conversionsController {
 
     public static double conversionsInputValidator(String number) throws NumberFormatException {
@@ -12,7 +14,7 @@ public class conversionsController {
     }
 
     //Class if user wants to perform conversions on Distances
-    public static class forDistance{
+    public static class ForDistance{
 
         //Variables
         public static final String  Cm    = "Centimeter";
@@ -24,960 +26,1048 @@ public class conversionsController {
         public static final String  Inch  = "Inch";
         public static final String  NauticalMi = "Nautical Mile ";
 
+        private final String fromUnit;
+        private final double value;
 
-        public static double distance(String num , String unit1 , String unit2){
-            try {
-                double value = conversionsInputValidator(num);
-                switch(unit1){
-                    //Case if user chooses conversions from Centimeter
-                    case Cm:
-                        switch (unit2){
-                            case Cm:
-                                return value;
-                            case m:
-                                return Distance.centiToMeter(value);
-                            case KM:
-                                return Distance.centiToKilo(value);
-                            case Miles:
-                                return Distance.centiToMiles(value);
-                            case Yards:
-                                return Distance.centiToYard(value);
-                            case Ft:
-                                return Distance.centiToFoot(value);
-                            case Inch:
-                                return Distance.centiToInches(value);
-                            case NauticalMi:
-                                return Distance.centiToNauticalMiles(value);
-                        }
-                        break;
+        ForDistance(String stringNum, String fromUnit) {
+            this.value = conversionsInputValidator(stringNum);
+            this.fromUnit = fromUnit;
+        }
 
-                    //Case if user chooses conversions from Meter
-                    case m:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.meterToCenti(value);
-                            case m:
-                                return value;
-                            case KM:
-                                return Distance.meterToKilo(value);
-                            case Miles:
-                                return Distance.meterToMiles(value);
-                            case Yards:
-                                return Distance.meterToYard(value);
-                            case Ft:
-                                return Distance.meterToFoot(value);
-                            case Inch:
-                                return Distance.meterToInches(value);
-                            case NauticalMi:
-                                return Distance.meterToNauticalMiles(value);
-                        }
-                        break;
-
-                    //Case if user chooses conversions from Kilo Meter
-                    case KM:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.kiloToCenti(value);
-                            case m:
-                                return Distance.kiloToMeter(value);
-                            case KM:
-                                return  value;
-                            case Miles:
-                                return Distance.kiloToMiles(value);
-                            case Yards:
-                                return Distance.kiloToYard(value);
-                            case Ft:
-                                return Distance.kiloToFoot(value);
-                            case Inch:
-                                return Distance.kiloToInches(value);
-                            case NauticalMi:
-                                return Distance.kiloToNauticalMiles(value);
-                        }
-                        break;
-
-                    //Case if user chooses conversions from Miles
-                    case Miles:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.milesToCenti(value);
-                            case m:
-                                return Distance.milesToMeter(value);
-                            case KM:
-                                return  Distance.milesToKilo(value);
-                            case Miles:
-                                return value;
-                            case Yards:
-                                return Distance.milesToYard(value);
-                            case Ft:
-                                return Distance.milesToFoot(value);
-                            case Inch:
-                                return Distance.milesToInches(value);
-                            case NauticalMi:
-                                return Distance.milesToNauticalMiles(value);
-                        }
-                        break;
-
-                    //Case if user chooses conversions from Yards
-                    case Yards:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.yardToCenti(value);
-                            case m:
-                                return Distance.yardToMeter(value);
-                            case KM:
-                                return  Distance.yardToKilo(value);
-                            case Miles:
-                                return Distance.yardToMiles(value);
-                            case Yards:
-                                return value;
-                            case Ft:
-                                return Distance.yardToFoot(value);
-                            case Inch:
-                                return Distance.yardToInches(value);
-                            case NauticalMi:
-                                return Distance.yardToNauticalMiles(value);
-                        }
-                        break;
-
-                    //Case if user chooses conversions from Feet
-                    case Ft:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.footToCenti(value);
-                            case m:
-                                return Distance.footToMeter(value);
-                            case KM:
-                                return  Distance.footToKilo(value);
-                            case Miles:
-                                return Distance.footToMiles(value);
-                            case Yards:
-                                return Distance.footToYard(value);
-                            case Ft:
-                                return value;
-                            case Inch:
-                                return Distance.footToInches(value);
-                            case NauticalMi:
-                                return Distance.footToNauticalMiles(value);
-                        }
-                        break;
-
-                    //Case if user chooses conversions from Inches
-                    case Inch:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.inchesToCenti(value);
-                            case m:
-                                return Distance.inchesToMeter(value);
-                            case KM:
-                                return  Distance.inchesToKilo(value);
-                            case Miles:
-                                return Distance.inchesToMiles(value);
-                            case Yards:
-                                return Distance.inchesToYard(value);
-                            case Ft:
-                                return Distance.inchesToFoot(value);
-                            case Inch:
-                                return value;
-                            case NauticalMi:
-                                return Distance.inchesToNauticalMiles(value);
-                        }
-                        break;
-
-                    //Case if user chooses conversions from Nautical Miles
-                    case NauticalMi:
-                        switch (unit2){
-                            case Cm:
-                                return Distance.nauticalMilesToCenti(value);
-                            case m:
-                                return Distance.nauticalMilesToMeter(value);
-                            case KM:
-                                return  Distance.nauticalMilesToKilo(value);
-                            case Miles:
-                                return Distance.nauticalMilesToMiles(value);
-                            case Yards:
-                                return Distance.nauticalMilesToYard(value);
-                            case Ft:
-                                return Distance.nauticalMilesToFoot(value);
-                            case Inch:
-                                return Distance.nauticalMilesToInches(value);
-                            case NauticalMi:
-                                return value;
-                        }
-                        break;
-                    default:
-                        return 0.0;
-                }
+        public double toCM(){
+            switch (this.fromUnit){
+                case Cm:
+                    return value;
+                case m:
+                    return Distance.centiToMeter(value);
+                case KM:
+                    return Distance.centiToKilo(value);
+                case Miles:
+                    return Distance.centiToMiles(value);
+                case Yards:
+                    return Distance.centiToYard(value);
+                case Ft:
+                    return Distance.centiToFoot(value);
+                case Inch:
+                    return Distance.centiToInches(value);
+                case NauticalMi:
+                    return Distance.centiToNauticalMiles(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
+        }
+
+        public double toMeter() {
+            switch (this.fromUnit){
+                case Cm:
+                    return UnitConversion.Distance.meterToCenti(value);
+                case m:
+                    return value;
+                case KM:
+                    return UnitConversion.Distance.meterToKilo(value);
+                case Miles:
+                    return UnitConversion.Distance.meterToMiles(value);
+                case Yards:
+                    return UnitConversion.Distance.meterToYard(value);
+                case Ft:
+                    return UnitConversion.Distance.meterToFoot(value);
+                case Inch:
+                    return UnitConversion.Distance.meterToInches(value);
+                case NauticalMi:
+                    return UnitConversion.Distance.meterToNauticalMiles(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+
+        public double toKiloMeter() {
+            switch (this.fromUnit) {
+                case Cm:
+                    return UnitConversion.Distance.kiloToCenti(value);
+                case m:
+                    return UnitConversion.Distance.kiloToMeter(value);
+                case KM:
+                    return value;
+                case Miles:
+                    return UnitConversion.Distance.kiloToMiles(value);
+                case Yards:
+                    return UnitConversion.Distance.kiloToYard(value);
+                case Ft:
+                    return UnitConversion.Distance.kiloToFoot(value);
+                case Inch:
+                    return UnitConversion.Distance.kiloToInches(value);
+                case NauticalMi:
+                    return UnitConversion.Distance.kiloToNauticalMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toMiles() {
+            switch (this.fromUnit){
+                case Cm:
+                    return UnitConversion.Distance.milesToCenti(value);
+                case m:
+                    return UnitConversion.Distance.milesToMeter(value);
+                case KM:
+                    return  UnitConversion.Distance.milesToKilo(value);
+                case Miles:
+                    return value;
+                case Yards:
+                    return UnitConversion.Distance.milesToYard(value);
+                case Ft:
+                    return UnitConversion.Distance.milesToFoot(value);
+                case Inch:
+                    return UnitConversion.Distance.milesToInches(value);
+                case NauticalMi:
+                    return UnitConversion.Distance.milesToNauticalMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toYards() {
+            switch (this.fromUnit){
+                case Cm:
+                    return UnitConversion.Distance.yardToCenti(value);
+                case m:
+                    return UnitConversion.Distance.yardToMeter(value);
+                case KM:
+                    return UnitConversion.Distance.yardToKilo(value);
+                case Miles:
+                    return UnitConversion.Distance.yardToMiles(value);
+                case Yards:
+                    return value;
+                case Ft:
+                    return UnitConversion.Distance.yardToFoot(value);
+                case Inch:
+                    return UnitConversion.Distance.yardToInches(value);
+                case NauticalMi:
+                    return UnitConversion.Distance.yardToNauticalMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toFeet() {
+            switch (this.fromUnit){
+                case Cm:
+                    return UnitConversion.Distance.footToCenti(value);
+                case m:
+                    return UnitConversion.Distance.footToMeter(value);
+                case KM:
+                    return  UnitConversion.Distance.footToKilo(value);
+                case Miles:
+                    return UnitConversion.Distance.footToMiles(value);
+                case Yards:
+                    return UnitConversion.Distance.footToYard(value);
+                case Ft:
+                    return value;
+                case Inch:
+                    return UnitConversion.Distance.footToInches(value);
+                case NauticalMi:
+                    return UnitConversion.Distance.footToNauticalMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toInches() {
+            switch (this.fromUnit) {
+                case Cm:
+                    return UnitConversion.Distance.inchesToCenti(value);
+                case m:
+                    return UnitConversion.Distance.inchesToMeter(value);
+                case KM:
+                    return  UnitConversion.Distance.inchesToKilo(value);
+                case Miles:
+                    return UnitConversion.Distance.inchesToMiles(value);
+                case Yards:
+                    return UnitConversion.Distance.inchesToYard(value);
+                case Ft:
+                    return UnitConversion.Distance.inchesToFoot(value);
+                case Inch:
+                    return value;
+                case NauticalMi:
+                    return UnitConversion.Distance.inchesToNauticalMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toNauticalMiles() {
+            switch (this.fromUnit) {
+                case Cm:
+                    return UnitConversion.Distance.nauticalMilesToCenti(value);
+                case m:
+                    return UnitConversion.Distance.nauticalMilesToMeter(value);
+                case KM:
+                    return  UnitConversion.Distance.nauticalMilesToKilo(value);
+                case Miles:
+                    return UnitConversion.Distance.nauticalMilesToMiles(value);
+                case Yards:
+                    return UnitConversion.Distance.nauticalMilesToYard(value);
+                case Ft:
+                    return UnitConversion.Distance.nauticalMilesToFoot(value);
+                case Inch:
+                    return UnitConversion.Distance.nauticalMilesToInches(value);
+                case NauticalMi:
+                    return value;
+                default:
+                    return 0.0;
+            }
         }
     }
     //Class For distance Ends
 
     //Class if user wants to perform conversions on Distances
-    public static class forWeight{
+    public static class ForWeight{
         //Variables
-        public static final String Carat    = " Carat";
-        public static final String MilliGm  = " Milligram";
-        public static final String CentiGM  = " Centigram";
-        public static final String DeciGm   = " Decigram";
-        public static final String gm       = " Gram";
-        public static final String DecaGm   = " Decagram";
-        public static final String HectoGm  = " Hectogram";
-        public static final String kg       = " Kilogram";
-        public static final String metricTn = " Metric Tonne";
-        public static final String Ounces   = " Ounce";
-        public static final String Pounds   = " Pound";
-        public static final String Stone    = " Stone";
+        private static final String Carat    = "Carat";
+        private static final String MilliGm  = "Milligram";
+        private static final String CentiGM  = "Centigram";
+        private static final String DeciGm   = "DeciGram";
+        private static final String gm       = "Gram";
+        private static final String DecaGm   = "DecaGram";
+        private static final String HectoGm  = "Hectogram";
+        private static final String kg       = "Kilogram";
+        private static final String metricTn = "Metric Tonne";
+        private static final String Ounces   = "Ounce";
+        private static final String Pounds   = "Pound";
+        private static final String Stone    = "Stone";
 
-        public static double weight(String num , String unit1 , String unit2){
+        private final String fromUnit;
+        private final double value;
 
-            try{
-                double value = conversionsInputValidator(num);
-
-                switch (unit1){
-                    //Case if user wants conversions from Carats
-                    case Carat:
-                        switch (unit2){
-                            case Carat:
-                                return value;
-                            case MilliGm:
-                                return Weight.caratsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.caratsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.caratsToDecigrams(value);
-                            case gm:
-                                return Weight.caratsToGrams(value);
-                            case DecaGm:
-                                return Weight.caratsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.caratsToHectograms(value);
-                            case kg:
-                                return Weight.caratsToKilograms(value);
-                            case metricTn:
-                                return Weight.caratsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.caratsToOunces(value);
-                            case Pounds:
-                                return Weight.caratsToPounds(value);
-                            case Stone:
-                                return Weight.caratsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Milligrams
-                    case MilliGm:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.milligramsToCarats(value);
-                            case MilliGm:
-                                return value;
-                            case CentiGM:
-                                return Weight.milligramsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.milligramsToDecigrams(value);
-                            case gm:
-                                return Weight.milligramsToGrams(value);
-                            case DecaGm:
-                                return Weight.milligramsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.milligramsToHectograms(value);
-                            case kg:
-                                return Weight.milligramsToKilograms(value);
-                            case metricTn:
-                                return Weight.milligramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.milligramsToOunces(value);
-                            case Pounds:
-                                return Weight.milligramsToPounds(value);
-                            case Stone:
-                                return Weight.milligramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from CentiGrams
-                    case CentiGM:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.centigramsToCarats(value);
-                            case MilliGm:
-                                return Weight.centigramsToMilligrams(value);
-                            case CentiGM:
-                                return value;
-                            case DeciGm:
-                                return Weight.centigramsToDecigrams(value);
-                            case gm:
-                                return Weight.centigramsToGrams(value);
-                            case DecaGm:
-                                return Weight.centigramsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.centigramsToHectograms(value);
-                            case kg:
-                                return Weight.centigramsToKilograms(value);
-                            case metricTn:
-                                return Weight.centigramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.centigramsToOunces(value);
-                            case Pounds:
-                                return Weight.centigramsToPounds(value);
-                            case Stone:
-                                return Weight.centigramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from DeciGrams
-                    case DeciGm:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.decigramsToCarats(value);
-                            case MilliGm:
-                                return Weight.decigramsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.decigramsToCentigrams(value);
-                            case DeciGm:
-                                return value;
-                            case gm:
-                                return Weight.decigramsToGrams(value);
-                            case DecaGm:
-                                return Weight.decigramsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.decigramsToHectograms(value);
-                            case kg:
-                                return Weight.decigramsToKilograms(value);
-                            case metricTn:
-                                return Weight.decigramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.decigramsToOunces(value);
-                            case Pounds:
-                                return Weight.decigramsToPounds(value);
-                            case Stone:
-                                return Weight.decigramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Grams
-                    case gm:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.gramsToCarats(value);
-                            case MilliGm:
-                                return Weight.gramsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.gramsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.gramsToDecigrams(value);
-                            case gm:
-                                return value;
-                            case DecaGm:
-                                return Weight.gramsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.gramsToHectograms(value);
-                            case kg:
-                                return Weight.gramsToKilograms(value);
-                            case metricTn:
-                                return Weight.gramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.gramsToOunces(value);
-                            case Pounds:
-                                return Weight.gramsToPounds(value);
-                            case Stone:
-                                return Weight.gramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from DecaGrams
-                    case DecaGm:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.decagramsToCarats(value);
-                            case MilliGm:
-                                return Weight.decagramsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.decagramsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.decagramsToDecigrams(value);
-                            case gm:
-                                return Weight.decagramsToGrams(value);
-                            case DecaGm:
-                                return value;
-                            case HectoGm:
-                                return Weight.decagramsToHectograms(value);
-                            case kg:
-                                return Weight.decagramsToKilograms(value);
-                            case metricTn:
-                                return Weight.decagramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.decagramsToOunces(value);
-                            case Pounds:
-                                return Weight.decagramsToPounds(value);
-                            case Stone:
-                                return Weight.decagramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from HectoGrams
-                    case HectoGm:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.hectogramsToCarats(value);
-                            case MilliGm:
-                                return Weight.hectogramsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.hectogramsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.hectogramsToDecigrams(value);
-                            case gm:
-                                return Weight.hectogramsToGrams(value);
-                            case DecaGm:
-                                return Weight.hectogramsToDecagrams(value);
-                            case HectoGm:
-                                return (value);
-                            case kg:
-                                return Weight.hectogramsToKilograms(value);
-                            case metricTn:
-                                return Weight.hectogramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.hectogramsToOunces(value);
-                            case Pounds:
-                                return Weight.hectogramsToPounds(value);
-                            case Stone:
-                                return Weight.hectogramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from KiloGrams
-                    case kg:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.kilogramsToCarats(value);
-                            case MilliGm:
-                                return Weight.kilogramsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.kilogramsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.kilogramsToDecigrams(value);
-                            case gm:
-                                return Weight.kilogramsToGrams(value);
-                            case DecaGm:
-                                return Weight.kilogramsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.kilogramsToHectograms(value);
-                            case kg:
-                                return (value);
-                            case metricTn:
-                                return Weight.kilogramsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.kilogramsToOunces(value);
-                            case Pounds:
-                                return Weight.kilogramsToPounds(value);
-                            case Stone:
-                                return Weight.kilogramsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from MetricTonnes
-                    case metricTn:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.metrictonnesToCarats(value);
-                            case MilliGm:
-                                return Weight.metrictonnesToMilligrams(value);
-                            case CentiGM:
-                                return Weight.metrictonnesToCentigrams(value);
-                            case DeciGm:
-                                return Weight.metrictonnesToDecigrams(value);
-                            case gm:
-                                return Weight.metrictonnesToGrams(value);
-                            case DecaGm:
-                                return Weight.metrictonnesToDecagrams(value);
-                            case HectoGm:
-                                return Weight.metrictonnesToHectograms(value);
-                            case kg:
-                                return Weight.metrictonnesToKilograms(value);
-                            case metricTn:
-                                return value;
-                            case Ounces:
-                                return Weight.metrictonnesToOunces(value);
-                            case Pounds:
-                                return Weight.metrictonnesToPounds(value);
-                            case Stone:
-                                return Weight.metrictonnesToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Ounces
-                    case Ounces:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.ouncesToCarats(value);
-                            case MilliGm:
-                                return Weight.ouncesToMilligrams(value);
-                            case CentiGM:
-                                return Weight.ouncesToCentigrams(value);
-                            case DeciGm:
-                                return Weight.ouncesToDecigrams(value);
-                            case gm:
-                                return Weight.ouncesToGrams(value);
-                            case DecaGm:
-                                return Weight.ouncesToDecagrams(value);
-                            case HectoGm:
-                                return Weight.ouncesToHectograms(value);
-                            case kg:
-                                return Weight.ouncesToKilograms(value);
-                            case metricTn:
-                                return Weight.ouncesToMetricTonnes(value);
-                            case Ounces:
-                                return value;
-                            case Pounds:
-                                return Weight.ouncesToPounds(value);
-                            case Stone:
-                                return Weight.ouncesToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Pounds
-                    case Pounds:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.poundsToCarats(value);
-                            case MilliGm:
-                                return Weight.poundsToMilligrams(value);
-                            case CentiGM:
-                                return Weight.poundsToCentigrams(value);
-                            case DeciGm:
-                                return Weight.poundsToDecigrams(value);
-                            case gm:
-                                return Weight.poundsToGrams(value);
-                            case DecaGm:
-                                return Weight.poundsToDecagrams(value);
-                            case HectoGm:
-                                return Weight.poundsToHectograms(value);
-                            case kg:
-                                return Weight.poundsToKilograms(value);
-                            case metricTn:
-                                return Weight.poundsToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.poundsToOunces(value);
-                            case Pounds:
-                                return value;
-                            case Stone:
-                                return Weight.poundsToStone(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Stone
-                    case Stone:
-                        switch (unit2){
-                            case Carat:
-                                return Weight.stoneToCarats(value);
-                            case MilliGm:
-                                return Weight.stoneToMilligrams(value);
-                            case CentiGM:
-                                return Weight.stoneToCentigrams(value);
-                            case DeciGm:
-                                return Weight.stoneToDecigrams(value);
-                            case gm:
-                                return Weight.stoneToGrams(value);
-                            case DecaGm:
-                                return Weight.stoneToDecagrams(value);
-                            case HectoGm:
-                                return Weight.stoneToHectograms(value);
-                            case kg:
-                                return Weight.stoneToKilograms(value);
-                            case metricTn:
-                                return Weight.stoneToMetricTonnes(value);
-                            case Ounces:
-                                return Weight.stoneToOunces(value);
-                            case Pounds:
-                                return Weight.stoneToPounds(value);
-                            case Stone:
-                                return value;
-                        }
-                        break;
-                    default:
-                        return 0.0;
-                }
-            }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
-            }
-            return 0.0;
+        ForWeight(String fromUnit, double value) {
+            this.fromUnit = fromUnit;
+            this.value = value;
         }
 
+        public double toCarat() {
+            switch (this.fromUnit){
+                case Carat:
+                    return value;
+                case MilliGm:
+                    return UnitConversion.Weight.caratsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.caratsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.caratsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.caratsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.caratsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.caratsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.caratsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.caratsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.caratsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.caratsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.caratsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toMilliGram() {
+            switch (this.fromUnit) {
+                case Carat:
+                    return UnitConversion.Weight.milligramsToCarats(value);
+                case MilliGm:
+                    return value;
+                case CentiGM:
+                    return UnitConversion.Weight.milligramsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.milligramsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.milligramsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.milligramsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.milligramsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.milligramsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.milligramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.milligramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.milligramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.milligramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toCentiGram() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.centigramsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.centigramsToMilligrams(value);
+                case CentiGM:
+                    return value;
+                case DeciGm:
+                    return UnitConversion.Weight.centigramsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.centigramsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.centigramsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.centigramsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.centigramsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.centigramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.centigramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.centigramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.centigramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toDeciGram() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.decigramsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.decigramsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.decigramsToCentigrams(value);
+                case DeciGm:
+                    return value;
+                case gm:
+                    return UnitConversion.Weight.decigramsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.decigramsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.decigramsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.decigramsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.decigramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.decigramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.decigramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.decigramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toGrams() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.gramsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.gramsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.gramsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.gramsToDecigrams(value);
+                case gm:
+                    return value;
+                case DecaGm:
+                    return UnitConversion.Weight.gramsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.gramsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.gramsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.gramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.gramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.gramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.gramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toDecaGrams() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.decagramsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.decagramsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.decagramsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.decagramsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.decagramsToGrams(value);
+                case DecaGm:
+                    return value;
+                case HectoGm:
+                    return UnitConversion.Weight.decagramsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.decagramsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.decagramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.decagramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.decagramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.decagramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toHectoGrams() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.hectogramsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.hectogramsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.hectogramsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.hectogramsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.hectogramsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.hectogramsToDecagrams(value);
+                case HectoGm:
+                    return (value);
+                case kg:
+                    return UnitConversion.Weight.hectogramsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.hectogramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.hectogramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.hectogramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.hectogramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toKiloGrams() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.kilogramsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.kilogramsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.kilogramsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.kilogramsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.kilogramsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.kilogramsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.kilogramsToHectograms(value);
+                case kg:
+                    return (value);
+                case metricTn:
+                    return UnitConversion.Weight.kilogramsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.kilogramsToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.kilogramsToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.kilogramsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toMetricTonnes() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.metrictonnesToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.metrictonnesToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.metrictonnesToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.metrictonnesToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.metrictonnesToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.metrictonnesToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.metrictonnesToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.metrictonnesToKilograms(value);
+                case metricTn:
+                    return value;
+                case Ounces:
+                    return UnitConversion.Weight.metrictonnesToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.metrictonnesToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.metrictonnesToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toOunces() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.ouncesToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.ouncesToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.ouncesToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.ouncesToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.ouncesToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.ouncesToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.ouncesToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.ouncesToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.ouncesToMetricTonnes(value);
+                case Ounces:
+                    return value;
+                case Pounds:
+                    return UnitConversion.Weight.ouncesToPounds(value);
+                case Stone:
+                    return UnitConversion.Weight.ouncesToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toPounds() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.poundsToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.poundsToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.poundsToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.poundsToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.poundsToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.poundsToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.poundsToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.poundsToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.poundsToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.poundsToOunces(value);
+                case Pounds:
+                    return value;
+                case Stone:
+                    return UnitConversion.Weight.poundsToStone(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toStones() {
+            switch (this.fromUnit){
+                case Carat:
+                    return UnitConversion.Weight.stoneToCarats(value);
+                case MilliGm:
+                    return UnitConversion.Weight.stoneToMilligrams(value);
+                case CentiGM:
+                    return UnitConversion.Weight.stoneToCentigrams(value);
+                case DeciGm:
+                    return UnitConversion.Weight.stoneToDecigrams(value);
+                case gm:
+                    return UnitConversion.Weight.stoneToGrams(value);
+                case DecaGm:
+                    return UnitConversion.Weight.stoneToDecagrams(value);
+                case HectoGm:
+                    return UnitConversion.Weight.stoneToHectograms(value);
+                case kg:
+                    return UnitConversion.Weight.stoneToKilograms(value);
+                case metricTn:
+                    return UnitConversion.Weight.stoneToMetricTonnes(value);
+                case Ounces:
+                    return UnitConversion.Weight.stoneToOunces(value);
+                case Pounds:
+                    return UnitConversion.Weight.stoneToPounds(value);
+                case Stone:
+                    return value;
+                default:
+                    return 0.0;
+            }
+        }
     }
     //Weight Class Ends
 
-
     //Class if user wants to perform conversions on angles
-    public static class angle{
+    public static class ForAngle{
 
         //Variables
         public static final String Deg    = "Degree";
-        public static final String Rad    = " Radian";
-        public static final String ArcSec = " ArcSecond";
-        public static final String Grad   = "Gradian ";
-        public static double forWeight(String num , String unit1 , String unit2){
+        public static final String Rad    = "Radian";
+        public static final String ArcSec = "ArcSecond";
+        public static final String Grad   = "Gradian";
 
-            try{
-                double value = conversionsInputValidator(num);
+        private final String fromUnit;
+        private final double value;
 
-                switch (unit1){
+        ForAngle(String fromUnit, double value) {
+            this.fromUnit = fromUnit;
+            this.value = value;
+        }
 
-                    //Case if user wants to perform conversions from Degree
-                    case Deg:
-                        switch (unit2){
-                            case Deg:
-                                return value;
-                            case Rad:
-                                return Angle.degreeToRadians(value);
-                            case ArcSec:
-                                return Angle.degreeToArcSeconds(value);
-                            case Grad:
-                                return Angle.degreeToGradians(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions from Radians
-                    case Rad:
-                        switch (unit2){
-                            case Deg:
-                                return Angle.radiansToDegree(value);
-                            case Rad:
-                                return (value);
-                            case ArcSec:
-                                return Angle.radiansToArcSeconds(value);
-                            case Grad:
-                                return Angle.radiansToGradians(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions from ArcSeconds
-                    case ArcSec:
-                        switch (unit2){
-                            case Deg:
-                                return Angle.arcSecondsToDegree(value);
-                            case Rad:
-                                return Angle.arcSecondsToRadians(value);
-                            case ArcSec:
-                                return (value);
-                            case Grad:
-                                return Angle.arcSecondsToGradians(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions from Gradians
-                    case Grad:
-                        switch (unit2){
-                            case Deg:
-                                return Angle.gradiansToDegree(value);
-                            case Rad:
-                                return Angle.gradiansToRadians(value);
-                            case ArcSec:
-                                return Angle.gradiansToArcSeconds(value);
-                            case Grad:
-                                return (value);
-                        }
-                        break;
-                }
+        public double toDegrees() {
+            switch (this.fromUnit){
+                case Deg:
+                    return value;
+                case Rad:
+                    return UnitConversion.Angle.degreeToRadians(value);
+                case ArcSec:
+                    return UnitConversion.Angle.degreeToArcSeconds(value);
+                case Grad:
+                    return UnitConversion.Angle.degreeToGradians(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
+        }
+
+        public double toRadians() {
+            switch (this.fromUnit) {
+                case Deg:
+                    return UnitConversion.Angle.radiansToDegree(value);
+                case Rad:
+                    return (value);
+                case ArcSec:
+                    return UnitConversion.Angle.radiansToArcSeconds(value);
+                case Grad:
+                    return UnitConversion.Angle.radiansToGradians(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+
+        public double toArcSeconds() {
+            switch (this.fromUnit){
+                case Deg:
+                    return UnitConversion.Angle.arcSecondsToDegree(value);
+                case Rad:
+                    return UnitConversion.Angle.arcSecondsToRadians(value);
+                case ArcSec:
+                    return (value);
+                case Grad:
+                    return UnitConversion.Angle.arcSecondsToGradians(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toGradian() {
+            switch (this.fromUnit){
+                case Deg:
+                    return UnitConversion.Angle.gradiansToDegree(value);
+                case Rad:
+                    return UnitConversion.Angle.gradiansToRadians(value);
+                case ArcSec:
+                    return UnitConversion.Angle.gradiansToArcSeconds(value);
+                case Grad:
+                    return (value);
+                default:
+                    return 0.0;
+            }
         }
     }
     //Angle Class ends
 
     //Class if user wants to perform conversions on Areas
-    public static class forArea{
-
+    public static class ForArea{
         //Variables
-        public static final String Sqmm   = "Square Millimetre";
-        public static final String SqCm   = "Square Centimetre";
-        public static final String Sqm    = "Square Metre";
-        public static final String Hect   = "Hectare";
-        public static final String SqKm   = "Square Kilometre";
-        public static final String SqInch = "Square Inch";
-        public static final String SqFt   = "Square Feet";
-        public static final String SqYard = "Square Yards";
-        public static final String Acres  = "Acre";
-        public static final String SqMi   = "Square Miles";
+        private static final String SqMm = "Square Millimetre";
+        private static final String SqCm   = "Square Centimetre";
+        private static final String Sqm    = "Square Metre";
+        private static final String Hectare = "Hectare";
+        private static final String SqKm   = "Square Kilometre";
+        private static final String SqInch = "Square Inch";
+        private static final String SqFt   = "Square Feet";
+        private static final String SqYard = "Square Yards";
+        private static final String Acres  = "Acre";
+        private static final String SqMi   = "Square Miles";
 
-        public static double area(String num , String unit1 , String unit2){
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-                    //Case if user wants to perform conversions on Square Millimetre
-                    case Sqmm:
-                        switch (unit2){
-                            case Sqmm:
-                                return value;
-                            case SqCm:
-                                return Area.squareMillimetersToSquareCentimeters(value);
-                            case Sqm:
-                                return Area.squareMillimetersToSquareMeters(value);
-                            case Hect:
-                                return Area.squareMillimetersToHectares(value);
-                            case SqKm:
-                                return Area.squareMillimetersToSquareKilometers(value);
-                            case SqInch:
-                                return Area.squareMillimetersToSquareInches(value);
-                            case SqFt:
-                                return Area.squareMillimetersToSquareFeet(value);
-                            case SqYard:
-                                return Area.squareMillimetersToSquareYards(value);
-                            case Acres:
-                                return Area.squareMillimetersToAcres(value);
-                            case SqMi:
-                                return Area.squareMillimetersToSquareMiles(value);
-                        }
-                        break;
+        private final String fromUnit;
+        private final double value;
 
-                    //Case if user wants to perform conversions on Square Centimetres
-                    case SqCm:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareCentimetersToSquareMillimeters(value);
-                            case SqCm:
-                                return (value);
-                            case Sqm:
-                                return Area.squareCentimetersToSquareMeters(value);
-                            case Hect:
-                                return Area.squareCentimetersToHectares(value);
-                            case SqKm:
-                                return Area.squareCentimetersToSquareKiloMeters(value);
-                            case SqInch:
-                                return Area.squareCentimetersToSquareInches(value);
-                            case SqFt:
-                                return Area.squareCentimetersToSquareFeet(value);
-                            case SqYard:
-                                return Area.squareCentimetersToSquareYards(value);
-                            case Acres:
-                                return Area.squareCentimetersToAcres(value);
-                            case SqMi:
-                                return Area.squareCentimetersToSquareMiles(value);
-                        }
-                        break;
+        ForArea(double value, String fromUnit) {
+            this.value = value;
+            this.fromUnit = fromUnit;
+        }
 
-                    //Case if user wants to perform conversions on Square Meters
-                    case Sqm:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareMetersToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.squareMetersToSquareCentiMeters(value);
-                            case Sqm:
-                                return (value);
-                            case Hect:
-                                return Area.squareMetersToHectares(value);
-                            case SqKm:
-                                return Area.squareMetersToSquareKilometers(value);
-                            case SqInch:
-                                return Area.squareMetersToSquareInches(value);
-                            case SqFt:
-                                return Area.squareMetersToSquareFeet(value);
-                            case SqYard:
-                                return Area.squareMetersToSquareYards(value);
-                            case Acres:
-                                return Area.squareMetersToAcres(value);
-                            case SqMi:
-                                return Area.squareMetersToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Hectares
-                    case Hect:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.hectaresToSquareMillimeters(value);
-                            case SqCm:
-                                return Area.hectaresToSquareCentimeters(value);
-                            case Sqm:
-                                return Area.hectaresToSquareMeters(value);
-                            case Hect:
-                                return (value);
-                            case SqKm:
-                                return Area.hectaresToSquareKiloMeters(value);
-                            case SqInch:
-                                return Area.hectaresToSquareInches(value);
-                            case SqFt:
-                                return Area.hectaresToSquareFeet(value);
-                            case SqYard:
-                                return Area.hectaresToSquareYards(value);
-                            case Acres:
-                                return Area.hectaresToAcres(value);
-                            case SqMi:
-                                return Area.hectaresToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Square Kilometres
-                    case SqKm:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareKiloMetersToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.squareKiloMetersToSquareCentiMeters(value);
-                            case Sqm:
-                                return Area.squareKiloMetersToSquareMeters(value);
-                            case Hect:
-                                return Area.squareKiloMetersToHectares(value);
-                            case SqKm:
-                                return (value);
-                            case SqInch:
-                                return Area.squareKiloMetersToSquareInches(value);
-                            case SqFt:
-                                return Area.squareKiloMetersToSquareFeet(value);
-                            case SqYard:
-                                return Area.squareKiloMetersToSquareYards(value);
-                            case Acres:
-                                return Area.squareKiloMetersToAcres(value);
-                            case SqMi:
-                                return Area.squareKiloMetersToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Square Inches
-                    case SqInch:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareInchesToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.squareInchesToSquareCentiMeters(value);
-                            case Sqm:
-                                return Area.squareInchesToSquareMeters(value);
-                            case Hect:
-                                return Area.squareInchesToHectares(value);
-                            case SqKm:
-                                return Area.squareInchesToSquareKiloMeters(value);
-                            case SqInch:
-                                return (value);
-                            case SqFt:
-                                return Area.squareInchesToSquareFeet(value);
-                            case SqYard:
-                                return Area.squareInchesToSquareYards(value);
-                            case Acres:
-                                return Area.squareInchesToAcres(value);
-                            case SqMi:
-                                return Area.squareInchesToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Square Feet
-                    case SqFt:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareFeetToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.squareFeetToSquareCentiMeters(value);
-                            case Sqm:
-                                return Area.squareFeetToSquareMeters(value);
-                            case Hect:
-                                return Area.squareFeetToHectares(value);
-                            case SqKm:
-                                return Area.squareFeetToSquareKiloMeters(value);
-                            case SqInch:
-                                return Area.squareFeetToSquareInches(value);
-                            case SqFt:
-                                return (value);
-                            case SqYard:
-                                return Area.squareFeetToSquareYards(value);
-                            case Acres:
-                                return Area.squareFeetToAcres(value);
-                            case SqMi:
-                                return Area.squareFeetToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Square Yards
-                    case SqYard:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareYardsToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.squareYardsToSquareCentiMeters(value);
-                            case Sqm:
-                                return Area.squareYardsToSquareMeters(value);
-                            case Hect:
-                                return Area.squareYardsToHectares(value);
-                            case SqKm:
-                                return Area.squareYardsToSquareKilometers(value);
-                            case SqInch:
-                                return Area.squareYardsToSquareInches(value);
-                            case SqFt:
-                                return Area.squareYardsToSquareFeet(value);
-                            case SqYard:
-                                return (value);
-                            case Acres:
-                                return Area.squareYardsToAcres(value);
-                            case SqMi:
-                                return Area.squareYardsToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Acres
-                    case Acres:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.acresToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.acresToSquareCentiMeters(value);
-                            case Sqm:
-                                return Area.acresToSquareMeters(value);
-                            case Hect:
-                                return Area.acresToHectares(value);
-                            case SqKm:
-                                return Area.acresToSquareKiloMeters(value);
-                            case SqInch:
-                                return Area.acresToSquareInches(value);
-                            case SqFt:
-                                return Area.acresToSquareFeet(value);
-                            case SqYard:
-                                return Area.acresToSquareYards(value);
-                            case Acres:
-                                return (value);
-                            case SqMi:
-                                return Area.acresToSquareMiles(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions on Square Miles
-                    case SqMi:
-                        switch (unit2){
-                            case Sqmm:
-                                return Area.squareMilesToSquareMilliMeters(value);
-                            case SqCm:
-                                return Area.squareMilesToSquareCentiMeters(value);
-                            case Sqm:
-                                return Area.squareMilesToSquareMeters(value);
-                            case Hect:
-                                return Area.squareMilesToHectares(value);
-                            case SqKm:
-                                return Area.squareMilesToSquareKiloMeters(value);
-                            case SqInch:
-                                return Area.squareMilesToSquareInches(value);
-                            case SqFt:
-                                return Area.squareMilesToSquareFeet(value);
-                            case SqYard:
-                                return Area.squareMilesToSquareYards(value);
-                            case Acres:
-                                return Area.squareMilesToAcres(value);
-                            case SqMi:
-                                return (value);
-                        }
-                        break;
-                }
+        public double toSquareMilimeters() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return value;
+                case SqCm:
+                    return UnitConversion.Area.squareMillimetersToSquareCentimeters(value);
+                case Sqm:
+                    return UnitConversion.Area.squareMillimetersToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareMillimetersToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareMillimetersToSquareKilometers(value);
+                case SqInch:
+                    return UnitConversion.Area.squareMillimetersToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.squareMillimetersToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.squareMillimetersToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareMillimetersToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareMillimetersToSquareMiles(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
+        }
+
+        public double toSquareCentimeters() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareCentimetersToSquareMillimeters(value);
+                case SqCm:
+                    return (value);
+                case Sqm:
+                    return UnitConversion.Area.squareCentimetersToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareCentimetersToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareCentimetersToSquareKiloMeters(value);
+                case SqInch:
+                    return UnitConversion.Area.squareCentimetersToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.squareCentimetersToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.squareCentimetersToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareCentimetersToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareCentimetersToSquareMiles(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+
+        public double toSquareMeters() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareMetersToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.squareMetersToSquareCentiMeters(value);
+                case Sqm:
+                    return (value);
+                case Hectare:
+                    return UnitConversion.Area.squareMetersToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareMetersToSquareKilometers(value);
+                case SqInch:
+                    return UnitConversion.Area.squareMetersToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.squareMetersToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.squareMetersToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareMetersToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareMetersToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toHectare() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.hectaresToSquareMillimeters(value);
+                case SqCm:
+                    return UnitConversion.Area.hectaresToSquareCentimeters(value);
+                case Sqm:
+                    return UnitConversion.Area.hectaresToSquareMeters(value);
+                case Hectare:
+                    return (value);
+                case SqKm:
+                    return UnitConversion.Area.hectaresToSquareKiloMeters(value);
+                case SqInch:
+                    return UnitConversion.Area.hectaresToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.hectaresToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.hectaresToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.hectaresToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.hectaresToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toSquareKiloMeters() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareKiloMetersToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.squareKiloMetersToSquareCentiMeters(value);
+                case Sqm:
+                    return UnitConversion.Area.squareKiloMetersToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareKiloMetersToHectares(value);
+                case SqKm:
+                    return (value);
+                case SqInch:
+                    return UnitConversion.Area.squareKiloMetersToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.squareKiloMetersToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.squareKiloMetersToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareKiloMetersToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareKiloMetersToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toSquareInches() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareInchesToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.squareInchesToSquareCentiMeters(value);
+                case Sqm:
+                    return UnitConversion.Area.squareInchesToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareInchesToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareInchesToSquareKiloMeters(value);
+                case SqInch:
+                    return (value);
+                case SqFt:
+                    return UnitConversion.Area.squareInchesToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.squareInchesToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareInchesToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareInchesToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toSquareFeet() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareFeetToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.squareFeetToSquareCentiMeters(value);
+                case Sqm:
+                    return UnitConversion.Area.squareFeetToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareFeetToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareFeetToSquareKiloMeters(value);
+                case SqInch:
+                    return UnitConversion.Area.squareFeetToSquareInches(value);
+                case SqFt:
+                    return (value);
+                case SqYard:
+                    return UnitConversion.Area.squareFeetToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareFeetToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareFeetToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toSquareYards() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareYardsToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.squareYardsToSquareCentiMeters(value);
+                case Sqm:
+                    return UnitConversion.Area.squareYardsToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareYardsToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareYardsToSquareKilometers(value);
+                case SqInch:
+                    return UnitConversion.Area.squareYardsToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.squareYardsToSquareFeet(value);
+                case SqYard:
+                    return (value);
+                case Acres:
+                    return UnitConversion.Area.squareYardsToAcres(value);
+                case SqMi:
+                    return UnitConversion.Area.squareYardsToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toAcres() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.acresToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.acresToSquareCentiMeters(value);
+                case Sqm:
+                    return UnitConversion.Area.acresToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.acresToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.acresToSquareKiloMeters(value);
+                case SqInch:
+                    return UnitConversion.Area.acresToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.acresToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.acresToSquareYards(value);
+                case Acres:
+                    return (value);
+                case SqMi:
+                    return UnitConversion.Area.acresToSquareMiles(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toSquareMiles() {
+            switch (this.fromUnit){
+                case SqMm:
+                    return UnitConversion.Area.squareMilesToSquareMilliMeters(value);
+                case SqCm:
+                    return UnitConversion.Area.squareMilesToSquareCentiMeters(value);
+                case Sqm:
+                    return UnitConversion.Area.squareMilesToSquareMeters(value);
+                case Hectare:
+                    return UnitConversion.Area.squareMilesToHectares(value);
+                case SqKm:
+                    return UnitConversion.Area.squareMilesToSquareKiloMeters(value);
+                case SqInch:
+                    return UnitConversion.Area.squareMilesToSquareInches(value);
+                case SqFt:
+                    return UnitConversion.Area.squareMilesToSquareFeet(value);
+                case SqYard:
+                    return UnitConversion.Area.squareMilesToSquareYards(value);
+                case Acres:
+                    return UnitConversion.Area.squareMilesToAcres(value);
+                case SqMi:
+                    return (value);
+                default:
+                    return 0.0;
+            }
         }
     }
     //Area Class ends
+
+    //Class for Temperature
+    public static class ForTemperature{
+        //Variables
+        public static final String Cel = "Celsius";
+        public static final String Fah = "Fahrenheit";
+        public static final String Kel = "Kelvin";
+        public static final String Rankine = "Rankine";
+
+        private final String fromUnit;
+        private final double value;
+
+        ForTemperature(double value, String fromUnit) {
+            this.value = value;
+            this.fromUnit = fromUnit;
+        }
+
+        public double toCelsius() {
+            switch (this.fromUnit){
+                case Cel:
+                    return value;
+                case Fah:
+                    return Temperature.celsiusToFahrenheit(value);
+                case Kel:
+                    return Temperature.celsiusToKelvin(value);
+                case Rankine:
+                    return Temperature.celsiusToRankine(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toFahrenheit() {
+            switch (this.fromUnit){
+                case Cel:
+                    return UnitConversion.Temperature.fahrenheitToCelsius(value);
+                case Fah:
+                    return (value);
+                case Kel:
+                    return UnitConversion.Temperature.fahrenheitToKelvin(value);
+                case Rankine:
+                    return UnitConversion.Temperature.fahrenheitToRankine(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toKelvin() {
+            switch (this.fromUnit){
+                case Cel:
+                    return UnitConversion.Temperature.kelvinToCelsius(value);
+                case Fah:
+                    return UnitConversion.Temperature.kelvinToFahrenheit(value);
+                case Kel:
+                    return (value);
+                case Rankine:
+                    return UnitConversion.Temperature.kelvinToRankine(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toRankine() {
+            switch (this.fromUnit){
+                case Cel:
+                    return UnitConversion.Temperature.rankineToCelsius(value);
+                case Fah:
+                    return UnitConversion.Temperature.rankineToFahrenheit(value);
+                case Kel:
+                    return UnitConversion.Temperature.rankineToKelvin(value);
+                case Rankine:
+                    return (value);
+                default:
+                    return 0.0;
+            }
+        }
+    }
+    //Class for Temperature ends
 
     //Class if user wants to perform conversions on Pressure
     public static class forPressure{
@@ -1230,7 +1320,6 @@ public class conversionsController {
         public static final String Year = "Year";
 
         public static double time(String num , String unit1 , String unit2){
-
             try{
                 double value = conversionsInputValidator(num);
                 switch (unit1){
@@ -2105,84 +2194,6 @@ public class conversionsController {
         }
     }
     //Volume Class Ends
-
-    //Class for Temperature
-    public static class forTemperature{
-        //Variables
-        public static final String Cel = "Celsius";
-        public static final String Fah = " Fahrenheit";
-        public static final String Kel = "Kelvin";
-        public static final String Rankine = "Rankine";
-
-        public static double temperature(String num , String unit1 , String unit2){
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-
-                    //Case for conversion from celsius
-                    case Cel:
-                        switch (unit2){
-                            case Cel:
-                                return value;
-                            case Fah:
-                                return Temperature.celsiusToFahrenheit(value);
-                            case Kel:
-                                return Temperature.celsiusToKelvin(value);
-                            case Rankine:
-                                return Temperature.celsiusToRankine(value);
-                        }
-                        break;
-
-                    //Case for conversion from Fahrenheit
-                    case Fah:
-                        switch (unit2){
-                            case Cel:
-                                return Temperature.fahrenheitToCelsius(value);
-                            case Fah:
-                                return (value);
-                            case Kel:
-                                return Temperature.fahrenheitToKelvin(value);
-                            case Rankine:
-                                return Temperature.fahrenheitToRankine(value);
-                        }
-                        break;
-
-                    //Case for conversion from Kelvin
-                    case Kel:
-                        switch (unit2){
-                            case Cel:
-                                return Temperature.kelvinToCelsius(value);
-                            case Fah:
-                                return Temperature.kelvinToFahrenheit(value);
-                            case Kel:
-                                return (value);
-                            case Rankine:
-                                return Temperature.kelvinToRankine(value);
-                        }
-                        break;
-
-                    //Case for conversion from Rankine
-                    case Rankine:
-                        switch (unit2){
-                            case Cel:
-                                return Temperature.rankineToCelsius(value);
-                            case Fah:
-                                return Temperature.rankineToFahrenheit(value);
-                            case Kel:
-                                return Temperature.rankineToKelvin(value);
-                            case Rankine:
-                                return (value);
-                        }
-                        break;
-                }
-            }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
-            }
-            return 0.0;
-        }
-    }
-    //Class for Temperature ends
 
     //Class for Digital Storage
     public static class forDigitalStorage{
