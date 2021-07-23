@@ -1,10 +1,6 @@
 package Converter.App.Unit.Conversion;
 
-public class UnitConversionEnhanced {
-
-}
-
-//
+// dumping class
 class dump {
 
 }

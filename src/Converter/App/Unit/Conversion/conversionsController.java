@@ -239,9 +239,9 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForWeight(String fromUnit, double value) {
+        ForWeight(String fromUnit, String value) {
             this.fromUnit = fromUnit;
-            this.value = value;
+            this.value = conversionsInputValidator(value);
         }
 
         public double toCarat() {
@@ -630,9 +630,9 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForAngle(String fromUnit, double value) {
+        ForAngle(String fromUnit, String value) {
             this.fromUnit = fromUnit;
-            this.value = value;
+            this.value = conversionsInputValidator(value);
         }
 
         public double toDegrees() {
@@ -714,8 +714,8 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForArea(double value, String fromUnit) {
-            this.value = value;
+        ForArea(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
 
@@ -1002,8 +1002,8 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForTemperature(double value, String fromUnit) {
-            this.value = value;
+        ForTemperature(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
 
@@ -1068,6 +1068,316 @@ public class conversionsController {
         }
     }
     //Class for Temperature ends
+
+    //Class for Power conversions
+    public static class ForPower{
+        //Variables
+        public static final String watt ="Watt";
+        public static final String KiloWatt = "KiloWatt";
+        public static final String HP = "HorsePower";
+        public static final String FTPpm = "Foot-Pounds Per Minute";
+        public static final String BTU = " BTUs/Minute";
+
+        private final double value;
+        private final String fromUnit;
+
+        ForPower(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
+        }
+
+        public double toWatts() {
+            switch (this.fromUnit){
+                case watt:
+                    return value;
+                case KiloWatt:
+                    return UnitConversion.Power.wattsToKiloWatts(value);
+                case HP:
+                    return UnitConversion.Power.wattsToHorsePower(value);
+                case FTPpm:
+                    return UnitConversion.Power.wattsToFootPoundsPerMinute(value);
+                case BTU:
+                    return UnitConversion.Power.wattsToBTUsPerMinute(value);
+                default:
+                    return 0;
+            }
+        }
+
+        public double toKiloWatts() {
+            switch (this.fromUnit){
+                case watt:
+                    return UnitConversion.Power.kiloWattsToWatts(value);
+                case KiloWatt:
+                    return (value);
+                case HP:
+                    return UnitConversion.Power.kiloWattsToHorsePower(value);
+                case FTPpm:
+                    return UnitConversion.Power.kiloWattsToFootPoundsPerMinute(value);
+                case BTU:
+                    return UnitConversion.Power.kiloWattsToBTUsPerMinute(value);
+                default:
+                    return 0;
+            }
+        }
+
+        public double toHorsePower() {
+            switch (this.fromUnit){
+                case watt:
+                    return UnitConversion.Power.horsePowerToWatts(value);
+                case KiloWatt:
+                    return UnitConversion.Power.horsePowerToKiloWatts(value);
+                case HP:
+                    return (value);
+                case FTPpm:
+                    return UnitConversion.Power.horsePowerToFootPoundsPerMinute(value);
+                case BTU:
+                    return UnitConversion.Power.horsePowerToBTUsPerMinute(value);
+                default:
+                    return 0;
+            }
+        }
+
+        public double toFootPoundsPerMinute() {
+            switch (this.fromUnit){
+                case watt:
+                    return UnitConversion.Power.footPoundsPerMinuteToWatts(value);
+                case KiloWatt:
+                    return UnitConversion.Power.footPoundsPerMinuteToKiloWatts(value);
+                case HP:
+                    return UnitConversion.Power.footPoundsPerMinuteToHorsePower(value);
+                case FTPpm:
+                    return (value);
+                case BTU:
+                    return UnitConversion.Power.footPoundsPerMinuteToBTUsPerMinute(value);
+                default:
+                    return 0;
+            }
+        }
+
+        public double toBTUsPerMinute() {
+            switch (this.fromUnit){
+                case watt:
+                    return UnitConversion.Power.bTUsPerMinuteToWatts(value);
+                case KiloWatt:
+                    return UnitConversion.Power.bTUsPerMinuteToKiloWatts(value);
+                case HP:
+                    return UnitConversion.Power.bTUsPerMinuteToHorsePower(value);
+                case FTPpm:
+                    return UnitConversion.Power.bTUsPerMinuteToFootPoundsPerMinute(value);
+                case BTU:
+                    return (value);
+                default:
+                    return 0;
+            }
+        }
+    }
+    //Power Class ends
+
+    //Class for Time Conversions
+    public static class ForTime{
+        //Variables
+        public static final String MicroSec = "Micro Second";
+        public static final String MilliSec = " Milli Second";
+        public static final String Sec  = "Second";
+        public static final String Min  = "Minute";
+        public static final String Hrs  = "Hours";
+        public static final String Day  = "Day";
+        public static final String Week = "Week";
+        public static final String Year = "Year";
+
+        private final double value;
+        private final String fromUnit;
+
+        ForTime(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
+        }
+
+        public double toMicroSeconds() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return (value);
+                case MilliSec:
+                    return UnitConversion.Time.microSecondsToMilliSeconds(value);
+                case Sec:
+                    return UnitConversion.Time.microSecondsToSeconds(value);
+                case Min:
+                    return UnitConversion.Time.microSecondsToMinutes(value);
+                case Hrs:
+                    return UnitConversion.Time.microSecondsToHours(value);
+                case Day:
+                    return UnitConversion.Time.microSecondsToDays(value);
+                case Week:
+                    return UnitConversion.Time.microSecondsToWeeks(value);
+                case Year:
+                    return UnitConversion.Time.microSecondsToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toMilliSeconds() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.milliSecondsToMicroSeconds(value);
+                case MilliSec:
+                    return (value);
+                case Sec:
+                    return UnitConversion.Time.milliSecondsToSeconds(value);
+                case Min:
+                    return UnitConversion.Time.milliSecondsToMinutes(value);
+                case Hrs:
+                    return UnitConversion.Time.milliSecondsToHours(value);
+                case Day:
+                    return UnitConversion.Time.milliSecondsToDays(value);
+                case Week:
+                    return UnitConversion.Time.milliSecondsToWeeks(value);
+                case Year:
+                    return UnitConversion.Time.milliSecondsToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toSeconds() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.secondsToMicroSeconds(value);
+                case MilliSec:
+                    return UnitConversion.Time.secondsToMilliSeconds(value);
+                case Sec:
+                    return (value);
+                case Min:
+                    return UnitConversion.Time.secondsToMinutes(value);
+                case Hrs:
+                    return UnitConversion.Time.secondsToHours(value);
+                case Day:
+                    return UnitConversion.Time.secondsToDays(value);
+                case Week:
+                    return UnitConversion.Time.secondsToWeeks(value);
+                case Year:
+                    return UnitConversion.Time.secondsToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toMinutes() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.minutesToMicroSeconds(value);
+                case MilliSec:
+                    return UnitConversion.Time.minutesToMilliSeconds(value);
+                case Sec:
+                    return UnitConversion.Time.minutesToSeconds(value);
+                case Min:
+                    return (value);
+                case Hrs:
+                    return UnitConversion.Time.minutesToHours(value);
+                case Day:
+                    return UnitConversion.Time.minutesToDays(value);
+                case Week:
+                    return UnitConversion.Time.minutesToWeeks(value);
+                case Year:
+                    return UnitConversion.Time.minutesToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toHours() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.hoursToMicroSeconds(value);
+                case MilliSec:
+                    return UnitConversion.Time.hoursToMilliSeconds(value);
+                case Sec:
+                    return UnitConversion.Time.hoursToSeconds(value);
+                case Min:
+                    return UnitConversion.Time.hoursToMinutes(value);
+                case Hrs:
+                    return (value);
+                case Day:
+                    return UnitConversion.Time.hoursToDays(value);
+                case Week:
+                    return UnitConversion.Time.hoursToWeeks(value);
+                case Year:
+                    return UnitConversion.Time.hoursToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toDays() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.daysToMicroSeconds(value);
+                case MilliSec:
+                    return UnitConversion.Time.daysToMilliSeconds(value);
+                case Sec:
+                    return UnitConversion.Time.daysToSeconds(value);
+                case Min:
+                    return UnitConversion.Time.daysToMinutes(value);
+                case Hrs:
+                    return UnitConversion.Time.daysToHours(value);
+                case Day:
+                    return (value);
+                case Week:
+                    return UnitConversion.Time.daysToWeeks(value);
+                case Year:
+                    return UnitConversion.Time.daysToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toWeeks() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.weeksToMicroSeconds(value);
+                case MilliSec:
+                    return UnitConversion.Time.weeksToMilliSeconds(value);
+                case Sec:
+                    return UnitConversion.Time.weeksToSeconds(value);
+                case Min:
+                    return UnitConversion.Time.weeksToMinutes(value);
+                case Hrs:
+                    return UnitConversion.Time.weeksToHours(value);
+                case Day:
+                    return UnitConversion.Time.weeksToDays(value);
+                case Week:
+                    return (value);
+                case Year:
+                    return UnitConversion.Time.weeksToYears(value);
+                default:
+                    return 0.0;
+            }
+        }
+
+        public double toYears() {
+            switch (this.fromUnit){
+                case MicroSec:
+                    return UnitConversion.Time.yearsToMicroSeconds(value);
+                case MilliSec:
+                    return UnitConversion.Time.yearsToMilliSeconds(value);
+                case Sec:
+                    return UnitConversion.Time.yearsToSeconds(value);
+                case Min:
+                    return UnitConversion.Time.yearsToMinutes(value);
+                case Hrs:
+                    return UnitConversion.Time.yearsToHours(value);
+                case Day:
+                    return UnitConversion.Time.yearsToDays(value);
+                case Week:
+                    return UnitConversion.Time.yearsToWeeks(value);
+                case Year:
+                    return (value);
+                default:
+                    return 0.0;
+            }
+        }
+    }
+    //Time Class ends
 
     //Class if user wants to perform conversions on Pressure
     public static class forPressure{
@@ -1203,311 +1513,6 @@ public class conversionsController {
         }
     }
     //Pressure Class ends
-
-    //Class for Power conversions
-    public static class forPower{
-        //Variables
-        public static final String watt ="Watt";
-        public static final String KiloWatt = "Kilo Watt";
-        public static final String HP = "Horse Power";
-        public static final String FTPpm = "Foot-Pounds Per Minute";
-        public static final String BTU = " BTUs/Minute";
-
-        public static double power(String num , String unit1 , String unit2){
-
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-                    //Case if user wants conversions from watts
-                    case watt:
-                        switch (unit2){
-                            case watt:
-                                return value;
-                            case KiloWatt:
-                                return Power.wattsToKiloWatts(value);
-                            case HP:
-                                return Power.wattsToHorsePower(value);
-                            case FTPpm:
-                                return Power.wattsToFootPoundsPerMinute(value);
-                            case BTU:
-                                return Power.wattsToBTUsPerMinute(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from KiloWatts
-                    case KiloWatt:
-                        switch (unit2){
-                            case watt:
-                                return Power.kiloWattsToWatts(value);
-                            case KiloWatt:
-                                return (value);
-                            case HP:
-                                return Power.kiloWattsToHorsePower(value);
-                            case FTPpm:
-                                return Power.kiloWattsToFootPoundsPerMinute(value);
-                            case BTU:
-                                return Power.kiloWattsToBTUsPerMinute(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Horse Power
-                    case HP:
-                        switch (unit2){
-                            case watt:
-                                return Power.horsePowerToWatts(value);
-                            case KiloWatt:
-                                return Power.horsePowerToKiloWatts(value);
-                            case HP:
-                                return (value);
-                            case FTPpm:
-                                return Power.horsePowerToFootPoundsPerMinute(value);
-                            case BTU:
-                                return Power.horsePowerToBTUsPerMinute(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Foot-pounds Per Minute
-                    case FTPpm:
-                        switch (unit2){
-                            case watt:
-                                return Power.footPoundsPerMinuteToWatts(value);
-                            case KiloWatt:
-                                return Power.footPoundsPerMinuteToKiloWatts(value);
-                            case HP:
-                                return Power.footPoundsPerMinuteToHorsePower(value);
-                            case FTPpm:
-                                return (value);
-                            case BTU:
-                                return Power.footPoundsPerMinuteToBTUsPerMinute(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from BTUs/minute
-                    case BTU:
-                        switch (unit2){
-                            case watt:
-                                return Power.bTUsPerMinuteToWatts(value);
-                            case KiloWatt:
-                                return Power.bTUsPerMinuteToKiloWatts(value);
-                            case HP:
-                                return Power.bTUsPerMinuteToHorsePower(value);
-                            case FTPpm:
-                                return Power.bTUsPerMinuteToFootPoundsPerMinute(value);
-                            case BTU:
-                                return (value);
-                        }
-                        break;
-                }
-            }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
-            }
-            return 0.0;
-        }
-    }
-    //Power Class ends
-
-    //Class for Time Conversions
-    public static class forTime{
-        //Variables
-        public static final String MicroSec = "Micro Second";
-        public static final String MilliSec = " Milli Second";
-        public static final String Sec  = "Second";
-        public static final String Min  = "Minute";
-        public static final String Hrs  = "Hours";
-        public static final String Day  = " Day";
-        public static final String Week = "Week";
-        public static final String Year = "Year";
-
-        public static double time(String num , String unit1 , String unit2){
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-
-                    //Case is user wants conversions from MicroSeconds
-                    case MicroSec:
-                        switch (unit2){
-                            case MicroSec:
-                                return (value);
-                            case MilliSec:
-                                return Time.microSecondsToMilliSeconds(value);
-                            case Sec:
-                                return Time.microSecondsToSeconds(value);
-                            case Min:
-                                return Time.microSecondsToMinutes(value);
-                            case Hrs:
-                                return Time.microSecondsToHours(value);
-                            case Day:
-                                return Time.microSecondsToDays(value);
-                            case Week:
-                                return Time.microSecondsToWeeks(value);
-                            case Year:
-                                return Time.microSecondsToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from MilliSeconds
-                    case MilliSec:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.milliSecondsToMicroSeconds(value);
-                            case MilliSec:
-                                return (value);
-                            case Sec:
-                                return Time.milliSecondsToSeconds(value);
-                            case Min:
-                                return Time.milliSecondsToMinutes(value);
-                            case Hrs:
-                                return Time.milliSecondsToHours(value);
-                            case Day:
-                                return Time.milliSecondsToDays(value);
-                            case Week:
-                                return Time.milliSecondsToWeeks(value);
-                            case Year:
-                                return Time.milliSecondsToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from Seconds
-                    case Sec:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.secondsToMicroSeconds(value);
-                            case MilliSec:
-                                return Time.secondsToMilliSeconds(value);
-                            case Sec:
-                                return (value);
-                            case Min:
-                                return Time.secondsToMinutes(value);
-                            case Hrs:
-                                return Time.secondsToHours(value);
-                            case Day:
-                                return Time.secondsToDays(value);
-                            case Week:
-                                return Time.secondsToWeeks(value);
-                            case Year:
-                                return Time.secondsToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from Minutes
-                    case Min:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.minutesToMicroSeconds(value);
-                            case MilliSec:
-                                return Time.minutesToMilliSeconds(value);
-                            case Sec:
-                                return Time.minutesToSeconds(value);
-                            case Min:
-                                return (value);
-                            case Hrs:
-                                return Time.minutesToHours(value);
-                            case Day:
-                                return Time.minutesToDays(value);
-                            case Week:
-                                return Time.minutesToWeeks(value);
-                            case Year:
-                                return Time.minutesToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from Hours
-                    case Hrs:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.hoursToMicroSeconds(value);
-                            case MilliSec:
-                                return Time.hoursToMilliSeconds(value);
-                            case Sec:
-                                return Time.hoursToSeconds(value);
-                            case Min:
-                                return Time.hoursToMinutes(value);
-                            case Hrs:
-                                return (value);
-                            case Day:
-                                return Time.hoursToDays(value);
-                            case Week:
-                                return Time.hoursToWeeks(value);
-                            case Year:
-                                return Time.hoursToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from Days
-                    case Day:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.daysToMicroSeconds(value);
-                            case MilliSec:
-                                return Time.daysToMilliSeconds(value);
-                            case Sec:
-                                return Time.daysToSeconds(value);
-                            case Min:
-                                return Time.daysToMinutes(value);
-                            case Hrs:
-                                return Time.daysToHours(value);
-                            case Day:
-                                return (value);
-                            case Week:
-                                return Time.daysToWeeks(value);
-                            case Year:
-                                return Time.daysToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from MicroSeconds
-                    case Week:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.weeksToMicroSeconds(value);
-                            case MilliSec:
-                                return Time.weeksToMilliSeconds(value);
-                            case Sec:
-                                return Time.weeksToSeconds(value);
-                            case Min:
-                                return Time.weeksToMinutes(value);
-                            case Hrs:
-                                return Time.weeksToHours(value);
-                            case Day:
-                                return Time.weeksToDays(value);
-                            case Week:
-                                return (value);
-                            case Year:
-                                return Time.weeksToYears(value);
-                        }
-                        break;
-
-                    //Case is user wants conversions from Years
-                    case Year:
-                        switch (unit2){
-                            case MicroSec:
-                                return Time.yearsToMicroSeconds(value);
-                            case MilliSec:
-                                return Time.yearsToMilliSeconds(value);
-                            case Sec:
-                                return Time.yearsToSeconds(value);
-                            case Min:
-                                return Time.yearsToMinutes(value);
-                            case Hrs:
-                                return Time.yearsToHours(value);
-                            case Day:
-                                return Time.yearsToDays(value);
-                            case Week:
-                                return Time.yearsToWeeks(value);
-                            case Year:
-                                return (value);
-                        }
-                        break;
-                }
-            }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
-            }
-            return 0.0;
-        }
-    }
-    //Time Class ends
 
     //Class For Speed
     public static class forSpeed{
