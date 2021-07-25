@@ -1,5 +1,6 @@
 package Converter.App;
 
+import Converter.App.Conversions.Currency.CurrencyHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -53,9 +54,6 @@ public class Controller implements Initializable {
     static Character bitwiseOperatorChosen;
     static String trigoFunctionChosen;
     static Boolean isRadian = true;
-
-    // exception
-
 
     @FXML
     public GridPane rootGridPane;
@@ -344,6 +342,8 @@ public class Controller implements Initializable {
         });
         scientificClearBtn.setOnAction(e -> clearScientificFields());
 
+        String output =CurrencyHandler.currencyConvert("1", "GBP", "INR");
+        System.out.println("OUTPUT = " + output);
 
     }
 
@@ -480,5 +480,6 @@ public class Controller implements Initializable {
         warning.setContentText(errorMessage);
         warning.show();
     }
+
 
 }

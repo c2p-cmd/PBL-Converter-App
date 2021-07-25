@@ -285,13 +285,13 @@
 
 
 /*Unit Conversion Tab*/
-#unitConversionTab{
+#allConversionTab{
     -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7);
 }
-#unitConversionTab:hover{
+#allConversionTab:hover{
     -fx-background-color: #D9D9D9;
 }
-#unitConversionTab:selected{
+#allConversionTab:selected{
     -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7 ,grey 90%);
 }
 
