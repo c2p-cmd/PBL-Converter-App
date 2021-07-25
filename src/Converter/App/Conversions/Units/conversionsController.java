@@ -1,6 +1,6 @@
-package Converter.App.Unit.Conversion;
+package Converter.App.Conversions.Units;
 
-import Converter.App.Unit.Conversion.UnitConversion.*;
+import Converter.App.Conversions.Units.UnitConversion.*;
 
 public class conversionsController {
 

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -343,6 +344,7 @@ public class Controller implements Initializable {
         });
         scientificClearBtn.setOnAction(e -> clearScientificFields());
 
+
     }
 
     public void clearScientificFields() {
@@ -478,7 +480,5 @@ public class Controller implements Initializable {
         warning.setContentText(errorMessage);
         warning.show();
     }
-
-
 
 }

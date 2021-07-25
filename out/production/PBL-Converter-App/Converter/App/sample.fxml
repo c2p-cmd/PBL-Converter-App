@@ -187,13 +187,14 @@
                      </Label>
                 </AnchorPane>
         </Tab>
-        <Tab fx:id="unitConversionTab" text="Unit Conversion">
+        <Tab fx:id="allConversionTab" text="Conversions">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                 <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0" text="Unit Conversion Mode" textAlignment="CENTER">
                     <font>
                         <Font name="Lucida Grande" size="25.0" />
                     </font>
                 </Label>
+
             </AnchorPane>
         </Tab>
     </TabPane>
