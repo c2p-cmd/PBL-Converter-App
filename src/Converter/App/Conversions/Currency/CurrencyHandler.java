@@ -13,8 +13,8 @@ public class CurrencyHandler {
 
     public static String currencyConvert(String amount, String fromCurrency, String toCurrency) {
         try {
-            if (isMacOS() || isUnix()) argument = "src/Converter/App/calculator-env/bin/python3 src/Converter/App/Conversions/Currency/currency_fetcher.py " + amount + " " + fromCurrency + " " + toCurrency;
-            else argument = "src\\Converter\\App\\calculator-env-win\\Scripts\\python.exe  src\\Converter\\App\\Conversions\\Currency\\currency_fetcher.py " + amount + " " + fromCurrency + " " + toCurrency;
+            if (isMacOS() || isUnix()) argument = "python3 src/Converter/App/Conversions/Currency/currency_fetcher.py " + amount + " " + fromCurrency + " " + toCurrency;
+            else argument = "python.exe  src\\Converter\\App\\Conversions\\Currency\\currency_fetcher.py " + amount + " " + fromCurrency + " " + toCurrency;
             Process process = Runtime.getRuntime().exec(argument);
             BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
             BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
