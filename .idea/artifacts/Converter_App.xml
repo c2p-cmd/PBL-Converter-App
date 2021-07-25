@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Converter_App</output-path>
     <root id="archive" name="Converter.App.jar">
       <element id="module-output" name="PBL-Converter-App" />
-      <element id="library" level="project" name="lib" />
     </root>
   </artifact>
 </component>

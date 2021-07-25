@@ -36,7 +36,7 @@ public class Main extends Application {
         primaryStage.setTitle("Converter App");
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("mainIcon.png"))));
         Font.loadFont(getClass().getResourceAsStream("LucidaGrande.ttf"), 14);
-        Font.loadFont(getClass().getResourceAsStream("LucidaGrandeBold.ttf"), 14);
+
         primaryStage.setResizable(false);
         primaryStage.show();
     }
