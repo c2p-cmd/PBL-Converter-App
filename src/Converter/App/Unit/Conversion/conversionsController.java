@@ -218,7 +218,6 @@ public class conversionsController {
             }
         }
     }
-    //Class For distance Ends
 
     //Class if user wants to perform conversions on Distances
     public static class ForWeight{
@@ -616,7 +615,6 @@ public class conversionsController {
             }
         }
     }
-    //Weight Class Ends
 
     //Class if user wants to perform conversions on angles
     public static class ForAngle{
@@ -695,7 +693,6 @@ public class conversionsController {
             }
         }
     }
-    //Angle Class ends
 
     //Class if user wants to perform conversions on Areas
     public static class ForArea{
@@ -989,7 +986,6 @@ public class conversionsController {
             }
         }
     }
-    //Area Class ends
 
     //Class for Temperature
     public static class ForTemperature{
@@ -1067,7 +1063,6 @@ public class conversionsController {
             }
         }
     }
-    //Class for Temperature ends
 
     //Class for Power conversions
     public static class ForPower{
@@ -1171,7 +1166,6 @@ public class conversionsController {
             }
         }
     }
-    //Power Class ends
 
     //Class for Time Conversions
     public static class ForTime{
@@ -1377,145 +1371,139 @@ public class conversionsController {
             }
         }
     }
-    //Time Class ends
 
     //Class if user wants to perform conversions on Pressure
-    public static class forPressure{
+    public static class ForPressure{
 
         //Variables
-        public static final String Atm = "Atmosphere";
-        public static final String Barr = "Bars";
-        public static final String KiloPasc = "KiloPascal";
-        public static final String MMofMerc = " Millimetre Of Mercury";
-        public static final String Pasc = "Pascal";
-        public static final String PPSperInch = "Pounds Per Square Inch";
+        public static final String ATM = "Atmosphere";
+        public static final String BARR = "Bars";
+        public static final String KILOPASC = "KiloPascal";
+        public static final String MMOFMERC = " Millimetre Of Mercury";
+        public static final String PASC = "Pascal";
+        public static final String PPSPERINCH = "Pounds Per Square Inch";
 
-        public static double pressure(String num , String unit1 , String unit2){
 
-            try{
-                double value = conversionsInputValidator(num);
+        private final double value;
+        private final String fromUnit;
 
-                switch (unit1){
+        ForPressure(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
+        }
 
-                    //Case if user wants conversions from Atmosphere
-                    case Atm:
-                        switch (unit2){
-                            case Atm:
-                                return value;
-                            case Barr:
-                                return Pressure.atmosphereToBars(value);
-                            case KiloPasc:
-                                return Pressure.atmosphereToKiloPascals(value);
-                            case MMofMerc:
-                                return Pressure.atmosphereToMillimetersOfMercury(value);
-                            case Pasc:
-                                return Pressure.atmosphereToPascals(value);
-                            case PPSperInch:
-                                return Pressure.atmosphereToPoundsPerSquareInch(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Bars
-                    case Barr:
-                        switch (unit2){
-                            case Atm:
-                                return Pressure.barsToAtmosphere(value);
-                            case Barr:
-                                return (value);
-                            case KiloPasc:
-                                return Pressure.barsToKiloPascals(value);
-                            case MMofMerc:
-                                return Pressure.barsToMillimetersOfMercury(value);
-                            case Pasc:
-                                return Pressure.barsToPascals(value);
-                            case PPSperInch:
-                                return Pressure.barsToPoundsPerSquareInch(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from KiloPascals
-                    case KiloPasc:
-                        switch (unit2){
-                            case Atm:
-                                return Pressure.kiloPascalsToAtmosphere(value);
-                            case Barr:
-                                return Pressure.kiloPascalsToBars(value);
-                            case KiloPasc:
-                                return (value);
-                            case MMofMerc:
-                                return Pressure.kiloPascalsToMillimetersOfMercury(value);
-                            case Pasc:
-                                return Pressure.kiloPascalsToPascals(value);
-                            case PPSperInch:
-                                return Pressure.kiloPascalsToPoundsPerSquareInch(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Millimetres Of Mercury
-                    case MMofMerc:
-                        switch (unit2){
-                            case Atm:
-                                return Pressure.millimetersOfMercuryToAtmosphere(value);
-                            case Barr:
-                                return Pressure.millimetersOfMercuryToBars(value);
-                            case KiloPasc:
-                                return Pressure.millimetersOfMercuryToKiloPascals(value);
-                            case MMofMerc:
-                                return (value);
-                            case Pasc:
-                                return Pressure.millimetersOfMercuryToPascals(value);
-                            case PPSperInch:
-                                return Pressure.millimetersOfMercuryToPoundsPerSquareInch(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Pascals
-                    case Pasc:
-                        switch (unit2){
-                            case Atm:
-                                return Pressure.pascalsToAtmosphere(value);
-                            case Barr:
-                                return Pressure.pascalsToBars(value);
-                            case KiloPasc:
-                                return Pressure.pascalsToKiloPascals(value);
-                            case MMofMerc:
-                                return Pressure.pascalsToMilliMetersOfMercury(value);
-                            case Pasc:
-                                return (value);
-                            case PPSperInch:
-                                return Pressure.pascalsToPoundsPerSquareInch(value);
-                        }
-                        break;
-
-                    //Case if user wants conversions from Pounds Per Inch
-                    case PPSperInch:
-                        switch (unit2){
-                            case Atm:
-                                return Pressure.poundsPerSquareInchToAtmosphere(value);
-                            case Barr:
-                                return Pressure.poundsPerSquareInchToBars(value);
-                            case KiloPasc:
-                                return Pressure.poundsPerSquareInchToKiloPascals(value);
-                            case MMofMerc:
-                                return Pressure.poundsPerSquareInchToMilliMetersOfMercury(value);
-                            case Pasc:
-                                return Pressure.poundsPerSquareInchToPascals(value);
-                            case PPSperInch:
-                                return Pressure.kiloPascalsToPoundsPerSquareInch(value);
-                        }
-                        break;
-                }
+        public  double toAtm(){
+            switch (this.fromUnit){
+                case ATM:
+                    return value;
+                case BARR:
+                    return UnitConversion.Pressure.atmosphereToBars(value);
+                case KILOPASC:
+                    return UnitConversion.Pressure.atmosphereToKiloPascals(value);
+                case MMOFMERC:
+                    return UnitConversion.Pressure.atmosphereToMillimetersOfMercury(value);
+                case PASC:
+                    return UnitConversion.Pressure.atmosphereToPascals(value);
+                case PPSPERINCH:
+                    return UnitConversion.Pressure.atmosphereToPoundsPerSquareInch(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException){
+    }
+        public double toBarr(){
+        switch (this.fromUnit){
+            case ATM:
+                return UnitConversion.Pressure.barsToAtmosphere(value);
+            case BARR:
+                return (value);
+            case KILOPASC:
+                return UnitConversion.Pressure.barsToKiloPascals(value);
+            case MMOFMERC:
+                return UnitConversion.Pressure.barsToMillimetersOfMercury(value);
+            case PASC:
+                return UnitConversion.Pressure.barsToPascals(value);
+            case PPSPERINCH:
+                return UnitConversion.Pressure.barsToPoundsPerSquareInch(value);
+            default:
                 return 0.0;
+        }
+        }
+        public double toKiloPascals(){
+            switch (this.fromUnit){
+                case ATM:
+                    return UnitConversion.Pressure.kiloPascalsToAtmosphere(value);
+                case BARR:
+                    return UnitConversion.Pressure.kiloPascalsToBars(value);
+                case KILOPASC:
+                    return (value);
+                case MMOFMERC:
+                    return UnitConversion.Pressure.kiloPascalsToMillimetersOfMercury(value);
+                case PASC:
+                    return UnitConversion.Pressure.kiloPascalsToPascals(value);
+                case PPSPERINCH:
+                    return UnitConversion.Pressure.kiloPascalsToPoundsPerSquareInch(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+        public double toMMofMerc(){
+            switch (this.fromUnit){
+                case ATM:
+                    return UnitConversion.Pressure.millimetersOfMercuryToAtmosphere(value);
+                case BARR:
+                    return UnitConversion.Pressure.millimetersOfMercuryToBars(value);
+                case KILOPASC:
+                    return UnitConversion.Pressure.millimetersOfMercuryToKiloPascals(value);
+                case MMOFMERC:
+                    return (value);
+                case PASC:
+                    return UnitConversion.Pressure.millimetersOfMercuryToPascals(value);
+                case PPSPERINCH:
+                    return UnitConversion.Pressure.millimetersOfMercuryToPoundsPerSquareInch(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toPascals(){
+            switch (this.fromUnit){
+                case ATM:
+                    return UnitConversion.Pressure.pascalsToAtmosphere(value);
+                case BARR:
+                    return UnitConversion.Pressure.pascalsToBars(value);
+                case KILOPASC:
+                    return UnitConversion.Pressure.pascalsToKiloPascals(value);
+                case MMOFMERC:
+                    return UnitConversion.Pressure.pascalsToMilliMetersOfMercury(value);
+                case PASC:
+                    return (value);
+                case PPSPERINCH:
+                    return UnitConversion.Pressure.pascalsToPoundsPerSquareInch(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toPpsPerInch(){
+            switch (this.fromUnit){
+                case ATM:
+                    return UnitConversion.Pressure.poundsPerSquareInchToAtmosphere(value);
+                case BARR:
+                    return UnitConversion.Pressure.poundsPerSquareInchToBars(value);
+                case KILOPASC:
+                    return UnitConversion.Pressure.poundsPerSquareInchToKiloPascals(value);
+                case MMOFMERC:
+                    return UnitConversion.Pressure.poundsPerSquareInchToMilliMetersOfMercury(value);
+                case PASC:
+                    return UnitConversion.Pressure.poundsPerSquareInchToPascals(value);
+                case PPSPERINCH:
+                    return UnitConversion.Pressure.kiloPascalsToPoundsPerSquareInch(value);
+                default:
+                    return 0.0;
+            }
         }
     }
-    //Pressure Class ends
 
     //Class For Speed
-    public static class forSpeed{
+    public static class ForSpeed{
         //Variables
         public static final String CmPerSec = " Centimetre/s";
         public static final String MPerSec  = " Metre/s";
@@ -1525,683 +1513,676 @@ public class conversionsController {
         public static final String Knot = "Knots";
         public static final String Mach = " Mach";
 
-        public static double speed(String num , String unit1 , String unit2){
+        private final double value;
+        private final String fromUnit;
 
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-                    //Case if user wants conversion from CentiMetre Per Seconds
-                    case CmPerSec:
-                        switch (unit2){
-                            case CmPerSec:
-                                return (value);
-                            case MPerSec:
-                                return Speed.centiMetresPerSecondToMetrePerSecond(value);
-                            case KmPerHr:
-                                return Speed.centiMetresPerSecondToKiloMetersPerHour(value);
-                            case FtPerSec:
-                                return Speed.centiMetresPerSecondToFeetPerSecond(value);
-                            case MiPerHr:
-                                return Speed.centiMetresPerSecondToMilesPerHour(value);
-                            case Knot:
-                                return Speed.centiMetresPerSecondToKnots(value);
-                            case Mach:
-                                return Speed.centiMetresPerSecondToMach(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Metres Per Seconds
-                    case MPerSec:
-                        switch (unit2){
-                            case CmPerSec:
-                                return Speed.metresPerSecondToCentiMetresPerSecond(value);
-                            case MPerSec:
-                                return (value);
-                            case KmPerHr:
-                                return Speed.metresPerSecondToKiloMetresPerHour(value);
-                            case FtPerSec:
-                                return Speed.metresPerSecondToFeetPerSecond(value);
-                            case MiPerHr:
-                                return Speed.metresPerSecondToMilesPerHour(value);
-                            case Knot:
-                                return Speed.metresPerSecondToKnots(value);
-                            case Mach:
-                                return Speed.metresPerSecondToMach(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from KiloMetres Per Hours
-                    case KmPerHr:
-                        switch (unit2){
-                            case CmPerSec:
-                                return Speed.kiloMetresPerHourToCentiMetresPerSecond(value);
-                            case MPerSec:
-                                return Speed.kiloMetresPerHourToMetresPerSecond(value);
-                            case KmPerHr:
-                                return (value);
-                            case FtPerSec:
-                                return Speed.kiloMetresPerHourToFeetPerSecond(value);
-                            case MiPerHr:
-                                return Speed.kiloMetresPerHourToMilesPerHour(value);
-                            case Knot:
-                                return Speed.kiloMetresPerHourToKnots(value);
-                            case Mach:
-                                return Speed.kiloMetresPerHourToMach(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Metres Per Seconds
-                    case FtPerSec:
-                        switch (unit2){
-                            case CmPerSec:
-                                return Speed.feetPerSecondToCentiMetresPerSecond(value);
-                            case MPerSec:
-                                return Speed.feetPerSecondToMetresPerSecond(value);
-                            case KmPerHr:
-                                return Speed.feetPerSecondToKiloMetresPerHour(value);
-                            case FtPerSec:
-                                return (value);
-                            case MiPerHr:
-                                return Speed.feetPerSecondToMilesPerHour(value);
-                            case Knot:
-                                return Speed.feetPerSecondToKnots(value);
-                            case Mach:
-                                return Speed.feetPerSecondToMach(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Miles Per Hour
-                    case MiPerHr:
-                        switch (unit2){
-                            case CmPerSec:
-                                return Speed.milesPerHourToCentiMetresPerSecond(value);
-                            case MPerSec:
-                                return Speed.milesPerHourToMetresPerSecond(value);
-                            case KmPerHr:
-                                return Speed.milesPerHourToKiloMetresPerHour(value);
-                            case FtPerSec:
-                                return Speed.milesPerHourToFeetPerSecond(value);
-                            case MiPerHr:
-                                return (value);
-                            case Knot:
-                                return Speed.milesPerHourToKnots(value);
-                            case Mach:
-                                return Speed.milesPerHourToMach(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Knots
-                    case Knot:
-                        switch (unit2){
-                            case CmPerSec:
-                                return Speed.knotsToCentiMetresPerSecond(value);
-                            case MPerSec:
-                                return Speed.knotsToMetresPerSecond(value);
-                            case KmPerHr:
-                                return Speed.knotsToKiloMetresPerHour(value);
-                            case FtPerSec:
-                                return Speed.knotsToFeetPerSecond(value);
-                            case MiPerHr:
-                                return Speed.knotsToMilesPerHour(value);
-                            case Knot:
-                                return (value);
-                            case Mach:
-                                return Speed.knotsToMach(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Metres Per Seconds
-                    case Mach:
-                        switch (unit2){
-                            case CmPerSec:
-                                return Speed.machToCentiMetresPerSecond(value);
-                            case MPerSec:
-                                return Speed.machToMetresPerSecond(value);
-                            case KmPerHr:
-                                return Speed.machToKiloMetresPerHour(value);
-                            case FtPerSec:
-                                return Speed.machToFeetPerSecond(value);
-                            case MiPerHr:
-                                return Speed.machToMilesPerHour(value);
-                            case Knot:
-                                return Speed.machToKnots(value);
-                            case Mach:
-                                return (value);
-                        }
-                        break;
-                }
-            }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
-            }
-
-            return 0.0;
+        ForSpeed(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
         }
+
+        public double toCmPerSec(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return (value);
+                case MPerSec:
+                    return UnitConversion.Speed.centiMetresPerSecondToMetrePerSecond(value);
+                case KmPerHr:
+                    return UnitConversion.Speed.centiMetresPerSecondToKiloMetersPerHour(value);
+                case FtPerSec:
+                    return UnitConversion.Speed.centiMetresPerSecondToFeetPerSecond(value);
+                case MiPerHr:
+                    return UnitConversion.Speed.centiMetresPerSecondToMilesPerHour(value);
+                case Knot:
+                    return UnitConversion.Speed.centiMetresPerSecondToKnots(value);
+                case Mach:
+                    return UnitConversion.Speed.centiMetresPerSecondToMach(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toMPerSec(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return UnitConversion.Speed.metresPerSecondToCentiMetresPerSecond(value);
+                case MPerSec:
+                    return (value);
+                case KmPerHr:
+                    return UnitConversion.Speed.metresPerSecondToKiloMetresPerHour(value);
+                case FtPerSec:
+                    return UnitConversion.Speed.metresPerSecondToFeetPerSecond(value);
+                case MiPerHr:
+                    return UnitConversion.Speed.metresPerSecondToMilesPerHour(value);
+                case Knot:
+                    return UnitConversion.Speed.metresPerSecondToKnots(value);
+                case Mach:
+                    return UnitConversion.Speed.metresPerSecondToMach(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toKmPerHr(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return UnitConversion.Speed.kiloMetresPerHourToCentiMetresPerSecond(value);
+                case MPerSec:
+                    return UnitConversion.Speed.kiloMetresPerHourToMetresPerSecond(value);
+                case KmPerHr:
+                    return (value);
+                case FtPerSec:
+                    return UnitConversion.Speed.kiloMetresPerHourToFeetPerSecond(value);
+                case MiPerHr:
+                    return UnitConversion.Speed.kiloMetresPerHourToMilesPerHour(value);
+                case Knot:
+                    return UnitConversion.Speed.kiloMetresPerHourToKnots(value);
+                case Mach:
+                    return UnitConversion.Speed.kiloMetresPerHourToMach(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toFtPerSec(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return UnitConversion.Speed.feetPerSecondToCentiMetresPerSecond(value);
+                case MPerSec:
+                    return UnitConversion.Speed.feetPerSecondToMetresPerSecond(value);
+                case KmPerHr:
+                    return UnitConversion.Speed.feetPerSecondToKiloMetresPerHour(value);
+                case FtPerSec:
+                    return (value);
+                case MiPerHr:
+                    return UnitConversion.Speed.feetPerSecondToMilesPerHour(value);
+                case Knot:
+                    return UnitConversion.Speed.feetPerSecondToKnots(value);
+                case Mach:
+                    return UnitConversion.Speed.feetPerSecondToMach(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toMiPerHr(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return UnitConversion.Speed.milesPerHourToCentiMetresPerSecond(value);
+                case MPerSec:
+                    return UnitConversion.Speed.milesPerHourToMetresPerSecond(value);
+                case KmPerHr:
+                    return UnitConversion.Speed.milesPerHourToKiloMetresPerHour(value);
+                case FtPerSec:
+                    return UnitConversion.Speed.milesPerHourToFeetPerSecond(value);
+                case MiPerHr:
+                    return (value);
+                case Knot:
+                    return UnitConversion.Speed.milesPerHourToKnots(value);
+                case Mach:
+                    return UnitConversion.Speed.milesPerHourToMach(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toKnot(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return UnitConversion.Speed.knotsToCentiMetresPerSecond(value);
+                case MPerSec:
+                    return UnitConversion.Speed.knotsToMetresPerSecond(value);
+                case KmPerHr:
+                    return UnitConversion.Speed.knotsToKiloMetresPerHour(value);
+                case FtPerSec:
+                    return UnitConversion.Speed.knotsToFeetPerSecond(value);
+                case MiPerHr:
+                    return UnitConversion.Speed.knotsToMilesPerHour(value);
+                case Knot:
+                    return (value);
+                case Mach:
+                    return UnitConversion.Speed.knotsToMach(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toMach(){
+            switch (this.fromUnit){
+                case CmPerSec:
+                    return UnitConversion.Speed.machToCentiMetresPerSecond(value);
+                case MPerSec:
+                    return UnitConversion.Speed.machToMetresPerSecond(value);
+                case KmPerHr:
+                    return UnitConversion.Speed.machToKiloMetresPerHour(value);
+                case FtPerSec:
+                    return UnitConversion.Speed.machToFeetPerSecond(value);
+                case MiPerHr:
+                    return UnitConversion.Speed.machToMilesPerHour(value);
+                case Knot:
+                    return UnitConversion.Speed.machToKnots(value);
+                case Mach:
+                    return (value);
+                default:
+                    return 0.0;
+            }
+        }
+
     }
-    //Speed Class ends
 
     //Class for Energy Conversions
-    public static class forEnergy{
+    public static class ForEnergy{
         //Variables
-        public static final String Ev = "Electron Volt";
+        public static final String EV = "Electron Volt";
         public static final String J = "Joule";
         public static final String KJ = "Kilo Joule";
-        public static final String Cal = "Thermal Calories";
-        public static final String FCal = "Food Calories";
-        public static final String FtPounds = "Foot-Pounds";
+        public static final String CAL = "Thermal Calories";
+        public static final String FCAL = "Food Calories";
+        public static final String FTPOUNDS = "Foot-Pounds";
 
-        public static double energy(String num , String unit1 , String unit2){
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-                    //Case if user wants to perform conversions from Electron volt
-                    case Ev:
-                        switch (unit2){
-                            case Ev:
-                                return (value);
-                            case J:
-                                return Energy.electronVoltsToJoules(value);
-                            case KJ:
-                                return Energy.electronVoltsToKiloJoules(value);
-                            case Cal:
-                                return Energy.electronVoltsToThermalCalories(value);
-                            case FtPounds:
-                                return Energy.electronVoltsToFootPounds(value);
-                            case FCal:
-                                return Energy.electronVoltsToFoodCalories(value);
-                        }
-                        break;
+        private final double value;
+        private final String fromUnit;
 
-                    //Case if user wants to perform conversions from Joules
-                    case J:
-                        switch (unit2){
-                            case Ev:
-                                return Energy.joulesToElectronVolts(value);
-                            case J:
-                                return (value);
-                            case KJ:
-                                return Energy.joulesToKiloJoules(value);
-                            case Cal:
-                                return Energy.joulesToThermalCalories(value);
-                            case FtPounds:
-                                return Energy.joulesToFootPounds(value);
-                            case FCal:
-                                return Energy.joulesToFoodCalories(value);
-                        }
-                        break;
+        ForEnergy(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
+        }
 
-                    //Case if user wants to perform conversions from Kilo Joules
-                    case KJ:
-                        switch (unit2){
-                            case Ev:
-                                return Energy.kiloJoulesToElectronVolts(value);
-                            case J:
-                                return Energy.kiloJoulesToJoules(value);
-                            case KJ:
-                                return (value);
-                            case Cal:
-                                return Energy.kiloJoulesToThermalCalories(value);
-                            case FtPounds:
-                                return Energy.kiloJoulesToFootPounds(value);
-                            case FCal:
-                                return Energy.kiloJoulesToFoodCalories(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions from Calories
-                    case Cal:
-                        switch (unit2){
-                            case Ev:
-                                return Energy.thermalCaloriesToElectronVolts(value);
-                            case J:
-                                return Energy.thermalCaloriesToJoules(value);
-                            case KJ:
-                                return Energy.thermalCaloriesToKiloJoules(value);
-                            case Cal:
-                                return (value);
-                            case FtPounds:
-                                return Energy.thermalCaloriesToFootPounds(value);
-                            case FCal:
-                                return Energy.thermalCaloriesToFoodCalories(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions from Foot-Pounds
-                    case FtPounds:
-                        switch (unit2){
-                            case Ev:
-                                return Energy.footPoundsToElectronVolts(value);
-                            case J:
-                                return Energy.footPoundsToJoules(value);
-                            case KJ:
-                                return Energy.footPoundsToKiloJoules(value);
-                            case Cal:
-                                return Energy.footPoundsToThermalCalories(value);
-                            case FtPounds:
-                                return (value);
-                            case FCal:
-                                return Energy.footPoundsToFoodCalories(value);
-                        }
-                        break;
-
-                    //Case if user wants to perform conversions from Food Calories
-                    case FCal:
-                        switch (unit2){
-                            case Ev:
-                                return Energy.foodCaloriesToElectronVolts(value);
-                            case J:
-                                return Energy.foodCaloriesToJoules(value);
-                            case KJ:
-                                return Energy.foodCaloriesToKiloJoules(value);
-                            case Cal:
-                                return Energy.foodCaloriesToThermalCalories(value);
-                            case FtPounds:
-                                return Energy.foodCaloriesToFootPounds(value);
-                            case FCal:
-                                return (value);
-                        }
-                        break;
-                }
+        public double toEv(){
+            switch (this.fromUnit){
+                case EV:
+                    return (value);
+                case J:
+                    return UnitConversion.Energy.electronVoltsToJoules(value);
+                case KJ:
+                    return UnitConversion.Energy.electronVoltsToKiloJoules(value);
+                case CAL:
+                    return UnitConversion.Energy.electronVoltsToThermalCalories(value);
+                case FTPOUNDS:
+                    return UnitConversion.Energy.electronVoltsToFootPounds(value);
+                case FCAL:
+                    return UnitConversion.Energy.electronVoltsToFoodCalories(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException) {
-                return 0.0;
+        }
+        public double toJ(){
+            switch (this.fromUnit){
+                case EV:
+                    return UnitConversion.Energy.joulesToElectronVolts(value);
+                case J:
+                    return (value);
+                case KJ:
+                    return UnitConversion.Energy.joulesToKiloJoules(value);
+                case CAL:
+                    return UnitConversion.Energy.joulesToThermalCalories(value);
+                case FTPOUNDS:
+                    return UnitConversion.Energy.joulesToFootPounds(value);
+                case FCAL:
+                    return UnitConversion.Energy.joulesToFoodCalories(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+        public double toKj(){
+            switch (this.fromUnit){
+                case EV:
+                    return UnitConversion.Energy.kiloJoulesToElectronVolts(value);
+                case J:
+                    return UnitConversion.Energy.kiloJoulesToJoules(value);
+                case KJ:
+                    return (value);
+                case CAL:
+                    return UnitConversion.Energy.kiloJoulesToThermalCalories(value);
+                case FTPOUNDS:
+                    return UnitConversion.Energy.kiloJoulesToFootPounds(value);
+                case FCAL:
+                    return UnitConversion.Energy.kiloJoulesToFoodCalories(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toCal(){
+            switch (this.fromUnit){
+                case EV:
+                    return UnitConversion.Energy.thermalCaloriesToElectronVolts(value);
+                case J:
+                    return UnitConversion.Energy.thermalCaloriesToJoules(value);
+                case KJ:
+                    return UnitConversion.Energy.thermalCaloriesToKiloJoules(value);
+                case CAL:
+                    return (value);
+                case FTPOUNDS:
+                    return UnitConversion.Energy.thermalCaloriesToFootPounds(value);
+                case FCAL:
+                    return UnitConversion.Energy.thermalCaloriesToFoodCalories(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toFCal(){
+            switch (this.fromUnit){
+                case EV:
+                    return UnitConversion.Energy.foodCaloriesToElectronVolts(value);
+                case J:
+                    return UnitConversion.Energy.foodCaloriesToJoules(value);
+                case KJ:
+                    return UnitConversion.Energy.foodCaloriesToKiloJoules(value);
+                case CAL:
+                    return UnitConversion.Energy.foodCaloriesToThermalCalories(value);
+                case FTPOUNDS:
+                    return UnitConversion.Energy.foodCaloriesToFootPounds(value);
+                case FCAL:
+                    return (value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toFootPounds(){
+            switch (this.fromUnit){
+                case EV:
+                    return UnitConversion.Energy.footPoundsToElectronVolts(value);
+                case J:
+                    return UnitConversion.Energy.footPoundsToJoules(value);
+                case KJ:
+                    return UnitConversion.Energy.footPoundsToKiloJoules(value);
+                case CAL:
+                    return UnitConversion.Energy.footPoundsToThermalCalories(value);
+                case FTPOUNDS:
+                    return (value);
+                case FCAL:
+                    return UnitConversion.Energy.footPoundsToFoodCalories(value);
+                default:
+                    return 0.0;
+            }
         }
     }
     //Energy Class ends
 
     //Class for Volume
-    public static class forVolume{
+    public static class ForVolume{
         //Variables
-        public static final String MillLtrs   = "Millilitre";
-        public static final String  Ltrs      = "Litre";
-        public static final String  CubicMetre= "Cubic Metre";
-        public static final String  TeaSpn    = "Tea Spoon";
-        public static final String  FldOnc    = "Fluid Ounce";
-        public static final String  Cups      = "Cup";
-        public static final String  Pints     = "Pint";
-        public static final String  Quarts    = "Quart";
-        public static final String  Gall      = "Gallon";
-        public static final String  CubicInch = "Cubic Inch";
-        public static final String  CubicFt   = "Cubic Feet";
-        public static final String  CubicYrd  = "Cubic Yard";
+        public static final String  MILLILITRS   = "Millilitre";
+        public static final String  LTRS      = "Litre";
+        public static final String  CUBICMETRE= "Cubic Metre";
+        public static final String  TEASPOON    = "Tea Spoon";
+        public static final String  FLDONC    = "Fluid Ounce";
+        public static final String  CUPS      = "Cup";
+        public static final String  PINTS     = "Pint";
+        public static final String  QUARTS    = "Quart";
+        public static final String  GALL      = "Gallon";
+        public static final String  CUBICINCH = "Cubic Inch";
+        public static final String  CUBICFT   = "Cubic Feet";
+        public static final String  CUBICYARD  = "Cubic Yard";
 
-        public static double volume(String num , String unit1 , String unit2){
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-                    //Case if user wants conversion from Millilitres
-                    case MillLtrs:
-                        switch (unit2){
-                            case MillLtrs:
-                                return (value);
-                            case Ltrs:
-                                return Volume.millilitresToLitres(value);
-                            case CubicMetre:
-                                return Volume.millilitresToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.millilitresToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.millilitresToFluidOunces(value);
-                            case Pints:
-                                return Volume.millilitresToPints(value);
-                            case Cups:
-                                return Volume.millilitresToCups(value);
-                            case Quarts:
-                                return Volume.millilitresToQuarts(value);
-                            case Gall:
-                                return Volume.millilitresToGallons(value);
-                            case CubicInch:
-                                return Volume.millilitresToCubicInches(value);
-                            case CubicFt:
-                                return Volume.millilitresToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.millilitresToCubicYards(value);
-                        }
-                        break;
+        private final double value;
+        private final String fromUnit;
 
-                    //Case if user wants conversion from Litres
-                    case Ltrs:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.litresToMillilitres(value);
-                            case Ltrs:
-                                return (value);
-                            case CubicMetre:
-                                return Volume.litresToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.litresToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.litresToFluidOunces(value);
-                            case Pints:
-                                return Volume.litresToPints(value);
-                            case Cups:
-                                return Volume.litresToCups(value);
-                            case Quarts:
-                                return Volume.litresToQuarts(value);
-                            case Gall:
-                                return Volume.litresToGallons(value);
-                            case CubicInch:
-                                return Volume.litresToCubicInches(value);
-                            case CubicFt:
-                                return Volume.litresToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.litresToCubicYards(value);
-                        }
-                        break;
+        ForVolume(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
+        }
 
-                    //Case if user wants conversion from Cubic Metre
-                    case CubicMetre:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.cubicMetreToMillilitres(value);
-                            case Ltrs:
-                                return Volume.cubicMetreToLitres(value);
-                            case CubicMetre:
-                                return (value);
-                            case TeaSpn:
-                                return Volume.cubicMetreToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.cubicMetreToFluidOunces(value);
-                            case Pints:
-                                return Volume.cubicMetreToPints(value);
-                            case Cups:
-                                return Volume.cubicMetreToCups(value);
-                            case Quarts:
-                                return Volume.cubicMetreToQuarts(value);
-                            case Gall:
-                                return Volume.cubicMetreToGallons(value);
-                            case CubicInch:
-                                return Volume.cubicMetreToCubicInches(value);
-                            case CubicFt:
-                                return Volume.cubicMetreToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.cubicMetreToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Tea Spoons
-                    case TeaSpn:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.teaSpoonsToMillilitres(value);
-                            case Ltrs:
-                                return Volume.teaSpoonsToLitres(value);
-                            case CubicMetre:
-                                return Volume.teaSpoonsToCubicMetres(value);
-                            case TeaSpn:
-                                return (value);
-                            case FldOnc:
-                                return Volume.teaSpoonsToFluidOunces(value);
-                            case Pints:
-                                return Volume.teaSpoonsToPints(value);
-                            case Cups:
-                                return Volume.teaSpoonsToCups(value);
-                            case Quarts:
-                                return Volume.teaSpoonsToQuarts(value);
-                            case Gall:
-                                return Volume.teaSpoonsToGallons(value);
-                            case CubicInch:
-                                return Volume.teaSpoonsToCubicInches(value);
-                            case CubicFt:
-                                return Volume.teaSpoonsToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.teaSpoonsToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Fluid Ounce
-                    case FldOnc:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.fluidOuncesToMillilitres(value);
-                            case Ltrs:
-                                return Volume.fluidOuncesToLitres(value);
-                            case CubicMetre:
-                                return Volume.fluidOuncesToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.fluidOuncesToTeaSpoons(value);
-                            case FldOnc:
-                                return (value);
-                            case Pints:
-                                return Volume.fluidOuncesToPints(value);
-                            case Cups:
-                                return Volume.fluidOuncesToCups(value);
-                            case Quarts:
-                                return Volume.fluidOuncesToQuarts(value);
-                            case Gall:
-                                return Volume.fluidOuncesToGallons(value);
-                            case CubicInch:
-                                return Volume.fluidOuncesToCubicInches(value);
-                            case CubicFt:
-                                return Volume.fluidOuncesToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.fluidOuncesToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Pints
-                    case Pints:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.pintsToMillilitres(value);
-                            case Ltrs:
-                                return Volume.pintsToLitres(value);
-                            case CubicMetre:
-                                return Volume.pintsToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.pintsToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.pintsToFluidOunces(value);
-                            case Pints:
-                                return (value);
-                            case Cups:
-                                return Volume.pintsToCups(value);
-                            case Quarts:
-                                return Volume.pintsToQuarts(value);
-                            case Gall:
-                                return Volume.pintsToGallons(value);
-                            case CubicInch:
-                                return Volume.pintsToCubicInches(value);
-                            case CubicFt:
-                                return Volume.pintsToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.pintsToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Cups
-                    case Cups:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.cupsToMillilitres(value);
-                            case Ltrs:
-                                return Volume.cupsToLitres(value);
-                            case CubicMetre:
-                                return Volume.cupsToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.cupsToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.cupsToFluidOunces(value);
-                            case Pints:
-                                return Volume.cupsToPints(value);
-                            case Cups:
-                                return (value);
-                            case Quarts:
-                                return Volume.cupsToQuarts(value);
-                            case Gall:
-                                return Volume.cupsToGallons(value);
-                            case CubicInch:
-                                return Volume.cupsToCubicInches(value);
-                            case CubicFt:
-                                return Volume.cupsToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.cupsToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Quarts
-                    case Quarts:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.quartsToMillilitres(value);
-                            case Ltrs:
-                                return Volume.quartsToLitres(value);
-                            case CubicMetre:
-                                return Volume.quartsToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.quartsToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.quartsToFluidOunces(value);
-                            case Pints:
-                                return Volume.quartsToPints(value);
-                            case Cups:
-                                return Volume.quartsToCups(value);
-                            case Quarts:
-                                return (value);
-                            case Gall:
-                                return Volume.quartsToGallons(value);
-                            case CubicInch:
-                                return Volume.quartsToCubicInches(value);
-                            case CubicFt:
-                                return Volume.quartsToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.quartsToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Gallons
-                    case Gall:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.gallonsToMillilitres(value);
-                            case Ltrs:
-                                return Volume.gallonsToLitres(value);
-                            case CubicMetre:
-                                return Volume.gallonsToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.gallonsToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.gallonsToFluidOunces(value);
-                            case Pints:
-                                return Volume.gallonsToPints(value);
-                            case Cups:
-                                return Volume.gallonsToCups(value);
-                            case Quarts:
-                                return Volume.gallonsToQuarts(value);
-                            case Gall:
-                                return (value);
-                            case CubicInch:
-                                return Volume.gallonsToCubicInches(value);
-                            case CubicFt:
-                                return Volume.gallonsToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.gallonsToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Cubic Inches
-                    case CubicInch:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.cubicInchesToMillilitres(value);
-                            case Ltrs:
-                                return Volume.cubicInchesToLitres(value);
-                            case CubicMetre:
-                                return Volume.cubicInchesToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.cubicInchesToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.cubicInchesToFluidOunces(value);
-                            case Pints:
-                                return Volume.cubicInchesToPints(value);
-                            case Cups:
-                                return Volume.cubicInchesToCups(value);
-                            case Quarts:
-                                return Volume.cubicInchesToQuarts(value);
-                            case Gall:
-                                return Volume.cubicInchesToGallons(value);
-                            case CubicInch:
-                                return (value);
-                            case CubicFt:
-                                return Volume.cubicInchesToCubicFeet(value);
-                            case CubicYrd:
-                                return Volume.cubicInchesToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Cubic Feet
-                    case CubicFt:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.cubicFeetToMillilitres(value);
-                            case Ltrs:
-                                return Volume.cubicFeetToLitres(value);
-                            case CubicMetre:
-                                return Volume.cubicFeetToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.cubicFeetToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.cubicFeetToFluidOunces(value);
-                            case Pints:
-                                return Volume.cubicFeetToPints(value);
-                            case Cups:
-                                return Volume.cubicFeetToCups(value);
-                            case Quarts:
-                                return Volume.cubicFeetToQuarts(value);
-                            case Gall:
-                                return Volume.cubicFeetToGallons(value);
-                            case CubicInch:
-                                return Volume.cubicFeetToCubicInches(value);
-                            case CubicFt:
-                                return (value);
-                            case CubicYrd:
-                                return Volume.cubicFeetToCubicYards(value);
-                        }
-                        break;
-
-                    //Case if user wants conversion from Cubic Yards
-                    case CubicYrd:
-                        switch (unit2){
-                            case MillLtrs:
-                                return Volume.cubicYardsToMillilitres(value);
-                            case Ltrs:
-                                return Volume.cubicYardsToLitres(value);
-                            case CubicMetre:
-                                return Volume.cubicYardsToCubicMetres(value);
-                            case TeaSpn:
-                                return Volume.cubicYardsToTeaSpoons(value);
-                            case FldOnc:
-                                return Volume.cubicYardsToFluidOunces(value);
-                            case Pints:
-                                return Volume.cubicYardsToPints(value);
-                            case Cups:
-                                return Volume.cubicYardsToCups(value);
-                            case Quarts:
-                                return Volume.cubicYardsToQuarts(value);
-                            case Gall:
-                                return Volume.cubicYardsToGallons(value);
-                            case CubicInch:
-                                return Volume.cubicYardsToCubicInches(value);
-                            case CubicFt:
-                                return Volume.cubicYardsToCubicFeet(value);
-                            case CubicYrd:
-                                return (value);
-                        }
-                        break;
-                }
+        public double toMilliLitres(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return (value);
+                case LTRS:
+                    return UnitConversion.Volume.millilitresToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.millilitresToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.millilitresToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.millilitresToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.millilitresToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.millilitresToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.millilitresToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.millilitresToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.millilitresToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.millilitresToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.millilitresToCubicYards(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
+        }
+        public double toLitres(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.litresToMillilitres(value);
+                case LTRS:
+                    return (value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.litresToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.litresToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.litresToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.litresToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.litresToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.litresToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.litresToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.litresToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.litresToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.litresToCubicYards(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+        public double toCubicMetre(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.cubicMetreToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.cubicMetreToLitres(value);
+                case CUBICMETRE:
+                    return (value);
+                case TEASPOON:
+                    return UnitConversion.Volume.cubicMetreToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.cubicMetreToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.cubicMetreToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.cubicMetreToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.cubicMetreToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.cubicMetreToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.cubicMetreToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.cubicMetreToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.cubicMetreToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toTeaSpoon(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.teaSpoonsToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.teaSpoonsToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.teaSpoonsToCubicMetres(value);
+                case TEASPOON:
+                    return (value);
+                case FLDONC:
+                    return UnitConversion.Volume.teaSpoonsToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.teaSpoonsToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.teaSpoonsToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.teaSpoonsToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.teaSpoonsToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.teaSpoonsToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.teaSpoonsToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.teaSpoonsToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toFluidOunce(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.fluidOuncesToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.fluidOuncesToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.fluidOuncesToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.fluidOuncesToTeaSpoons(value);
+                case FLDONC:
+                    return (value);
+                case PINTS:
+                    return UnitConversion.Volume.fluidOuncesToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.fluidOuncesToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.fluidOuncesToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.fluidOuncesToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.fluidOuncesToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.fluidOuncesToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.fluidOuncesToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toPints(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.pintsToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.pintsToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.pintsToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.pintsToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.pintsToFluidOunces(value);
+                case PINTS:
+                    return (value);
+                case CUPS:
+                    return UnitConversion.Volume.pintsToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.pintsToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.pintsToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.pintsToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.pintsToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.pintsToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toCups(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.cupsToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.cupsToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.cupsToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.cupsToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.cupsToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.cupsToPints(value);
+                case CUPS:
+                    return (value);
+                case QUARTS:
+                    return UnitConversion.Volume.cupsToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.cupsToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.cupsToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.cupsToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.cupsToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toQuarts(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.quartsToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.quartsToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.quartsToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.quartsToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.quartsToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.quartsToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.quartsToCups(value);
+                case QUARTS:
+                    return (value);
+                case GALL:
+                    return UnitConversion.Volume.quartsToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.quartsToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.quartsToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.quartsToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toGall(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.gallonsToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.gallonsToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.gallonsToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.gallonsToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.gallonsToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.gallonsToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.gallonsToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.gallonsToQuarts(value);
+                case GALL:
+                    return (value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.gallonsToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.gallonsToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.gallonsToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toCubicInch(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.cubicInchesToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.cubicInchesToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.cubicInchesToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.cubicInchesToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.cubicInchesToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.cubicInchesToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.cubicInchesToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.cubicInchesToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.cubicInchesToGallons(value);
+                case CUBICINCH:
+                    return (value);
+                case CUBICFT:
+                    return UnitConversion.Volume.cubicInchesToCubicFeet(value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.cubicInchesToCubicYards(value);
+                default:
+                    return 0.0;
+        }
+
+
+    }
+        public double toCubicFt(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.cubicFeetToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.cubicFeetToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.cubicFeetToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.cubicFeetToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.cubicFeetToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.cubicFeetToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.cubicFeetToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.cubicFeetToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.cubicFeetToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.cubicFeetToCubicInches(value);
+                case CUBICFT:
+                    return (value);
+                case CUBICYARD:
+                    return UnitConversion.Volume.cubicFeetToCubicYards(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toCubicYard(){
+            switch (this.fromUnit){
+                case MILLILITRS:
+                    return UnitConversion.Volume.cubicYardsToMillilitres(value);
+                case LTRS:
+                    return UnitConversion.Volume.cubicYardsToLitres(value);
+                case CUBICMETRE:
+                    return UnitConversion.Volume.cubicYardsToCubicMetres(value);
+                case TEASPOON:
+                    return UnitConversion.Volume.cubicYardsToTeaSpoons(value);
+                case FLDONC:
+                    return UnitConversion.Volume.cubicYardsToFluidOunces(value);
+                case PINTS:
+                    return UnitConversion.Volume.cubicYardsToPints(value);
+                case CUPS:
+                    return UnitConversion.Volume.cubicYardsToCups(value);
+                case QUARTS:
+                    return UnitConversion.Volume.cubicYardsToQuarts(value);
+                case GALL:
+                    return UnitConversion.Volume.cubicYardsToGallons(value);
+                case CUBICINCH:
+                    return UnitConversion.Volume.cubicYardsToCubicInches(value);
+                case CUBICFT:
+                    return UnitConversion.Volume.cubicYardsToCubicFeet(value);
+                case CUBICYARD:
+                    return (value);
+                default:
+                    return 0.0;
+            }
         }
     }
-    //Volume Class Ends
 
     //Class for Digital Storage
-    public static class forDigitalStorage{
+    public static class ForDigitalStorage{
         //Variables
         public static final String Bit = "Bit";
         public static final String Bytes = "Byte";
@@ -2223,852 +2204,853 @@ public class conversionsController {
         public static final String Ybi = "YottaBit";
         public static final String Yby = "YottaByte";
 
-        public static double digitalStorage(String num , String unit1 , String unit2){
-            try{
-                double value = conversionsInputValidator(num);
-                switch (unit1){
-                    //Case conversions from Bit
-                    case Bit:
-                        switch (unit2){
-                            case Bit:
-                                return value;
-                            case Bytes:
-                                return digitalStorage.bitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.bitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.bitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.bitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.bitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.bitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.bitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.bitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.bitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.bitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.bitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.bitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.bitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.bitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.bitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.bitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.bitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.bitsToYottaBytes(value);
-                        }
-                        break;
+        private final double value;
+        private final String fromUnit;
 
-                    //Case conversions from Bytes
-                    case Bytes:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.bytesToBits(value);
-                            case Bytes:
-                                return (value);
-                            case Nibble:
-                                return digitalStorage.bytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.bytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.bytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.bytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.bytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.bytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.bytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.bytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.bytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.bytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.bytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.bytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.bytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.bytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.bytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.bytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.bytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from Nibbles
-                    case Nibble:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.nibblesToBits(value);
-                            case Bytes:
-                                return digitalStorage.nibblesToBytes(value);
-                            case Nibble:
-                                return (value);
-                            case Kbi:
-                                return digitalStorage.nibblesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.nibblesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.nibblesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.nibblesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.nibblesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.nibblesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.nibblesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.nibblesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.nibblesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.nibblesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.nibblesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.nibblesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.nibblesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.nibblesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.nibblesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.nibblesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from KiloBits
-                    case Kbi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.kiloBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.kiloBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.kiloBitsToNibbles(value);
-                            case Kbi:
-                                return (value);
-                            case Kby:
-                                return digitalStorage.kiloBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.kiloBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.kiloBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.kiloBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.kiloBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.kiloBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.kiloBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.kiloBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.kiloBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.kiloBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.kiloBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.kiloBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.kiloBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.kiloBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.kiloBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from Kilo Bytes
-                    case Kby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.kiloBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.kiloBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.kiloBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.kiloBytesToKiloBits(value);
-                            case Kby:
-                                return (value);
-                            case Mbi:
-                                return digitalStorage.kiloBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.kiloBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.kiloBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.kiloBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.kiloBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.kiloBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.kiloBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.kiloBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.kiloBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.kiloBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.kiloBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.kiloBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.kiloBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.kiloBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from Mega Bits
-                    case Mbi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.megaBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.megaBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.megaBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.megaBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.megaBitsToKiloBytes(value);
-                            case Mbi:
-                                return (value);
-                            case Mby:
-                                return digitalStorage.megaBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.megaBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.megaBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.megaBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.megaBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.megaBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.megaBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.megaBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.megaBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.megaBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.megaBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.megaBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.megaBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from MegaBytes
-                    case Mby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.megaBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.megaBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.megaBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.megaBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.megaBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.megaBytesToMegaBits(value);
-                            case Mby:
-                                return (value);
-                            case Gbi:
-                                return digitalStorage.megaBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.megaBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.megaBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.megaBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.megaBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.megaBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.megaBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.megaBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.megaBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.megaBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.megaBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.megaBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from GigaBits
-                    case Gbi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.gigaBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.gigaBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.gigaBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.gigaBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.gigaBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.gigaBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.gigaBitsToMegaBytes(value);
-                            case Gbi:
-                                return (value);
-                            case Gby:
-                                return digitalStorage.gigaBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.gigaBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.gigaBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.gigaBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.gigaBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.gigaBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.gigaBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.gigaBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.gigaBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.gigaBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.gigaBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from Giga Bytes
-                    case Gby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.gigaBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.gigaBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.gigaBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.gigaBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.gigaBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.gigaBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.gigaBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.gigaBytesToGigaBits(value);
-                            case Gby:
-                                return (value);
-                            case Tbi:
-                                return digitalStorage.gigaBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.gigaBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.gigaBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.gigaBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.gigaBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.gigaBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.gigaBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.gigaBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.gigaBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.gigaBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from TeraBits
-                    case Tbi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.teraBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.teraBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.teraBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.teraBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.teraBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.teraBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.teraBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.teraBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.teraBitsToGigaBytes(value);
-                            case Tbi:
-                                return (value);
-                            case Tby:
-                                return digitalStorage.teraBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.teraBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.teraBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.teraBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.teraBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.teraBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.teraBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.teraBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.teraBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from TeraBytes
-                    case Tby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.teraBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.teraBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.teraBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.teraBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.teraBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.teraBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.teraBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.teraBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.teraBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.teraBytesToTeraBits(value);
-                            case Tby:
-                                return (value);
-                            case Pbi:
-                                return digitalStorage.teraBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.teraBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.teraBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.teraBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.teraBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.teraBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.teraBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.teraBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from PetaBits
-                    case Pbi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.petaBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.petaBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.petaBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.petaBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.petaBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.petaBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.petaBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.petaBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.petaBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.petaBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.petaBitsToTeraBytes(value);
-                            case Pbi:
-                                return (value);
-                            case Pby:
-                                return digitalStorage.petaBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.petaBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.petaBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.petaBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.petaBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.petaBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.petaBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from PetaBytes
-                    case Pby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.petaBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.petaBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.petaBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.petaBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.petaBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.petaBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.petaBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.petaBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.petaBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.petaBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.petaBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.petaBytesToPetaBits(value);
-                            case Pby:
-                                return (value);
-                            case Ebi:
-                                return digitalStorage.petaBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.petaBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.petaBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.petaBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.petaBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.petaBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from ExaBits
-                    case Ebi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.exaBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.exaBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.exaBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.exaBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.exaBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.exaBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.exaBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.exaBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.exaBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.exaBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.exaBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.exaBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.exaBitsToPetaBytes(value);
-                            case Ebi:
-                                return (value);
-                            case Eby:
-                                return digitalStorage.exaBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.exaBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.exaBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.exaBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.exaBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from ExaBytes
-                    case Eby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.exaBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.exaBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.exaBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.exaBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.exaBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.exaBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.exaBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.exaBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.exaBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.exaBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.exaBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.exaBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.exaBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.exaBytesToExaBits(value);
-                            case Eby:
-                                return (value);
-                            case Zbi:
-                                return digitalStorage.exaBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.exaBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.exaBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.exaBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from ZettaBits
-                    case Zbi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.zettaBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.zettaBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.zettaBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.zettaBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.zettaBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.zettaBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.zettaBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.zettaBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.zettaBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.zettaBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.zettaBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.zettaBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.zettaBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.zettaBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.zettaBitsToExaBytes(value);
-                            case Zbi:
-                                return (value);
-                            case Zby:
-                                return digitalStorage.zettaBitsToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.zettaBitsToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.zettaBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from ZettaBytes
-                    case Zby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.zettaBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.zettaBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.zettaBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.zettaBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.zettaBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.zettaBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.zettaBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.zettaBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.zettaBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.zettaBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.zettaBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.zettaBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.zettaBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.zettaBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.zettaBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.zettaBytesToZettaBits(value);
-                            case Zby:
-                                return (value);
-                            case Ybi:
-                                return digitalStorage.zettaBytesToYottaBits(value);
-                            case Yby:
-                                return digitalStorage.zettaBytesToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from YottaBits
-                    case Ybi:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.yottaBitsToBits(value);
-                            case Bytes:
-                                return digitalStorage.yottaBitsToBytes(value);
-                            case Nibble:
-                                return digitalStorage.yottaBitsToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.yottaBitsToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.yottaBitsToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.yottaBitsToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.yottaBitsToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.yottaBitsToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.yottaBitsToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.yottaBitsToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.yottaBitsToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.yottaBitsToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.yottaBitsToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.yottaBitsToExaBits(value);
-                            case Eby:
-                                return digitalStorage.yottaBitsToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.yottaBitsToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.yottaBitsToZettaBytes(value);
-                            case Ybi:
-                                return (value);
-                            case Yby:
-                                return digitalStorage.yottaBitsToYottaBytes(value);
-                        }
-                        break;
-
-                    //Case conversions from YottaBytes
-                    case Yby:
-                        switch (unit2){
-                            case Bit:
-                                return digitalStorage.yottaBytesToBits(value);
-                            case Bytes:
-                                return digitalStorage.yottaBytesToBytes(value);
-                            case Nibble:
-                                return digitalStorage.yottaBytesToNibbles(value);
-                            case Kbi:
-                                return digitalStorage.yottaBytesToKiloBits(value);
-                            case Kby:
-                                return digitalStorage.yottaBytesToKiloBytes(value);
-                            case Mbi:
-                                return digitalStorage.yottaBytesToMegaBits(value);
-                            case Mby:
-                                return digitalStorage.yottaBytesToMegaBytes(value);
-                            case Gbi:
-                                return digitalStorage.yottaBytesToGigaBits(value);
-                            case Gby:
-                                return digitalStorage.yottaBytesToGigaBytes(value);
-                            case Tbi:
-                                return digitalStorage.yottaBytesToTeraBits(value);
-                            case Tby:
-                                return digitalStorage.yottaBytesToTeraBytes(value);
-                            case Pbi:
-                                return digitalStorage.yottaBytesToPetaBits(value);
-                            case Pby:
-                                return digitalStorage.yottaBytesToPetaBytes(value);
-                            case Ebi:
-                                return digitalStorage.yottaBytesToExaBits(value);
-                            case Eby:
-                                return digitalStorage.yottaBytesToExaBytes(value);
-                            case Zbi:
-                                return digitalStorage.yottaBytesToZettaBits(value);
-                            case Zby:
-                                return digitalStorage.yottaBytesToZettaBytes(value);
-                            case Ybi:
-                                return digitalStorage.yottaBytesToYottaBits(value);
-                            case Yby:
-                                return (value);
-                        }
-                        break;
-
-                }
+        ForDigitalStorage(String value, String fromUnit) {
+            this.value = conversionsInputValidator(value);
+            this.fromUnit = fromUnit;
+        }
+        public double toBit(){
+            switch (this.fromUnit){
+                case Bit:
+                    return value;
+                case Bytes:
+                    return UnitConversion.digitalStorage.bitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.bitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.bitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.bitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.bitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.bitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.bitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.bitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.bitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.bitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.bitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.bitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.bitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.bitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.bitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.bitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.bitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.bitsToYottaBytes(value);
+                default:
+                    return 0.0;
             }
-            catch (NumberFormatException numberFormatException){
-                return 0.0;
+        }
+        public double toBytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.bytesToBits(value);
+                case Bytes:
+                    return (value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.bytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.bytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.bytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.bytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.bytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.bytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.bytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.bytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.bytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.bytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.bytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.bytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.bytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.bytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.bytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.bytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.bytesToYottaBytes(value);
+                default:
+                    return 0.0;
             }
-            return 0.0;
+        }
+        public double toNibble(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.nibblesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.nibblesToBytes(value);
+                case Nibble:
+                    return (value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.nibblesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.nibblesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.nibblesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.nibblesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.nibblesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.nibblesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.nibblesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.nibblesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.nibblesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.nibblesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.nibblesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.nibblesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.nibblesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.nibblesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.nibblesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.nibblesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toKilobits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.kiloBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.kiloBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.kiloBitsToNibbles(value);
+                case Kbi:
+                    return (value);
+                case Kby:
+                    return UnitConversion.digitalStorage.kiloBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.kiloBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.kiloBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.kiloBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.kiloBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.kiloBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.kiloBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.kiloBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.kiloBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.kiloBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.kiloBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.kiloBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.kiloBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.kiloBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.kiloBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toKilobytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.kiloBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.kiloBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.kiloBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.kiloBytesToKiloBits(value);
+                case Kby:
+                    return (value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.kiloBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.kiloBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.kiloBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.kiloBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.kiloBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.kiloBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.kiloBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.kiloBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.kiloBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.kiloBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.kiloBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.kiloBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.kiloBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.kiloBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toMegabits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.megaBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.megaBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.megaBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.megaBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.megaBitsToKiloBytes(value);
+                case Mbi:
+                    return (value);
+                case Mby:
+                    return UnitConversion.digitalStorage.megaBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.megaBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.megaBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.megaBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.megaBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.megaBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.megaBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.megaBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.megaBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.megaBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.megaBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.megaBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.megaBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toMegabytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.megaBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.megaBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.megaBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.megaBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.megaBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.megaBytesToMegaBits(value);
+                case Mby:
+                    return (value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.megaBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.megaBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.megaBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.megaBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.megaBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.megaBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.megaBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.megaBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.megaBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.megaBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.megaBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.megaBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toGigabits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.gigaBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.gigaBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.gigaBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.gigaBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.gigaBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.gigaBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.gigaBitsToMegaBytes(value);
+                case Gbi:
+                    return (value);
+                case Gby:
+                    return UnitConversion.digitalStorage.gigaBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.gigaBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.gigaBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.gigaBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.gigaBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.gigaBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.gigaBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.gigaBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.gigaBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.gigaBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.gigaBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toGigabytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.gigaBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.gigaBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.gigaBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.gigaBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.gigaBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.gigaBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.gigaBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.gigaBytesToGigaBits(value);
+                case Gby:
+                    return (value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.gigaBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.gigaBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.gigaBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.gigaBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.gigaBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.gigaBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.gigaBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.gigaBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.gigaBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.gigaBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toTerabits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.teraBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.teraBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.teraBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.teraBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.teraBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.teraBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.teraBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.teraBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.teraBitsToGigaBytes(value);
+                case Tbi:
+                    return (value);
+                case Tby:
+                    return UnitConversion.digitalStorage.teraBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.teraBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.teraBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.teraBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.teraBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.teraBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.teraBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.teraBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.teraBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toTerabytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.teraBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.teraBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.teraBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.teraBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.teraBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.teraBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.teraBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.teraBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.teraBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.teraBytesToTeraBits(value);
+                case Tby:
+                    return (value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.teraBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.teraBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.teraBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.teraBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.teraBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.teraBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.teraBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.teraBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toPetabits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.petaBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.petaBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.petaBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.petaBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.petaBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.petaBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.petaBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.petaBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.petaBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.petaBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.petaBitsToTeraBytes(value);
+                case Pbi:
+                    return (value);
+                case Pby:
+                    return UnitConversion.digitalStorage.petaBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.petaBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.petaBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.petaBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.petaBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.petaBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.petaBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toPetabytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.petaBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.petaBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.petaBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.petaBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.petaBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.petaBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.petaBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.petaBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.petaBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.petaBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.petaBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.petaBytesToPetaBits(value);
+                case Pby:
+                    return (value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.petaBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.petaBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.petaBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.petaBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.petaBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.petaBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toExabits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.exaBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.exaBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.exaBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.exaBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.exaBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.exaBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.exaBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.exaBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.exaBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.exaBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.exaBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.exaBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.exaBitsToPetaBytes(value);
+                case Ebi:
+                    return (value);
+                case Eby:
+                    return UnitConversion.digitalStorage.exaBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.exaBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.exaBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.exaBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.exaBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toExaBytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.exaBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.exaBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.exaBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.exaBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.exaBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.exaBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.exaBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.exaBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.exaBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.exaBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.exaBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.exaBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.exaBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.exaBytesToExaBits(value);
+                case Eby:
+                    return (value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.exaBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.exaBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.exaBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.exaBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toZettaBits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.zettaBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.zettaBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.zettaBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.zettaBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.zettaBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.zettaBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.zettaBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.zettaBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.zettaBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.zettaBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.zettaBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.zettaBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.zettaBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.zettaBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.zettaBitsToExaBytes(value);
+                case Zbi:
+                    return (value);
+                case Zby:
+                    return UnitConversion.digitalStorage.zettaBitsToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.zettaBitsToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.zettaBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toZettaBytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.zettaBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.zettaBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.zettaBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.zettaBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.zettaBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.zettaBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.zettaBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.zettaBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.zettaBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.zettaBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.zettaBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.zettaBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.zettaBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.zettaBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.zettaBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.zettaBytesToZettaBits(value);
+                case Zby:
+                    return (value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.zettaBytesToYottaBits(value);
+                case Yby:
+                    return UnitConversion.digitalStorage.zettaBytesToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toYottaBits(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.yottaBitsToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.yottaBitsToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.yottaBitsToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.yottaBitsToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.yottaBitsToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.yottaBitsToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.yottaBitsToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.yottaBitsToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.yottaBitsToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.yottaBitsToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.yottaBitsToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.yottaBitsToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.yottaBitsToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.yottaBitsToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.yottaBitsToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.yottaBitsToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.yottaBitsToZettaBytes(value);
+                case Ybi:
+                    return (value);
+                case Yby:
+                    return UnitConversion.digitalStorage.yottaBitsToYottaBytes(value);
+                default:
+                    return 0.0;
+            }
+        }
+        public double toYottaBytes(){
+            switch (this.fromUnit){
+                case Bit:
+                    return UnitConversion.digitalStorage.yottaBytesToBits(value);
+                case Bytes:
+                    return UnitConversion.digitalStorage.yottaBytesToBytes(value);
+                case Nibble:
+                    return UnitConversion.digitalStorage.yottaBytesToNibbles(value);
+                case Kbi:
+                    return UnitConversion.digitalStorage.yottaBytesToKiloBits(value);
+                case Kby:
+                    return UnitConversion.digitalStorage.yottaBytesToKiloBytes(value);
+                case Mbi:
+                    return UnitConversion.digitalStorage.yottaBytesToMegaBits(value);
+                case Mby:
+                    return UnitConversion.digitalStorage.yottaBytesToMegaBytes(value);
+                case Gbi:
+                    return UnitConversion.digitalStorage.yottaBytesToGigaBits(value);
+                case Gby:
+                    return UnitConversion.digitalStorage.yottaBytesToGigaBytes(value);
+                case Tbi:
+                    return UnitConversion.digitalStorage.yottaBytesToTeraBits(value);
+                case Tby:
+                    return UnitConversion.digitalStorage.yottaBytesToTeraBytes(value);
+                case Pbi:
+                    return UnitConversion.digitalStorage.yottaBytesToPetaBits(value);
+                case Pby:
+                    return UnitConversion.digitalStorage.yottaBytesToPetaBytes(value);
+                case Ebi:
+                    return UnitConversion.digitalStorage.yottaBytesToExaBits(value);
+                case Eby:
+                    return UnitConversion.digitalStorage.yottaBytesToExaBytes(value);
+                case Zbi:
+                    return UnitConversion.digitalStorage.yottaBytesToZettaBits(value);
+                case Zby:
+                    return UnitConversion.digitalStorage.yottaBytesToZettaBytes(value);
+                case Ybi:
+                    return UnitConversion.digitalStorage.yottaBytesToYottaBits(value);
+                case Yby:
+                    return (value);
+                default:
+                    return 0.0;
+            }
         }
     }
+
+    public static class CurrencyConversion{
+
+    }
+
 }

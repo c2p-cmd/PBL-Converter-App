@@ -4,8 +4,6 @@
     <root id="archive" name="Converter.App.jar">
       <element id="module-output" name="PBL-Converter-App" />
       <element id="library" level="project" name="lib" />
-      <element id="library" level="project" name="org.javamoney:moneta-bp:1.1" />
-      <element id="library" level="project" name="javax.money:money-api-bp:1.0.1" />
     </root>
   </artifact>
 </component>

@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.util.Objects;
 
@@ -34,6 +35,8 @@ public class Main extends Application {
         scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("Calculator.css")).toExternalForm());
         primaryStage.setTitle("Converter App");
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("mainIcon.png"))));
+        Font.loadFont(getClass().getResourceAsStream("LucidaGrande.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("LucidaGrandeBold.ttf"), 14);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
