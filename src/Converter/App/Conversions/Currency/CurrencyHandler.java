@@ -2,6 +2,7 @@ package Converter.App.Conversions.Currency;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class CurrencyHandler {
@@ -14,7 +15,7 @@ public class CurrencyHandler {
         try {
             if (isMacOS() || isUnix()) argument = "src/Converter/App/calculator-env/bin/python3 src/Converter/App/Conversions/Currency/currency_fetcher.py " + amount + " " + fromCurrency + " " + toCurrency;
             else argument = "src\\Converter\\App\\calculator-env-win\\Scripts\\python.exe  src\\Converter\\App\\Conversions\\Currency\\currency_fetcher.py " + amount + " " + fromCurrency + " " + toCurrency;
-            Process process = Runtime.getRuntime().exec("src\\Converter\\App\\Conversions\\Currency\\cdMagic.bat");
+            Process process = Runtime.getRuntime().exec(argument);
             BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
             BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 

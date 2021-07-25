@@ -342,7 +342,7 @@ public class Controller implements Initializable {
         });
         scientificClearBtn.setOnAction(e -> clearScientificFields());
 
-        String output =CurrencyHandler.currencyConvert("1", "USD", "INR");
+        String output =CurrencyHandler.currencyConvert("1", "AUD", "INR");
         System.out.println("OUTPUT = " + output);
 
     }
