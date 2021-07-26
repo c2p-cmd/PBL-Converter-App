@@ -22,6 +22,7 @@ public class CurrencyFetcher {
         URLConnection request;
         try {
             request = url.openConnection();
+            request.setConnectTimeout(5000);
             request.connect();
 
             JsonParser jp = new JsonParser();
