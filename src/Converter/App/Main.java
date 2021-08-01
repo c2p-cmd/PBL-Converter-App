@@ -57,7 +57,7 @@ public class Main extends Application {
             controller.clearProFields();
             controller.clearTreeFields();
             controller.clearScientificFields();
-            // TODO more clears
+            controller.clearConversionsFields();
         });
 
         SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();

@@ -1,10 +1,13 @@
 package Converter.App;
 
-import Converter.App.Conversions.Currency.CurrencyHandler;
+import Converter.App.Conversions.Currency.CurrencyFetcher;
+import Converter.App.Conversions.Units.UnitConversion;
+import Converter.App.Conversions.Units.conversionsController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import static Converter.App.Conversions.Units.conversionsController.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -86,7 +89,13 @@ public class Controller implements Initializable {
     public ChoiceBox<String> isRadianChoiceBox;
     public TextField scientificInputField;
     public TextField scientificResultField;
-
+    public TextField conversionsInputTextField;
+    public TextField conversionsResultTextField;
+    public Button allConversionConvertBtn;
+    public Button allConversionClearBtn;
+    public ComboBox<String> conversionsComboBox;
+    public ChoiceBox<String> fromConversionChoiceBox;
+    public ChoiceBox<String> toConversionChoiceBox;
 
 
 
@@ -342,9 +351,32 @@ public class Controller implements Initializable {
         });
         scientificClearBtn.setOnAction(e -> clearScientificFields());
 
-        String output =CurrencyHandler.currencyConvert("1", "AUD", "INR");
-        System.out.println("OUTPUT = " + output);
+        // All Conversions
+        CurrencyFetcher fetcher = null;
+        conversionsComboBox.getItems().addAll( CurrencyFetcher.CURRENCY, DISTANCE, WEIGHT, ANGLE, AREA, TEMPERATURE, POWERUNIT, TIME, PRESSURE, SPEED, ENERGY, VOLUME, DIGITALSTORAGE);
+        conversionsComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            switch (newValue) {
+                case CurrencyFetcher.CURRENCY:
+                    // TODO Currency Fetcher implementation.
+                    break;
+                case DISTANCE:
+                    fromConversionChoiceBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Inch, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
+                    fromConversionChoiceBox.setValue(ForDistance.m);
+                    toConversionChoiceBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Inch, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
+                    toConversionChoiceBox.setValue(ForDistance.Ft);
+                    break;
+                case WEIGHT:
+                    break;
+                // TODO Program ChoiceBoxes for specific Units
+            }
+        });
+        allConversionConvertBtn.setOnAction(actionEvent -> allConverterBtn());
+        allConversionClearBtn.setOnAction(actionEvent -> clearConversionsFields());
+    }
 
+    public void clearConversionsFields() {
+        conversionsInputTextField.setText(null);
+        conversionsResultTextField.setText(null);
     }
 
     public void clearScientificFields() {
@@ -419,6 +451,11 @@ public class Controller implements Initializable {
                 }
                 break;
         }
+    }
+
+    // function to handle allConverter convert()
+    private void allConverterBtn() {
+        // TODO Conversions
     }
 
     //Function to calculate various operations
