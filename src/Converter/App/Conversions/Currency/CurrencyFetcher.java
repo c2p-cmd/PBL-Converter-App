@@ -13,14 +13,15 @@ import java.net.URLConnection;
 import java.util.Map;
 import java.util.Set;
 
-public class CurrencyFetcher {
+public class CurrencyFetcher extends Thread {
     static String sURL = "https://api.exchangerate-api.com/v4/latest/";
     static String fromC = "EUR", toC = "INR";
+    public static final String CURRENCY = "Currency";
 
-    public static void main(String[] args) throws MalformedURLException {
-        URL url = new URL(sURL+fromC);
-        URLConnection request;
+    public void run() {
         try {
+            URL url = new URL(sURL+fromC);
+            URLConnection request;
             request = url.openConnection();
             request.setConnectTimeout(5000);
             request.setReadTimeout(5000); // 5 seconds timeout
@@ -40,5 +41,10 @@ public class CurrencyFetcher {
             System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        CurrencyFetcher fetcher = new CurrencyFetcher();
+        fetcher.start();
     }
 }

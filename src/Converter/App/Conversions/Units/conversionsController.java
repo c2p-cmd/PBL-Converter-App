@@ -3,6 +3,18 @@ package Converter.App.Conversions.Units;
 import Converter.App.Conversions.Units.UnitConversion.*;
 
 public class conversionsController {
+    public static final String DISTANCE = "Distance";
+    public static final String WEIGHT = "Weight";
+    public static final String ANGLE = "Angle";
+    public static final String AREA = "Area";
+    public static final String TEMPERATURE = "Temperature";
+    public static final String POWERUNIT = "Power";
+    public static final String TIME = "Time";
+    public static final String PRESSURE = "Pressure";
+    public static final String SPEED = "Speed";
+    public static final String ENERGY = "Energy";
+    public static final String VOLUME = "Volume";
+    public static final String DIGITALSTORAGE = "DigitalStorage";
 
     public static double conversionsInputValidator(String number) throws NumberFormatException {
         try {
@@ -29,7 +41,7 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForDistance(String stringNum, String fromUnit) {
+        public ForDistance(String stringNum, String fromUnit) {
             this.value = conversionsInputValidator(stringNum);
             this.fromUnit = fromUnit;
         }
@@ -222,23 +234,23 @@ public class conversionsController {
     //Class if user wants to perform conversions on Distances
     public static class ForWeight{
         //Variables
-        private static final String Carat    = "Carat";
-        private static final String MilliGm  = "Milligram";
-        private static final String CentiGM  = "Centigram";
-        private static final String DeciGm   = "DeciGram";
-        private static final String gm       = "Gram";
-        private static final String DecaGm   = "DecaGram";
-        private static final String HectoGm  = "Hectogram";
-        private static final String kg       = "Kilogram";
-        private static final String metricTn = "Metric Tonne";
-        private static final String Ounces   = "Ounce";
-        private static final String Pounds   = "Pound";
-        private static final String Stone    = "Stone";
+        public static final String Carat    = "Carat";
+        public static final String MilliGm  = "Milligram";
+        public static final String CentiGM  = "Centigram";
+        public static final String DeciGm   = "DeciGram";
+        public static final String gm       = "Gram";
+        public static final String DecaGm   = "DecaGram";
+        public static final String HectoGm  = "Hectogram";
+        public static final String kg       = "Kilogram";
+        public static final String metricTn = "Metric Tonne";
+        public static final String Ounces   = "Ounce";
+        public static final String Pounds   = "Pound";
+        public static final String Stone    = "Stone";
 
         private final String fromUnit;
         private final double value;
 
-        ForWeight(String fromUnit, String value) {
+        public ForWeight(String fromUnit, String value) {
             this.fromUnit = fromUnit;
             this.value = conversionsInputValidator(value);
         }
@@ -628,7 +640,7 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForAngle(String fromUnit, String value) {
+        public ForAngle(String fromUnit, String value) {
             this.fromUnit = fromUnit;
             this.value = conversionsInputValidator(value);
         }
@@ -697,21 +709,21 @@ public class conversionsController {
     //Class if user wants to perform conversions on Areas
     public static class ForArea{
         //Variables
-        private static final String SqMm = "Square Millimetre";
-        private static final String SqCm   = "Square Centimetre";
-        private static final String Sqm    = "Square Metre";
-        private static final String Hectare = "Hectare";
-        private static final String SqKm   = "Square Kilometre";
-        private static final String SqInch = "Square Inch";
-        private static final String SqFt   = "Square Feet";
-        private static final String SqYard = "Square Yards";
-        private static final String Acres  = "Acre";
-        private static final String SqMi   = "Square Miles";
+        public static final String SqMm = "Square Millimetre";
+        public static final String SqCm   = "Square Centimetre";
+        public static final String Sqm    = "Square Metre";
+        public static final String Hectare = "Hectare";
+        public static final String SqKm   = "Square Kilometre";
+        public static final String SqInch = "Square Inch";
+        public static final String SqFt   = "Square Feet";
+        public static final String SqYard = "Square Yards";
+        public static final String Acres  = "Acre";
+        public static final String SqMi   = "Square Miles";
 
         private final String fromUnit;
         private final double value;
 
-        ForArea(String value, String fromUnit) {
+        public ForArea(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -998,7 +1010,7 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        ForTemperature(String value, String fromUnit) {
+        public ForTemperature(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1076,7 +1088,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForPower(String value, String fromUnit) {
+        public ForPower(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1182,7 +1194,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForTime(String value, String fromUnit) {
+        public ForTime(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1387,7 +1399,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForPressure(String value, String fromUnit) {
+        public ForPressure(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1516,7 +1528,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForSpeed(String value, String fromUnit) {
+        public ForSpeed(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1677,7 +1689,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForEnergy(String value, String fromUnit) {
+        public ForEnergy(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1812,7 +1824,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForVolume(String value, String fromUnit) {
+        public ForVolume(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -2207,10 +2219,11 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        ForDigitalStorage(String value, String fromUnit) {
+        public ForDigitalStorage(String value, String fromUnit) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
+
         public double toBit(){
             switch (this.fromUnit){
                 case Bit:
@@ -3048,9 +3061,4 @@ public class conversionsController {
             }
         }
     }
-
-    public static class CurrencyConversion{
-
-    }
-
 }

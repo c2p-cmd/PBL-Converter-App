@@ -189,12 +189,47 @@
         </Tab>
         <Tab fx:id="allConversionTab" text="Conversions">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0" text="Unit Conversion Mode" textAlignment="CENTER">
-                    <font>
-                        <Font name="Lucida Grande" size="25.0" />
-                    </font>
-                </Label>
-
+                <GridPane layoutX="-2.0" layoutY="-4.0" prefHeight="332.0" prefWidth="600.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="204.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="194.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="203.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="105.0" minHeight="6.0" prefHeight="85.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="157.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+               <TextField fx:id="conversionsInputTextField" alignment="CENTER" promptText="Enter Value" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <font>
+                     <Font name="Lucida Grande" size="15.0" />
+                  </font>
+                  <GridPane.margin>
+                     <Insets bottom="70.0" left="12.0" right="12.0" />
+                  </GridPane.margin>
+               </TextField>
+                    <Label alignment="CENTER" prefHeight="86.0" prefWidth="600.0" text="Unit Conversion Mode" textAlignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="0">
+                        <font>
+                            <Font name="Lucida Grande" size="25.0" />
+                        </font>
+                    </Label>
+               <ComboBox fx:id="conversionsComboBox" prefWidth="150.0" promptText="Choose..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <GridPane.margin>
+                     <Insets top="18.0" />
+                  </GridPane.margin></ComboBox>
+               <ChoiceBox fx:id="fromConversionChoiceBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                    <ChoiceBox fx:id="toConversionChoiceBox" prefWidth="150.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                    <TextField fx:id="conversionsResultTextField" alignment="CENTER" promptText="Result" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <font>
+                            <Font name="Lucida Grande" size="15.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets bottom="15.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <Button fx:id="allConversionConvertBtn" text="Convert" GridPane.rowIndex="2" GridPane.halignment="RIGHT" prefHeight="26" prefWidth="126"/>
+                    <Button fx:id="allConversionClearBtn" text="Clear" GridPane.rowIndex="2" GridPane.columnIndex="2" prefHeight="26" prefWidth="126" GridPane.halignment="LEFT"/>
+                </GridPane>
             </AnchorPane>
         </Tab>
     </TabPane>
