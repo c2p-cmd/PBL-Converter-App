@@ -284,7 +284,7 @@
 /*Scientific Tab*/
 
 
-/*Unit Conversion Tab*/
+/* Conversion Tab*/
 #allConversionTab{
     -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7);
 }
@@ -295,6 +295,114 @@
     -fx-background-color:  linear-gradient(to bottom, #e0e0e0, #dcdcdc, #d7d7d7, #d3d3d3, #cfcfcf, #cdcdcd, #cbcbcb, #c9c9c9, #c8c8c9, #c8c8c8, #c7c7c8, #c7c6c7 ,grey 90%);
 }
 
+/*Css For Choice Boxes of conversion tab*/
+#toConversionChoiceBox{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+#fromConversionChoiceBox{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+/*Conversions tab input field */
+#conversionsInputTextField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#conversionsInputTextField:focused ,#conversionsInputTextField:showing ,#conversionsInputTextField:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+
+}
+
+/*Conversions tab result field */
+#conversionsResultTextField{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#conversionsResultTextField:focused ,#conversionsResultTextField:showing ,#conversionsResultTextField:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+
+}
+
+
+    /*Conversion tab clear button */
+#allConversionClearBtn{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#allConversionClearBtn:hover ,#allConversionClearBtn:showing ,#allConversionClearBtn:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
+/*Conversions tab calculate button*/
+#allConversionConvertBtn{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-font-family: "Lucida Grande";
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 6 6 6 6 , 5 5 5 5 ,4 4 4 4;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#allConversionConvertBtn:hover ,#allConversionConvertBtn:showing ,#allConversionConvertBtn:selected{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+}
 /*Unit Conversion Tab*/
 
 /*MENU BAR*/
@@ -425,7 +533,7 @@
             linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
 }
 
-/*Setting Css For Combo Boxes of Programmers Tab*/
+/*Setting Css For Combo Boxes */
 .combo-box-popup .list-view .list-cell:hover {
     -fx-background-color: #7793f5,
     linear-gradient(to top,  #7793f5 0%, #406df2 50%, #275af1 100%);

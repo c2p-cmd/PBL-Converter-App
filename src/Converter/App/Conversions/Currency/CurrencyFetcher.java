@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class CurrencyFetcher extends Thread {
     static String sURL = "https://api.exchangerate-api.com/v4/latest/";
-    static String fromC = "EUR", toC = "INR";
+    static String fromC = "USD", toC = "INR";
     public static final String CURRENCY = "Currency";
 
     public void run() {
