@@ -356,75 +356,105 @@ public class Controller implements Initializable {
         conversionsComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             switch (newValue) {
                 case CurrencyFetcher.CURRENCY:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
+                    fromConversionChoiceBox.getItems().addAll("AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BYN","BZD","CAD","CDF","CHF","CLP","CNY","COP","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","FOK","GBP","GEL","GGP","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","IMP","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KID","KMF","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL");
+                    fromConversionChoiceBox.getItems().addAll("MGA","MKD","MMK","MNT","MOP","MRU","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STN","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TVD","TWD","TZS","UAH","UGX","UYU","UZS","VES","VND","VUV","WST","XAF","XCD","XDR","XOF","XPF","YER","ZAR","ZMW");
+                    fromConversionChoiceBox.setValue("USD");
+                    toConversionChoiceBox.setValue("INR");
                     // TODO Currency Fetcher implementation.
                     break;
                 case DISTANCE:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Inch, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
                     fromConversionChoiceBox.setValue(ForDistance.m);
                     toConversionChoiceBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Inch, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
-                    toConversionChoiceBox.setValue(ForDistance.Ft);
+                    toConversionChoiceBox.setValue(ForDistance.Cm);
                     break;
                 case WEIGHT:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForWeight.Carat, ForWeight.Ounces, ForWeight.CentiGM, ForWeight.gm, ForWeight.DecaGm, ForWeight.DeciGm, ForWeight.HectoGm, ForWeight.kg, ForWeight.metricTn, ForWeight.MilliGm, ForWeight.Pounds, ForWeight.Stone);
                     fromConversionChoiceBox.setValue(ForWeight.gm);
                     toConversionChoiceBox.getItems().addAll(ForWeight.Carat, ForWeight.Ounces, ForWeight.CentiGM, ForWeight.gm, ForWeight.DecaGm, ForWeight.DeciGm, ForWeight.HectoGm, ForWeight.kg, ForWeight.metricTn, ForWeight.MilliGm, ForWeight.Pounds, ForWeight.Stone);
                     toConversionChoiceBox.setValue(ForWeight.kg);
                     break;
                 case ANGLE:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForAngle.ArcSec, ForAngle.Deg, ForAngle.Grad, ForAngle.Rad);
                     fromConversionChoiceBox.setValue(ForAngle.Deg);
                     toConversionChoiceBox.getItems().addAll(ForAngle.ArcSec, ForAngle.Deg, ForAngle.Grad, ForAngle.Rad);
                     toConversionChoiceBox.setValue(ForAngle.Rad);
                     break;
                 case AREA:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForArea.Acres, ForArea.Hectare, ForArea.SqCm, ForArea.SqInch, ForArea.SqKm, ForArea.Sqm, ForArea.SqFt, ForArea.SqMi, ForArea.SqMm, ForArea.SqYard);
                     fromConversionChoiceBox.setValue(ForArea.SqKm);
                     toConversionChoiceBox.getItems().addAll(ForArea.Acres, ForArea.Hectare, ForArea.SqCm, ForArea.SqInch, ForArea.SqKm, ForArea.Sqm, ForArea.SqFt, ForArea.SqMi, ForArea.SqMm, ForArea.SqYard);
                     toConversionChoiceBox.setValue(ForArea.SqMi);
                     break;
                 case PRESSURE:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForPressure.KILOPASC, ForPressure.ATM, ForPressure.BARR, ForPressure.MMOFMERC, ForPressure.PASC, ForPressure.PPSPERINCH);
                     fromConversionChoiceBox.setValue(ForPressure.ATM);
                     toConversionChoiceBox.getItems().addAll(ForPressure.KILOPASC, ForPressure.ATM, ForPressure.BARR, ForPressure.MMOFMERC, ForPressure.PASC, ForPressure.PPSPERINCH);
                     toConversionChoiceBox.setValue(ForPressure.PASC);
                     break;
                 case POWERUNIT:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForPower.BTU, ForPower.FTPpm, ForPower.HP, ForPower.KiloWatt, ForPower.watt);
                     fromConversionChoiceBox.setValue(ForPower.watt);
                     toConversionChoiceBox.getItems().addAll(ForPower.BTU, ForPower.FTPpm, ForPower.HP, ForPower.KiloWatt, ForPower.watt);
                     toConversionChoiceBox.setValue(ForPower.HP);
                     break;
                 case TIME:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForTime.Sec, ForTime.Day, ForTime.MicroSec, ForTime.MilliSec, ForTime.Min, ForTime.Hrs, ForTime.Week, ForTime.Year);
                     fromConversionChoiceBox.setValue(ForTime.Sec);
                     toConversionChoiceBox.getItems().addAll(ForTime.Sec, ForTime.Day, ForTime.MicroSec, ForTime.MilliSec, ForTime.Min, ForTime.Hrs, ForTime.Week, ForTime.Year);
                     toConversionChoiceBox.setValue(ForTime.Hrs);
                     break;
                 case SPEED:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForSpeed.CmPerSec, ForSpeed.FtPerSec, ForSpeed.KmPerHr, ForSpeed.MPerSec, ForSpeed.MiPerHr, ForSpeed.Knot, ForSpeed.Mach);
                     fromConversionChoiceBox.setValue(ForSpeed.KmPerHr);
                     toConversionChoiceBox.getItems().addAll(ForSpeed.CmPerSec, ForSpeed.FtPerSec, ForSpeed.KmPerHr, ForSpeed.MPerSec, ForSpeed.MiPerHr, ForSpeed.Knot, ForSpeed.Mach);
                     toConversionChoiceBox.setValue(ForSpeed.MiPerHr);
                     break;
                 case ENERGY:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForEnergy.CAL, ForEnergy.EV, ForEnergy.FCAL, ForEnergy.J, ForEnergy.KJ, ForEnergy.FTPOUNDS);
                     fromConversionChoiceBox.setValue(ForEnergy.CAL);
                     toConversionChoiceBox.getItems().addAll(ForEnergy.CAL, ForEnergy.EV, ForEnergy.FCAL, ForEnergy.J, ForEnergy.KJ, ForEnergy.FTPOUNDS);
                     toConversionChoiceBox.setValue(ForEnergy.J);
                     break;
                 case VOLUME:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForVolume.FLDONC, ForVolume.CUBICFT, ForVolume.CUBICINCH, ForVolume.CUBICYARD, ForVolume.CUBICMETRE, ForVolume.CUPS, ForVolume.GALL, ForVolume.LTRS, ForVolume.PINTS, ForVolume.QUARTS, ForVolume.MILLILITRS, ForVolume.TEASPOON);
                     fromConversionChoiceBox.setValue(ForVolume.LTRS);
                     toConversionChoiceBox.getItems().addAll(ForVolume.FLDONC, ForVolume.CUBICFT, ForVolume.CUBICINCH, ForVolume.CUBICYARD, ForVolume.CUBICMETRE, ForVolume.CUPS, ForVolume.GALL, ForVolume.LTRS, ForVolume.PINTS, ForVolume.QUARTS, ForVolume.MILLILITRS, ForVolume.TEASPOON);
                     toConversionChoiceBox.setValue(ForVolume.MILLILITRS);
                     break;
                 case TEMPERATURE:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForTemperature.Cel, ForTemperature.Fah, ForTemperature.Kel, ForTemperature.Rankine);
                     fromConversionChoiceBox.setValue(ForTemperature.Cel);
                     toConversionChoiceBox.getItems().addAll(ForTemperature.Cel, ForTemperature.Fah, ForTemperature.Kel, ForTemperature.Rankine);
                     toConversionChoiceBox.setValue(ForTemperature.Fah);
                     break;
                 case DIGITALSTORAGE:
+                    fromConversionChoiceBox.getItems().clear();
+                    toConversionChoiceBox.getItems().clear();
                     fromConversionChoiceBox.getItems().addAll(ForDigitalStorage.Bytes, ForDigitalStorage.Bit, ForDigitalStorage.Ebi, ForDigitalStorage.Eby, ForDigitalStorage.Gbi, ForDigitalStorage.Gby, ForDigitalStorage.Kbi, ForDigitalStorage.Kby, ForDigitalStorage.Mbi, ForDigitalStorage.Mby, ForDigitalStorage.Nibble, ForDigitalStorage.Pbi, ForDigitalStorage.Pby, ForDigitalStorage.Tbi, ForDigitalStorage.Tby, ForDigitalStorage.Ybi, ForDigitalStorage.Yby, ForDigitalStorage.Zbi, ForDigitalStorage.Zby);
                     fromConversionChoiceBox.setValue(ForDigitalStorage.Bit);
                     toConversionChoiceBox.getItems().addAll(ForDigitalStorage.Bytes, ForDigitalStorage.Bit, ForDigitalStorage.Ebi, ForDigitalStorage.Eby, ForDigitalStorage.Gbi, ForDigitalStorage.Gby, ForDigitalStorage.Kbi, ForDigitalStorage.Kby, ForDigitalStorage.Mbi, ForDigitalStorage.Mby, ForDigitalStorage.Nibble, ForDigitalStorage.Pbi, ForDigitalStorage.Pby, ForDigitalStorage.Tbi, ForDigitalStorage.Tby, ForDigitalStorage.Ybi, ForDigitalStorage.Yby, ForDigitalStorage.Zbi, ForDigitalStorage.Zby);
