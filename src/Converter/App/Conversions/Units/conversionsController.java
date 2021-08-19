@@ -41,7 +41,7 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        public ForDistance(String stringNum, String fromUnit) {
+        public ForDistance( String fromUnit,String stringNum) {
             this.value = conversionsInputValidator(stringNum);
             this.fromUnit = fromUnit;
         }
@@ -723,7 +723,7 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        public ForArea(String value, String fromUnit) {
+        public ForArea( String fromUnit, String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -747,7 +747,7 @@ public class conversionsController {
                 case SqYard:
                     return UnitConversion.Area.squareMillimetersToSquareYards(value);
                 case Acres:
-                    return UnitConversion.Area.squareMillimetersToAcres(value);
+                    return UnitConversion.Area.squareMillimetersToAcres(value);     
                 case SqMi:
                     return UnitConversion.Area.squareMillimetersToSquareMiles(value);
                 default:
@@ -1010,7 +1010,7 @@ public class conversionsController {
         private final String fromUnit;
         private final double value;
 
-        public ForTemperature(String value, String fromUnit) {
+        public ForTemperature( String fromUnit ,String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1088,7 +1088,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        public ForPower(String value, String fromUnit) {
+        public ForPower( String fromUnit , String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1183,7 +1183,7 @@ public class conversionsController {
     public static class ForTime{
         //Variables
         public static final String MicroSec = "Micro Second";
-        public static final String MilliSec = " Milli Second";
+        public static final String MilliSec = "Milli Second";
         public static final String Sec  = "Second";
         public static final String Min  = "Minute";
         public static final String Hrs  = "Hours";
@@ -1194,7 +1194,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        public ForTime(String value, String fromUnit) {
+        public ForTime(String fromUnit, String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1391,7 +1391,7 @@ public class conversionsController {
         public static final String ATM = "Atmosphere";
         public static final String BARR = "Bars";
         public static final String KILOPASC = "KiloPascal";
-        public static final String MMOFMERC = " Millimetre Of Mercury";
+        public static final String MMOFMERC = "Millimetre Of Mercury";
         public static final String PASC = "Pascal";
         public static final String PPSPERINCH = "Pounds Per Square Inch";
 
@@ -1399,7 +1399,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        public ForPressure(String value, String fromUnit) {
+        public ForPressure( String fromUnit,String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1517,18 +1517,18 @@ public class conversionsController {
     //Class For Speed
     public static class ForSpeed{
         //Variables
-        public static final String CmPerSec = " Centimetre/s";
-        public static final String MPerSec  = " Metre/s";
-        public static final String KmPerHr  = " Kilometre/hr";
-        public static final String FtPerSec = " Feet/s";
+        public static final String CmPerSec = "Centimetre/s";
+        public static final String MPerSec  = "Metre/s";
+        public static final String KmPerHr  = "Kilometre/hr";
+        public static final String FtPerSec = "Feet/s";
         public static final String MiPerHr  = "Miles/hr";
         public static final String Knot = "Knots";
-        public static final String Mach = " Mach";
+        public static final String Mach = "Mach";
 
         private final double value;
         private final String fromUnit;
 
-        public ForSpeed(String value, String fromUnit) {
+        public ForSpeed(String fromUnit ,String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1689,7 +1689,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        public ForEnergy(String value, String fromUnit) {
+        public ForEnergy(String fromUnit, String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -1824,7 +1824,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        public ForVolume(String value, String fromUnit) {
+        public ForVolume( String fromUnit,String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }
@@ -2219,7 +2219,7 @@ public class conversionsController {
         private final double value;
         private final String fromUnit;
 
-        public ForDigitalStorage(String value, String fromUnit) {
+        public ForDigitalStorage( String fromUnit,String value) {
             this.value = conversionsInputValidator(value);
             this.fromUnit = fromUnit;
         }

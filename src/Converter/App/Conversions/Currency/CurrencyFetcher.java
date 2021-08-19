@@ -13,9 +13,22 @@ import java.util.Map;
 import java.util.Set;
 
 public class CurrencyFetcher extends Thread {
-    static String sURL = "https://api.exchangerate-api.com/v4/latest/";
-    static String fromC = "USD", toC = "INR";
+    final  String sURL = "https://api.exchangerate-api.com/v4/latest/";
+    private final String fromC , toC ;
     public static final String CURRENCY = "Currency";
+    public double result = 0.0;
+    private final double value;
+
+    public CurrencyFetcher(String fromC, String toC, Double value){
+        this.fromC=fromC;
+        this.toC=toC;
+        this.value=value;
+    }
+
+    public double getConversion( ){
+        return this.result;
+    }
+
 
     public void run() {
         try {
@@ -31,8 +44,17 @@ public class CurrencyFetcher extends Thread {
             JsonObject rootObj = root.getAsJsonObject();
             Set<Map.Entry<String, JsonElement>> ratesString = rootObj.get("rates").getAsJsonObject().entrySet();
             for (Object s: ratesString) {
-                if( s.toString().contains(toC) ) System.out.println("Printing: " + s);
+                if( s.toString().contains(toC) ) {
+                    StringBuilder builder = new StringBuilder();
+                    for(int i=4 ; i<(s.toString()).length() ; i++ ){
+                        builder.append(s.toString().charAt(i));
+                    }
+                    this.result = Double.parseDouble(builder.toString())*this.value;
+                    break;
+                }
             }
+
+
         } catch (IOException e) {
             System.out.println("Something went wrong: " + e.getMessage());
             e.printStackTrace();
@@ -40,10 +62,12 @@ public class CurrencyFetcher extends Thread {
             System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
+
     }
 
-    public static void main(String[] args) {
-        CurrencyFetcher fetcher = new CurrencyFetcher();
-        fetcher.start();
-    }
+
+    //public static void main(String[] args) {
+        //CurrencyFetcher fetcher = new CurrencyFetcher();
+        //fetcher.start();
+   // }
 }

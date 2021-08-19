@@ -1,8 +1,6 @@
 package Converter.App;
 
 import Converter.App.Conversions.Currency.CurrencyFetcher;
-import Converter.App.Conversions.Units.UnitConversion;
-import Converter.App.Conversions.Units.conversionsController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -10,6 +8,7 @@ import javafx.scene.layout.GridPane;
 import static Converter.App.Conversions.Units.conversionsController.*;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -57,6 +56,10 @@ public class Controller implements Initializable {
     static Character bitwiseOperatorChosen;
     static String trigoFunctionChosen;
     static Boolean isRadian = true;
+    static String fromC , toC;
+    static double value;
+    static String conversionProperty;
+
 
     @FXML
     public GridPane rootGridPane;
@@ -94,8 +97,9 @@ public class Controller implements Initializable {
     public Button allConversionConvertBtn;
     public Button allConversionClearBtn;
     public ComboBox<String> conversionsComboBox;
-    public ChoiceBox<String> fromConversionChoiceBox;
-    public ChoiceBox<String> toConversionChoiceBox;
+    public ComboBox<String> fromConversionBox;
+    public ComboBox<String> toConversionBox;
+
 
 
 
@@ -351,117 +355,139 @@ public class Controller implements Initializable {
         scientificClearBtn.setOnAction(e -> clearScientificFields());
 
         // All Conversions
-        CurrencyFetcher fetcher = null;
         conversionsComboBox.getItems().addAll( CurrencyFetcher.CURRENCY, DISTANCE, WEIGHT, ANGLE, AREA, TEMPERATURE, POWERUNIT, TIME, PRESSURE, SPEED, ENERGY, VOLUME, DIGITALSTORAGE);
         conversionsComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            conversionProperty = newValue;
+
             switch (newValue) {
+
                 case CurrencyFetcher.CURRENCY:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll("AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BYN","BZD","CAD","CDF","CHF","CLP","CNY","COP","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","FOK","GBP","GEL","GGP","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","IMP","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KID","KMF","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL");
-                    fromConversionChoiceBox.getItems().addAll("MGA","MKD","MMK","MNT","MOP","MRU","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STN","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TVD","TWD","TZS","UAH","UGX","UYU","UZS","VES","VND","VUV","WST","XAF","XCD","XDR","XOF","XPF","YER","ZAR","ZMW");
-                    fromConversionChoiceBox.setValue("USD");
-                    toConversionChoiceBox.setValue("INR");
-                    // TODO Currency Fetcher implementation.
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+
+                    fromConversionBox.getItems().addAll("AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BYN","BZD","CAD","CDF","CHF","CLP","CNY","COP","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","FOK","GBP","GEL","GGP","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","IMP","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KID","KMF","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL");
+                    fromConversionBox.getItems().addAll("MGA","MKD","MMK","MNT","MOP","MRU","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STN","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TVD","TWD","TZS","UAH","UGX","USD","UYU","UZS","VES","VND","VUV","WST","XAF","XCD","XDR","XOF","XPF","YER","ZAR","ZMW");
+                    fromConversionBox.setValue("USD");
+
+                    toConversionBox.getItems().addAll("AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BYN","BZD","CAD","CDF","CHF","CLP","CNY","COP","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","FOK","GBP","GEL","GGP","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","IMP","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KID","KMF","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL");
+                    toConversionBox.getItems().addAll("MGA","MKD","MMK","MNT","MOP","MRU","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STN","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TVD","TWD","TZS","UAH","UGX","USD","UYU","UZS","VES","VND","VUV","WST","XAF","XCD","XDR","XOF","XPF","YER","ZAR","ZMW");
+                    toConversionBox.setValue("INR");
+
                     break;
                 case DISTANCE:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Inch, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
-                    fromConversionChoiceBox.setValue(ForDistance.m);
-                    toConversionChoiceBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Inch, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
-                    toConversionChoiceBox.setValue(ForDistance.Cm);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Ft, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
+                    fromConversionBox.setValue(ForDistance.m);
+                    toConversionBox.getItems().addAll(ForDistance.Cm, ForDistance.m, ForDistance.KM, ForDistance.Ft, ForDistance.Inch, ForDistance.Miles, ForDistance.NauticalMi, ForDistance.Yards );
+                    toConversionBox.setValue(ForDistance.Cm);
                     break;
                 case WEIGHT:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForWeight.Carat, ForWeight.Ounces, ForWeight.CentiGM, ForWeight.gm, ForWeight.DecaGm, ForWeight.DeciGm, ForWeight.HectoGm, ForWeight.kg, ForWeight.metricTn, ForWeight.MilliGm, ForWeight.Pounds, ForWeight.Stone);
-                    fromConversionChoiceBox.setValue(ForWeight.gm);
-                    toConversionChoiceBox.getItems().addAll(ForWeight.Carat, ForWeight.Ounces, ForWeight.CentiGM, ForWeight.gm, ForWeight.DecaGm, ForWeight.DeciGm, ForWeight.HectoGm, ForWeight.kg, ForWeight.metricTn, ForWeight.MilliGm, ForWeight.Pounds, ForWeight.Stone);
-                    toConversionChoiceBox.setValue(ForWeight.kg);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForWeight.Carat, ForWeight.Ounces, ForWeight.CentiGM, ForWeight.gm, ForWeight.DecaGm, ForWeight.DeciGm, ForWeight.HectoGm, ForWeight.kg, ForWeight.metricTn, ForWeight.MilliGm, ForWeight.Pounds, ForWeight.Stone);
+                    fromConversionBox.setValue(ForWeight.gm);
+                    toConversionBox.getItems().addAll(ForWeight.Carat, ForWeight.Ounces, ForWeight.CentiGM, ForWeight.gm, ForWeight.DecaGm, ForWeight.DeciGm, ForWeight.HectoGm, ForWeight.kg, ForWeight.metricTn, ForWeight.MilliGm, ForWeight.Pounds, ForWeight.Stone);
+                    toConversionBox.setValue(ForWeight.kg);
                     break;
                 case ANGLE:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForAngle.ArcSec, ForAngle.Deg, ForAngle.Grad, ForAngle.Rad);
-                    fromConversionChoiceBox.setValue(ForAngle.Deg);
-                    toConversionChoiceBox.getItems().addAll(ForAngle.ArcSec, ForAngle.Deg, ForAngle.Grad, ForAngle.Rad);
-                    toConversionChoiceBox.setValue(ForAngle.Rad);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForAngle.ArcSec, ForAngle.Deg, ForAngle.Grad, ForAngle.Rad);
+                    fromConversionBox.setValue(ForAngle.Deg);
+                    toConversionBox.getItems().addAll(ForAngle.ArcSec, ForAngle.Deg, ForAngle.Grad, ForAngle.Rad);
+                    toConversionBox.setValue(ForAngle.Rad);
                     break;
                 case AREA:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForArea.Acres, ForArea.Hectare, ForArea.SqCm, ForArea.SqInch, ForArea.SqKm, ForArea.Sqm, ForArea.SqFt, ForArea.SqMi, ForArea.SqMm, ForArea.SqYard);
-                    fromConversionChoiceBox.setValue(ForArea.SqKm);
-                    toConversionChoiceBox.getItems().addAll(ForArea.Acres, ForArea.Hectare, ForArea.SqCm, ForArea.SqInch, ForArea.SqKm, ForArea.Sqm, ForArea.SqFt, ForArea.SqMi, ForArea.SqMm, ForArea.SqYard);
-                    toConversionChoiceBox.setValue(ForArea.SqMi);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForArea.Acres, ForArea.Hectare, ForArea.SqCm, ForArea.SqInch, ForArea.SqKm, ForArea.Sqm, ForArea.SqFt, ForArea.SqMi, ForArea.SqMm, ForArea.SqYard);
+                    fromConversionBox.setValue(ForArea.SqKm);
+                    toConversionBox.getItems().addAll(ForArea.Acres, ForArea.Hectare, ForArea.SqCm, ForArea.SqInch, ForArea.SqKm, ForArea.Sqm, ForArea.SqFt, ForArea.SqMi, ForArea.SqMm, ForArea.SqYard);
+                    toConversionBox.setValue(ForArea.SqMi);
                     break;
                 case PRESSURE:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForPressure.KILOPASC, ForPressure.ATM, ForPressure.BARR, ForPressure.MMOFMERC, ForPressure.PASC, ForPressure.PPSPERINCH);
-                    fromConversionChoiceBox.setValue(ForPressure.ATM);
-                    toConversionChoiceBox.getItems().addAll(ForPressure.KILOPASC, ForPressure.ATM, ForPressure.BARR, ForPressure.MMOFMERC, ForPressure.PASC, ForPressure.PPSPERINCH);
-                    toConversionChoiceBox.setValue(ForPressure.PASC);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForPressure.KILOPASC, ForPressure.ATM, ForPressure.BARR, ForPressure.MMOFMERC, ForPressure.PASC, ForPressure.PPSPERINCH);
+                    fromConversionBox.setValue(ForPressure.ATM);
+                    toConversionBox.getItems().addAll(ForPressure.KILOPASC, ForPressure.ATM, ForPressure.BARR, ForPressure.MMOFMERC, ForPressure.PASC, ForPressure.PPSPERINCH);
+                    toConversionBox.setValue(ForPressure.PASC);
                     break;
                 case POWERUNIT:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForPower.BTU, ForPower.FTPpm, ForPower.HP, ForPower.KiloWatt, ForPower.watt);
-                    fromConversionChoiceBox.setValue(ForPower.watt);
-                    toConversionChoiceBox.getItems().addAll(ForPower.BTU, ForPower.FTPpm, ForPower.HP, ForPower.KiloWatt, ForPower.watt);
-                    toConversionChoiceBox.setValue(ForPower.HP);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForPower.BTU, ForPower.FTPpm, ForPower.HP, ForPower.KiloWatt, ForPower.watt);
+                    fromConversionBox.setValue(ForPower.watt);
+                    toConversionBox.getItems().addAll(ForPower.BTU, ForPower.FTPpm, ForPower.HP, ForPower.KiloWatt, ForPower.watt);
+                    toConversionBox.setValue(ForPower.HP);
                     break;
                 case TIME:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForTime.Sec, ForTime.Day, ForTime.MicroSec, ForTime.MilliSec, ForTime.Min, ForTime.Hrs, ForTime.Week, ForTime.Year);
-                    fromConversionChoiceBox.setValue(ForTime.Sec);
-                    toConversionChoiceBox.getItems().addAll(ForTime.Sec, ForTime.Day, ForTime.MicroSec, ForTime.MilliSec, ForTime.Min, ForTime.Hrs, ForTime.Week, ForTime.Year);
-                    toConversionChoiceBox.setValue(ForTime.Hrs);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForTime.Sec, ForTime.Day, ForTime.MicroSec, ForTime.MilliSec, ForTime.Min, ForTime.Hrs, ForTime.Week, ForTime.Year);
+                    fromConversionBox.setValue(ForTime.Sec);
+                    toConversionBox.getItems().addAll(ForTime.Sec, ForTime.Day, ForTime.MicroSec, ForTime.MilliSec, ForTime.Min, ForTime.Hrs, ForTime.Week, ForTime.Year);
+                    toConversionBox.setValue(ForTime.Hrs);
                     break;
                 case SPEED:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForSpeed.CmPerSec, ForSpeed.FtPerSec, ForSpeed.KmPerHr, ForSpeed.MPerSec, ForSpeed.MiPerHr, ForSpeed.Knot, ForSpeed.Mach);
-                    fromConversionChoiceBox.setValue(ForSpeed.KmPerHr);
-                    toConversionChoiceBox.getItems().addAll(ForSpeed.CmPerSec, ForSpeed.FtPerSec, ForSpeed.KmPerHr, ForSpeed.MPerSec, ForSpeed.MiPerHr, ForSpeed.Knot, ForSpeed.Mach);
-                    toConversionChoiceBox.setValue(ForSpeed.MiPerHr);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForSpeed.CmPerSec, ForSpeed.FtPerSec, ForSpeed.KmPerHr, ForSpeed.MPerSec, ForSpeed.MiPerHr, ForSpeed.Knot, ForSpeed.Mach);
+                    fromConversionBox.setValue(ForSpeed.KmPerHr);
+                    toConversionBox.getItems().addAll(ForSpeed.CmPerSec, ForSpeed.FtPerSec, ForSpeed.KmPerHr, ForSpeed.MPerSec, ForSpeed.MiPerHr, ForSpeed.Knot, ForSpeed.Mach);
+                    toConversionBox.setValue(ForSpeed.MiPerHr);
                     break;
                 case ENERGY:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForEnergy.CAL, ForEnergy.EV, ForEnergy.FCAL, ForEnergy.J, ForEnergy.KJ, ForEnergy.FTPOUNDS);
-                    fromConversionChoiceBox.setValue(ForEnergy.CAL);
-                    toConversionChoiceBox.getItems().addAll(ForEnergy.CAL, ForEnergy.EV, ForEnergy.FCAL, ForEnergy.J, ForEnergy.KJ, ForEnergy.FTPOUNDS);
-                    toConversionChoiceBox.setValue(ForEnergy.J);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForEnergy.CAL, ForEnergy.EV, ForEnergy.FCAL, ForEnergy.J, ForEnergy.KJ, ForEnergy.FTPOUNDS);
+                    fromConversionBox.setValue(ForEnergy.CAL);
+                    toConversionBox.getItems().addAll(ForEnergy.CAL, ForEnergy.EV, ForEnergy.FCAL, ForEnergy.J, ForEnergy.KJ, ForEnergy.FTPOUNDS);
+                    toConversionBox.setValue(ForEnergy.J);
                     break;
                 case VOLUME:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForVolume.FLDONC, ForVolume.CUBICFT, ForVolume.CUBICINCH, ForVolume.CUBICYARD, ForVolume.CUBICMETRE, ForVolume.CUPS, ForVolume.GALL, ForVolume.LTRS, ForVolume.PINTS, ForVolume.QUARTS, ForVolume.MILLILITRS, ForVolume.TEASPOON);
-                    fromConversionChoiceBox.setValue(ForVolume.LTRS);
-                    toConversionChoiceBox.getItems().addAll(ForVolume.FLDONC, ForVolume.CUBICFT, ForVolume.CUBICINCH, ForVolume.CUBICYARD, ForVolume.CUBICMETRE, ForVolume.CUPS, ForVolume.GALL, ForVolume.LTRS, ForVolume.PINTS, ForVolume.QUARTS, ForVolume.MILLILITRS, ForVolume.TEASPOON);
-                    toConversionChoiceBox.setValue(ForVolume.MILLILITRS);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForVolume.FLDONC, ForVolume.CUBICFT, ForVolume.CUBICINCH, ForVolume.CUBICYARD, ForVolume.CUBICMETRE, ForVolume.CUPS, ForVolume.GALL, ForVolume.LTRS, ForVolume.PINTS, ForVolume.QUARTS, ForVolume.MILLILITRS, ForVolume.TEASPOON);
+                    fromConversionBox.setValue(ForVolume.LTRS);
+                    toConversionBox.getItems().addAll(ForVolume.FLDONC, ForVolume.CUBICFT, ForVolume.CUBICINCH, ForVolume.CUBICYARD, ForVolume.CUBICMETRE, ForVolume.CUPS, ForVolume.GALL, ForVolume.LTRS, ForVolume.PINTS, ForVolume.QUARTS, ForVolume.MILLILITRS, ForVolume.TEASPOON);
+                    toConversionBox.setValue(ForVolume.MILLILITRS);
                     break;
                 case TEMPERATURE:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForTemperature.Cel, ForTemperature.Fah, ForTemperature.Kel, ForTemperature.Rankine);
-                    fromConversionChoiceBox.setValue(ForTemperature.Cel);
-                    toConversionChoiceBox.getItems().addAll(ForTemperature.Cel, ForTemperature.Fah, ForTemperature.Kel, ForTemperature.Rankine);
-                    toConversionChoiceBox.setValue(ForTemperature.Fah);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForTemperature.Cel, ForTemperature.Fah, ForTemperature.Kel, ForTemperature.Rankine);
+                    fromConversionBox.setValue(ForTemperature.Cel);
+                    toConversionBox.getItems().addAll(ForTemperature.Cel, ForTemperature.Fah, ForTemperature.Kel, ForTemperature.Rankine);
+                    toConversionBox.setValue(ForTemperature.Fah);
                     break;
                 case DIGITALSTORAGE:
-                    fromConversionChoiceBox.getItems().clear();
-                    toConversionChoiceBox.getItems().clear();
-                    fromConversionChoiceBox.getItems().addAll(ForDigitalStorage.Bytes, ForDigitalStorage.Bit, ForDigitalStorage.Ebi, ForDigitalStorage.Eby, ForDigitalStorage.Gbi, ForDigitalStorage.Gby, ForDigitalStorage.Kbi, ForDigitalStorage.Kby, ForDigitalStorage.Mbi, ForDigitalStorage.Mby, ForDigitalStorage.Nibble, ForDigitalStorage.Pbi, ForDigitalStorage.Pby, ForDigitalStorage.Tbi, ForDigitalStorage.Tby, ForDigitalStorage.Ybi, ForDigitalStorage.Yby, ForDigitalStorage.Zbi, ForDigitalStorage.Zby);
-                    fromConversionChoiceBox.setValue(ForDigitalStorage.Bit);
-                    toConversionChoiceBox.getItems().addAll(ForDigitalStorage.Bytes, ForDigitalStorage.Bit, ForDigitalStorage.Ebi, ForDigitalStorage.Eby, ForDigitalStorage.Gbi, ForDigitalStorage.Gby, ForDigitalStorage.Kbi, ForDigitalStorage.Kby, ForDigitalStorage.Mbi, ForDigitalStorage.Mby, ForDigitalStorage.Nibble, ForDigitalStorage.Pbi, ForDigitalStorage.Pby, ForDigitalStorage.Tbi, ForDigitalStorage.Tby, ForDigitalStorage.Ybi, ForDigitalStorage.Yby, ForDigitalStorage.Zbi, ForDigitalStorage.Zby);
-                    toConversionChoiceBox.setValue(ForDigitalStorage.Bytes);
+                    clearConversionsFields();
+                    fromConversionBox.getItems().clear();
+                    toConversionBox.getItems().clear();
+                    fromConversionBox.getItems().addAll(ForDigitalStorage.Bytes, ForDigitalStorage.Bit, ForDigitalStorage.Ebi, ForDigitalStorage.Eby, ForDigitalStorage.Gbi, ForDigitalStorage.Gby, ForDigitalStorage.Kbi, ForDigitalStorage.Kby, ForDigitalStorage.Mbi, ForDigitalStorage.Mby, ForDigitalStorage.Nibble, ForDigitalStorage.Pbi, ForDigitalStorage.Pby, ForDigitalStorage.Tbi, ForDigitalStorage.Tby, ForDigitalStorage.Ybi, ForDigitalStorage.Yby, ForDigitalStorage.Zbi, ForDigitalStorage.Zby);
+                    fromConversionBox.setValue(ForDigitalStorage.Bit);
+                    toConversionBox.getItems().addAll(ForDigitalStorage.Bytes, ForDigitalStorage.Bit, ForDigitalStorage.Ebi, ForDigitalStorage.Eby, ForDigitalStorage.Gbi, ForDigitalStorage.Gby, ForDigitalStorage.Kbi, ForDigitalStorage.Kby, ForDigitalStorage.Mbi, ForDigitalStorage.Mby, ForDigitalStorage.Nibble, ForDigitalStorage.Pbi, ForDigitalStorage.Pby, ForDigitalStorage.Tbi, ForDigitalStorage.Tby, ForDigitalStorage.Ybi, ForDigitalStorage.Yby, ForDigitalStorage.Zbi, ForDigitalStorage.Zby);
+                    toConversionBox.setValue(ForDigitalStorage.Bytes);
                     break;
             }
         });
+        fromConversionBox.getSelectionModel().selectedItemProperty().addListener((observable ,oldValue, newValue  ) ->fromC = newValue);
+        toConversionBox.getSelectionModel().selectedItemProperty().addListener((observable ,oldValue, newValue  ) -> toC = newValue);
+
         allConversionConvertBtn.setOnAction(actionEvent -> allConverterBtn());
         allConversionClearBtn.setOnAction(actionEvent -> clearConversionsFields());
     }
@@ -545,9 +571,400 @@ public class Controller implements Initializable {
         }
     }
 
+    private static double conversionsInputValidator(String number) throws NumberFormatException {
+        try {
+            return Double.parseDouble(number);
+        }
+        catch (NumberFormatException parseException) {
+            return Double.NaN;
+        }
+    }
     // function to handle allConverter convert()
-    private void allConverterBtn() {
-        // TODO Conversions
+    private void allConverterBtn()  {
+        String res=null;
+        String Svalue=conversionsInputTextField.getText();
+        value = conversionsInputValidator(Svalue);
+        switch (conversionProperty){
+            case DISTANCE:
+                ForDistance D = new ForDistance( fromC, String.valueOf(value));
+                switch (toC){
+                    case ForDistance.Cm:
+                        res="Result: " + D.toCM()+" "+ForDistance.Cm;
+                        break;
+                    case ForDistance.m:
+                        res="Result: " + D.toMeter()+" "+ForDistance.m;
+                        break;
+                    case ForDistance.KM:
+                        res="Result: " + D.toKiloMeter()+" "+ForDistance.KM;
+                        break;
+                    case ForDistance.Miles:
+                        res="Result: " + D.toMiles()+" "+toC;
+                        break;
+                    case ForDistance.Yards:
+                        res="Result: " + D.toYards()+" "+toC;
+                        break;
+                    case ForDistance.NauticalMi:
+                        res="Result: " + D.toNauticalMiles()+" "+toC;
+                        break;
+                    case ForDistance.Inch:
+                        res="Result: " + D.toInches()+" "+toC;
+                        break;
+                    case ForDistance.Ft:
+                        res="Result: " + D.toFeet()+" "+ForDistance.Ft;
+                        break;
+                }
+                break;
+            case WEIGHT:
+                ForWeight w = new ForWeight(fromC, String.valueOf(value));
+                switch (toC){
+                    case ForWeight.Carat:
+                        res="Result: " + w.toCarat()+" "+toC;
+                        break;
+                    case ForWeight.gm:
+                        res="Result: " + w.toGrams()+" "+toC;
+                        break;
+                    case ForWeight.CentiGM:
+                        res="Result: " + w.toCentiGram()+" "+toC;
+                        break;
+                    case ForWeight.kg:
+                        res="Result: " + w.toKiloGrams()+" "+toC;
+                        break;
+                    case ForWeight.DecaGm:
+                        res="Result: " + w.toDecaGrams()+" "+toC;
+                        break;
+                    case ForWeight.DeciGm:
+                        res="Result: " + w.toDeciGram()+" "+toC;
+                        break;
+                    case ForWeight.HectoGm:
+                        res="Result: " + w.toHectoGrams()+" "+toC;
+                        break;
+                    case ForWeight.metricTn:
+                        res="Result: " + w.toMetricTonnes()+" "+toC;
+                        break;
+                    case ForWeight.MilliGm:
+                        res="Result: " + w.toMilliGram()+" "+toC;
+                        break;
+                    case ForWeight.Ounces:
+                        res="Result: " + w.toOunces()+" "+toC;
+                        break;
+                    case ForWeight.Pounds:
+                        res="Result: " + w.toPounds()+" "+toC;
+                        break;
+                    case ForWeight.Stone:
+                        res="Result: " + w.toStones()+" "+toC;
+                        break;
+                }
+                break;
+            case ANGLE:
+                ForAngle a = new ForAngle(fromC,Svalue);
+                switch(toC){
+                    case ForAngle.ArcSec:
+                        res="Result: " + a.toArcSeconds()+" "+toC;
+                        break;
+                    case ForAngle.Deg:
+                        res="Result: " + a.toDegrees()+" "+toC;
+                        break;
+                    case ForAngle.Grad:
+                        res="Result: " + a.toGradian()+" "+toC;
+                        break;
+                    case ForAngle.Rad:
+                        res="Result: " + a.toRadians()+" "+toC;
+                        break;
+                }
+                break;
+
+            case AREA:
+                ForArea area = new ForArea(fromC , Svalue);
+                switch (toC){
+                    case ForArea.Acres:
+                        res="Result: " + area.toAcres()+" "+toC;
+                        break;
+                    case ForArea.Hectare:
+                        res="Result: " + area.toHectare()+" "+toC;
+                        break;
+                    case ForArea.SqCm:
+                        res="Result: " + area.toSquareCentimeters()+" "+toC;
+                        break;
+                    case ForArea.SqFt:
+                        res="Result: " + area.toSquareFeet()+" "+toC;
+                        break;
+                    case ForArea.SqKm:
+                        res="Result: " + area.toSquareKiloMeters()+" "+toC;
+                        break;
+                    case ForArea.SqInch:
+                        res="Result: " + area.toSquareInches()+" "+toC;
+                        break;
+                    case ForArea.Sqm:
+                        res="Result: " + area.toSquareMeters()+" "+toC;
+                        break;
+                    case ForArea.SqMi:
+                        res="Result: " + area.toSquareMiles()+" "+toC;
+                        break;
+                    case ForArea.SqMm:
+                        res="Result: " + area.toSquareMilimeters()+" "+toC;
+                        break;
+                    case ForArea.SqYard:
+                        res="Result: " + area.toSquareYards()+" "+toC;
+                        break;
+                }
+                break;
+            case PRESSURE:
+                ForPressure p = new ForPressure(fromC , Svalue);
+                switch (toC){
+                    case ForPressure.ATM:
+                        res = "Result: "+p.toAtm()+" "+toC;
+                        break;
+                    case ForPressure.BARR:
+                        res = "Result: "+p.toBarr()+" "+toC;
+                        break;
+                    case ForPressure.KILOPASC:
+                        res = "Result: "+p.toKiloPascals()+" "+toC;
+                        break;
+                    case ForPressure.PASC:
+                        res = "Result: "+p.toPascals()+" "+toC;
+                        break;
+                    case ForPressure.MMOFMERC:
+                        res = "Result: "+p.toMMofMerc()+" "+toC;
+                        break;
+                    case ForPressure.PPSPERINCH:
+                        res = "Result: "+p.toPpsPerInch()+" "+toC;
+                        break;
+                }
+                break;
+            case POWERUNIT:
+                ForPower power = new ForPower(fromC , Svalue);
+                switch (toC){
+                    case ForPower.BTU:
+                        res = "Result: "+power.toBTUsPerMinute()+" "+toC;
+                        break;
+                    case ForPower.HP:
+                        res = "Result: "+power.toHorsePower()+" "+toC;
+                        break;
+                    case ForPower.FTPpm:
+                        res = "Result: "+power.toFootPoundsPerMinute()+" "+toC;
+                        break;
+                    case ForPower.KiloWatt:
+                        res = "Result: "+power.toKiloWatts()+" "+toC;
+                        break;
+                    case ForPower.watt:
+                        res = "Result: "+power.toWatts()+" "+toC;
+                        break;
+                }
+                break;
+            case TIME:
+                ForTime time = new ForTime(fromC , Svalue);
+                switch (toC){
+                    case ForTime.Day:
+                        res = "Result: "+time.toDays()+" "+toC;
+                        break;
+                    case ForTime.Hrs:
+                        res = "Result: "+time.toHours()+" "+toC;
+                        break;
+                    case ForTime.MicroSec:
+                        res = "Result: "+time.toMicroSeconds()+" "+toC;
+                        break;
+                    case ForTime.MilliSec:
+                        res = "Result: "+time.toMilliSeconds()+" "+toC;
+                        break;
+                    case ForTime.Min:
+                        res = "Result: "+time.toMinutes()+" "+toC;
+                        break;
+                    case ForTime.Sec:
+                        res = "Result: "+time.toSeconds()+" "+toC;
+                        break;
+                    case ForTime.Week:
+                        res = "Result: "+time.toWeeks()+" "+toC;
+                        break;
+                    case ForTime.Year:
+                        res = "Result: "+time.toYears()+" "+toC;
+                        break;
+                }
+                break;
+            case SPEED:
+                ForSpeed speed = new ForSpeed(fromC , Svalue);
+                switch (toC){
+                    case ForSpeed.CmPerSec:
+                        res = "Result: "+speed.toCmPerSec()+" "+toC;
+                        break;
+                    case ForSpeed.FtPerSec:
+                        res = "Result: "+speed.toFtPerSec()+" "+toC;
+                        break;
+                    case ForSpeed.KmPerHr:
+                        res = "Result: "+speed.toKmPerHr()+" "+toC;
+                        break;
+                    case ForSpeed.Knot:
+                        res = "Result: "+speed.toKnot()+" "+toC;
+                        break;
+                    case ForSpeed.Mach:
+                        res = "Result: "+speed.toMach()+" "+toC;
+                        break;
+                    case ForSpeed.MiPerHr:
+                        res = "Result: "+speed.toMiPerHr()+" "+toC;
+                        break;
+                    case ForSpeed.MPerSec:
+                        res = "Result: "+speed.toMPerSec()+" "+toC;
+                        break;
+                }
+                break;
+            case ENERGY:
+                ForEnergy energy = new ForEnergy(fromC,Svalue);
+                switch (toC){
+                    case ForEnergy.CAL:
+                        res = "Result: "+energy.toCal()+" "+toC;
+                        break;
+                    case ForEnergy.EV:
+                        res = "Result: "+energy.toEv()+" "+toC;
+                        break;
+                    case ForEnergy.FCAL:
+                        res = "Result: "+energy.toFCal()+" "+toC;
+                        break;
+                    case ForEnergy.J:
+                        res = "Result: "+energy.toJ()+" "+toC;
+                        break;
+                    case ForEnergy.KJ:
+                        res = "Result: "+energy.toKj()+" "+toC;
+                        break;
+                    case ForEnergy.FTPOUNDS:
+                        res = "Result: "+energy.toFootPounds()+" "+toC;
+                        break;
+                }
+                break;
+            case VOLUME:
+                ForVolume volume = new ForVolume(fromC , Svalue);
+                switch (toC){
+                    case ForVolume.CUBICFT:
+                        res = "Result: "+volume.toCubicFt()+" "+toC;
+                        break;
+                    case ForVolume.CUBICINCH:
+                        res = "Result: "+volume.toCubicInch()+" "+toC;
+                        break;
+                    case ForVolume.CUBICMETRE:
+                        res = "Result: "+volume.toCubicMetre()+" "+toC;
+                        break;
+                    case ForVolume.CUBICYARD:
+                        res = "Result: "+volume.toCubicYard()+" "+toC;
+                        break;
+                    case ForVolume.CUPS:
+                        res = "Result: "+volume.toCups()+" "+toC;
+                        break;
+                    case ForVolume.FLDONC:
+                        res = "Result: "+volume.toFluidOunce()+" "+toC;
+                        break;
+                    case ForVolume.GALL:
+                        res = "Result: "+volume.toGall()+" "+toC;
+                        break;
+                    case ForVolume.LTRS:
+                        res = "Result: "+volume.toLitres()+" "+toC;
+                        break;
+                    case ForVolume.MILLILITRS:
+                        res = "Result: "+volume.toMilliLitres()+" "+toC;
+                        break;
+                    case ForVolume.PINTS:
+                        res = "Result: "+volume.toPints()+" "+toC;
+                        break;
+                    case ForVolume.QUARTS:
+                        res = "Result: "+volume.toQuarts()+" "+toC;
+                        break;
+                    case ForVolume.TEASPOON:
+                        res = "Result: "+volume.toTeaSpoon()+" "+toC;
+                        break;
+                }
+                break;
+            case DIGITALSTORAGE:
+                ForDigitalStorage digiStorage = new ForDigitalStorage(fromC , Svalue);
+                switch(toC){
+                    case ForDigitalStorage.Bit:
+                        res = "Result: "+digiStorage.toBit()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Bytes:
+                        res = "Result: "+digiStorage.toBytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Ebi:
+                        res = "Result: "+digiStorage.toExabits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Eby:
+                        res = "Result: "+digiStorage.toExaBytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Gbi:
+                        res = "Result: "+digiStorage.toGigabits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Gby:
+                        res = "Result: "+digiStorage.toGigabytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Kbi:
+                        res = "Result: "+digiStorage.toKilobits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Kby:
+                        res = "Result: "+digiStorage.toKilobytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Mbi:
+                        res = "Result: "+digiStorage.toMegabits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Mby:
+                        res = "Result: "+digiStorage.toMegabytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Nibble:
+                        res = "Result: "+digiStorage.toNibble()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Pbi:
+                        res = "Result: "+digiStorage.toPetabits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Pby:
+                        res = "Result: "+digiStorage.toPetabytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Tbi:
+                        res = "Result: "+digiStorage.toTerabits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Tby:
+                        res = "Result: "+digiStorage.toTerabytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Ybi:
+                        res = "Result: "+digiStorage.toYottaBits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Yby:
+                        res = "Result: "+digiStorage.toYottaBytes()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Zbi:
+                        res = "Result: "+digiStorage.toZettaBits()+" "+toC;
+                        break;
+                    case ForDigitalStorage.Zby:
+                        res = "Result: "+digiStorage.toZettaBytes()+" "+toC;
+                        break;
+                }
+                break;
+            case TEMPERATURE:
+                ForTemperature temp = new ForTemperature(fromC,Svalue);
+                switch (toC){
+                    case ForTemperature.Cel:
+                        res = "Result: "+temp.toCelsius()+" "+toC;
+                        break;
+                    case ForTemperature.Fah:
+                        res = "Result: "+temp.toFahrenheit()+" "+toC;
+                        break;
+                    case ForTemperature.Kel:
+                        res = "Result: "+temp.toKelvin()+" "+toC;
+                        break;
+                    case ForTemperature.Rankine:
+                        res = "Result: "+temp.toRankine()+" "+toC;
+                        break;
+                }
+                break;
+            case CurrencyFetcher.CURRENCY:
+                CurrencyFetcher fetcher = new CurrencyFetcher(fromC , toC , value);
+                fetcher.start();
+                Alert popUp = new Alert(Alert.AlertType.INFORMATION);
+                popUp.setContentText("OK,Calculating");
+                ButtonType Ok = new ButtonType("OK");
+                Optional<ButtonType> clickedButton = popUp.showAndWait();
+                if(clickedButton.isPresent() && clickedButton.get().equals(Ok)){
+                    System.out.println("Something");
+                }
+                res = "Result : "+fetcher.getConversion();
+                break;
+        }
+
+
+        conversionsResultTextField.setText(res);
     }
 
     //Function to calculate various operations
