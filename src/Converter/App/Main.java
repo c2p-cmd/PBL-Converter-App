@@ -35,7 +35,7 @@ public class Main extends Application {
         scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("Calculator.css")).toExternalForm());
         primaryStage.setTitle("Converter App");
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("mainIcon.png"))));
-        Font.loadFont(getClass().getResourceAsStream("LucidaGrande.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("LucidaGrande.ttf"), 12);
 
         primaryStage.setResizable(false);
         primaryStage.show();

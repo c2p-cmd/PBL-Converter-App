@@ -155,7 +155,7 @@ public class Controller implements Initializable {
                 //To check for exceptions in inputs
                 //Bitwise Binary Validator
                 if(inputNumberBase.equals(BINARY) && (Bitwise.binaryValidator(stringBit1,stringBit2, flag))){
-                    warnUser("Invalid Binary Number ⚠️");
+                    warnUser("Invalid ");
                     clearProFields();
                 }
                 //Bitwise Decimal Validator

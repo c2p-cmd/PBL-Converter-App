@@ -51,19 +51,19 @@ public class conversionsController {
                 case Cm:
                     return value;
                 case m:
-                    return Distance.centiToMeter(value);
+                    return Distance.meterToCenti(value);
                 case KM:
-                    return Distance.centiToKilo(value);
+                    return Distance.kiloToCenti(value);
                 case Miles:
-                    return Distance.centiToMiles(value);
+                    return Distance.milesToCenti(value);
                 case Yards:
-                    return Distance.centiToYard(value);
+                    return Distance.yardToCenti(value);
                 case Ft:
-                    return Distance.centiToFoot(value);
+                    return Distance.footToCenti(value);
                 case Inch:
-                    return Distance.centiToInches(value);
+                    return Distance.inchesToCenti(value);
                 case NauticalMi:
-                    return Distance.centiToNauticalMiles(value);
+                    return Distance.nauticalMilesToCenti(value);
                 default:
                     return 0.0;
             }
@@ -72,21 +72,21 @@ public class conversionsController {
         public double toMeter() {
             switch (this.fromUnit){
                 case Cm:
-                    return UnitConversion.Distance.meterToCenti(value);
+                    return UnitConversion.Distance.centiToMeter(value);
                 case m:
                     return value;
                 case KM:
-                    return UnitConversion.Distance.meterToKilo(value);
+                    return UnitConversion.Distance.kiloToMeter(value);
                 case Miles:
-                    return UnitConversion.Distance.meterToMiles(value);
+                    return UnitConversion.Distance.milesToMeter(value);
                 case Yards:
-                    return UnitConversion.Distance.meterToYard(value);
+                    return UnitConversion.Distance.yardToMeter(value);
                 case Ft:
-                    return UnitConversion.Distance.meterToFoot(value);
+                    return UnitConversion.Distance.footToMeter(value);
                 case Inch:
-                    return UnitConversion.Distance.meterToInches(value);
+                    return UnitConversion.Distance.inchesToMeter(value);
                 case NauticalMi:
-                    return UnitConversion.Distance.meterToNauticalMiles(value);
+                    return UnitConversion.Distance.nauticalMilesToMeter(value);
                 default:
                     return 0.0;
             }
@@ -95,21 +95,21 @@ public class conversionsController {
         public double toKiloMeter() {
             switch (this.fromUnit) {
                 case Cm:
-                    return UnitConversion.Distance.kiloToCenti(value);
+                    return UnitConversion.Distance.centiToKilo(value);
                 case m:
-                    return UnitConversion.Distance.kiloToMeter(value);
+                    return UnitConversion.Distance.meterToKilo(value);
                 case KM:
                     return value;
                 case Miles:
-                    return UnitConversion.Distance.kiloToMiles(value);
+                    return UnitConversion.Distance.milesToKilo(value);
                 case Yards:
-                    return UnitConversion.Distance.kiloToYard(value);
+                    return UnitConversion.Distance.yardToKilo(value);
                 case Ft:
-                    return UnitConversion.Distance.kiloToFoot(value);
+                    return UnitConversion.Distance.footToKilo(value);
                 case Inch:
-                    return UnitConversion.Distance.kiloToInches(value);
+                    return UnitConversion.Distance.inchesToKilo(value);
                 case NauticalMi:
-                    return UnitConversion.Distance.kiloToNauticalMiles(value);
+                    return UnitConversion.Distance.nauticalMilesToKilo(value);
                 default:
                     return 0.0;
             }
@@ -118,21 +118,21 @@ public class conversionsController {
         public double toMiles() {
             switch (this.fromUnit){
                 case Cm:
-                    return UnitConversion.Distance.milesToCenti(value);
+                    return UnitConversion.Distance.centiToMiles(value);
                 case m:
-                    return UnitConversion.Distance.milesToMeter(value);
+                    return UnitConversion.Distance.meterToMiles(value);
                 case KM:
-                    return  UnitConversion.Distance.milesToKilo(value);
+                    return  UnitConversion.Distance.kiloToMiles(value);
                 case Miles:
                     return value;
                 case Yards:
-                    return UnitConversion.Distance.milesToYard(value);
+                    return UnitConversion.Distance.yardToMiles(value);
                 case Ft:
-                    return UnitConversion.Distance.milesToFoot(value);
+                    return UnitConversion.Distance.footToMiles(value);
                 case Inch:
-                    return UnitConversion.Distance.milesToInches(value);
+                    return UnitConversion.Distance.inchesToMiles(value);
                 case NauticalMi:
-                    return UnitConversion.Distance.milesToNauticalMiles(value);
+                    return UnitConversion.Distance.nauticalMilesToMiles(value);
                 default:
                     return 0.0;
             }
@@ -141,21 +141,21 @@ public class conversionsController {
         public double toYards() {
             switch (this.fromUnit){
                 case Cm:
-                    return UnitConversion.Distance.yardToCenti(value);
+                    return UnitConversion.Distance.centiToYard(value);
                 case m:
-                    return UnitConversion.Distance.yardToMeter(value);
+                    return UnitConversion.Distance.meterToYard(value);
                 case KM:
-                    return UnitConversion.Distance.yardToKilo(value);
+                    return UnitConversion.Distance.kiloToYard(value);
                 case Miles:
-                    return UnitConversion.Distance.yardToMiles(value);
+                    return UnitConversion.Distance.milesToYard(value);
                 case Yards:
                     return value;
                 case Ft:
-                    return UnitConversion.Distance.yardToFoot(value);
+                    return UnitConversion.Distance.footToYard(value);
                 case Inch:
-                    return UnitConversion.Distance.yardToInches(value);
+                    return UnitConversion.Distance.inchesToYard(value);
                 case NauticalMi:
-                    return UnitConversion.Distance.yardToNauticalMiles(value);
+                    return UnitConversion.Distance.nauticalMilesToYard(value);
                 default:
                     return 0.0;
             }
@@ -164,21 +164,21 @@ public class conversionsController {
         public double toFeet() {
             switch (this.fromUnit){
                 case Cm:
-                    return UnitConversion.Distance.footToCenti(value);
+                    return UnitConversion.Distance.centiToFoot(value);
                 case m:
-                    return UnitConversion.Distance.footToMeter(value);
+                    return UnitConversion.Distance.meterToFoot(value);
                 case KM:
-                    return  UnitConversion.Distance.footToKilo(value);
+                    return  UnitConversion.Distance.kiloToFoot( value);
                 case Miles:
-                    return UnitConversion.Distance.footToMiles(value);
+                    return UnitConversion.Distance.milesToFoot(value);
                 case Yards:
-                    return UnitConversion.Distance.footToYard(value);
+                    return UnitConversion.Distance.yardToFoot(value);
                 case Ft:
                     return value;
                 case Inch:
-                    return UnitConversion.Distance.footToInches(value);
+                    return UnitConversion.Distance.inchesToFoot(value);
                 case NauticalMi:
-                    return UnitConversion.Distance.footToNauticalMiles(value);
+                    return UnitConversion.Distance.nauticalMilesToFoot(value);
                 default:
                     return 0.0;
             }
@@ -187,21 +187,21 @@ public class conversionsController {
         public double toInches() {
             switch (this.fromUnit) {
                 case Cm:
-                    return UnitConversion.Distance.inchesToCenti(value);
+                    return UnitConversion.Distance.centiToInches(value);
                 case m:
-                    return UnitConversion.Distance.inchesToMeter(value);
+                    return UnitConversion.Distance.meterToInches(value);
                 case KM:
-                    return  UnitConversion.Distance.inchesToKilo(value);
+                    return  UnitConversion.Distance.kiloToInches(value);
                 case Miles:
-                    return UnitConversion.Distance.inchesToMiles(value);
+                    return UnitConversion.Distance.milesToInches(value);
                 case Yards:
-                    return UnitConversion.Distance.inchesToYard(value);
+                    return UnitConversion.Distance.yardToInches(value);
                 case Ft:
-                    return UnitConversion.Distance.inchesToFoot(value);
+                    return UnitConversion.Distance.footToInches(value);
                 case Inch:
                     return value;
                 case NauticalMi:
-                    return UnitConversion.Distance.inchesToNauticalMiles(value);
+                    return UnitConversion.Distance.nauticalMilesToInches(value);
                 default:
                     return 0.0;
             }
@@ -210,19 +210,19 @@ public class conversionsController {
         public double toNauticalMiles() {
             switch (this.fromUnit) {
                 case Cm:
-                    return UnitConversion.Distance.nauticalMilesToCenti(value);
+                    return UnitConversion.Distance.centiToNauticalMiles(value);
                 case m:
-                    return UnitConversion.Distance.nauticalMilesToMeter(value);
+                    return UnitConversion.Distance.meterToNauticalMiles(value);
                 case KM:
-                    return  UnitConversion.Distance.nauticalMilesToKilo(value);
+                    return  UnitConversion.Distance.kiloToNauticalMiles(value);
                 case Miles:
-                    return UnitConversion.Distance.nauticalMilesToMiles(value);
+                    return UnitConversion.Distance.milesToNauticalMiles(value);
                 case Yards:
-                    return UnitConversion.Distance.nauticalMilesToYard(value);
+                    return UnitConversion.Distance.yardToNauticalMiles(value);
                 case Ft:
-                    return UnitConversion.Distance.nauticalMilesToFoot(value);
+                    return UnitConversion.Distance.footToNauticalMiles(value);
                 case Inch:
-                    return UnitConversion.Distance.nauticalMilesToInches(value);
+                    return UnitConversion.Distance.inchesToNauticalMiles(value);
                 case NauticalMi:
                     return value;
                 default:
@@ -260,27 +260,27 @@ public class conversionsController {
                 case Carat:
                     return value;
                 case MilliGm:
-                    return UnitConversion.Weight.caratsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToCarats(value);
                 case CentiGM:
-                    return UnitConversion.Weight.caratsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToCarats(value);
                 case DeciGm:
-                    return UnitConversion.Weight.caratsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToCarats(value);
                 case gm:
-                    return UnitConversion.Weight.caratsToGrams(value);
+                    return UnitConversion.Weight.gramsToCarats(value);
                 case DecaGm:
-                    return UnitConversion.Weight.caratsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToCarats(value);
                 case HectoGm:
-                    return UnitConversion.Weight.caratsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToCarats(value);
                 case kg:
-                    return UnitConversion.Weight.caratsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToCarats(value);
                 case metricTn:
-                    return UnitConversion.Weight.caratsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToCarats(value);
                 case Ounces:
-                    return UnitConversion.Weight.caratsToOunces(value);
+                    return UnitConversion.Weight.ouncesToCarats(value);
                 case Pounds:
-                    return UnitConversion.Weight.caratsToPounds(value);
+                    return UnitConversion.Weight.poundsToCarats(value);
                 case Stone:
-                    return UnitConversion.Weight.caratsToStone(value);
+                    return UnitConversion.Weight.stoneToCarats(value);
                 default:
                     return 0.0;
             }
@@ -289,29 +289,29 @@ public class conversionsController {
         public double toMilliGram() {
             switch (this.fromUnit) {
                 case Carat:
-                    return UnitConversion.Weight.milligramsToCarats(value);
+                    return UnitConversion.Weight.caratsToMilligrams(value);
                 case MilliGm:
                     return value;
                 case CentiGM:
-                    return UnitConversion.Weight.milligramsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToMilligrams(value);
                 case DeciGm:
-                    return UnitConversion.Weight.milligramsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToMilligrams(value);
                 case gm:
-                    return UnitConversion.Weight.milligramsToGrams(value);
+                    return UnitConversion.Weight.gramsToMilligrams(value);
                 case DecaGm:
-                    return UnitConversion.Weight.milligramsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToMilligrams(value);
                 case HectoGm:
-                    return UnitConversion.Weight.milligramsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToMilligrams(value);
                 case kg:
-                    return UnitConversion.Weight.milligramsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToMilligrams(value);
                 case metricTn:
-                    return UnitConversion.Weight.milligramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToMilligrams(value);
                 case Ounces:
-                    return UnitConversion.Weight.milligramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToMilligrams(value);
                 case Pounds:
-                    return UnitConversion.Weight.milligramsToPounds(value);
+                    return UnitConversion.Weight.poundsToMilligrams(value);
                 case Stone:
-                    return UnitConversion.Weight.milligramsToStone(value);
+                    return UnitConversion.Weight.stoneToMilligrams(value);
                 default:
                     return 0.0;
             }
@@ -320,29 +320,29 @@ public class conversionsController {
         public double toCentiGram() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.centigramsToCarats(value);
+                    return UnitConversion.Weight.caratsToCentigrams(value);
                 case MilliGm:
-                    return UnitConversion.Weight.centigramsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToCentigrams(value);
                 case CentiGM:
                     return value;
                 case DeciGm:
-                    return UnitConversion.Weight.centigramsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToCentigrams(value);
                 case gm:
-                    return UnitConversion.Weight.centigramsToGrams(value);
+                    return UnitConversion.Weight.gramsToCentigrams(value);
                 case DecaGm:
-                    return UnitConversion.Weight.centigramsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToCentigrams(value);
                 case HectoGm:
-                    return UnitConversion.Weight.centigramsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToCentigrams(value);
                 case kg:
-                    return UnitConversion.Weight.centigramsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToCentigrams(value);
                 case metricTn:
-                    return UnitConversion.Weight.centigramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToCentigrams(value);
                 case Ounces:
-                    return UnitConversion.Weight.centigramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToCentigrams(value);
                 case Pounds:
-                    return UnitConversion.Weight.centigramsToPounds(value);
+                    return UnitConversion.Weight.poundsToCentigrams(value);
                 case Stone:
-                    return UnitConversion.Weight.centigramsToStone(value);
+                    return UnitConversion.Weight.stoneToCentigrams(value);
                 default:
                     return 0.0;
             }
@@ -351,29 +351,29 @@ public class conversionsController {
         public double toDeciGram() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.decigramsToCarats(value);
+                    return UnitConversion.Weight.caratsToDecigrams(value);
                 case MilliGm:
-                    return UnitConversion.Weight.decigramsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToDecigrams(value);
                 case CentiGM:
-                    return UnitConversion.Weight.decigramsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToDecigrams(value);
                 case DeciGm:
                     return value;
                 case gm:
-                    return UnitConversion.Weight.decigramsToGrams(value);
+                    return UnitConversion.Weight.gramsToDecigrams(value);
                 case DecaGm:
-                    return UnitConversion.Weight.decigramsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToDecigrams(value);
                 case HectoGm:
-                    return UnitConversion.Weight.decigramsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToDecigrams(value);
                 case kg:
-                    return UnitConversion.Weight.decigramsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToDecigrams(value);
                 case metricTn:
-                    return UnitConversion.Weight.decigramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToDecigrams(value);
                 case Ounces:
-                    return UnitConversion.Weight.decigramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToDecigrams(value);
                 case Pounds:
-                    return UnitConversion.Weight.decigramsToPounds(value);
+                    return UnitConversion.Weight.poundsToDecigrams(value);
                 case Stone:
-                    return UnitConversion.Weight.decigramsToStone(value);
+                    return UnitConversion.Weight.stoneToDecigrams(value);
                 default:
                     return 0.0;
             }
@@ -382,29 +382,29 @@ public class conversionsController {
         public double toGrams() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.gramsToCarats(value);
+                    return UnitConversion.Weight.caratsToGrams(value);
                 case MilliGm:
-                    return UnitConversion.Weight.gramsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToGrams(value);
                 case CentiGM:
-                    return UnitConversion.Weight.gramsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToGrams(value);
                 case DeciGm:
-                    return UnitConversion.Weight.gramsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToGrams(value);
                 case gm:
                     return value;
                 case DecaGm:
-                    return UnitConversion.Weight.gramsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToGrams(value);
                 case HectoGm:
-                    return UnitConversion.Weight.gramsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToGrams(value);
                 case kg:
-                    return UnitConversion.Weight.gramsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToGrams(value);
                 case metricTn:
-                    return UnitConversion.Weight.gramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToGrams(value);
                 case Ounces:
-                    return UnitConversion.Weight.gramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToGrams(value);
                 case Pounds:
-                    return UnitConversion.Weight.gramsToPounds(value);
+                    return UnitConversion.Weight.poundsToGrams(value);
                 case Stone:
-                    return UnitConversion.Weight.gramsToStone(value);
+                    return UnitConversion.Weight.stoneToGrams(value);
                 default:
                     return 0.0;
             }
@@ -413,29 +413,29 @@ public class conversionsController {
         public double toDecaGrams() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.decagramsToCarats(value);
+                    return UnitConversion.Weight.caratsToDecagrams(value);
                 case MilliGm:
-                    return UnitConversion.Weight.decagramsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToDecagrams(value);
                 case CentiGM:
-                    return UnitConversion.Weight.decagramsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToDecagrams(value);
                 case DeciGm:
-                    return UnitConversion.Weight.decagramsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToDecagrams(value);
                 case gm:
-                    return UnitConversion.Weight.decagramsToGrams(value);
+                    return UnitConversion.Weight.gramsToDecagrams(value);
                 case DecaGm:
                     return value;
                 case HectoGm:
-                    return UnitConversion.Weight.decagramsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToDecagrams(value);
                 case kg:
-                    return UnitConversion.Weight.decagramsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToDecagrams(value);
                 case metricTn:
-                    return UnitConversion.Weight.decagramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToDecagrams(value);
                 case Ounces:
-                    return UnitConversion.Weight.decagramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToDecagrams(value);
                 case Pounds:
-                    return UnitConversion.Weight.decagramsToPounds(value);
+                    return UnitConversion.Weight.poundsToDecagrams(value);
                 case Stone:
-                    return UnitConversion.Weight.decagramsToStone(value);
+                    return UnitConversion.Weight.stoneToDecagrams(value);
                 default:
                     return 0.0;
             }
@@ -444,29 +444,29 @@ public class conversionsController {
         public double toHectoGrams() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.hectogramsToCarats(value);
+                    return UnitConversion.Weight.caratsToHectograms(value);
                 case MilliGm:
-                    return UnitConversion.Weight.hectogramsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToHectograms(value);
                 case CentiGM:
-                    return UnitConversion.Weight.hectogramsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToHectograms(value);
                 case DeciGm:
-                    return UnitConversion.Weight.hectogramsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToHectograms(value);
                 case gm:
-                    return UnitConversion.Weight.hectogramsToGrams(value);
+                    return UnitConversion.Weight.gramsToHectograms(value);
                 case DecaGm:
-                    return UnitConversion.Weight.hectogramsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToHectograms(value);
                 case HectoGm:
                     return (value);
                 case kg:
-                    return UnitConversion.Weight.hectogramsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToHectograms(value);
                 case metricTn:
-                    return UnitConversion.Weight.hectogramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToHectograms(value);
                 case Ounces:
-                    return UnitConversion.Weight.hectogramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToHectograms(value);
                 case Pounds:
-                    return UnitConversion.Weight.hectogramsToPounds(value);
+                    return UnitConversion.Weight.poundsToHectograms(value);
                 case Stone:
-                    return UnitConversion.Weight.hectogramsToStone(value);
+                    return UnitConversion.Weight.stoneToHectograms(value);
                 default:
                     return 0.0;
             }
@@ -475,29 +475,29 @@ public class conversionsController {
         public double toKiloGrams() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.kilogramsToCarats(value);
+                    return UnitConversion.Weight.caratsToKilograms(value);
                 case MilliGm:
-                    return UnitConversion.Weight.kilogramsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToKilograms(value);
                 case CentiGM:
-                    return UnitConversion.Weight.kilogramsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToKilograms(value);
                 case DeciGm:
-                    return UnitConversion.Weight.kilogramsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToKilograms(value);
                 case gm:
-                    return UnitConversion.Weight.kilogramsToGrams(value);
+                    return UnitConversion.Weight.gramsToKilograms(value);
                 case DecaGm:
-                    return UnitConversion.Weight.kilogramsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToKilograms(value);
                 case HectoGm:
-                    return UnitConversion.Weight.kilogramsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToKilograms(value);
                 case kg:
                     return (value);
                 case metricTn:
-                    return UnitConversion.Weight.kilogramsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToKilograms(value);
                 case Ounces:
-                    return UnitConversion.Weight.kilogramsToOunces(value);
+                    return UnitConversion.Weight.ouncesToKilograms(value);
                 case Pounds:
-                    return UnitConversion.Weight.kilogramsToPounds(value);
+                    return UnitConversion.Weight.poundsToKilograms(value);
                 case Stone:
-                    return UnitConversion.Weight.kilogramsToStone(value);
+                    return UnitConversion.Weight.stoneToKilograms(value);
                 default:
                     return 0.0;
             }
@@ -506,29 +506,29 @@ public class conversionsController {
         public double toMetricTonnes() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.metrictonnesToCarats(value);
+                    return UnitConversion.Weight.caratsToMetricTonnes(value);
                 case MilliGm:
-                    return UnitConversion.Weight.metrictonnesToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToMetricTonnes(value);
                 case CentiGM:
-                    return UnitConversion.Weight.metrictonnesToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToMetricTonnes(value);
                 case DeciGm:
-                    return UnitConversion.Weight.metrictonnesToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToMetricTonnes(value);
                 case gm:
-                    return UnitConversion.Weight.metrictonnesToGrams(value);
+                    return UnitConversion.Weight.gramsToMetricTonnes(value);
                 case DecaGm:
-                    return UnitConversion.Weight.metrictonnesToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToMetricTonnes(value);
                 case HectoGm:
-                    return UnitConversion.Weight.metrictonnesToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToMetricTonnes(value);
                 case kg:
-                    return UnitConversion.Weight.metrictonnesToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToMetricTonnes(value);
                 case metricTn:
                     return value;
                 case Ounces:
-                    return UnitConversion.Weight.metrictonnesToOunces(value);
+                    return UnitConversion.Weight.ouncesToMetricTonnes(value);
                 case Pounds:
-                    return UnitConversion.Weight.metrictonnesToPounds(value);
+                    return UnitConversion.Weight.poundsToMetricTonnes(value);
                 case Stone:
-                    return UnitConversion.Weight.metrictonnesToStone(value);
+                    return UnitConversion.Weight.stoneToMetricTonnes(value);
                 default:
                     return 0.0;
             }
@@ -537,29 +537,29 @@ public class conversionsController {
         public double toOunces() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.ouncesToCarats(value);
+                    return UnitConversion.Weight.caratsToOunces(value);
                 case MilliGm:
-                    return UnitConversion.Weight.ouncesToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToOunces(value);
                 case CentiGM:
-                    return UnitConversion.Weight.ouncesToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToOunces(value);
                 case DeciGm:
-                    return UnitConversion.Weight.ouncesToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToOunces(value);
                 case gm:
-                    return UnitConversion.Weight.ouncesToGrams(value);
+                    return UnitConversion.Weight.gramsToOunces(value);
                 case DecaGm:
-                    return UnitConversion.Weight.ouncesToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToOunces(value);
                 case HectoGm:
-                    return UnitConversion.Weight.ouncesToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToOunces(value);
                 case kg:
-                    return UnitConversion.Weight.ouncesToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToOunces(value);
                 case metricTn:
-                    return UnitConversion.Weight.ouncesToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToOunces(value);
                 case Ounces:
                     return value;
                 case Pounds:
-                    return UnitConversion.Weight.ouncesToPounds(value);
+                    return UnitConversion.Weight.poundsToOunces(value);
                 case Stone:
-                    return UnitConversion.Weight.ouncesToStone(value);
+                    return UnitConversion.Weight.stoneToOunces(value);
                 default:
                     return 0.0;
             }
@@ -568,29 +568,29 @@ public class conversionsController {
         public double toPounds() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.poundsToCarats(value);
+                    return UnitConversion.Weight.caratsToPounds(value);
                 case MilliGm:
-                    return UnitConversion.Weight.poundsToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToPounds(value);
                 case CentiGM:
-                    return UnitConversion.Weight.poundsToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToPounds(value);
                 case DeciGm:
-                    return UnitConversion.Weight.poundsToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToPounds(value);
                 case gm:
-                    return UnitConversion.Weight.poundsToGrams(value);
+                    return UnitConversion.Weight.gramsToPounds(value);
                 case DecaGm:
-                    return UnitConversion.Weight.poundsToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToPounds(value);
                 case HectoGm:
-                    return UnitConversion.Weight.poundsToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToPounds(value);
                 case kg:
-                    return UnitConversion.Weight.poundsToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToPounds(value);
                 case metricTn:
-                    return UnitConversion.Weight.poundsToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToPounds(value);
                 case Ounces:
-                    return UnitConversion.Weight.poundsToOunces(value);
+                    return UnitConversion.Weight.ouncesToPounds(value);
                 case Pounds:
                     return value;
                 case Stone:
-                    return UnitConversion.Weight.poundsToStone(value);
+                    return UnitConversion.Weight.stoneToPounds(value);
                 default:
                     return 0.0;
             }
@@ -599,27 +599,27 @@ public class conversionsController {
         public double toStones() {
             switch (this.fromUnit){
                 case Carat:
-                    return UnitConversion.Weight.stoneToCarats(value);
+                    return UnitConversion.Weight.caratsToStone(value);
                 case MilliGm:
-                    return UnitConversion.Weight.stoneToMilligrams(value);
+                    return UnitConversion.Weight.milligramsToStone(value);
                 case CentiGM:
-                    return UnitConversion.Weight.stoneToCentigrams(value);
+                    return UnitConversion.Weight.centigramsToStone(value);
                 case DeciGm:
-                    return UnitConversion.Weight.stoneToDecigrams(value);
+                    return UnitConversion.Weight.decigramsToStone(value);
                 case gm:
-                    return UnitConversion.Weight.stoneToGrams(value);
+                    return UnitConversion.Weight.gramsToStone(value);
                 case DecaGm:
-                    return UnitConversion.Weight.stoneToDecagrams(value);
+                    return UnitConversion.Weight.decagramsToStone(value);
                 case HectoGm:
-                    return UnitConversion.Weight.stoneToHectograms(value);
+                    return UnitConversion.Weight.hectogramsToStone(value);
                 case kg:
-                    return UnitConversion.Weight.stoneToKilograms(value);
+                    return UnitConversion.Weight.kilogramsToStone(value);
                 case metricTn:
-                    return UnitConversion.Weight.stoneToMetricTonnes(value);
+                    return UnitConversion.Weight.metrictonnesToStone(value);
                 case Ounces:
-                    return UnitConversion.Weight.stoneToOunces(value);
+                    return UnitConversion.Weight.ouncesToStone(value);
                 case Pounds:
-                    return UnitConversion.Weight.stoneToPounds(value);
+                    return UnitConversion.Weight.poundsToStone(value);
                 case Stone:
                     return value;
                 default:
@@ -650,11 +650,11 @@ public class conversionsController {
                 case Deg:
                     return value;
                 case Rad:
-                    return UnitConversion.Angle.degreeToRadians(value);
+                    return UnitConversion.Angle.radiansToDegree(value);
                 case ArcSec:
-                    return UnitConversion.Angle.degreeToArcSeconds(value);
+                    return UnitConversion.Angle.arcSecondsToDegree(value);
                 case Grad:
-                    return UnitConversion.Angle.degreeToGradians(value);
+                    return UnitConversion.Angle.gradiansToDegree(value);
                 default:
                     return 0.0;
             }
@@ -663,13 +663,13 @@ public class conversionsController {
         public double toRadians() {
             switch (this.fromUnit) {
                 case Deg:
-                    return UnitConversion.Angle.radiansToDegree(value);
+                    return UnitConversion.Angle.degreeToRadians(value);
                 case Rad:
                     return (value);
                 case ArcSec:
-                    return UnitConversion.Angle.radiansToArcSeconds(value);
+                    return UnitConversion.Angle.arcSecondsToRadians(value);
                 case Grad:
-                    return UnitConversion.Angle.radiansToGradians(value);
+                    return UnitConversion.Angle.gradiansToRadians(value);
                 default:
                     return 0.0;
             }
@@ -678,13 +678,13 @@ public class conversionsController {
         public double toArcSeconds() {
             switch (this.fromUnit){
                 case Deg:
-                    return UnitConversion.Angle.arcSecondsToDegree(value);
+                    return UnitConversion.Angle.degreeToArcSeconds(value);
                 case Rad:
-                    return UnitConversion.Angle.arcSecondsToRadians(value);
+                    return UnitConversion.Angle.radiansToArcSeconds(value);
                 case ArcSec:
                     return (value);
                 case Grad:
-                    return UnitConversion.Angle.arcSecondsToGradians(value);
+                    return UnitConversion.Angle.gradiansToArcSeconds(value);
                 default:
                     return 0.0;
             }
@@ -693,11 +693,11 @@ public class conversionsController {
         public double toGradian() {
             switch (this.fromUnit){
                 case Deg:
-                    return UnitConversion.Angle.gradiansToDegree(value);
+                    return UnitConversion.Angle.degreeToGradians(value);
                 case Rad:
-                    return UnitConversion.Angle.gradiansToRadians(value);
+                    return UnitConversion.Angle.radiansToGradians(value);
                 case ArcSec:
-                    return UnitConversion.Angle.gradiansToArcSeconds(value);
+                    return UnitConversion.Angle.arcSecondsToGradians(value);
                 case Grad:
                     return (value);
                 default:
@@ -733,23 +733,23 @@ public class conversionsController {
                 case SqMm:
                     return value;
                 case SqCm:
-                    return UnitConversion.Area.squareMillimetersToSquareCentimeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareMillimeters(value);
                 case Sqm:
-                    return UnitConversion.Area.squareMillimetersToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareMilliMeters(value);
                 case Hectare:
-                    return UnitConversion.Area.squareMillimetersToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareMillimeters(value);
                 case SqKm:
-                    return UnitConversion.Area.squareMillimetersToSquareKilometers(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareMilliMeters(value);
                 case SqInch:
-                    return UnitConversion.Area.squareMillimetersToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareMilliMeters(value);
                 case SqFt:
-                    return UnitConversion.Area.squareMillimetersToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareMilliMeters(value);
                 case SqYard:
-                    return UnitConversion.Area.squareMillimetersToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareMilliMeters(value);
                 case Acres:
-                    return UnitConversion.Area.squareMillimetersToAcres(value);     
+                    return UnitConversion.Area.acresToSquareMilliMeters(value);
                 case SqMi:
-                    return UnitConversion.Area.squareMillimetersToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareMilliMeters(value);
                 default:
                     return 0.0;
             }
@@ -758,25 +758,25 @@ public class conversionsController {
         public double toSquareCentimeters() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareCentimetersToSquareMillimeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareCentimeters(value);
                 case SqCm:
                     return (value);
                 case Sqm:
-                    return UnitConversion.Area.squareCentimetersToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareCentiMeters(value);
                 case Hectare:
-                    return UnitConversion.Area.squareCentimetersToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareCentimeters(value);
                 case SqKm:
-                    return UnitConversion.Area.squareCentimetersToSquareKiloMeters(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareCentiMeters(value);
                 case SqInch:
-                    return UnitConversion.Area.squareCentimetersToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareCentiMeters(value);
                 case SqFt:
-                    return UnitConversion.Area.squareCentimetersToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareCentiMeters(value);
                 case SqYard:
-                    return UnitConversion.Area.squareCentimetersToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareCentiMeters(value);
                 case Acres:
-                    return UnitConversion.Area.squareCentimetersToAcres(value);
+                    return UnitConversion.Area.acresToSquareCentiMeters(value);
                 case SqMi:
-                    return UnitConversion.Area.squareCentimetersToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareCentiMeters(value);
                 default:
                     return 0.0;
             }
@@ -785,25 +785,25 @@ public class conversionsController {
         public double toSquareMeters() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareMetersToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareMeters(value);
                 case SqCm:
-                    return UnitConversion.Area.squareMetersToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareMeters(value);
                 case Sqm:
                     return (value);
                 case Hectare:
-                    return UnitConversion.Area.squareMetersToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareMeters(value);
                 case SqKm:
-                    return UnitConversion.Area.squareMetersToSquareKilometers(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareMeters(value);
                 case SqInch:
-                    return UnitConversion.Area.squareMetersToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareMeters(value);
                 case SqFt:
-                    return UnitConversion.Area.squareMetersToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareMeters(value);
                 case SqYard:
-                    return UnitConversion.Area.squareMetersToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareMeters(value);
                 case Acres:
-                    return UnitConversion.Area.squareMetersToAcres(value);
+                    return UnitConversion.Area.acresToSquareMeters(value);
                 case SqMi:
-                    return UnitConversion.Area.squareMetersToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareMeters(value);
                 default:
                     return 0.0;
             }
@@ -812,25 +812,25 @@ public class conversionsController {
         public double toHectare() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.hectaresToSquareMillimeters(value);
+                    return UnitConversion.Area.squareMillimetersToHectares(value);
                 case SqCm:
-                    return UnitConversion.Area.hectaresToSquareCentimeters(value);
+                    return UnitConversion.Area.squareCentimetersToHectares(value);
                 case Sqm:
-                    return UnitConversion.Area.hectaresToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToHectares(value);
                 case Hectare:
                     return (value);
                 case SqKm:
-                    return UnitConversion.Area.hectaresToSquareKiloMeters(value);
+                    return UnitConversion.Area.squareKiloMetersToHectares(value);
                 case SqInch:
-                    return UnitConversion.Area.hectaresToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToHectares(value);
                 case SqFt:
-                    return UnitConversion.Area.hectaresToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToHectares(value);
                 case SqYard:
-                    return UnitConversion.Area.hectaresToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToHectares(value);
                 case Acres:
-                    return UnitConversion.Area.hectaresToAcres(value);
+                    return UnitConversion.Area.acresToHectares(value);
                 case SqMi:
-                    return UnitConversion.Area.hectaresToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToHectares(value);
                 default:
                     return 0.0;
             }
@@ -839,25 +839,25 @@ public class conversionsController {
         public double toSquareKiloMeters() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareKiloMetersToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareKilometers(value);
                 case SqCm:
-                    return UnitConversion.Area.squareKiloMetersToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareKiloMeters(value);
                 case Sqm:
-                    return UnitConversion.Area.squareKiloMetersToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareKilometers(value);
                 case Hectare:
-                    return UnitConversion.Area.squareKiloMetersToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareKiloMeters(value);
                 case SqKm:
                     return (value);
                 case SqInch:
-                    return UnitConversion.Area.squareKiloMetersToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareKiloMeters(value);
                 case SqFt:
-                    return UnitConversion.Area.squareKiloMetersToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareKiloMeters(value);
                 case SqYard:
-                    return UnitConversion.Area.squareKiloMetersToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareKilometers(value);
                 case Acres:
-                    return UnitConversion.Area.squareKiloMetersToAcres(value);
+                    return UnitConversion.Area.acresToSquareKiloMeters(value);
                 case SqMi:
-                    return UnitConversion.Area.squareKiloMetersToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareKiloMeters(value);
                 default:
                     return 0.0;
             }
@@ -866,25 +866,25 @@ public class conversionsController {
         public double toSquareInches() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareInchesToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareInches(value);
                 case SqCm:
-                    return UnitConversion.Area.squareInchesToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareInches(value);
                 case Sqm:
-                    return UnitConversion.Area.squareInchesToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareInches(value);
                 case Hectare:
-                    return UnitConversion.Area.squareInchesToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareInches(value);
                 case SqKm:
-                    return UnitConversion.Area.squareInchesToSquareKiloMeters(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareInches(value);
                 case SqInch:
                     return (value);
                 case SqFt:
-                    return UnitConversion.Area.squareInchesToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareInches(value);
                 case SqYard:
-                    return UnitConversion.Area.squareInchesToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareInches(value);
                 case Acres:
-                    return UnitConversion.Area.squareInchesToAcres(value);
+                    return UnitConversion.Area.acresToSquareInches(value);
                 case SqMi:
-                    return UnitConversion.Area.squareInchesToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareInches(value);
                 default:
                     return 0.0;
             }
@@ -893,25 +893,25 @@ public class conversionsController {
         public double toSquareFeet() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareFeetToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareFeet(value);
                 case SqCm:
-                    return UnitConversion.Area.squareFeetToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareFeet(value);
                 case Sqm:
-                    return UnitConversion.Area.squareFeetToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareFeet(value);
                 case Hectare:
-                    return UnitConversion.Area.squareFeetToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareFeet(value);
                 case SqKm:
-                    return UnitConversion.Area.squareFeetToSquareKiloMeters(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareFeet(value);
                 case SqInch:
-                    return UnitConversion.Area.squareFeetToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareFeet(value);
                 case SqFt:
                     return (value);
                 case SqYard:
-                    return UnitConversion.Area.squareFeetToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareFeet(value);
                 case Acres:
-                    return UnitConversion.Area.squareFeetToAcres(value);
+                    return UnitConversion.Area.acresToSquareFeet(value);
                 case SqMi:
-                    return UnitConversion.Area.squareFeetToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareFeet(value);
                 default:
                     return 0.0;
             }
@@ -920,25 +920,25 @@ public class conversionsController {
         public double toSquareYards() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareYardsToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareYards(value);
                 case SqCm:
-                    return UnitConversion.Area.squareYardsToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareYards(value);
                 case Sqm:
-                    return UnitConversion.Area.squareYardsToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareYards(value);
                 case Hectare:
-                    return UnitConversion.Area.squareYardsToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareYards(value);
                 case SqKm:
-                    return UnitConversion.Area.squareYardsToSquareKilometers(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareYards(value);
                 case SqInch:
-                    return UnitConversion.Area.squareYardsToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareYards(value);
                 case SqFt:
-                    return UnitConversion.Area.squareYardsToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareYards(value);
                 case SqYard:
                     return (value);
                 case Acres:
-                    return UnitConversion.Area.squareYardsToAcres(value);
+                    return UnitConversion.Area.acresToSquareYards(value);
                 case SqMi:
-                    return UnitConversion.Area.squareYardsToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToSquareYards(value);
                 default:
                     return 0.0;
             }
@@ -947,25 +947,25 @@ public class conversionsController {
         public double toAcres() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.acresToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToAcres(value);
                 case SqCm:
-                    return UnitConversion.Area.acresToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToAcres(value);
                 case Sqm:
-                    return UnitConversion.Area.acresToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToAcres(value);
                 case Hectare:
-                    return UnitConversion.Area.acresToHectares(value);
+                    return UnitConversion.Area.hectaresToAcres(value);
                 case SqKm:
-                    return UnitConversion.Area.acresToSquareKiloMeters(value);
+                    return UnitConversion.Area.squareKiloMetersToAcres(value);
                 case SqInch:
-                    return UnitConversion.Area.acresToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToAcres(value);
                 case SqFt:
-                    return UnitConversion.Area.acresToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToAcres(value);
                 case SqYard:
-                    return UnitConversion.Area.acresToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToAcres(value);
                 case Acres:
                     return (value);
                 case SqMi:
-                    return UnitConversion.Area.acresToSquareMiles(value);
+                    return UnitConversion.Area.squareMilesToAcres(value);
                 default:
                     return 0.0;
             }
@@ -974,23 +974,23 @@ public class conversionsController {
         public double toSquareMiles() {
             switch (this.fromUnit){
                 case SqMm:
-                    return UnitConversion.Area.squareMilesToSquareMilliMeters(value);
+                    return UnitConversion.Area.squareMillimetersToSquareMiles(value);
                 case SqCm:
-                    return UnitConversion.Area.squareMilesToSquareCentiMeters(value);
+                    return UnitConversion.Area.squareCentimetersToSquareMiles(value);
                 case Sqm:
-                    return UnitConversion.Area.squareMilesToSquareMeters(value);
+                    return UnitConversion.Area.squareMetersToSquareMiles(value);
                 case Hectare:
-                    return UnitConversion.Area.squareMilesToHectares(value);
+                    return UnitConversion.Area.hectaresToSquareMiles(value);
                 case SqKm:
-                    return UnitConversion.Area.squareMilesToSquareKiloMeters(value);
+                    return UnitConversion.Area.squareKiloMetersToSquareMiles(value);
                 case SqInch:
-                    return UnitConversion.Area.squareMilesToSquareInches(value);
+                    return UnitConversion.Area.squareInchesToSquareMiles(value);
                 case SqFt:
-                    return UnitConversion.Area.squareMilesToSquareFeet(value);
+                    return UnitConversion.Area.squareFeetToSquareMiles(value);
                 case SqYard:
-                    return UnitConversion.Area.squareMilesToSquareYards(value);
+                    return UnitConversion.Area.squareYardsToSquareMiles(value);
                 case Acres:
-                    return UnitConversion.Area.squareMilesToAcres(value);
+                    return UnitConversion.Area.acresToSquareMiles(value);
                 case SqMi:
                     return (value);
                 default:
@@ -1020,11 +1020,11 @@ public class conversionsController {
                 case Cel:
                     return value;
                 case Fah:
-                    return Temperature.celsiusToFahrenheit(value);
+                    return Temperature.fahrenheitToCelsius(value);
                 case Kel:
-                    return Temperature.celsiusToKelvin(value);
+                    return Temperature.kelvinToCelsius(value);
                 case Rankine:
-                    return Temperature.celsiusToRankine(value);
+                    return Temperature.rankineToCelsius(value);
                 default:
                     return 0.0;
             }
@@ -1033,13 +1033,13 @@ public class conversionsController {
         public double toFahrenheit() {
             switch (this.fromUnit){
                 case Cel:
-                    return UnitConversion.Temperature.fahrenheitToCelsius(value);
+                    return UnitConversion.Temperature.celsiusToFahrenheit(value);
                 case Fah:
                     return (value);
                 case Kel:
-                    return UnitConversion.Temperature.fahrenheitToKelvin(value);
+                    return UnitConversion.Temperature.kelvinToFahrenheit(value);
                 case Rankine:
-                    return UnitConversion.Temperature.fahrenheitToRankine(value);
+                    return UnitConversion.Temperature.rankineToFahrenheit(value);
                 default:
                     return 0.0;
             }
@@ -1048,13 +1048,13 @@ public class conversionsController {
         public double toKelvin() {
             switch (this.fromUnit){
                 case Cel:
-                    return UnitConversion.Temperature.kelvinToCelsius(value);
+                    return UnitConversion.Temperature.celsiusToKelvin(value);
                 case Fah:
-                    return UnitConversion.Temperature.kelvinToFahrenheit(value);
+                    return UnitConversion.Temperature.fahrenheitToKelvin(value);
                 case Kel:
                     return (value);
                 case Rankine:
-                    return UnitConversion.Temperature.kelvinToRankine(value);
+                    return UnitConversion.Temperature.rankineToKelvin(value);
                 default:
                     return 0.0;
             }
@@ -1063,11 +1063,11 @@ public class conversionsController {
         public double toRankine() {
             switch (this.fromUnit){
                 case Cel:
-                    return UnitConversion.Temperature.rankineToCelsius(value);
+                    return UnitConversion.Temperature.celsiusToRankine(value);
                 case Fah:
-                    return UnitConversion.Temperature.rankineToFahrenheit(value);
+                    return UnitConversion.Temperature.fahrenheitToRankine(value);
                 case Kel:
-                    return UnitConversion.Temperature.rankineToKelvin(value);
+                    return UnitConversion.Temperature.kelvinToRankine(value);
                 case Rankine:
                     return (value);
                 default:
@@ -1098,13 +1098,13 @@ public class conversionsController {
                 case watt:
                     return value;
                 case KiloWatt:
-                    return UnitConversion.Power.wattsToKiloWatts(value);
+                    return UnitConversion.Power.kiloWattsToWatts(value);
                 case HP:
-                    return UnitConversion.Power.wattsToHorsePower(value);
+                    return UnitConversion.Power.horsePowerToWatts(value);
                 case FTPpm:
-                    return UnitConversion.Power.wattsToFootPoundsPerMinute(value);
+                    return UnitConversion.Power.footPoundsPerMinuteToWatts(value);
                 case BTU:
-                    return UnitConversion.Power.wattsToBTUsPerMinute(value);
+                    return UnitConversion.Power.bTUsPerMinuteToWatts(value);
                 default:
                     return 0;
             }
@@ -1113,15 +1113,15 @@ public class conversionsController {
         public double toKiloWatts() {
             switch (this.fromUnit){
                 case watt:
-                    return UnitConversion.Power.kiloWattsToWatts(value);
+                    return UnitConversion.Power.wattsToKiloWatts(value);
                 case KiloWatt:
                     return (value);
                 case HP:
-                    return UnitConversion.Power.kiloWattsToHorsePower(value);
+                    return UnitConversion.Power.horsePowerToKiloWatts(value);
                 case FTPpm:
-                    return UnitConversion.Power.kiloWattsToFootPoundsPerMinute(value);
+                    return UnitConversion.Power.footPoundsPerMinuteToKiloWatts(value);
                 case BTU:
-                    return UnitConversion.Power.kiloWattsToBTUsPerMinute(value);
+                    return UnitConversion.Power.bTUsPerMinuteToKiloWatts(value);
                 default:
                     return 0;
             }
@@ -1130,15 +1130,15 @@ public class conversionsController {
         public double toHorsePower() {
             switch (this.fromUnit){
                 case watt:
-                    return UnitConversion.Power.horsePowerToWatts(value);
+                    return UnitConversion.Power.wattsToHorsePower(value);
                 case KiloWatt:
-                    return UnitConversion.Power.horsePowerToKiloWatts(value);
+                    return UnitConversion.Power.kiloWattsToHorsePower(value);
                 case HP:
                     return (value);
                 case FTPpm:
-                    return UnitConversion.Power.horsePowerToFootPoundsPerMinute(value);
+                    return UnitConversion.Power.footPoundsPerMinuteToHorsePower(value);
                 case BTU:
-                    return UnitConversion.Power.horsePowerToBTUsPerMinute(value);
+                    return UnitConversion.Power.bTUsPerMinuteToHorsePower(value);
                 default:
                     return 0;
             }
@@ -1147,15 +1147,15 @@ public class conversionsController {
         public double toFootPoundsPerMinute() {
             switch (this.fromUnit){
                 case watt:
-                    return UnitConversion.Power.footPoundsPerMinuteToWatts(value);
+                    return UnitConversion.Power.wattsToFootPoundsPerMinute(value);
                 case KiloWatt:
-                    return UnitConversion.Power.footPoundsPerMinuteToKiloWatts(value);
+                    return UnitConversion.Power.kiloWattsToFootPoundsPerMinute(value);
                 case HP:
-                    return UnitConversion.Power.footPoundsPerMinuteToHorsePower(value);
+                    return UnitConversion.Power.horsePowerToFootPoundsPerMinute(value);
                 case FTPpm:
                     return (value);
                 case BTU:
-                    return UnitConversion.Power.footPoundsPerMinuteToBTUsPerMinute(value);
+                    return UnitConversion.Power.bTUsPerMinuteToFootPoundsPerMinute(value);
                 default:
                     return 0;
             }
@@ -1164,13 +1164,13 @@ public class conversionsController {
         public double toBTUsPerMinute() {
             switch (this.fromUnit){
                 case watt:
-                    return UnitConversion.Power.bTUsPerMinuteToWatts(value);
+                    return UnitConversion.Power.wattsToBTUsPerMinute(value);
                 case KiloWatt:
-                    return UnitConversion.Power.bTUsPerMinuteToKiloWatts(value);
+                    return UnitConversion.Power.kiloWattsToBTUsPerMinute(value);
                 case HP:
-                    return UnitConversion.Power.bTUsPerMinuteToHorsePower(value);
+                    return UnitConversion.Power.horsePowerToBTUsPerMinute(value);
                 case FTPpm:
-                    return UnitConversion.Power.bTUsPerMinuteToFootPoundsPerMinute(value);
+                    return UnitConversion.Power.footPoundsPerMinuteToBTUsPerMinute(value);
                 case BTU:
                     return (value);
                 default:
@@ -1204,19 +1204,19 @@ public class conversionsController {
                 case MicroSec:
                     return (value);
                 case MilliSec:
-                    return UnitConversion.Time.microSecondsToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToMicroSeconds(value);
                 case Sec:
-                    return UnitConversion.Time.microSecondsToSeconds(value);
+                    return UnitConversion.Time.secondsToMicroSeconds(value);
                 case Min:
-                    return UnitConversion.Time.microSecondsToMinutes(value);
+                    return UnitConversion.Time.minutesToMicroSeconds(value);
                 case Hrs:
-                    return UnitConversion.Time.microSecondsToHours(value);
+                    return UnitConversion.Time.hoursToMicroSeconds(value);
                 case Day:
-                    return UnitConversion.Time.microSecondsToDays(value);
+                    return UnitConversion.Time.daysToMicroSeconds(value);
                 case Week:
-                    return UnitConversion.Time.microSecondsToWeeks(value);
+                    return UnitConversion.Time.weeksToMicroSeconds(value);
                 case Year:
-                    return UnitConversion.Time.microSecondsToYears(value);
+                    return UnitConversion.Time.yearsToMicroSeconds(value);
                 default:
                     return 0.0;
             }
@@ -1225,21 +1225,21 @@ public class conversionsController {
         public double toMilliSeconds() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.milliSecondsToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToMilliSeconds(value);
                 case MilliSec:
                     return (value);
                 case Sec:
-                    return UnitConversion.Time.milliSecondsToSeconds(value);
+                    return UnitConversion.Time.secondsToMilliSeconds(value);
                 case Min:
-                    return UnitConversion.Time.milliSecondsToMinutes(value);
+                    return UnitConversion.Time.minutesToMilliSeconds(value);
                 case Hrs:
-                    return UnitConversion.Time.milliSecondsToHours(value);
+                    return UnitConversion.Time.hoursToMilliSeconds(value);
                 case Day:
-                    return UnitConversion.Time.milliSecondsToDays(value);
+                    return UnitConversion.Time.daysToMilliSeconds(value);
                 case Week:
-                    return UnitConversion.Time.milliSecondsToWeeks(value);
+                    return UnitConversion.Time.weeksToMilliSeconds(value);
                 case Year:
-                    return UnitConversion.Time.milliSecondsToYears(value);
+                    return UnitConversion.Time.yearsToMilliSeconds(value);
                 default:
                     return 0.0;
             }
@@ -1248,21 +1248,21 @@ public class conversionsController {
         public double toSeconds() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.secondsToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToSeconds(value);
                 case MilliSec:
-                    return UnitConversion.Time.secondsToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToSeconds(value);
                 case Sec:
                     return (value);
                 case Min:
-                    return UnitConversion.Time.secondsToMinutes(value);
+                    return UnitConversion.Time.minutesToSeconds(value);
                 case Hrs:
-                    return UnitConversion.Time.secondsToHours(value);
+                    return UnitConversion.Time.hoursToSeconds(value);
                 case Day:
-                    return UnitConversion.Time.secondsToDays(value);
+                    return UnitConversion.Time.daysToSeconds(value);
                 case Week:
-                    return UnitConversion.Time.secondsToWeeks(value);
+                    return UnitConversion.Time.weeksToSeconds(value);
                 case Year:
-                    return UnitConversion.Time.secondsToYears(value);
+                    return UnitConversion.Time.yearsToSeconds(value);
                 default:
                     return 0.0;
             }
@@ -1271,21 +1271,21 @@ public class conversionsController {
         public double toMinutes() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.minutesToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToMinutes(value);
                 case MilliSec:
-                    return UnitConversion.Time.minutesToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToMinutes(value);
                 case Sec:
-                    return UnitConversion.Time.minutesToSeconds(value);
+                    return UnitConversion.Time.secondsToMinutes(value);
                 case Min:
                     return (value);
                 case Hrs:
-                    return UnitConversion.Time.minutesToHours(value);
+                    return UnitConversion.Time.hoursToMinutes(value);
                 case Day:
-                    return UnitConversion.Time.minutesToDays(value);
+                    return UnitConversion.Time.daysToMinutes(value);
                 case Week:
-                    return UnitConversion.Time.minutesToWeeks(value);
+                    return UnitConversion.Time.weeksToMinutes(value);
                 case Year:
-                    return UnitConversion.Time.minutesToYears(value);
+                    return UnitConversion.Time.yearsToMinutes(value);
                 default:
                     return 0.0;
             }
@@ -1294,21 +1294,21 @@ public class conversionsController {
         public double toHours() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.hoursToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToHours(value);
                 case MilliSec:
-                    return UnitConversion.Time.hoursToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToHours(value);
                 case Sec:
-                    return UnitConversion.Time.hoursToSeconds(value);
+                    return UnitConversion.Time.secondsToHours(value);
                 case Min:
-                    return UnitConversion.Time.hoursToMinutes(value);
+                    return UnitConversion.Time.minutesToHours(value);
                 case Hrs:
                     return (value);
                 case Day:
-                    return UnitConversion.Time.hoursToDays(value);
+                    return UnitConversion.Time.daysToHours(value);
                 case Week:
-                    return UnitConversion.Time.hoursToWeeks(value);
+                    return UnitConversion.Time.weeksToHours(value);
                 case Year:
-                    return UnitConversion.Time.hoursToYears(value);
+                    return UnitConversion.Time.yearsToHours(value);
                 default:
                     return 0.0;
             }
@@ -1317,21 +1317,21 @@ public class conversionsController {
         public double toDays() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.daysToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToDays(value);
                 case MilliSec:
-                    return UnitConversion.Time.daysToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToDays(value);
                 case Sec:
-                    return UnitConversion.Time.daysToSeconds(value);
+                    return UnitConversion.Time.secondsToDays(value);
                 case Min:
-                    return UnitConversion.Time.daysToMinutes(value);
+                    return UnitConversion.Time.minutesToDays(value);
                 case Hrs:
-                    return UnitConversion.Time.daysToHours(value);
+                    return UnitConversion.Time.hoursToDays(value);
                 case Day:
                     return (value);
                 case Week:
-                    return UnitConversion.Time.daysToWeeks(value);
+                    return UnitConversion.Time.weeksToDays(value);
                 case Year:
-                    return UnitConversion.Time.daysToYears(value);
+                    return UnitConversion.Time.yearsToDays(value);
                 default:
                     return 0.0;
             }
@@ -1340,21 +1340,21 @@ public class conversionsController {
         public double toWeeks() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.weeksToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToWeeks(value);
                 case MilliSec:
-                    return UnitConversion.Time.weeksToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToWeeks(value);
                 case Sec:
-                    return UnitConversion.Time.weeksToSeconds(value);
+                    return UnitConversion.Time.secondsToWeeks(value);
                 case Min:
-                    return UnitConversion.Time.weeksToMinutes(value);
+                    return UnitConversion.Time.minutesToWeeks(value);
                 case Hrs:
-                    return UnitConversion.Time.weeksToHours(value);
+                    return UnitConversion.Time.hoursToWeeks(value);
                 case Day:
-                    return UnitConversion.Time.weeksToDays(value);
+                    return UnitConversion.Time.daysToWeeks(value);
                 case Week:
                     return (value);
                 case Year:
-                    return UnitConversion.Time.weeksToYears(value);
+                    return UnitConversion.Time.yearsToWeeks(value);
                 default:
                     return 0.0;
             }
@@ -1363,19 +1363,19 @@ public class conversionsController {
         public double toYears() {
             switch (this.fromUnit){
                 case MicroSec:
-                    return UnitConversion.Time.yearsToMicroSeconds(value);
+                    return UnitConversion.Time.microSecondsToYears(value);
                 case MilliSec:
-                    return UnitConversion.Time.yearsToMilliSeconds(value);
+                    return UnitConversion.Time.milliSecondsToYears(value);
                 case Sec:
-                    return UnitConversion.Time.yearsToSeconds(value);
+                    return UnitConversion.Time.secondsToYears(value);
                 case Min:
-                    return UnitConversion.Time.yearsToMinutes(value);
+                    return UnitConversion.Time.minutesToYears(value);
                 case Hrs:
-                    return UnitConversion.Time.yearsToHours(value);
+                    return UnitConversion.Time.hoursToYears(value);
                 case Day:
-                    return UnitConversion.Time.yearsToDays(value);
+                    return UnitConversion.Time.daysToYears(value);
                 case Week:
-                    return UnitConversion.Time.yearsToWeeks(value);
+                    return UnitConversion.Time.weeksToYears(value);
                 case Year:
                     return (value);
                 default:
@@ -1409,15 +1409,15 @@ public class conversionsController {
                 case ATM:
                     return value;
                 case BARR:
-                    return UnitConversion.Pressure.atmosphereToBars(value);
+                    return UnitConversion.Pressure.barsToAtmosphere(value);
                 case KILOPASC:
-                    return UnitConversion.Pressure.atmosphereToKiloPascals(value);
+                    return UnitConversion.Pressure.kiloPascalsToAtmosphere(value);
                 case MMOFMERC:
-                    return UnitConversion.Pressure.atmosphereToMillimetersOfMercury(value);
+                    return UnitConversion.Pressure.millimetersOfMercuryToAtmosphere(value);
                 case PASC:
-                    return UnitConversion.Pressure.atmosphereToPascals(value);
+                    return UnitConversion.Pressure.pascalsToAtmosphere(value);
                 case PPSPERINCH:
-                    return UnitConversion.Pressure.atmosphereToPoundsPerSquareInch(value);
+                    return UnitConversion.Pressure.poundsPerSquareInchToAtmosphere(value);
                 default:
                     return 0.0;
             }
@@ -1425,17 +1425,17 @@ public class conversionsController {
         public double toBarr(){
         switch (this.fromUnit){
             case ATM:
-                return UnitConversion.Pressure.barsToAtmosphere(value);
+                return UnitConversion.Pressure.atmosphereToBars(value);
             case BARR:
                 return (value);
             case KILOPASC:
-                return UnitConversion.Pressure.barsToKiloPascals(value);
+                return UnitConversion.Pressure.kiloPascalsToBars(value);
             case MMOFMERC:
-                return UnitConversion.Pressure.barsToMillimetersOfMercury(value);
+                return UnitConversion.Pressure.millimetersOfMercuryToBars(value);
             case PASC:
-                return UnitConversion.Pressure.barsToPascals(value);
+                return UnitConversion.Pressure.pascalsToBars(value);
             case PPSPERINCH:
-                return UnitConversion.Pressure.barsToPoundsPerSquareInch(value);
+                return UnitConversion.Pressure.poundsPerSquareInchToBars(value);
             default:
                 return 0.0;
         }
@@ -1443,17 +1443,17 @@ public class conversionsController {
         public double toKiloPascals(){
             switch (this.fromUnit){
                 case ATM:
-                    return UnitConversion.Pressure.kiloPascalsToAtmosphere(value);
+                    return UnitConversion.Pressure.atmosphereToKiloPascals(value);
                 case BARR:
-                    return UnitConversion.Pressure.kiloPascalsToBars(value);
+                    return UnitConversion.Pressure.barsToKiloPascals(value);
                 case KILOPASC:
                     return (value);
                 case MMOFMERC:
-                    return UnitConversion.Pressure.kiloPascalsToMillimetersOfMercury(value);
+                    return UnitConversion.Pressure.millimetersOfMercuryToKiloPascals(value);
                 case PASC:
-                    return UnitConversion.Pressure.kiloPascalsToPascals(value);
+                    return UnitConversion.Pressure.pascalsToKiloPascals(value);
                 case PPSPERINCH:
-                    return UnitConversion.Pressure.kiloPascalsToPoundsPerSquareInch(value);
+                    return UnitConversion.Pressure.poundsPerSquareInchToKiloPascals(value);
                 default:
                     return 0.0;
             }
@@ -1461,17 +1461,17 @@ public class conversionsController {
         public double toMMofMerc(){
             switch (this.fromUnit){
                 case ATM:
-                    return UnitConversion.Pressure.millimetersOfMercuryToAtmosphere(value);
+                    return UnitConversion.Pressure.atmosphereToMillimetersOfMercury(value);
                 case BARR:
-                    return UnitConversion.Pressure.millimetersOfMercuryToBars(value);
+                    return UnitConversion.Pressure.barsToMillimetersOfMercury(value);
                 case KILOPASC:
-                    return UnitConversion.Pressure.millimetersOfMercuryToKiloPascals(value);
+                    return UnitConversion.Pressure.kiloPascalsToMillimetersOfMercury(value);
                 case MMOFMERC:
                     return (value);
                 case PASC:
-                    return UnitConversion.Pressure.millimetersOfMercuryToPascals(value);
+                    return UnitConversion.Pressure.pascalsToMilliMetersOfMercury(value);
                 case PPSPERINCH:
-                    return UnitConversion.Pressure.millimetersOfMercuryToPoundsPerSquareInch(value);
+                    return UnitConversion.Pressure.poundsPerSquareInchToMilliMetersOfMercury(value);
                 default:
                     return 0.0;
             }
@@ -1479,17 +1479,17 @@ public class conversionsController {
         public double toPascals(){
             switch (this.fromUnit){
                 case ATM:
-                    return UnitConversion.Pressure.pascalsToAtmosphere(value);
+                    return UnitConversion.Pressure.atmosphereToPascals(value);
                 case BARR:
-                    return UnitConversion.Pressure.pascalsToBars(value);
+                    return UnitConversion.Pressure.barsToPascals(value);
                 case KILOPASC:
-                    return UnitConversion.Pressure.pascalsToKiloPascals(value);
+                    return UnitConversion.Pressure.kiloPascalsToPascals(value);
                 case MMOFMERC:
-                    return UnitConversion.Pressure.pascalsToMilliMetersOfMercury(value);
+                    return UnitConversion.Pressure.millimetersOfMercuryToPascals(value);
                 case PASC:
                     return (value);
                 case PPSPERINCH:
-                    return UnitConversion.Pressure.pascalsToPoundsPerSquareInch(value);
+                    return UnitConversion.Pressure.poundsPerSquareInchToPascals(value);
                 default:
                     return 0.0;
             }
@@ -1497,17 +1497,17 @@ public class conversionsController {
         public double toPpsPerInch(){
             switch (this.fromUnit){
                 case ATM:
-                    return UnitConversion.Pressure.poundsPerSquareInchToAtmosphere(value);
+                    return UnitConversion.Pressure.atmosphereToPoundsPerSquareInch(value);
                 case BARR:
-                    return UnitConversion.Pressure.poundsPerSquareInchToBars(value);
+                    return UnitConversion.Pressure.barsToPoundsPerSquareInch(value);
                 case KILOPASC:
-                    return UnitConversion.Pressure.poundsPerSquareInchToKiloPascals(value);
-                case MMOFMERC:
-                    return UnitConversion.Pressure.poundsPerSquareInchToMilliMetersOfMercury(value);
-                case PASC:
-                    return UnitConversion.Pressure.poundsPerSquareInchToPascals(value);
-                case PPSPERINCH:
                     return UnitConversion.Pressure.kiloPascalsToPoundsPerSquareInch(value);
+                case MMOFMERC:
+                    return UnitConversion.Pressure.millimetersOfMercuryToPoundsPerSquareInch(value);
+                case PASC:
+                    return UnitConversion.Pressure.pascalsToPoundsPerSquareInch(value);
+                case PPSPERINCH:
+                    return (value);
                 default:
                     return 0.0;
             }
@@ -1538,17 +1538,17 @@ public class conversionsController {
                 case CmPerSec:
                     return (value);
                 case MPerSec:
-                    return UnitConversion.Speed.centiMetresPerSecondToMetrePerSecond(value);
+                    return UnitConversion.Speed.metresPerSecondToCentiMetresPerSecond(value);
                 case KmPerHr:
-                    return UnitConversion.Speed.centiMetresPerSecondToKiloMetersPerHour(value);
+                    return UnitConversion.Speed.kiloMetresPerHourToCentiMetresPerSecond(value);
                 case FtPerSec:
-                    return UnitConversion.Speed.centiMetresPerSecondToFeetPerSecond(value);
+                    return UnitConversion.Speed.feetPerSecondToCentiMetresPerSecond(value);
                 case MiPerHr:
-                    return UnitConversion.Speed.centiMetresPerSecondToMilesPerHour(value);
+                    return UnitConversion.Speed.milesPerHourToCentiMetresPerSecond(value);
                 case Knot:
-                    return UnitConversion.Speed.centiMetresPerSecondToKnots(value);
+                    return UnitConversion.Speed.knotsToCentiMetresPerSecond(value);
                 case Mach:
-                    return UnitConversion.Speed.centiMetresPerSecondToMach(value);
+                    return UnitConversion.Speed.machToCentiMetresPerSecond(value);
                 default:
                     return 0.0;
             }
@@ -1556,19 +1556,19 @@ public class conversionsController {
         public double toMPerSec(){
             switch (this.fromUnit){
                 case CmPerSec:
-                    return UnitConversion.Speed.metresPerSecondToCentiMetresPerSecond(value);
+                    return UnitConversion.Speed.centiMetresPerSecondToMetrePerSecond(value);
                 case MPerSec:
                     return (value);
                 case KmPerHr:
-                    return UnitConversion.Speed.metresPerSecondToKiloMetresPerHour(value);
+                    return UnitConversion.Speed.kiloMetresPerHourToMetresPerSecond(value);
                 case FtPerSec:
-                    return UnitConversion.Speed.metresPerSecondToFeetPerSecond(value);
+                    return UnitConversion.Speed.feetPerSecondToMetresPerSecond(value);
                 case MiPerHr:
-                    return UnitConversion.Speed.metresPerSecondToMilesPerHour(value);
+                    return UnitConversion.Speed.milesPerHourToMetresPerSecond(value);
                 case Knot:
-                    return UnitConversion.Speed.metresPerSecondToKnots(value);
+                    return UnitConversion.Speed.knotsToMetresPerSecond(value);
                 case Mach:
-                    return UnitConversion.Speed.metresPerSecondToMach(value);
+                    return UnitConversion.Speed.machToMetresPerSecond(value);
                 default:
                     return 0.0;
             }
@@ -1576,19 +1576,19 @@ public class conversionsController {
         public double toKmPerHr(){
             switch (this.fromUnit){
                 case CmPerSec:
-                    return UnitConversion.Speed.kiloMetresPerHourToCentiMetresPerSecond(value);
+                    return UnitConversion.Speed.centiMetresPerSecondToKiloMetersPerHour(value);
                 case MPerSec:
-                    return UnitConversion.Speed.kiloMetresPerHourToMetresPerSecond(value);
+                    return UnitConversion.Speed.metresPerSecondToKiloMetresPerHour(value);
                 case KmPerHr:
                     return (value);
                 case FtPerSec:
-                    return UnitConversion.Speed.kiloMetresPerHourToFeetPerSecond(value);
+                    return UnitConversion.Speed.feetPerSecondToKiloMetresPerHour(value);
                 case MiPerHr:
-                    return UnitConversion.Speed.kiloMetresPerHourToMilesPerHour(value);
+                    return UnitConversion.Speed.milesPerHourToKiloMetresPerHour(value);
                 case Knot:
-                    return UnitConversion.Speed.kiloMetresPerHourToKnots(value);
+                    return UnitConversion.Speed.knotsToKiloMetresPerHour(value);
                 case Mach:
-                    return UnitConversion.Speed.kiloMetresPerHourToMach(value);
+                    return UnitConversion.Speed.machToKiloMetresPerHour(value);
                 default:
                     return 0.0;
             }
@@ -1596,19 +1596,19 @@ public class conversionsController {
         public double toFtPerSec(){
             switch (this.fromUnit){
                 case CmPerSec:
-                    return UnitConversion.Speed.feetPerSecondToCentiMetresPerSecond(value);
+                    return UnitConversion.Speed.centiMetresPerSecondToFeetPerSecond(value);
                 case MPerSec:
-                    return UnitConversion.Speed.feetPerSecondToMetresPerSecond(value);
+                    return UnitConversion.Speed.metresPerSecondToFeetPerSecond(value);
                 case KmPerHr:
-                    return UnitConversion.Speed.feetPerSecondToKiloMetresPerHour(value);
+                    return UnitConversion.Speed.kiloMetresPerHourToFeetPerSecond(value);
                 case FtPerSec:
                     return (value);
                 case MiPerHr:
-                    return UnitConversion.Speed.feetPerSecondToMilesPerHour(value);
+                    return UnitConversion.Speed.milesPerHourToFeetPerSecond(value);
                 case Knot:
-                    return UnitConversion.Speed.feetPerSecondToKnots(value);
+                    return UnitConversion.Speed.knotsToFeetPerSecond(value);
                 case Mach:
-                    return UnitConversion.Speed.feetPerSecondToMach(value);
+                    return UnitConversion.Speed.machToFeetPerSecond(value);
                 default:
                     return 0.0;
             }
@@ -1616,19 +1616,19 @@ public class conversionsController {
         public double toMiPerHr(){
             switch (this.fromUnit){
                 case CmPerSec:
-                    return UnitConversion.Speed.milesPerHourToCentiMetresPerSecond(value);
+                    return UnitConversion.Speed.centiMetresPerSecondToMilesPerHour(value);
                 case MPerSec:
-                    return UnitConversion.Speed.milesPerHourToMetresPerSecond(value);
+                    return UnitConversion.Speed.metresPerSecondToMilesPerHour(value);
                 case KmPerHr:
-                    return UnitConversion.Speed.milesPerHourToKiloMetresPerHour(value);
+                    return UnitConversion.Speed.kiloMetresPerHourToMilesPerHour(value);
                 case FtPerSec:
-                    return UnitConversion.Speed.milesPerHourToFeetPerSecond(value);
+                    return UnitConversion.Speed.feetPerSecondToMilesPerHour(value);
                 case MiPerHr:
                     return (value);
                 case Knot:
-                    return UnitConversion.Speed.milesPerHourToKnots(value);
+                    return UnitConversion.Speed.knotsToMilesPerHour(value);
                 case Mach:
-                    return UnitConversion.Speed.milesPerHourToMach(value);
+                    return UnitConversion.Speed.machToMilesPerHour(value);
                 default:
                     return 0.0;
             }
@@ -1636,19 +1636,19 @@ public class conversionsController {
         public double toKnot(){
             switch (this.fromUnit){
                 case CmPerSec:
-                    return UnitConversion.Speed.knotsToCentiMetresPerSecond(value);
+                    return UnitConversion.Speed.centiMetresPerSecondToKnots(value);
                 case MPerSec:
-                    return UnitConversion.Speed.knotsToMetresPerSecond(value);
+                    return UnitConversion.Speed.metresPerSecondToKnots(value);
                 case KmPerHr:
-                    return UnitConversion.Speed.knotsToKiloMetresPerHour(value);
+                    return UnitConversion.Speed.kiloMetresPerHourToKnots(value);
                 case FtPerSec:
-                    return UnitConversion.Speed.knotsToFeetPerSecond(value);
+                    return UnitConversion.Speed.feetPerSecondToKnots(value);
                 case MiPerHr:
-                    return UnitConversion.Speed.knotsToMilesPerHour(value);
+                    return UnitConversion.Speed.milesPerHourToKnots(value);
                 case Knot:
                     return (value);
                 case Mach:
-                    return UnitConversion.Speed.knotsToMach(value);
+                    return UnitConversion.Speed.machToKnots(value);
                 default:
                     return 0.0;
             }
@@ -1656,17 +1656,17 @@ public class conversionsController {
         public double toMach(){
             switch (this.fromUnit){
                 case CmPerSec:
-                    return UnitConversion.Speed.machToCentiMetresPerSecond(value);
+                    return UnitConversion.Speed.centiMetresPerSecondToMach(value);
                 case MPerSec:
-                    return UnitConversion.Speed.machToMetresPerSecond(value);
+                    return UnitConversion.Speed.metresPerSecondToMach(value);
                 case KmPerHr:
-                    return UnitConversion.Speed.machToKiloMetresPerHour(value);
+                    return UnitConversion.Speed.kiloMetresPerHourToMach(value);
                 case FtPerSec:
-                    return UnitConversion.Speed.machToFeetPerSecond(value);
+                    return UnitConversion.Speed.feetPerSecondToMach(value);
                 case MiPerHr:
-                    return UnitConversion.Speed.machToMilesPerHour(value);
+                    return UnitConversion.Speed.milesPerHourToMach(value);
                 case Knot:
-                    return UnitConversion.Speed.machToKnots(value);
+                    return UnitConversion.Speed.knotsToMach(value);
                 case Mach:
                     return (value);
                 default:
@@ -1699,15 +1699,15 @@ public class conversionsController {
                 case EV:
                     return (value);
                 case J:
-                    return UnitConversion.Energy.electronVoltsToJoules(value);
+                    return UnitConversion.Energy.joulesToElectronVolts(value);
                 case KJ:
-                    return UnitConversion.Energy.electronVoltsToKiloJoules(value);
+                    return UnitConversion.Energy.kiloJoulesToElectronVolts(value);
                 case CAL:
-                    return UnitConversion.Energy.electronVoltsToThermalCalories(value);
+                    return UnitConversion.Energy.thermalCaloriesToElectronVolts(value);
                 case FTPOUNDS:
-                    return UnitConversion.Energy.electronVoltsToFootPounds(value);
+                    return UnitConversion.Energy.footPoundsToElectronVolts(value);
                 case FCAL:
-                    return UnitConversion.Energy.electronVoltsToFoodCalories(value);
+                    return UnitConversion.Energy.foodCaloriesToElectronVolts(value);
                 default:
                     return 0.0;
             }
@@ -1715,17 +1715,17 @@ public class conversionsController {
         public double toJ(){
             switch (this.fromUnit){
                 case EV:
-                    return UnitConversion.Energy.joulesToElectronVolts(value);
+                    return UnitConversion.Energy.electronVoltsToJoules(value);
                 case J:
                     return (value);
                 case KJ:
-                    return UnitConversion.Energy.joulesToKiloJoules(value);
+                    return UnitConversion.Energy.kiloJoulesToJoules(value);
                 case CAL:
-                    return UnitConversion.Energy.joulesToThermalCalories(value);
+                    return UnitConversion.Energy.thermalCaloriesToJoules(value);
                 case FTPOUNDS:
-                    return UnitConversion.Energy.joulesToFootPounds(value);
+                    return UnitConversion.Energy.footPoundsToJoules(value);
                 case FCAL:
-                    return UnitConversion.Energy.joulesToFoodCalories(value);
+                    return UnitConversion.Energy.foodCaloriesToJoules(value);
                 default:
                     return 0.0;
             }
@@ -1733,17 +1733,17 @@ public class conversionsController {
         public double toKj(){
             switch (this.fromUnit){
                 case EV:
-                    return UnitConversion.Energy.kiloJoulesToElectronVolts(value);
+                    return UnitConversion.Energy.electronVoltsToKiloJoules(value);
                 case J:
-                    return UnitConversion.Energy.kiloJoulesToJoules(value);
+                    return UnitConversion.Energy.joulesToKiloJoules(value);
                 case KJ:
                     return (value);
                 case CAL:
-                    return UnitConversion.Energy.kiloJoulesToThermalCalories(value);
+                    return UnitConversion.Energy.thermalCaloriesToKiloJoules(value);
                 case FTPOUNDS:
-                    return UnitConversion.Energy.kiloJoulesToFootPounds(value);
+                    return UnitConversion.Energy.footPoundsToKiloJoules(value);
                 case FCAL:
-                    return UnitConversion.Energy.kiloJoulesToFoodCalories(value);
+                    return UnitConversion.Energy.foodCaloriesToKiloJoules(value);
                 default:
                     return 0.0;
             }
@@ -1751,17 +1751,17 @@ public class conversionsController {
         public double toCal(){
             switch (this.fromUnit){
                 case EV:
-                    return UnitConversion.Energy.thermalCaloriesToElectronVolts(value);
+                    return UnitConversion.Energy.electronVoltsToThermalCalories(value);
                 case J:
-                    return UnitConversion.Energy.thermalCaloriesToJoules(value);
+                    return UnitConversion.Energy.joulesToThermalCalories(value);
                 case KJ:
-                    return UnitConversion.Energy.thermalCaloriesToKiloJoules(value);
+                    return UnitConversion.Energy.kiloJoulesToThermalCalories(value);
                 case CAL:
                     return (value);
                 case FTPOUNDS:
-                    return UnitConversion.Energy.thermalCaloriesToFootPounds(value);
+                    return UnitConversion.Energy.footPoundsToThermalCalories(value);
                 case FCAL:
-                    return UnitConversion.Energy.thermalCaloriesToFoodCalories(value);
+                    return UnitConversion.Energy.foodCaloriesToThermalCalories(value);
                 default:
                     return 0.0;
             }
@@ -1769,15 +1769,15 @@ public class conversionsController {
         public double toFCal(){
             switch (this.fromUnit){
                 case EV:
-                    return UnitConversion.Energy.foodCaloriesToElectronVolts(value);
+                    return UnitConversion.Energy.electronVoltsToFoodCalories(value);
                 case J:
-                    return UnitConversion.Energy.foodCaloriesToJoules(value);
+                    return UnitConversion.Energy.joulesToFoodCalories(value);
                 case KJ:
-                    return UnitConversion.Energy.foodCaloriesToKiloJoules(value);
+                    return UnitConversion.Energy.kiloJoulesToFoodCalories(value);
                 case CAL:
-                    return UnitConversion.Energy.foodCaloriesToThermalCalories(value);
+                    return UnitConversion.Energy.thermalCaloriesToFoodCalories(value);
                 case FTPOUNDS:
-                    return UnitConversion.Energy.foodCaloriesToFootPounds(value);
+                    return UnitConversion.Energy.footPoundsToFoodCalories(value);
                 case FCAL:
                     return (value);
                 default:
@@ -1787,17 +1787,17 @@ public class conversionsController {
         public double toFootPounds(){
             switch (this.fromUnit){
                 case EV:
-                    return UnitConversion.Energy.footPoundsToElectronVolts(value);
+                    return UnitConversion.Energy.electronVoltsToFootPounds(value);
                 case J:
-                    return UnitConversion.Energy.footPoundsToJoules(value);
+                    return UnitConversion.Energy.joulesToFootPounds(value);
                 case KJ:
-                    return UnitConversion.Energy.footPoundsToKiloJoules(value);
+                    return UnitConversion.Energy.kiloJoulesToFootPounds(value);
                 case CAL:
-                    return UnitConversion.Energy.footPoundsToThermalCalories(value);
+                    return UnitConversion.Energy.thermalCaloriesToFootPounds(value);
                 case FTPOUNDS:
                     return (value);
                 case FCAL:
-                    return UnitConversion.Energy.footPoundsToFoodCalories(value);
+                    return UnitConversion.Energy.foodCaloriesToFootPounds(value);
                 default:
                     return 0.0;
             }
@@ -1834,27 +1834,27 @@ public class conversionsController {
                 case MILLILITRS:
                     return (value);
                 case LTRS:
-                    return UnitConversion.Volume.millilitresToLitres(value);
+                    return UnitConversion.Volume.litresToMillilitres(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.millilitresToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToMillilitres(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.millilitresToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToMillilitres(value);
                 case FLDONC:
-                    return UnitConversion.Volume.millilitresToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToMillilitres(value);
                 case PINTS:
-                    return UnitConversion.Volume.millilitresToPints(value);
+                    return UnitConversion.Volume.pintsToMillilitres(value);
                 case CUPS:
-                    return UnitConversion.Volume.millilitresToCups(value);
+                    return UnitConversion.Volume.cupsToMillilitres(value);
                 case QUARTS:
-                    return UnitConversion.Volume.millilitresToQuarts(value);
+                    return UnitConversion.Volume.quartsToMillilitres(value);
                 case GALL:
-                    return UnitConversion.Volume.millilitresToGallons(value);
+                    return UnitConversion.Volume.gallonsToMillilitres(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.millilitresToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToMillilitres(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.millilitresToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToMillilitres(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.millilitresToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToMillilitres(value);
                 default:
                     return 0.0;
             }
@@ -1862,29 +1862,29 @@ public class conversionsController {
         public double toLitres(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.litresToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToLitres(value);
                 case LTRS:
                     return (value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.litresToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToLitres(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.litresToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToLitres(value);
                 case FLDONC:
-                    return UnitConversion.Volume.litresToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToLitres(value);
                 case PINTS:
-                    return UnitConversion.Volume.litresToPints(value);
+                    return UnitConversion.Volume.pintsToLitres(value);
                 case CUPS:
-                    return UnitConversion.Volume.litresToCups(value);
+                    return UnitConversion.Volume.cupsToLitres(value);
                 case QUARTS:
-                    return UnitConversion.Volume.litresToQuarts(value);
+                    return UnitConversion.Volume.quartsToLitres(value);
                 case GALL:
-                    return UnitConversion.Volume.litresToGallons(value);
+                    return UnitConversion.Volume.gallonsToLitres(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.litresToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToLitres(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.litresToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToLitres(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.litresToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToLitres(value);
                 default:
                     return 0.0;
             }
@@ -1892,29 +1892,29 @@ public class conversionsController {
         public double toCubicMetre(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.cubicMetreToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToCubicMetres(value);
                 case LTRS:
-                    return UnitConversion.Volume.cubicMetreToLitres(value);
+                    return UnitConversion.Volume.litresToCubicMetres(value);
                 case CUBICMETRE:
                     return (value);
                 case TEASPOON:
-                    return UnitConversion.Volume.cubicMetreToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToCubicMetres(value);
                 case FLDONC:
-                    return UnitConversion.Volume.cubicMetreToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToCubicMetres(value);
                 case PINTS:
-                    return UnitConversion.Volume.cubicMetreToPints(value);
+                    return UnitConversion.Volume.pintsToCubicMetres(value);
                 case CUPS:
-                    return UnitConversion.Volume.cubicMetreToCups(value);
+                    return UnitConversion.Volume.cupsToCubicMetres(value);
                 case QUARTS:
-                    return UnitConversion.Volume.cubicMetreToQuarts(value);
+                    return UnitConversion.Volume.quartsToCubicMetres(value);
                 case GALL:
-                    return UnitConversion.Volume.cubicMetreToGallons(value);
+                    return UnitConversion.Volume.gallonsToCubicMetres(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.cubicMetreToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToCubicMetres(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.cubicMetreToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToCubicMetres(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.cubicMetreToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToCubicMetres(value);
                 default:
                     return 0.0;
             }
@@ -1922,29 +1922,29 @@ public class conversionsController {
         public double toTeaSpoon(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.teaSpoonsToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToTeaSpoons(value);
                 case LTRS:
-                    return UnitConversion.Volume.teaSpoonsToLitres(value);
+                    return UnitConversion.Volume.litresToTeaSpoons(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.teaSpoonsToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToTeaSpoons(value);
                 case TEASPOON:
                     return (value);
                 case FLDONC:
-                    return UnitConversion.Volume.teaSpoonsToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToTeaSpoons(value);
                 case PINTS:
-                    return UnitConversion.Volume.teaSpoonsToPints(value);
+                    return UnitConversion.Volume.pintsToTeaSpoons(value);
                 case CUPS:
-                    return UnitConversion.Volume.teaSpoonsToCups(value);
+                    return UnitConversion.Volume.cupsToTeaSpoons(value);
                 case QUARTS:
-                    return UnitConversion.Volume.teaSpoonsToQuarts(value);
+                    return UnitConversion.Volume.quartsToTeaSpoons(value);
                 case GALL:
-                    return UnitConversion.Volume.teaSpoonsToGallons(value);
+                    return UnitConversion.Volume.gallonsToTeaSpoons(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.teaSpoonsToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToTeaSpoons(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.teaSpoonsToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToTeaSpoons(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.teaSpoonsToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToTeaSpoons(value);
                 default:
                     return 0.0;
             }
@@ -1952,29 +1952,29 @@ public class conversionsController {
         public double toFluidOunce(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.fluidOuncesToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToFluidOunces(value);
                 case LTRS:
-                    return UnitConversion.Volume.fluidOuncesToLitres(value);
+                    return UnitConversion.Volume.litresToFluidOunces(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.fluidOuncesToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToFluidOunces(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.fluidOuncesToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToFluidOunces(value);
                 case FLDONC:
                     return (value);
                 case PINTS:
-                    return UnitConversion.Volume.fluidOuncesToPints(value);
+                    return UnitConversion.Volume.pintsToFluidOunces(value);
                 case CUPS:
-                    return UnitConversion.Volume.fluidOuncesToCups(value);
+                    return UnitConversion.Volume.cupsToFluidOunces(value);
                 case QUARTS:
-                    return UnitConversion.Volume.fluidOuncesToQuarts(value);
+                    return UnitConversion.Volume.quartsToFluidOunces(value);
                 case GALL:
-                    return UnitConversion.Volume.fluidOuncesToGallons(value);
+                    return UnitConversion.Volume.gallonsToFluidOunces(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.fluidOuncesToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToFluidOunces(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.fluidOuncesToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToFluidOunces(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.fluidOuncesToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToFluidOunces(value);
                 default:
                     return 0.0;
             }
@@ -1982,29 +1982,29 @@ public class conversionsController {
         public double toPints(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.pintsToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToPints(value);
                 case LTRS:
-                    return UnitConversion.Volume.pintsToLitres(value);
+                    return UnitConversion.Volume.litresToPints(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.pintsToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToPints(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.pintsToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToPints(value);
                 case FLDONC:
-                    return UnitConversion.Volume.pintsToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToPints(value);
                 case PINTS:
                     return (value);
                 case CUPS:
-                    return UnitConversion.Volume.pintsToCups(value);
+                    return UnitConversion.Volume.cupsToPints(value);
                 case QUARTS:
-                    return UnitConversion.Volume.pintsToQuarts(value);
+                    return UnitConversion.Volume.quartsToPints(value);
                 case GALL:
-                    return UnitConversion.Volume.pintsToGallons(value);
+                    return UnitConversion.Volume.gallonsToPints(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.pintsToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToPints(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.pintsToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToPints(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.pintsToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToPints(value);
                 default:
                     return 0.0;
             }
@@ -2012,29 +2012,29 @@ public class conversionsController {
         public double toCups(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.cupsToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToCups(value);
                 case LTRS:
-                    return UnitConversion.Volume.cupsToLitres(value);
+                    return UnitConversion.Volume.litresToCups(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.cupsToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToCups(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.cupsToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToCups(value);
                 case FLDONC:
-                    return UnitConversion.Volume.cupsToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToCups(value);
                 case PINTS:
-                    return UnitConversion.Volume.cupsToPints(value);
+                    return UnitConversion.Volume.pintsToCups(value);
                 case CUPS:
                     return (value);
                 case QUARTS:
-                    return UnitConversion.Volume.cupsToQuarts(value);
+                    return UnitConversion.Volume.quartsToCups(value);
                 case GALL:
-                    return UnitConversion.Volume.cupsToGallons(value);
+                    return UnitConversion.Volume.gallonsToCups(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.cupsToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToCups(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.cupsToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToCups(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.cupsToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToCups(value);
                 default:
                     return 0.0;
             }
@@ -2042,29 +2042,29 @@ public class conversionsController {
         public double toQuarts(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.quartsToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToQuarts(value);
                 case LTRS:
-                    return UnitConversion.Volume.quartsToLitres(value);
+                    return UnitConversion.Volume.litresToQuarts(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.quartsToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToQuarts(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.quartsToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToQuarts(value);
                 case FLDONC:
-                    return UnitConversion.Volume.quartsToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToQuarts(value);
                 case PINTS:
-                    return UnitConversion.Volume.quartsToPints(value);
+                    return UnitConversion.Volume.pintsToQuarts(value);
                 case CUPS:
-                    return UnitConversion.Volume.quartsToCups(value);
+                    return UnitConversion.Volume.cupsToQuarts(value);
                 case QUARTS:
                     return (value);
                 case GALL:
-                    return UnitConversion.Volume.quartsToGallons(value);
+                    return UnitConversion.Volume.gallonsToQuarts(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.quartsToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToQuarts(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.quartsToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToQuarts(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.quartsToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToQuarts(value);
                 default:
                     return 0.0;
             }
@@ -2072,29 +2072,29 @@ public class conversionsController {
         public double toGall(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.gallonsToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToGallons(value);
                 case LTRS:
-                    return UnitConversion.Volume.gallonsToLitres(value);
+                    return UnitConversion.Volume.litresToGallons(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.gallonsToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToGallons(value);
                 case TEASPOON:
                     return UnitConversion.Volume.gallonsToTeaSpoons(value);
                 case FLDONC:
-                    return UnitConversion.Volume.gallonsToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToTeaSpoons(value);
                 case PINTS:
-                    return UnitConversion.Volume.gallonsToPints(value);
+                    return UnitConversion.Volume.pintsToTeaSpoons(value);
                 case CUPS:
-                    return UnitConversion.Volume.gallonsToCups(value);
+                    return UnitConversion.Volume.cupsToTeaSpoons(value);
                 case QUARTS:
-                    return UnitConversion.Volume.gallonsToQuarts(value);
+                    return UnitConversion.Volume.quartsToTeaSpoons(value);
                 case GALL:
                     return (value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.gallonsToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToTeaSpoons(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.gallonsToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToTeaSpoons(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.gallonsToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToTeaSpoons(value);
                 default:
                     return 0.0;
             }
@@ -2102,29 +2102,29 @@ public class conversionsController {
         public double toCubicInch(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.cubicInchesToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToCubicInches(value);
                 case LTRS:
-                    return UnitConversion.Volume.cubicInchesToLitres(value);
+                    return UnitConversion.Volume.litresToCubicInches(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.cubicInchesToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToCubicInches(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.cubicInchesToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToCubicInches(value);
                 case FLDONC:
-                    return UnitConversion.Volume.cubicInchesToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToCubicInches(value);
                 case PINTS:
-                    return UnitConversion.Volume.cubicInchesToPints(value);
+                    return UnitConversion.Volume.pintsToCubicInches(value);
                 case CUPS:
-                    return UnitConversion.Volume.cubicInchesToCups(value);
+                    return UnitConversion.Volume.cupsToCubicInches(value);
                 case QUARTS:
-                    return UnitConversion.Volume.cubicInchesToQuarts(value);
+                    return UnitConversion.Volume.quartsToCubicInches(value);
                 case GALL:
-                    return UnitConversion.Volume.cubicInchesToGallons(value);
+                    return UnitConversion.Volume.gallonsToCubicInches(value);
                 case CUBICINCH:
                     return (value);
                 case CUBICFT:
-                    return UnitConversion.Volume.cubicInchesToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToCubicInches(value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.cubicInchesToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToCubicInches(value);
                 default:
                     return 0.0;
         }
@@ -2134,29 +2134,29 @@ public class conversionsController {
         public double toCubicFt(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.cubicFeetToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToCubicFeet(value);
                 case LTRS:
-                    return UnitConversion.Volume.cubicFeetToLitres(value);
+                    return UnitConversion.Volume.litresToCubicFeet(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.cubicFeetToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToCubicFeet(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.cubicFeetToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToCubicFeet(value);
                 case FLDONC:
-                    return UnitConversion.Volume.cubicFeetToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToCubicFeet(value);
                 case PINTS:
-                    return UnitConversion.Volume.cubicFeetToPints(value);
+                    return UnitConversion.Volume.pintsToCubicFeet(value);
                 case CUPS:
-                    return UnitConversion.Volume.cubicFeetToCups(value);
+                    return UnitConversion.Volume.cupsToCubicFeet(value);
                 case QUARTS:
-                    return UnitConversion.Volume.cubicFeetToQuarts(value);
+                    return UnitConversion.Volume.quartsToCubicFeet(value);
                 case GALL:
-                    return UnitConversion.Volume.cubicFeetToGallons(value);
+                    return UnitConversion.Volume.gallonsToCubicFeet(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.cubicFeetToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToCubicFeet(value);
                 case CUBICFT:
                     return (value);
                 case CUBICYARD:
-                    return UnitConversion.Volume.cubicFeetToCubicYards(value);
+                    return UnitConversion.Volume.cubicYardsToCubicFeet(value);
                 default:
                     return 0.0;
             }
@@ -2164,27 +2164,27 @@ public class conversionsController {
         public double toCubicYard(){
             switch (this.fromUnit){
                 case MILLILITRS:
-                    return UnitConversion.Volume.cubicYardsToMillilitres(value);
+                    return UnitConversion.Volume.millilitresToCubicYards(value);
                 case LTRS:
-                    return UnitConversion.Volume.cubicYardsToLitres(value);
+                    return UnitConversion.Volume.litresToCubicYards(value);
                 case CUBICMETRE:
-                    return UnitConversion.Volume.cubicYardsToCubicMetres(value);
+                    return UnitConversion.Volume.cubicMetreToCubicYards(value);
                 case TEASPOON:
-                    return UnitConversion.Volume.cubicYardsToTeaSpoons(value);
+                    return UnitConversion.Volume.teaSpoonsToCubicYards(value);
                 case FLDONC:
-                    return UnitConversion.Volume.cubicYardsToFluidOunces(value);
+                    return UnitConversion.Volume.fluidOuncesToCubicYards(value);
                 case PINTS:
-                    return UnitConversion.Volume.cubicYardsToPints(value);
+                    return UnitConversion.Volume.pintsToCubicYards(value);
                 case CUPS:
-                    return UnitConversion.Volume.cubicYardsToCups(value);
+                    return UnitConversion.Volume.cupsToCubicYards(value);
                 case QUARTS:
-                    return UnitConversion.Volume.cubicYardsToQuarts(value);
+                    return UnitConversion.Volume.quartsToCubicYards(value);
                 case GALL:
-                    return UnitConversion.Volume.cubicYardsToGallons(value);
+                    return UnitConversion.Volume.gallonsToCubicYards(value);
                 case CUBICINCH:
-                    return UnitConversion.Volume.cubicYardsToCubicInches(value);
+                    return UnitConversion.Volume.cubicInchesToCubicYards(value);
                 case CUBICFT:
-                    return UnitConversion.Volume.cubicYardsToCubicFeet(value);
+                    return UnitConversion.Volume.cubicFeetToCubicYards(value);
                 case CUBICYARD:
                     return (value);
                 default:
@@ -2229,41 +2229,41 @@ public class conversionsController {
                 case Bit:
                     return value;
                 case Bytes:
-                    return UnitConversion.digitalStorage.bitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.bitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.bitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.bitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.bitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.bitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.bitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.bitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.bitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.bitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.bitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.bitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.bitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.bitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.bitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.bitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.bitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.bitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToBits(value);
                 default:
                     return 0.0;
             }
@@ -2271,43 +2271,43 @@ public class conversionsController {
         public double toBytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.bytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToBytes(value);
                 case Bytes:
                     return (value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.bytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.bytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.bytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.bytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.bytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.bytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.bytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.bytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.bytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.bytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.bytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.bytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.bytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.bytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.bytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.bytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.bytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToBytes(value);
                 default:
                     return 0.0;
             }
@@ -2315,43 +2315,43 @@ public class conversionsController {
         public double toNibble(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.nibblesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToNibbles(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.nibblesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToNibbles(value);
                 case Nibble:
                     return (value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.nibblesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToNibbles(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.nibblesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToNibbles(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.nibblesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToNibbles(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.nibblesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToNibbles(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.nibblesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToNibbles(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.nibblesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToNibbles(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.nibblesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToNibbles(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.nibblesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToNibbles(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.nibblesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToNibbles(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.nibblesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToNibbles(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.nibblesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToNibbles(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.nibblesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToNibbles(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.nibblesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToNibbles(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.nibblesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToNibbles(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.nibblesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToNibbles(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.nibblesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToNibbles(value);
                 default:
                     return 0.0;
             }
@@ -2359,43 +2359,43 @@ public class conversionsController {
         public double toKilobits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.kiloBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToKiloBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.kiloBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToKiloBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.kiloBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToKiloBits(value);
                 case Kbi:
                     return (value);
                 case Kby:
-                    return UnitConversion.digitalStorage.kiloBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToKiloBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.kiloBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToKiloBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.kiloBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToKiloBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.kiloBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToKiloBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.kiloBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToKiloBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.kiloBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToKiloBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.kiloBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToKiloBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.kiloBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToKiloBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.kiloBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToKiloBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.kiloBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToKiloBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.kiloBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToKiloBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.kiloBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToKiloBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.kiloBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToKiloBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.kiloBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToKiloBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.kiloBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToKiloBits(value);
                 default:
                     return 0.0;
             }
@@ -2403,43 +2403,43 @@ public class conversionsController {
         public double toKilobytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.kiloBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToKiloBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.kiloBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToKiloBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.kiloBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToKiloBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.kiloBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToKiloBytes(value);
                 case Kby:
                     return (value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.kiloBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToKiloBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.kiloBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToKiloBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.kiloBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToKiloBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.kiloBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToKiloBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.kiloBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToKiloBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.kiloBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToKiloBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.kiloBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToKiloBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.kiloBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToKiloBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.kiloBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToKiloBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.kiloBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToKiloBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.kiloBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToKiloBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.kiloBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToKiloBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.kiloBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToKiloBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.kiloBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToKiloBytes(value);
                 default:
                     return 0.0;
             }
@@ -2447,43 +2447,43 @@ public class conversionsController {
         public double toMegabits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.megaBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToMegaBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.megaBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToMegaBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.megaBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToMegaBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.megaBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToMegaBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.megaBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToMegaBits(value);
                 case Mbi:
                     return (value);
                 case Mby:
-                    return UnitConversion.digitalStorage.megaBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToMegaBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.megaBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToMegaBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.megaBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToMegaBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.megaBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToMegaBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.megaBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToMegaBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.megaBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToMegaBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.megaBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToMegaBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.megaBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToMegaBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.megaBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToMegaBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.megaBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToMegaBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.megaBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToMegaBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.megaBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToMegaBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.megaBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToMegaBits(value);
                 default:
                     return 0.0;
             }
@@ -2491,43 +2491,43 @@ public class conversionsController {
         public double toMegabytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.megaBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToMegaBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.megaBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToMegaBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.megaBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToMegaBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.megaBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToMegaBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.megaBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToMegaBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.megaBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToMegaBytes(value);
                 case Mby:
                     return (value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.megaBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToMegaBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.megaBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToMegaBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.megaBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToMegaBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.megaBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToMegaBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.megaBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToMegaBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.megaBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToMegaBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.megaBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToMegaBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.megaBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToMegaBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.megaBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToMegaBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.megaBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToMegaBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.megaBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToMegaBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.megaBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToMegaBytes(value);
                 default:
                     return 0.0;
             }
@@ -2535,43 +2535,43 @@ public class conversionsController {
         public double toGigabits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.gigaBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToGigaBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.gigaBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToGigaBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.gigaBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToGigaBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.gigaBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToGigaBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.gigaBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToGigaBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.gigaBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToGigaBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.gigaBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToGigaBits(value);
                 case Gbi:
                     return (value);
                 case Gby:
-                    return UnitConversion.digitalStorage.gigaBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToGigaBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.gigaBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToGigaBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.gigaBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToGigaBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.gigaBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToGigaBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.gigaBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToGigaBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.gigaBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToGigaBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.gigaBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToGigaBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.gigaBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToGigaBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.gigaBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToGigaBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.gigaBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToGigaBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.gigaBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToGigaBits(value);
                 default:
                     return 0.0;
             }
@@ -2579,43 +2579,43 @@ public class conversionsController {
         public double toGigabytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.gigaBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToGigaBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.gigaBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToGigaBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.gigaBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToGigaBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.gigaBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToGigaBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.gigaBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToGigaBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.gigaBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToGigaBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.gigaBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToGigaBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.gigaBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToGigaBytes(value);
                 case Gby:
                     return (value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.gigaBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToGigaBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.gigaBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToGigaBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.gigaBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToGigaBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.gigaBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToGigaBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.gigaBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToGigaBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.gigaBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToGigaBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.gigaBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToGigaBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.gigaBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToGigaBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.gigaBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToGigaBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.gigaBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToGigaBytes(value);
                 default:
                     return 0.0;
             }
@@ -2623,43 +2623,43 @@ public class conversionsController {
         public double toTerabits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.teraBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToTeraBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.teraBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToTeraBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.teraBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToTeraBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.teraBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToTeraBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.teraBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToTeraBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.teraBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToTeraBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.teraBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToTeraBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.teraBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToTeraBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.teraBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToTeraBytes(value);
                 case Tbi:
                     return (value);
                 case Tby:
-                    return UnitConversion.digitalStorage.teraBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToTeraBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.teraBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToTeraBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.teraBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToTeraBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.teraBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToTeraBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.teraBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToTeraBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.teraBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToTeraBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.teraBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToTeraBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.teraBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToTeraBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.teraBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToTeraBits(value);
                 default:
                     return 0.0;
             }
@@ -2667,43 +2667,43 @@ public class conversionsController {
         public double toTerabytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.teraBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToTeraBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.teraBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToTeraBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.teraBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToTeraBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.teraBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToTeraBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.teraBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToTeraBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.teraBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToTeraBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.teraBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToTeraBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.teraBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToTeraBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.teraBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToTeraBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.teraBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToTeraBytes(value);
                 case Tby:
                     return (value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.teraBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToTeraBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.teraBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToTeraBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.teraBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToTeraBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.teraBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToTeraBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.teraBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToTeraBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.teraBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToTeraBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.teraBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToTeraBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.teraBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToTeraBytes(value);
                 default:
                     return 0.0;
             }
@@ -2711,43 +2711,43 @@ public class conversionsController {
         public double toPetabits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.petaBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToPetaBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.petaBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToPetaBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.petaBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToPetaBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.petaBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToPetaBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.petaBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToPetaBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.petaBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToPetaBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.petaBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToPetaBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.petaBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToPetaBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.petaBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToPetaBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.petaBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToPetaBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.petaBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToPetaBits(value);
                 case Pbi:
                     return (value);
                 case Pby:
-                    return UnitConversion.digitalStorage.petaBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToPetaBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.petaBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToPetaBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.petaBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToPetaBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.petaBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToPetaBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.petaBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToPetaBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.petaBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToPetaBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.petaBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToPetaBits(value);
                 default:
                     return 0.0;
             }
@@ -2755,43 +2755,43 @@ public class conversionsController {
         public double toPetabytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.petaBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToPetaBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.petaBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToPetaBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.petaBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToPetaBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.petaBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToPetaBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.petaBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToPetaBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.petaBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToPetaBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.petaBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToPetaBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.petaBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToPetaBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.petaBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToPetaBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.petaBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToPetaBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.petaBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToPetaBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.petaBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToPetaBytes(value);
                 case Pby:
                     return (value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.petaBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToPetaBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.petaBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToPetaBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.petaBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToPetaBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.petaBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToPetaBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.petaBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToPetaBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.petaBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToPetaBytes(value);
                 default:
                     return 0.0;
             }
@@ -2799,43 +2799,43 @@ public class conversionsController {
         public double toExabits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.exaBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToExaBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.exaBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToExaBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.exaBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToExaBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.exaBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToExaBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.exaBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToExaBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.exaBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToExaBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.exaBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToExaBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.exaBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToExaBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.exaBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToExaBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.exaBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToExaBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.exaBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToExaBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.exaBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToExaBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.exaBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToExaBits(value);
                 case Ebi:
                     return (value);
                 case Eby:
-                    return UnitConversion.digitalStorage.exaBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToExaBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.exaBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToExaBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.exaBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToExaBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.exaBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToExaBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.exaBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToExaBits(value);
                 default:
                     return 0.0;
             }
@@ -2843,43 +2843,43 @@ public class conversionsController {
         public double toExaBytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.exaBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToExaBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.exaBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToExaBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.exaBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToExaBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.exaBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToExaBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.exaBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToExaBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.exaBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToExaBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.exaBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToExaBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.exaBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToExaBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.exaBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToExaBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.exaBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToExaBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.exaBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToExaBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.exaBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToExaBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.exaBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToExaBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.exaBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToExaBytes(value);
                 case Eby:
                     return (value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.exaBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToExaBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.exaBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToExaBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.exaBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToExaBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.exaBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToExaBytes(value);
                 default:
                     return 0.0;
             }
@@ -2887,43 +2887,43 @@ public class conversionsController {
         public double toZettaBits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.zettaBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToZettaBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.zettaBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToZettaBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.zettaBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToZettaBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.zettaBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToZettaBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.zettaBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToZettaBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.zettaBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToZettaBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.zettaBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToZettaBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.zettaBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToZettaBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.zettaBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToZettaBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.zettaBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToZettaBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.zettaBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToZettaBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.zettaBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToZettaBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.zettaBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToZettaBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.zettaBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToZettaBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.zettaBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToZettaBits(value);
                 case Zbi:
                     return (value);
                 case Zby:
-                    return UnitConversion.digitalStorage.zettaBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToZettaBits(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.zettaBitsToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToZettaBits(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.zettaBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToZettaBits(value);
                 default:
                     return 0.0;
             }
@@ -2931,43 +2931,43 @@ public class conversionsController {
         public double toZettaBytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.zettaBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToZettaBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.zettaBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToZettaBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.zettaBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToZettaBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.zettaBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToZettaBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.zettaBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToZettaBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.zettaBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToZettaBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.zettaBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToZettaBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.zettaBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToZettaBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.zettaBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToZettaBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.zettaBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToZettaBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.zettaBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToZettaBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.zettaBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToZettaBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.zettaBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToZettaBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.zettaBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToZettaBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.zettaBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToZettaBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.zettaBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToZettaBytes(value);
                 case Zby:
                     return (value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.zettaBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToZettaBytes(value);
                 case Yby:
-                    return UnitConversion.digitalStorage.zettaBytesToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToZettaBytes(value);
                 default:
                     return 0.0;
             }
@@ -2975,43 +2975,43 @@ public class conversionsController {
         public double toYottaBits(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.yottaBitsToBits(value);
+                    return UnitConversion.digitalStorage.bitsToYottaBits(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.yottaBitsToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToYottaBits(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.yottaBitsToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToYottaBits(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.yottaBitsToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToYottaBits(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.yottaBitsToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToYottaBits(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.yottaBitsToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToYottaBits(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.yottaBitsToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToYottaBits(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.yottaBitsToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToYottaBits(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.yottaBitsToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToYottaBits(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.yottaBitsToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToYottaBits(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.yottaBitsToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToYottaBits(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.yottaBitsToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToYottaBits(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.yottaBitsToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToYottaBits(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.yottaBitsToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToYottaBits(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.yottaBitsToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToYottaBits(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.yottaBitsToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToYottaBits(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.yottaBitsToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToYottaBits(value);
                 case Ybi:
                     return (value);
                 case Yby:
-                    return UnitConversion.digitalStorage.yottaBitsToYottaBytes(value);
+                    return UnitConversion.digitalStorage.yottaBytesToYottaBits(value);
                 default:
                     return 0.0;
             }
@@ -3019,41 +3019,41 @@ public class conversionsController {
         public double toYottaBytes(){
             switch (this.fromUnit){
                 case Bit:
-                    return UnitConversion.digitalStorage.yottaBytesToBits(value);
+                    return UnitConversion.digitalStorage.bitsToYottaBytes(value);
                 case Bytes:
-                    return UnitConversion.digitalStorage.yottaBytesToBytes(value);
+                    return UnitConversion.digitalStorage.bytesToYottaBytes(value);
                 case Nibble:
-                    return UnitConversion.digitalStorage.yottaBytesToNibbles(value);
+                    return UnitConversion.digitalStorage.nibblesToYottaBytes(value);
                 case Kbi:
-                    return UnitConversion.digitalStorage.yottaBytesToKiloBits(value);
+                    return UnitConversion.digitalStorage.kiloBitsToYottaBytes(value);
                 case Kby:
-                    return UnitConversion.digitalStorage.yottaBytesToKiloBytes(value);
+                    return UnitConversion.digitalStorage.kiloBytesToYottaBytes(value);
                 case Mbi:
-                    return UnitConversion.digitalStorage.yottaBytesToMegaBits(value);
+                    return UnitConversion.digitalStorage.megaBitsToYottaBytes(value);
                 case Mby:
-                    return UnitConversion.digitalStorage.yottaBytesToMegaBytes(value);
+                    return UnitConversion.digitalStorage.megaBytesToYottaBytes(value);
                 case Gbi:
-                    return UnitConversion.digitalStorage.yottaBytesToGigaBits(value);
+                    return UnitConversion.digitalStorage.gigaBitsToYottaBytes(value);
                 case Gby:
-                    return UnitConversion.digitalStorage.yottaBytesToGigaBytes(value);
+                    return UnitConversion.digitalStorage.gigaBytesToYottaBytes(value);
                 case Tbi:
-                    return UnitConversion.digitalStorage.yottaBytesToTeraBits(value);
+                    return UnitConversion.digitalStorage.teraBitsToYottaBytes(value);
                 case Tby:
-                    return UnitConversion.digitalStorage.yottaBytesToTeraBytes(value);
+                    return UnitConversion.digitalStorage.teraBytesToYottaBytes(value);
                 case Pbi:
-                    return UnitConversion.digitalStorage.yottaBytesToPetaBits(value);
+                    return UnitConversion.digitalStorage.petaBitsToYottaBytes(value);
                 case Pby:
-                    return UnitConversion.digitalStorage.yottaBytesToPetaBytes(value);
+                    return UnitConversion.digitalStorage.petaBytesToYottaBytes(value);
                 case Ebi:
-                    return UnitConversion.digitalStorage.yottaBytesToExaBits(value);
+                    return UnitConversion.digitalStorage.exaBitsToYottaBytes(value);
                 case Eby:
-                    return UnitConversion.digitalStorage.yottaBytesToExaBytes(value);
+                    return UnitConversion.digitalStorage.exaBytesToYottaBytes(value);
                 case Zbi:
-                    return UnitConversion.digitalStorage.yottaBytesToZettaBits(value);
+                    return UnitConversion.digitalStorage.zettaBitsToYottaBytes(value);
                 case Zby:
-                    return UnitConversion.digitalStorage.yottaBytesToZettaBytes(value);
+                    return UnitConversion.digitalStorage.zettaBytesToYottaBytes(value);
                 case Ybi:
-                    return UnitConversion.digitalStorage.yottaBytesToYottaBits(value);
+                    return UnitConversion.digitalStorage.yottaBitsToYottaBytes(value);
                 case Yby:
                     return (value);
                 default:
