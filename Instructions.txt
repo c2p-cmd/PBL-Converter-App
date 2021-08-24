@@ -1,0 +1,6 @@
+Hello!
+
+*For Windows OS installation download the setup for windows from the releases.
+
+*For Linux OS download the zip archive from the release and run the sh script runLinux.sh in terminal.
+  
