@@ -40,11 +40,13 @@
 
 *Easy to use for even beginners.
 
+
 ## INSTALLATION
 
 *For Windows OS installation download the setup for windows from the releases.
 
 *For Linux OS download the zip archive from the release and run the sh script runLinux.sh in terminal.
 
-*For Mac OS : For setups with JDK pre-installed - Download the mac.app file.
+*For Mac OS : For setups with JDK pre-installed - Download the mac.app.zip , extract the archive and run the app.
             : For setups without JDK - Download the zip file and extract and run the file "runMac.sh" from terminal.
+
