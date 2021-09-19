@@ -41,7 +41,7 @@
 *Easy to use for even beginners.
 
 
-## INSTALLATION
+## FOR INSTALLATION
 
 *For Windows OS installation download the setup for windows from the releases.
 
